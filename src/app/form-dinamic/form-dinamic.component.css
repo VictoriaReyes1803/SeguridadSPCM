@@ -1,5 +1,5 @@
 .container {
-    width: 75%;
+    width: 80%;
     margin: 0 auto;
     font-family: Arial, sans-serif;
     font-size: 0.9rem;
@@ -60,7 +60,7 @@
   table {
     width: 100%;
     border-collapse: collapse;
-
+    margin-bottom: 20px;
   }
   
   table, th, td {
@@ -85,35 +85,4 @@
   strong {
     font-weight: bold;
   }
-
-  .no-border-input {
-    width: 100%;
-    border: none;
-    border-radius: 0;  /* Hace que el campo sea completamente cuadrado */
-    outline: none;     /* Evita que aparezca el borde cuando se hace clic en el campo */
-    background-color: transparent; /* Elimina el fondo por defecto */
-    font-size: 1rem;   /* Ajusta el tamaño de fuente según sea necesario */
-    padding: 2px;      /* Ajusta el espacio interno */
-  }
   
-  .no-border-input:focus {
-    outline: none;     
-  }
-  
-  .no-border-input::placeholder {
-    color: #000;      
-  }
-  
-
-
-
-
-  .styled-table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    width: 100%;
-    text-align: center;
-}
-
