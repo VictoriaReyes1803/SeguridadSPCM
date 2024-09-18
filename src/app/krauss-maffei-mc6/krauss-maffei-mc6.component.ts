@@ -1,43 +1,37 @@
 import { Component } from '@angular/core';
-
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import { NgModule } from '@angular/core';
-
-import { FormsModule } from '@angular/forms';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
   selector: 'app-krauss-maffei-mc6',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   templateUrl: './krauss-maffei-mc6.component.html',
   styleUrl: './krauss-maffei-mc6.component.css'
 })
 export class KraussMaffeiMC6Component {
-  form = {
-    cliente: '',
-    producto1: '',
-    numCavTh1: 1,
-    maquina: '',
-    producto2: '',
-    numCavReal1: 1,
-    fechaRev: '',
-    resina: '',
-    fuerzaCierre: 450,
-    duracionMaxF: 0.7,
-    carreraApertura: 400,
-    salidaExpulsor1: 18,
-    carreraExpulsor: 55,
-    activo: '',
-    robot: '',
-    comentarios: ''
-  };
+  title = 'angular-pdf-export';
 
-  saveForm() {
-    console.log('Formulario guardado', this.form);
-    // Add your logic to save the form data
+  downloadPDF() {
+    const content: HTMLElement = document.getElementById('content') as HTMLElement;
+
+    html2canvas(content).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'pt', 'letter');
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save('tabla.pdf');
+    });
   }
+
 }
