@@ -1,4 +1,4 @@
-<div id="content">
+<div  id="content">
 <div   class="container">
     <h2 >Parámetros del proceso Krauss Maffei MC6</h2>
     <div style="display: flex; align-items: center; border: 1px solid black; gap: 4px; overflow-x: auto; ">
@@ -66,7 +66,7 @@
         </thead>
         <tbody>
             <tr>
-                <td colspan="3" rowspan="9">Carrera de Apertura<br><input  type="text"  name="cliente"  style="width: 90%;"> <br> mm</td>
+                <td class="fv" colspan="3" rowspan="9">Carrera de Apertura<br><input  type="text"  name="cliente"  style="width: 80%;"> <br> mm</td>
                 <td colspan="7">Cerrar Molde</td>
             </tr>
             <tr>
@@ -79,7 +79,7 @@
                 <td> </td>
                 <td rowspan="4">Fuerza de Cierre :</td>
                 <td rowspan="2"><input type="text" class="no-border-input" name="Fuerza de CierrekN"  style="width: 100%; border: none; "></td>
-                <td rowspan="2">kN</td>
+                <td  rowspan="2">kN</td>
                 
                 <td rowspan="4">Duración Max de Lim. de F de Desplazamiento </td>
                 <td rowspan="4"><input type="text" class="no-border-input" name="Duración Max de Lim. de F de Desplazamiento"  style="width: 100%; border: none; "></td>
@@ -197,13 +197,13 @@
 
                 <td> Velocidad 1</td>
                 <td><input type="text" class="no-border-input" name="Velocidad 1"  style="width: 100%; border: none; "></td>
-                <td> mm/s</td>
+                <td class="fv"> mm/s</td>
             </tr>
             <tr>
                 <td>V</td>
                 <td><input type="text" class="no-border-input" name="V1"  style="width: 100%; border: none; "></td>
                 <td><input type="text" class="no-border-input" name="V2"  style="width: 100%; border: none; "></td>
-                <td>mm/s</td>
+                <td class="fv">mm/s</td>
                 <td style="border-bottom: 1px solid white;"></td>
 
                 <td> Avance del expulsor en func. del tiempo</td>
@@ -229,7 +229,7 @@
 
                 <td> Velocidad 2</td>
                 <td><input type="text" class="no-border-input" name="Velocidad 2"  style="width: 100%; border: none; "></td>
-                <td> mm/s</td>
+                <td class="fv"> mm/s</td>
             </tr>
          
             <tr>
@@ -251,11 +251,11 @@
 
                 <td> Contador de vibraciones</td>
                 <td><input type="text" class="no-border-input" name="Avance del expulsor en func. del tiempo"  style="width: 100%; border: none; "></td>
-                <td> num</td>
+                <td class="fv"> num</td>
 
                 <td> Velocidad 1</td>
                 <td><input type="text" class="no-border-input" name="Velocidad 1 retroceso"  style="width: 100%; border: none; "></td>
-                <td> mm/s</td>
+                <td class="fv"> mm/s</td>
             </tr>
             <tr>
                 <td>F</td>
@@ -272,13 +272,13 @@
                 <td>V</td>
                 <td><input type="text" class="no-border-input" name="V1"  style="width: 100%; border: none; "></td>
                 <td><input type="text" class="no-border-input" name="V2"  style="width: 100%; border: none; "></td>
-                <td>mm/s</td>
+                <td class="fv">mm/s</td>
 
                 
 
                 <td> Velocidad 2</td>
                 <td><input type="text" class="no-border-input" name="Velocidad 2 retroceso"  style="width: 100%; "></td>
-                <td> mm/s</td>
+                <td class="fv"> mm/s</td>
             </tr>
             <tr>
                 <td>S</td>
@@ -405,79 +405,114 @@
             </tr>
         </tbody>
     </table>
-
-    <h3>Resumen</h3>
-    <table border="1" cellspacing="0" cellpadding="5">
+    <table style="margin-top: 5px;" cellspacing="0" >
         <tbody>
             <tr>
-                <td>Tiempo de Ciclo:</td>
-                <td>44 seg</td>
-            </tr>
-            <tr>
-                <td>Peso Colada</td>
-                <td>3.3 g</td>
-            </tr>
-            <tr>
+                <td colspan="1">T. de Ciclo Cot:</td>
+                <td colspan="1">100</td>
+                <td colspan="1"> seg</td>
+
+                <td colspan="1" rowspan="6"></td>
+
+                <td colspan="1">Peso Colada</td>
+                <td colspan="1">3.27</td>
+                <td colspan="1">g</td>
+
                 <td>Cap Secador:</td>
-                <td>100 Lts</td>
+                <td colspan="1">100</td>
+                <td> Lts</td>
             </tr>
+           
             <tr>
                 <td>Superv. Ciclo:</td>
-                <td>60 seg</td>
-            </tr>
-            <tr>
+                <td colspan="1">60</td>
+                <td>seg</td>
+
                 <td>Peso pieza 1:</td>
-                <td>15.1 g</td>
-            </tr>
-            <tr>
+                <td colspan="1">15.13</td>
+                <td>g</td>
+
                 <td>Diametro Huisillo</td>
-                <td>30 mm</td>
+                <td colspan="1">30 </td>
+                <td> mm</td>
+
             </tr>
             <tr>
+                <td>Prog Robot:</td>
+                <td colspan="1">NA</td>
+                <td> </td>
+
+                <td>Peso pieza 2:</td>
+                <td colspan="1">0</td>
+                <td class="fv">g</td>
+
                 <td>Volumen max:</td>
-                <td>106.02 cm³</td>
+                <td colspan="1">106.02	
+                </td>
+                <td> cm³</td>
             </tr>
             <tr>
+                <td>Tipo de Proceso: </td>
+                <td colspan="1">AUTOMATICO </td>
+                <td> </td>
+
+                <td>Nariz 1 apoyada: </td>
+                <td colspan="1">Si</td>
+                <td> </td>
+
                 <td>T . de residencia</td>
-                <td>3 min</td>
+                <td colspan="1"><input type="text" class="no-border-input" name="T . de residencia"  style="width: 100%; "></td>
+                <td>min</td>
             </tr>
             <tr>
+                <td>Seg. de Piezas:</td>
+                <td colspan="1"><input type="text" class="no-border-input" name="Seg. de Piezas"  style="width: 100%; "></td>
+                <td>Pzs </td>
+
+                <td>Diam. Nariz 1:</td>
+                <td colspan="1">"1/8</td>
+                <td> </td>
+
                 <td>Volumen Carga:</td>
-                <td>31.81 cm³</td>
+                <td colspan="1"><input type="text" class="no-border-input" name="Volumen Carga"  style="width: 100%; "></td>
+                <td>cm³</td>
             </tr>
             <tr>
+                <td>% de balanceo</td>
+                <td colspan="1">NA</td>
+                <td>% </td>
+
+                <td>Tipo de Nariz 1:</td>
+                <td colspan="1">Redonda nylon</td>
+                <td> </td>
+
                 <td>Peso de Disparo:</td>
-                <td>18.4 gr</td>
+                <td colspan="1"><input type="text" class="no-border-input" name="Peso de Disparo"  style="width: 100%; "></td>
+                <td>gr</td>
+            </tr>
+
+            <tr>
+                <td style="padding: 4px;" colspan="10">Comentario: Revisar tolerancias en la hoja de "Checklist de Procesos". El parámetro de la BRIDA puede variar entre un rango de 20° y 100° C.</td>
             </tr>
             <tr>
-                <td>Comentario:</td>
-                <td>Revisar tolerancias en la hoja de "Checklist de Procesos". El parámetro de la BRIDA puede variar entre un rango de 20° y 100° C.</td>
+                <td style="padding: 4px;" colspan="10">CUIDADO: Los cambios deben quedar registrados</td>
             </tr>
             <tr>
-                <td>CUIDADO:</td>
-                <td>Los cambios deben quedar registrados</td>
-            </tr>
-            <tr>
-                <td>Comentarios:</td>
-                <td></td>
-            </tr>
-            <tr>
+                <td style="text-align: left;" colspan="8" rowspan="3">Comentarios:</td>
                 <td>Secado min(Lts)</td>
-                <td>15.14</td>
+                <td><input type="text" class="no-border-input" name="Secado min(Lts)"  style="width: 100%; "></td>
             </tr>
             <tr>
-                <td>Consumo (Lts x H)</td>
-                <td>3.79</td>
+                <td>Consumo(Lts x H)</td>
+                <td><input type="text" class="no-border-input" name="Consumo(Lts x H)"  style="width: 100%; "></td>
             </tr>
             <tr>
-                <td>Rate (Pzas x H)</td>
-                <td>103</td>
+                <td>Rate(Pzas x H)</td>
+                <td><input type="text" class="no-border-input" name="Temp. de Secado"  style="width: 100%; "></td>
             </tr>
         </tbody>
     </table>
-
-    <h3>Historial de Cambios</h3>
-    <table border="1" cellspacing="0" cellpadding="5">
+    <table cellspacing="0" cellpadding="5">
         <thead>
             <tr>
                 <th>Fecha/Hora</th>
@@ -490,7 +525,13 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Aquí puedes agregar las entradas del historial de cambios -->
+            <th style="height: 80px;" rowspan="3" ></th>
+            <th rowspan="3" ></th>
+            <th rowspan="3"></th>
+            <th rowspan="3"> </th>
+            <th rowspan="3"></th>
+            <th rowspan="3"></th>
+            <th rowspan="3"></th>
         </tbody>
     </table>
 </div>

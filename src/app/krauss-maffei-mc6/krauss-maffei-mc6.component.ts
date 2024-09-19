@@ -29,7 +29,9 @@ export class KraussMaffeiMC6Component {
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      const marginTop = 20; 
+      pdf.addImage(imgData, 'PNG', 0, marginTop, pdfWidth, pdfHeight);
+
       pdf.save('tabla.pdf');
     });
   }
