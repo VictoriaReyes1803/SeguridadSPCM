@@ -1,7 +1,7 @@
 .container {
     width: 70%;
     margin: auto ;
-    margin-top: 40px;
+    margin-top: 20px;
     font-family: Arial, sans-serif;
     font-size: 0.9rem;
   }
@@ -114,7 +114,7 @@ padding: 4px;
 }
 #content {
   width: 1500px;
-  height: 1750px;
+  /* height: 1750px; */
   content: center;
   overflow: hidden;
 }

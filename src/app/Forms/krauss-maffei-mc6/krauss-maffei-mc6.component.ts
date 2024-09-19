@@ -4,15 +4,18 @@ import jsPDF from 'jspdf';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
-
+import { ToolbarComponent } from "../../components/toolbar/toolbar.component";
+import { SidebarComponent } from "../../sidebar/sidebar.component";
 
 @Component({
   selector: 'app-krauss-maffei-mc6',
   standalone: true,
   imports: [
     FormsModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    ToolbarComponent,
+    SidebarComponent
+],
   templateUrl: './krauss-maffei-mc6.component.html',
   styleUrl: './krauss-maffei-mc6.component.css'
 })

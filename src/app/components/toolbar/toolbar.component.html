@@ -1,1 +1,27 @@
-<p>toolbar works!</p>
+<p-toolbar 
+    styleClass="shadow-2" 
+    [style]="{ 'border-radius': '1rem', 'background-image': 'linear-gradient(to right,var(--gray-50), var(--gray-200))' }">
+        <ng-template pTemplate="start">
+            <img style="height: 30px;" src="../../../assets/images/logo-removebg-preview.png" />
+        </ng-template>
+        <ng-template pTemplate="center">
+            <div class="flex flex-wrap align-items-center gap-3">
+                <button class="p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+                    <i class="pi pi-home text-2xl"></i>
+                </button>
+                <button class="p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+                    <i class="pi pi-user text-2xl"></i>
+                </button>
+                <button class="p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+                    <i class="pi pi-search text-2xl"></i>
+                </button>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="end">
+            <div class="flex align-items-center gap-2">
+                <span class="font-bold text-bluegray-50">
+                    Amy Elsner
+                </span>
+            </div>
+        </ng-template>
+</p-toolbar>

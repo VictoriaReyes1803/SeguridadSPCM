@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^18.2.5",
     "@angular/platform-browser-dynamic": "^18.2.5",
     "@angular/router": "^18.2.5",
+    "@fortawesome/fontawesome-free": "^6.6.0",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.2",
     "primeflex": "^3.3.1",
