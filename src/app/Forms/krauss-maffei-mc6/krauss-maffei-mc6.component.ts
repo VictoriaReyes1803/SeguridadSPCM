@@ -22,16 +22,24 @@ export class KraussMaffeiMC6Component {
   downloadPDF() {
     const content: HTMLElement = document.getElementById('content') as HTMLElement;
 
-    html2canvas(content).then(canvas => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'pt', 'letter');
-      const imgProps = pdf.getImageProperties(imgData);
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+    const scale = 2;  // Escalado para garantizar calidad uniforme
 
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-      pdf.save('tabla.pdf');
-    });
+  html2canvas(content, {
+    scale: scale, // Aumenta la resolución del canvas para mejorar la calidad
+    width: content.scrollWidth, // Tamaño fijo de contenido, ignorando el tamaño de la ventana
+    height: content.scrollHeight
+  }).then(canvas => {
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p', 'pt', 'letter');
+
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+    const marginTop = 20; 
+    pdf.addImage(imgData, 'PNG', 0, marginTop, pdfWidth, pdfHeight);
+
+    pdf.save('tabla.pdf');
+  });
   }
 
 }
