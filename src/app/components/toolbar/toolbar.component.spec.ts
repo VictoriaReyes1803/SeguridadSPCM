@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormDinamicComponent } from './form-dinamic.component';
+import { ToolbarComponent } from './toolbar.component';
 
-describe('FormDinamicComponent', () => {
-  let component: FormDinamicComponent;
-  let fixture: ComponentFixture<FormDinamicComponent>;
+describe('ToolbarComponent', () => {
+  let component: ToolbarComponent;
+  let fixture: ComponentFixture<ToolbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormDinamicComponent]
+      imports: [ToolbarComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(FormDinamicComponent);
+
+    fixture = TestBed.createComponent(ToolbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

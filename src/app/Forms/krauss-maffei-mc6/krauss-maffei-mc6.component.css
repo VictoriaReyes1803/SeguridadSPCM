@@ -1,5 +1,5 @@
 .container {
-    width: 80%;
+    width: 70%;
     margin: auto ;
     margin-top: 40px;
     font-family: Arial, sans-serif;
@@ -68,7 +68,7 @@
   }
   
   th, td {
-   
+    padding: 5px;
     text-align: center;
   }
   
@@ -111,6 +111,12 @@ padding: 4px;
     font-family: sans-serif;
     width: 100%;
     text-align: center;
+}
+#content {
+  width: 1500px;
+  height: 1750px;
+  content: center;
+  overflow: hidden;
 }
 
 
