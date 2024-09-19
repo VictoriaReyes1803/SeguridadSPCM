@@ -23,7 +23,19 @@ html, body {
 .login-left {
     flex-direction: column;
     background-color: #f5f5f5;
-    min-width: 400px; /* Cambiar a un ancho mínimo */
+    min-width: 400px;
+    position: relative; /* Necesario para posicionar el logo */
+    padding-top: 100px;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;  /* Ajusta según la distancia desde la parte superior */
+    left: 50%;  /* Centra horizontalmente el logo dentro de login-left */
+    transform: translateX(-50%);  /* Compensa el desplazamiento del logo para centrarlo completamente */
+    width: 50%;  /* Ajusta el ancho al 50% del contenedor para hacerlo responsive */
+    max-width: 200px; /* Limita el tamaño máximo a 200px */
+    height: auto; /* Mantiene la proporción de la imagen */
 }
 
 .screen {		
