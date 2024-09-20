@@ -4,7 +4,7 @@ import jsPDF from 'jspdf';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ToolbarComponent } from "../../components/toolbar/toolbar.component";
+import { ToolbarComponent } from "../../toolbar/toolbar.component";
 import { SidebarComponent } from "../../sidebar/sidebar.component";
 
 @Component({
@@ -25,11 +25,8 @@ export class KraussMaffeiMC6Component {
   downloadPDF() {
     const content: HTMLElement = document.getElementById('content') as HTMLElement;
 
-    const scale = 2;  // Escalado para garantizar calidad uniforme
-
   html2canvas(content, {
-    scale: scale, // Aumenta la resolución del canvas para mejorar la calidad
-    width: content.scrollWidth, // Tamaño fijo de contenido, ignorando el tamaño de la ventana
+    width: content.scrollWidth, 
     height: content.scrollHeight
   }).then(canvas => {
     const imgData = canvas.toDataURL('image/png');
