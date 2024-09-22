@@ -1,7 +1,7 @@
 
   <app-sidebar></app-sidebar>
 
-  <div style="margin-left: 90px;">
+  <div style="margin-left: 70px; content: center ">
     <app-toolbar></app-toolbar>
 
     <div id="content">
@@ -180,7 +180,7 @@
         <table class="styled-table">
           <thead>
             <tr>
-              <th colspan="16">ABRIR/CERRAR MOLDE</th>
+              <th style="padding: 10px;" colspan="16">ABRIR/CERRAR MOLDE</th>
             </tr>
           </thead>
           <tbody>
@@ -194,15 +194,15 @@
                 <br />
                 mm
               </td>
-              <td colspan="7">Cerrar Molde</td>
+              <td style="padding: 7px;" colspan="7">Cerrar Molde</td>
             </tr>
             <tr>
               <td></td>
-              <td>1</td>
-              <td>2</td>
-              <td>3</td>
-              <td>4</td>
-              <td>5</td>
+              <td class="fv">1</td>
+              <td class="fv">2</td>
+              <td class="fv">3</td>
+              <td class="fv">4</td>
+              <td class="fv">5</td>
               <td></td>
               <td rowspan="4">Fuerza de Cierre :</td>
               <td rowspan="2">
@@ -378,11 +378,11 @@
             </tr>
             <tr>
               <td></td>
-              <td>5</td>
-              <td>4</td>
-              <td>3</td>
-              <td>2</td>
-              <td>1</td>
+              <td style="border-top: b;" class="fv">5</td>
+              <td class="fv">4</td>
+              <td class="fv">3</td>
+              <td class="fv">2</td>
+              <td class="fv">1</td>
               <td></td>
             </tr>
             <tr>
@@ -507,7 +507,7 @@
               <td colspan="1">2</td>
               <td colspan="3"></td>
 
-              <td>Arranque por la posicion del molde</td>
+              <td class="fv">Arranque por la posicion del molde</td>
               <td>
                 <input
                   type="text"
@@ -550,7 +550,7 @@
                 Carrera del expulsor
               </td>
 
-              <td>Tiempo de retardo por avance</td>
+              <td class="fv">Tiempo de retardo por avance</td>
               <td>
                 <input
                   type="text"
@@ -593,7 +593,7 @@
               <td class="fv">mm/s</td>
               <td style="border-bottom: 1px solid white"></td>
 
-              <td>Avance del expulsor en func. del tiempo</td>
+              <td class="fv">Avance del expulsor en func. del tiempo</td>
               <td>
                 <input
                   type="text"
@@ -639,7 +639,7 @@
                 mm
               </td>
 
-              <td>Mantener expulsor adelante</td>
+              <td class="fv">Mantener expulsor adelante</td>
               <td>
                 <input
                   type="text"
@@ -666,7 +666,7 @@
               <td colspan="4">Salida Expulsor</td>
               <td></td>
 
-              <td>Carrera con vibraciones</td>
+              <td class="fv">Carrera con vibraciones</td>
               <td>
                 <input
                   type="text"
@@ -685,7 +685,7 @@
               <td colspan="1">2</td>
               <td colspan="3"></td>
 
-              <td>Contador de vibraciones</td>
+              <td class="fv">Contador de vibraciones</td>
               <td>
                 <input
                   type="text"
@@ -1212,6 +1212,6 @@
         </table>
       </div>
     </div>
-    <button (click)="downloadPDF()">Enviar</button>
+    <button style="margin-left: 700px;" (click)="downloadPDF()">Enviar</button>
   </div>
 

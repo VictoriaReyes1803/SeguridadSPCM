@@ -1,7 +1,6 @@
 .container {
-    width: 80%;
-    margin: 0 auto ;
-    margin-top: 40px;
+    margin: 30px ;
+    margin-top: 20px;
     font-family: Arial, sans-serif;
     font-size: 0.9rem;
   }
@@ -23,7 +22,7 @@
   .row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
   
   .col-left,
@@ -69,6 +68,7 @@
   
   th, td {
     text-align: center;
+    padding: 2px;
   }
   
   
@@ -101,7 +101,7 @@
   
 .fv
 {
-padding: 4px;
+padding: 5px;
 }
 .styled-table {
     border-collapse: collapse;
@@ -112,7 +112,8 @@ padding: 4px;
 }
 #content {
   width: 1400px;
-  height: 1650px;
+  height: 1500px;
+  content: center;
   overflow: hidden;
 }
 
