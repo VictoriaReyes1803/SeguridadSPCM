@@ -1,8 +1,9 @@
 .container {
-    margin: 30px ;
+    margin: 0 auto ;
+    width: 95%;
     margin-top: 20px;
     font-family: Arial, sans-serif;
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   
   .header,
@@ -110,11 +111,9 @@ padding: 5px;
     width: 100%;
     text-align: center;
 }
-#content {
-  width: 1400px;
-  height: 1500px;
-  content: center;
-  overflow: hidden;
+
+.none{
+  border: none;
 }
 
 
