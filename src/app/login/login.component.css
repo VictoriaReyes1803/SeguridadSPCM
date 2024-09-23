@@ -41,7 +41,7 @@ html, body {
 .screen {		
     background: linear-gradient(90deg, #bababa, #bababa);		
     position: relative;	
-    height: 600px;
+    height: 550px;
     width: 420px; /* Aumentar el ancho para mayor comodidad */
     box-shadow: 0px 0px 24px #005792;
 }
@@ -96,12 +96,12 @@ html, body {
 }
 
 .screen__background__shape4 {
-    height: 400px;
-    width: 200px;
+    height: 190px;
+    width: 180px;
     background: #FC9036; 	
-    top: 420px;
-    right: 50px;	
-    border-radius: 60px;
+    top: 415px;
+    right: 1px;	
+    border-radius:32px;
 }
 
 .login {
@@ -172,8 +172,8 @@ html, body {
 
 .social-login {	
     position: absolute;
-    height: 140px;
-    width: 160px;
+    height: 100px;
+    width: 190px;
     display: flex;
     align-items: center;
     justify-content: center;
