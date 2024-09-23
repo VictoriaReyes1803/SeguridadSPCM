@@ -1,11 +1,11 @@
 
-  <app-sidebar></app-sidebar>
+  <!-- <app-sidebar></app-sidebar> -->
 
-  <div style="margin-left: 70px; content: center ">
+  <div style="margin-left: 70px; text-align: center; ">
     <app-toolbar></app-toolbar>
 
     <div id="content">
-      <div class="container">
+      <div *ngIf="currentContainer == 0" class="container">
         <h1 class="fv" style="font-size: large;" >Parámetros del proceso Krauss Maffei MC6</h1>
         <div>
           <table>
@@ -1211,7 +1211,19 @@
           </tbody>
         </table>
       </div>
+      <div *ngIf="currentContainer === 1" class="container"></div>
     </div>
-    <button style="margin-left: 700px;" (click)="downloadPDF()">Enviar</button>
+    
+    <div style="text-align: center; margin-top: 20px;">
+      <button (click)="prevContainer()" [disabled]="currentContainer === 0">
+        &#8592; <!-- Flecha izquierda -->
+      </button>
+    
+      <button (click)="nextContainer()" [disabled]="currentContainer === 1">
+        &#8594; <!-- Flecha derecha -->
+      </button>
+    </div>
+
+    <button style="text-align: center; margin-top: 20px;" (click)="downloadPDF()">Enviar</button>
   </div>
 

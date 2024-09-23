@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ToolbarComponent } from "../../toolbar/toolbar.component";
 import { SidebarComponent } from "../../sidebar/sidebar.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-krauss-maffei-mc6',
@@ -14,13 +15,15 @@ import { SidebarComponent } from "../../sidebar/sidebar.component";
     FormsModule,
     ReactiveFormsModule,
     ToolbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    CommonModule
 ],
   templateUrl: './krauss-maffei-mc6.component.html',
   styleUrl: './krauss-maffei-mc6.component.css'
 })
 export class KraussMaffeiMC6Component {
   title = 'angular-pdf-export';
+  checklist = false;
 
   downloadPDF() {
     const content: HTMLElement = document.getElementById('content') as HTMLElement;
@@ -43,6 +46,19 @@ export class KraussMaffeiMC6Component {
 
     pdf.save('tabla.pdf');
   });
+  }
+  currentContainer = 0; 
+  
+  nextContainer() {
+    if (this.currentContainer < 1) {
+      this.currentContainer++;
+    }
+  }
+
+  prevContainer() {
+    if (this.currentContainer > 0) {
+      this.currentContainer--;
+    }
   }
 
 }
