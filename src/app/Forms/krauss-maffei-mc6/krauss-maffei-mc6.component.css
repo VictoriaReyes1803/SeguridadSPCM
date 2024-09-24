@@ -111,7 +111,12 @@ padding: 5px;
     width: 100%;
     text-align: center;
 }
-
+#content {
+  width: 1400px;
+  height: 1750px;
+  content: center;
+  overflow: hidden;
+}
 .none{
   border: none;
 }
