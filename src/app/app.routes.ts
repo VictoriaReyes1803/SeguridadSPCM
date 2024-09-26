@@ -19,8 +19,7 @@ export const routes: Routes = [
         path:'Login',
         component: LoginComponent
     },
-    { path: 'Sidebar', component: SidebarComponent
-    }, 
+   
     {
         path: 'Menu',
         component: MenuComponent

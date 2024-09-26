@@ -5,41 +5,79 @@
         <div class="container">
             <div class="screen">
                 <div class="screen__content">
-                    <form class="login">
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register">
                         <h2 class="login__icon fas fas fa-user">Agregar empleado</h2>
 
                         <div style="display:flex; gap:25px" class="">
                         <div class="login__field">
                             <i class="login__icon fas fa-user"></i>
-                            <input type="text" class="login__input" name="username" placeholder="Username" required>
+                            <input formControlName="username"  type="text" class="login__input" name="username" placeholder="Username" required>
+                            
+                            <div  class="alert"
+                            *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">
+                         <div
+                           *ngIf="registerForm.controls['username'].errors?.['username']">Name is required.
+                         </div>
+                         <div
+                           *ngIf="registerForm.controls['username'].errors?.['minlength']">
+                           username must be at least 3 characters long.
+                         </div>
+                       
+                     </div>
+                       
                         </div>
+                        
 
                         <div class="login__field">
                             <i class="login__icon fas fa-user"></i>
-                            <input type="text" class="login__input" name="nombre" placeholder="Nombre" required>
+                            <input formControlName="nombre" type="text" class="login__input" name="nombre" placeholder="Nombre" required>
+                            <div  class="alert"
+                            *ngIf="registerForm.controls['nombre'].invalid && (registerForm.controls['nombre'].dirty || registerForm.controls['nombre'].touched)">
+                         <div
+                           *ngIf="registerForm.controls['nombre'].errors?.['required']">Name is required.
+                         </div>
+                         <div
+                           *ngIf="registerForm.controls['nombre'].errors?.['minlength']">
+                           Name must be at least 3 characters long.
+                         </div>
+                       
+                     </div>
                         </div>
+                        
                     </div>
                     <div style="display:flex; gap:25px">
                         <div class="login__field">
                             <i class="login__icon fas fa-user"></i>
-                            <input type="text" class="login__input" name="apellido_paterno" placeholder="Apellido paterno" required>
+                            <input formControlName="apellido_paterno" type="text" class="login__input" name="apellido_paterno" placeholder="Apellido paterno" required>
                         </div>
 
                         <div class="login__field">
                             <i class="login__icon fas fa-user"></i>
-                            <input type="text" class="login__input" name="apellido_materno" placeholder="Apellido materno" required>
+                            <input formControlName="apellido_materno" type="text" class="login__input" name="apellido_materno" placeholder="Apellido materno" required>
                         </div>
                     </div>
 
                         <div class="login__field">
                             <i class="login__icon fas fa-user"></i>
-                            <input type="email" class="login__input" name="email" placeholder="Email" required>
-                        </div>
+                            <input formControlName="email" type="email" class="login__input" name="email" placeholder="Email" required>
+                            
+                            
+                            <div class="alert"
+                            *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">
+                         <div
+                           *ngIf="registerForm.controls['email'].errors?.['required']">Email is required.
+                         </div>
+                         <div
+                           *ngIf="registerForm.controls['email'].errors?.['email']">
+                           Incorrect format for email.
+                         </div>
+                       </div>
+                            </div>
 
 
                         <div class="login__field">
                             <i class="login__icon fas fa-user-tag"></i>
-                            <select class="login__input" name="rol" required>
+                            <select formControlName="rol" class="login__input" name="rol" required>
                                 <option value="" disabled selected>Seleccione un rol</option>
                                 <option value="admin">Admin</option>
                                 <option value="engineer">Engineer</option>
@@ -49,12 +87,12 @@
                         
                         <div class="login__field">
                             <i class="login__icon fas fa-user"></i>
-                            <input type="number" class="login__input" name="no_empleado" placeholder="No. empleado" >
+                            <input formControlName="no_empleado" type="number" class="login__input" name="no_empleado" placeholder="No. empleado" >
                         </div>
 
                         <div class="login__field">
                             <i class="login__icon fas fa-lock"></i>
-                            <input type="password" class="login__input" name="password" placeholder="Contraseña" required>
+                            <input formControlName="password" type="password" class="login__input" name="password" placeholder="Contraseña" required>
                         </div>
                         <button style="width: 130px;" class="button login__submit" type="submit">
                             <span class="button__text">Ingresar</span>
