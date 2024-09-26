@@ -7,7 +7,7 @@ import { MenuComponent } from './menu/menu.component';
 import { RegisterComponent } from './auth/register/register.component';
 export const routes: Routes = [
     {
-        path: '',
+        path: 'Home',
         component: HomeComponent
     },
     {
@@ -16,7 +16,7 @@ export const routes: Routes = [
     },
   
     {
-        path:'Login',
+        path:'',
         component: LoginComponent
     },
    

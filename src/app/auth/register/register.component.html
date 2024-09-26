@@ -16,7 +16,7 @@
                             <div  class="alert"
                             *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">
                          <div
-                           *ngIf="registerForm.controls['username'].errors?.['username']">Name is required.
+                           *ngIf="registerForm.controls['username'].errors?.['username']">username is required.
                          </div>
                          <div
                            *ngIf="registerForm.controls['username'].errors?.['minlength']">
@@ -49,12 +49,37 @@
                         <div class="login__field">
                             <i class="login__icon fas fa-user"></i>
                             <input formControlName="apellido_paterno" type="text" class="login__input" name="apellido_paterno" placeholder="Apellido paterno" required>
+                        
+                            <div  class="alert"
+                            *ngIf="registerForm.controls['apellido_paterno'].invalid && (registerForm.controls['apellido_paterno'].dirty || registerForm.controls['apellido_paterno'].touched)">
+                         <div
+                           *ngIf="registerForm.controls['apellido_paterno'].errors?.['apellido_paterno']">apellido paterno is required.
+                         </div>
+                         <div
+                           *ngIf="registerForm.controls['apellido_paterno'].errors?.['minlength']">
+                           apellido paterno must be at least 3 characters long.
+                         </div>
+                       
+                     </div>
+                        
                         </div>
 
                         <div class="login__field">
                             <i class="login__icon fas fa-user"></i>
                             <input formControlName="apellido_materno" type="text" class="login__input" name="apellido_materno" placeholder="Apellido materno" required>
                         </div>
+
+                        <div  class="alert"
+                            *ngIf="registerForm.controls['apellido_materno'].invalid && (registerForm.controls['apellido_materno'].dirty || registerForm.controls['apellido_materno'].touched)">
+                         <div
+                           *ngIf="registerForm.controls['apellido_materno'].errors?.['apellido_materno']">Apellido materno is required.
+                         </div>
+                         <div
+                           *ngIf="registerForm.controls['username'].errors?.['minlength']">
+                           Apellido materno must be at least 3 characters long.
+                         </div>
+                       
+                     </div>
                     </div>
 
                         <div class="login__field">

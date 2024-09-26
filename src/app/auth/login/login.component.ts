@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/Auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { NgIf } from '@angular/common';
-
+import { UserLogin } from '../../Models/user';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -11,29 +13,56 @@ import { NgIf } from '@angular/common';
    NgIf,
     FormsModule,
     ReactiveFormsModule,
+    CommonModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  username: string = ''; 
-  password: string = ''; 
+  isSubmitting = false;
+  backendErrors: any;
+  constructor(
+  private router : Router,
+  private authservice : AuthService,
 
-  constructor(private authService: AuthService) {}
-  onSubmit() {
-    const credentials = {
-      username: this.username,
-      password: this.password,
-    };
-    console.log('Data:', credentials);
-    this.authService.login(credentials).subscribe(
-      response => {
-        console.log('Login exitoso', response);
+  ){}
+
+
+  login(){
+      this.router.navigate(['/Menu'])
+  }
+
+  loginForm = new FormGroup({
+    // email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    username: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    
+  });
+
+  onSubmit(){
+    this.isSubmitting = true;
+    const formValues: UserLogin = {
+      username: this.loginForm.value.username || '',
+      // email: this.loginForm.value.email || '',
+      password: this.loginForm.value.password || '',
+     
+    }
+    this.authservice.login(formValues).subscribe(
+      data => {
+        console.log(data)
+        this.router.navigate(['/Menu']);
       },
-      error => {
-        console.error('Error en el login', error, credentials);
+      err => {
+        this.isSubmitting = false;
+        if (err.error.errors){
+          for (let error in err.error.errors){
+            console.log(error)
+          }
+        }else if (err.status ==500){
+          console.log(err)
+        }
       }
-    );
+    )
   }
 
 }

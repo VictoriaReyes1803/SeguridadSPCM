@@ -4,15 +4,30 @@
         <div class="container">
             <div class="screen">
                 <div class="screen__content">
-                    <form (ngSubmit)="onSubmit()" class="login">
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login">
                         <h2 class="login__icon fas fas fa-user">Inicio de Sesión</h2>
+                        
                         <div class="login__field">
                             <i class="login__icon fas fa-user"></i>
-                            <input  [(ngModel)]="username" type="text" class="login__input" name="username" placeholder="Usuario" required>
+                            <input  formControlName="username" type="text" class="login__input" name="username" placeholder="Usuario" required>
+                            <div class="alert"
+                            *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)">
+                         <div
+                           *ngIf="loginForm.controls['username'].errors?.['required']">El username es requerido.
+                         </div>
+                         
+                       </div>
                         </div>
                         <div class="login__field">
                             <i class="login__icon fas fa-lock"></i>
-                            <input [(ngModel)]="password" type="password" class="login__input" name="password" placeholder="Contraseña" required>
+                            <input formControlName="password"  type="password" class="login__input" name="password" placeholder="Contraseña" required>
+                            <div class="alert"
+                            *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                         <div
+                           *ngIf="loginForm.controls['password'].errors?.['required']">La contraseña es requerida.
+                         </div>
+                       </div>
+                        
                         </div>
                         <button class="button login__submit" type="submit">
                             <span class="button__text">Ingresar</span>
