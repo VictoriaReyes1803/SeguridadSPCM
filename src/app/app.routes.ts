@@ -4,6 +4,7 @@ import { KraussMaffeiMC6Component } from './Forms/krauss-maffei-mc6/krauss-maffe
 import { LoginComponent } from './login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MenuComponent } from './menu/menu.component';
+import { RegisterComponent } from './register/register.component';
 export const routes: Routes = [
     {
         path: '',
@@ -23,5 +24,10 @@ export const routes: Routes = [
     {
         path: 'Menu',
         component: MenuComponent
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
     }
+
 ];
