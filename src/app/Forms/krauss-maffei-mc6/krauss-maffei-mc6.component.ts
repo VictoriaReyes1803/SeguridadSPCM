@@ -50,7 +50,7 @@ export class KraussMaffeiMC6Component {
   currentContainer = 0; 
   
   nextContainer() {
-    if (this.currentContainer < 1) {
+    if (this.currentContainer < 2) {
       this.currentContainer++;
     }
   }
