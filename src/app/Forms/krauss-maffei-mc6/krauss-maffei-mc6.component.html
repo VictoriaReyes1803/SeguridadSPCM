@@ -5,7 +5,7 @@
     <app-toolbar></app-toolbar>
 
     <div id="content">
-      <div *ngIf="currentContainer == 0" class="container">
+      <div *ngIf="currentContainer == 2" class="container">
         <h1 class="fv" style="font-size: large;" >Parámetros del proceso Krauss Maffei MC6</h1>
         <div>
           <table>
@@ -2705,7 +2705,187 @@
           </table>
         </div>
 
-      <div *ngIf="currentContainer === 2" class="container">
+      <div *ngIf="currentContainer === 0" class="container">
+        <table style="margin-bottom:10px">
+          
+          <tr>
+            <td rowspan="2" style="width: 250px;">
+              <img src="../../assets/images/logo.png" alt="Descripción de la imagen" style="width: 400px; height: auto;" />
+            </td>
+            <td class="fv" colspan="2" style="text-align: center; font-size: 24px; font-weight: bold;">CHECKLIST DE PROCESOS</td>
+            
+          </tr>
+          <tr>
+            <td >REC-2020-MX-009-V3</td>
+            <td >En aplicación</td>
+            
+          </tr>
+
+        </table>
+        <table>
+          <thead>
+            <tr>
+              <th class="fv" rowspan="2" colspan="4">Revisión 1 vez por turno por técnicos</th>
+              <th colspan="5">Producto</th>
+              <th colspan="4">Resina</th>
+              <th colspan="3">Cliente</th>
+              <th colspan="2">Maquina</th>
+            </tr>
+            <tr>
+              
+              <th colspan="5" name="producto">
+                <input type="text" name="producto" class="no-border-input" style="width: 100%; border: none" />
+              </th>
+              <th colspan="4" name="resina">
+                <input type="text" name="resina" class="no-border-input" style="width: 100%; border: none" />
+              </th>
+              <th colspan="3" name="cliente">
+                <input type="text" name="cliente" class="no-border-input" style="width: 100%; border: none" />
+              </th>
+              <th colspan="2" name="maquina">
+                <input type="text" name="maquina" class="no-border-input" style="width: 100%; border: none" />
+              </th>
+            </tr>
+            <tr>
+              <th class="fv" rowspan="2" colspan="4">Revisión 1 vez por turno por técnicos</th>
+              <th rowspan="1" colspan="2">LUNES</th>
+              <th colspan="2">MARTES</th>
+              <th colspan="2">MIERCOLES</th>
+              <th colspan="2">JUEVES</th>
+              <th colspan="2">VIERNES</th>
+              <th colspan="2">SABADO</th>
+              <th colspan="2">DOMINGO</th>
+            </tr>
+            <tr>
+              
+              <td>1er T.</td>
+              <td>2do T.</td>
+              <td>1er T.</td>
+              <td>2do T.</td>
+              <td>1er T.</td>
+              <td>2do T.</td>
+              <td>1er T.</td>
+              <td>2do T.</td>
+              <td>1er T.</td>
+              <td>2do T.</td>
+              <td>1er T.</td>
+              <td>2do T.</td>
+              <td>1er T.</td>
+              <td>2do T.</td>
+
+            </tr>
+          <tr>
+            <td colspan="4">PARAMETROS DE CONTROL</td>
+            <td rowspan="2" colspan="14"></td>
+          </tr>
+          <tr>
+            <td colspan="2">Temp.Barril</td>
+              <td colspan="1">SET</td>
+              <td colspan="1">Tolerancia</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2">Zona 14</td>
+            <td colspan="1">
+              <input type="number" name="Zona 14 SET" class="no-border-input" style="width: 100%; border: none" />
+            </td>
+            <td colspan="1">
+              <input type="text" name="Zona 14 Tolerancia" class="no-border-input" style="width: 100%; border: none" />
+            </td>
+            <td name="zona 14 Lunes 1er T."></td>
+            <td name="zona 14 Lunes 2do T."></td>
+            <td name="zona 14 Martes 1er T."></td>
+            <td name="zona 14 Martes 2do T."></td>
+            <td name="zona 14 Miercoles 1er T."></td>
+            <td name="zona 14 Miercoles 2do T."></td>
+            <td name="zona 14 Jueves 1er T."></td>
+            <td name="zona 14 Jueves 2do T."></td>
+            <td name="zona 14 Viernes 1er T."></td>
+            <td name="zona 14 Viernes 2do T."></td>
+            <td name="zona 14 Sabado 1er T."></td>
+            <td name="zona 14 Sabado 2do T."></td>
+            <td name="zona 14 Domingo 1er T."></td>
+            <td name="zona 14 Domingo 2do T."></td>
+
+          </tr>
+          <tr>
+            <td colspan="2">Zona 13</td>
+            <td colspan="1">
+              <input type="text" name="Zona 13 SET" class="no-border-input none"  />
+            </td>
+            <td colspan="1">
+              <input type="text" name="Zona 13 Tolerancia" class="no-border-input none"  />
+            </td>
+            <td name="zona 13 Lunes 1er T."></td>
+            <td name="zona 13 Lunes 2do T."></td>
+            <td name="zona 13 Martes 1er T."></td>
+            <td name="zona 13 Martes 2do T."></td>
+            <td name="zona 13 Miercoles 1er T."></td>
+            <td name="zona 13 Miercoles 2do T."></td>
+            <td name="zona 13 Jueves 1er T."></td>
+            <td name="zona 13 Jueves 2do T."></td>
+            <td name="zona 13 Viernes 1er T."></td>
+            <td name="zona 13 Viernes 2do T."></td>
+            <td name="zona 13 Sabado 1er T."></td>
+            <td name="zona 13 Sabado 2do T."></td>
+            <td name="zona 13 Domingo 1er T."></td>
+            <td name="zona 13 Domingo 2do T."></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              Zona 11
+            </td>
+            <td>
+              <input type="text" name="Zona 11 SET" class="no-border-input none"  />
+            </td>
+            <td>
+              <input type="text" name="Zona 11 Tolerancia" class="no-border-input none"  />
+            </td>
+            <td name="zona 11 Lunes 1er T."></td>
+            <td name="zona 11 Lunes 2do T."></td>
+            <td name="zona 11 Martes 1er T."></td>
+            <td name="zona 11 Martes 2do T."></td>
+            <td name="zona 11 Miercoles 1er T."></td>
+            <td name="zona 11 Miercoles 2do T."></td>
+            <td name="zona 11 Jueves 1er T."></td>
+            <td name="zona 11 Jueves 2do T."></td>
+            <td name="zona 11 Viernes 1er T."></td>
+            <td name="zona 11 Viernes 2do T."></td>
+            <td name="zona 11 Sabado 1er T."></td>
+            <td name="zona 11 Sabado 2do T."></td>
+            <td name="zona 11 Domingo 1er T."></td>
+            <td name="zona 11 Domingo 2do T."></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              Zona 6
+            </td>
+            <td>
+              <input type="text" name="Zona 6 SET" class="no-border-input none"  />
+            </td>
+            <td>
+              <input type="text" name="Zona 6 Tolerancia" class="no-border-input none"  />
+            </td>
+            <td name="zona 6 Lunes 1er T."></td>
+            <td name="zona 6 Lunes 2do T."></td>
+            <td name="zona 6 Martes 1er T."></td>
+            <td name="zona 6 Martes 2do T."></td>
+            <td name="zona 6 Miercoles 1er T."></td>
+            <td name="zona 6 Miercoles 2do T."></td>
+            <td name="zona 6 Jueves 1er T."></td>
+            <td name="zona 6 Jueves 2do T."></td>
+            <td name="zona 6 Viernes 1er T."></td>
+            <td name="zona 6 Viernes 2do T."></td>
+            <td name="zona 6 Sabado 1er T."></td>
+            <td name="zona 6 Sabado 2do T."></td>
+            <td name="zona 6 Domingo 1er T."></td>
+            <td name="zona 6 Domingo 2do T."></td>
+            
+          </tr>
+          
+          
+        </table>
 
       </div>
     

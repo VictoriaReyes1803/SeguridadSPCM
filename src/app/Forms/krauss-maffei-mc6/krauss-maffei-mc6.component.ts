@@ -28,11 +28,11 @@ export class KraussMaffeiMC6Component {
   downloadPDF() {
     const content: HTMLElement = document.getElementById('content') as HTMLElement;
 
-    const scale = 2;  // Escalado para garantizar calidad uniforme
+    const scale = 2;  
 
   html2canvas(content, {
-    scale: scale, // Aumenta la resolución del canvas para mejorar la calidad
-    width: content.scrollWidth, // Tamaño fijo de contenido, ignorando el tamaño de la ventana
+    scale: scale, 
+    width: content.scrollWidth, 
     height: content.scrollHeight
   }).then(canvas => {
     const imgData = canvas.toDataURL('image/png');
