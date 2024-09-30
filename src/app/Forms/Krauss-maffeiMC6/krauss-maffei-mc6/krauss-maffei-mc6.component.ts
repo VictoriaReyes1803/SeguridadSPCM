@@ -4,8 +4,8 @@ import jsPDF from 'jspdf';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ToolbarComponent } from "../../toolbar/toolbar.component";
-import { SidebarComponent } from "../../sidebar/sidebar.component";
+import { ToolbarComponent } from "../../../toolbar/toolbar.component";
+import { SidebarComponent } from "../../../sidebar/sidebar.component";
 import { CommonModule } from '@angular/common';
 
 @Component({

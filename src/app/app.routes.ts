@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { KraussMaffeiMC6Component } from './Forms/krauss-maffei-mc6/krauss-maffei-mc6.component';
+import { KraussMaffeiMC6Component } from './Forms/Krauss-maffeiMC6/krauss-maffei-mc6/krauss-maffei-mc6.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MenuComponent } from './menu/menu.component';
