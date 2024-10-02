@@ -8,6 +8,7 @@ import { ToolbarComponent } from "../../../toolbar/toolbar.component";
 import { SidebarComponent } from "../../../sidebar/sidebar.component";
 import { CommonModule } from '@angular/common';
 import { ChecklistKraussMaffeiComponent } from '../checklist-krauss-maffei/checklist-krauss-maffei.component';
+import { KraussMaffeiMc62Component } from "../krauss-maffei-mc6-2/krauss-maffei-mc6-2.component";
 
 @Component({
   selector: 'app-krauss-maffei-mc6',
@@ -18,7 +19,8 @@ import { ChecklistKraussMaffeiComponent } from '../checklist-krauss-maffei/check
     ChecklistKraussMaffeiComponent,
     ToolbarComponent,
     SidebarComponent,
-    CommonModule
+    CommonModule,
+    KraussMaffeiMc62Component
 ],
   templateUrl: './krauss-maffei-mc6.component.html',
   styleUrl: './krauss-maffei-mc6.component.css'
@@ -39,7 +41,7 @@ export class KraussMaffeiMC6Component {
   ngAfterViewInit() {
     setTimeout(() => {
       this.containers = [this.container0, this.container1, this.container2];
-      console.log(this.containers); // Para verificar que los contenedores están definidos
+      
     });
   }
   
@@ -88,7 +90,7 @@ export class KraussMaffeiMC6Component {
         addImageToPDF(canvases[1], false);
         addImageToPDF(canvases[2], false); 
   
-        pdf.save('krauss-maffei.pdf');
+        pdf.save('SPCM.pdf');
   
         this.currentContainer = originalContainer;
       });
