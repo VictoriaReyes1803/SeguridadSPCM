@@ -4,17 +4,10 @@ import { KraussMaffeiMC6Component } from './Forms/Krauss-maffeiMC6/krauss-maffei
 import { LoginComponent } from './auth/login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MenuComponent } from './menu/menu.component';
+import { AuthGuard } from './Guards/Auth/auth.guard';
 import { RegisterComponent } from './auth/register/register.component';
 export const routes: Routes = [
-    {
-        path: 'Home',
-        component: HomeComponent
-    },
-    {
-        path: 'KraussMaffeiMC6',
-        component: KraussMaffeiMC6Component
-    },
-  
+   
     {
         path:'',
         component: LoginComponent
@@ -22,8 +15,20 @@ export const routes: Routes = [
    
     {
         path: 'Menu',
-        component: MenuComponent
+        component: MenuComponent,
+        canActivate: [AuthGuard] 
     },
+    {
+        path: 'Home',
+        component: HomeComponent,
+        canActivate: [AuthGuard] 
+    },
+    {
+        path: 'KraussMaffeiMC6',
+        component: KraussMaffeiMC6Component,
+        canActivate: [AuthGuard] 
+    },
+  
     {
         path: 'register',
         component: RegisterComponent
