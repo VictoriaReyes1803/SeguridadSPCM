@@ -9,8 +9,11 @@ import { User } from '../../Models/user';
   providedIn: 'root'
 })
 export class UserService {
-  private user: User | null = null;
-
-  constructor() { }
+  private apiUrl =  url + 'users/';
+  constructor(private http: HttpClient) { }
   
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.apiUrl);
+  }
+
 }

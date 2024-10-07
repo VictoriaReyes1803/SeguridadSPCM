@@ -7,6 +7,7 @@ import { User } from '../Models/user';
 import { AuthService } from '../services/Auth/auth.service';
 import { SecureCookieService } from '../services/cookies/cookies.service';
 import { UserService } from '../services/User/user.service';
+import { catchError, tap, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -33,8 +34,9 @@ export class SidebarComponent {
     console.log(this.user);
   }
   logout()  {
-    
+   
     this.authService.logout();
+    window.location.href = '/';
   }
 
 }

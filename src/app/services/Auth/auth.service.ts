@@ -38,21 +38,14 @@ export class AuthService {
   }
 
   logout() {
-    return this.http.get(`${this.apiurl}logout/`).pipe(
-      tap(() => {
-        // Eliminar tokens y otra información de las cookies
+    
         this.secureCookieService.delete('access');
         this.secureCookieService.delete('refresh');
         this.secureCookieService.delete('user');
-        // Refrescar la página después de cerrar sesión
-        window.location.reload(); // Recargar la página
-      }),
-      catchError(error => {
-        console.error('Error during logout:', error);
-        return throwError(() => error); // Manejar el error si es necesario
-      })
-    ).subscribe();
+        console.log('Sesión cerrada y tokens eliminados');
+        
   }
+  
   
  
   isAuthenticated(): boolean {

@@ -1,0 +1,96 @@
+<app-sidebar></app-sidebar>
+
+<div class="user-management-container">
+    <h2>Gestión de Usuarios</h2>
+    <a href="/register" >
+        <i class="fas fa-plus "></i>
+    </a>
+   
+  
+    <p-table 
+    #dt 
+    [value]="users" 
+     [rowsPerPageOptions]="[10, 25, 50]" 
+     [showCurrentPageReport]="true" 
+     [paginator]="true" [rows]="10"
+     dataKey="id"
+     [globalFilterFields]="['nombre', 'apellido_paterno', 'apellido_materno', 'email', 'rol']"
+     >
+     <ng-template pTemplate="caption" >
+        <div class="" >
+            <p-button  [outlined]="true" icon="pi pi-filter-slash" label="Clear" (click)="clear(dt)" [style]="{'margin-right': '15px'}" />
+        <p-iconfield iconPosition="left">
+                <p-inputicon>
+                    <i class="pi pi-search"></i>
+                </p-inputicon>
+                <input pInputText type="text" [(ngModel)]="searchValue"   (input)="filterUsers($event)" placeholder="Keyboard Search" />
+            </p-iconfield>
+        </div>
+     </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <!-- <th pSortableColumn="id">ID
+                <p-sortIcon field="id" />
+
+            </th> -->
+            <th pSortableColumn="username">Username
+                <p-sortIcon field="username" />
+            </th>
+            <th pSortableColumn="nombre"><div class="flex justify-between items-center">
+                Nombre
+                <p-sortIcon field="nombre" />
+            </div>
+            </th>
+            <th pSortableColumn="apellido_paterno">Apellido Paterno
+                <p-sortIcon field="apellido_paterno" />
+            </th>
+            <th pSortableColumn="apellido_materno">Apellido Materno
+                <p-sortIcon field="apellido_materno" />
+            </th>
+            <th pSortableColumn="email">Correo Electrónico
+                <p-sortIcon field="email" />
+            </th>
+            <th pSortableColumn="rol">Rol
+                <p-sortIcon field="rol" />
+            </th>
+            <th>Acciones</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+          <tr>
+            <!-- <td>{{ user.id }}</td> -->
+            <td>{{ user.username }}</td>
+            <td> <span class="p-column-title">nombre</span>
+                {{ user.nombre }}</td>
+            <td>{{user.apellido_paterno}}</td>
+            <td>{{user.apellido_materno}}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.rol }}</td>
+            <td>
+              <button style="margin: 2px;" class="btn-edit" pButton icon="fas fa-pencil-alt" (click)="showDialog(user)"></button>
+              <button style="margin: 2px;" class="btn-delete" pButton icon="fas fa-trash" (click)="deleteUser(user)"></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+      
+      <!-- <p-dialog header="Detalles del Usuario" [(visible)]="displayDialog" [modal]="true" [closable]="false">
+        <div class="p-field">
+          <label for="name">Nombre</label>
+          <input id="name" type="text" [(ngModel)]="selectedUser.nombre" pInputText />
+        </div>
+        <div class="p-field">
+          <label for="email">Correo Electrónico</label>
+          <input id="email" type="text" [(ngModel)]="selectedUser.email" pInputText />
+        </div>
+        <div class="p-field">
+          <label for="role">Rol</label>
+          <input id="role" type="text" [(ngModel)]="selectedUser.rol" pInputText />
+        </div>
+        <p-footer>
+          <button pButton label="Guardar" (click)="saveUser()"></button>
+          <button pButton label="Cancelar" (click)="displayDialog = false"></button>
+        </p-footer>
+      </p-dialog> -->
+    
+</div>
