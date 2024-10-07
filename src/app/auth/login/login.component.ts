@@ -6,6 +6,7 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import { NgIf } from '@angular/common';
 import { UserLogin } from '../../Models/user';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -27,7 +28,12 @@ export class LoginComponent {
 
   ){}
 
-
+  ngOnInit() {
+  
+  if (this.authservice.isAuthenticated()) {
+      this.router.navigate(['/Menu']);
+    }
+  }
   login(){
       this.router.navigate(['/Menu'])
   }
@@ -54,6 +60,10 @@ export class LoginComponent {
       },
       err => {
         this.isSubmitting = false;
+        if (err.message === 'User account is inactive') {
+          console.log('La cuenta del usuario está desactivada');
+          this.backendErrors = 'Tu cuenta está desactivada. Contacta al administrador.';
+        } else
         if (err.error.errors){
           for (let error in err.error.errors){
             console.log(error)

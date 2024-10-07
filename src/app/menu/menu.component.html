@@ -1,14 +1,19 @@
 <app-sidebar></app-sidebar>
 <div class="container">
-    <h2>Lista de Productos</h2>
-    <select id="productList">
-        <option value="" disabled selected>[Seleccione]</option>
-    </select>
-    
-    <div class="button-section">
-        <p-button label="Nueva Hoja de Parámetros" icon="pi pi-check" severity="success" size="small" [raised]="true"></p-button>
-        <p-button label="Modificación de Parámetros" icon="pi pi-check" severity="primary" size="small" [raised]="true"></p-button>
-        <p-button label="Consulta de Parámetros" icon="pi pi-check" severity="warning" size="small" [raised]="true"></p-button>
-        <p-button label="Checklist Procesos" icon="pi pi-check" severity="danger" size="small" [raised]="true"></p-button>
+    <h2>Dashboard</h2>
+
+    <div class="product-selector">
+      <label for="product-select">Selecciona un producto:</label>
+      <select id="product-select">
+        <option *ngFor="let producto of productos" [value]="producto.id">
+          {{ producto.producto }} - {{ producto.descripcion }}
+        </option>
+      </select>
+    </div>
+  
+    <div class="buttons">
+      <button class="btn-create">Crear nueva Hoja</button>
+      <button class="btn-checklist">Consultar</button>
+      <button class="btn-export">Exportar Reporte</button>
     </div>
 </div>

@@ -44,7 +44,6 @@ export class KraussMaffeiMC6Component {
       
     });
   }
-  
   downloadPDF() {
     const pdf = new jsPDF('p', 'pt', 'letter');
     const marginTop = 20;

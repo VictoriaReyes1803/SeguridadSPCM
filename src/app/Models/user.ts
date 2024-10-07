@@ -23,6 +23,7 @@ export interface UserRegister{
     no_empleado: string;
     rol : string;
     username : string;
+    is_active: boolean;
     }
 
   export interface LoginResponseInterface {
