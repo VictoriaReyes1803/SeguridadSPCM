@@ -9,7 +9,8 @@ import { SidebarComponent } from "../../../sidebar/sidebar.component";
 import { CommonModule } from '@angular/common';
 import { ChecklistKraussMaffeiComponent } from '../checklist-krauss-maffei/checklist-krauss-maffei.component';
 import { KraussMaffeiMc62Component } from "../krauss-maffei-mc6-2/krauss-maffei-mc6-2.component";
-
+import { ActivatedRoute } from '@angular/router'; 
+import { Producto, Productos } from '../../../Models/Productos';
 @Component({
   selector: 'app-krauss-maffei-mc6',
   standalone: true,
@@ -29,13 +30,29 @@ export class KraussMaffeiMC6Component {
   title = 'angular-pdf-export';
   
   currentContainer = 0; 
+  productos: Productos = [];
+  productoSeleccionado: Producto | null = null;
+  productoId:  number | null = null;
+ 
+
   checklist = false;
   @ViewChild('container0') container0!: ElementRef;
   @ViewChild('container1') container1!: ElementRef;
   @ViewChild('container2') container2!: ElementRef;
 
+  constructor(private route: ActivatedRoute) {
+  }
   containers: ElementRef[] = [];
-  ngOnInit() {
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      if (params['producto']) {
+        this.productoSeleccionado = JSON.parse(params['producto']);
+        console.log('Producto recibido:', this.productoSeleccionado);
+      } else {
+        console.log('No se recibió ningún producto.');
+      }
+      
+    });
   }
 
   ngAfterViewInit() {

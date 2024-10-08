@@ -1,10 +1,10 @@
 
-  <!-- <app-sidebar></app-sidebar> -->
+  <app-sidebar></app-sidebar>
 
-  <div style="margin-left: 70px; text-align: center; justify-content:center; align-items:center;">
+  <div style="margin-left: 60px; text-align: center; justify-content:center; align-items:center;">
     <app-toolbar></app-toolbar>
 
-    <div id="content">
+    <div id="content" >
       <div *ngIf="currentContainer == 0 || currentContainer == -1" #container0 class="container">
         <h1 class="fv" style="font-size: large;" >Parámetros del proceso Krauss Maffei MC6</h1>
         <div>
@@ -18,7 +18,7 @@
                 />
               </th>
               <th class="fv" colspan="1">Cliente:</th>
-              <th  name="cliente" colspan="1"></th>
+              <th  name="cliente" colspan="1"> {{productoSeleccionado?.codigo_cliente}}</th>
               <th class="fv" colspan="1">Producto 1:</th>
               <th colspan="1">
                 <input
@@ -26,7 +26,7 @@
                   class="no-border-input"
                   name="producto1"
                   style="width: 100%; border: none"
-                />
+                /> {{productoSeleccionado?.producto}}
               </th>
               <th class="fv" colspan="1">Num. Cav th 1:</th>
               <th colspan="1">

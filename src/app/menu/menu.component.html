@@ -4,7 +4,7 @@
 
     <div class="product-selector">
       <label for="product-select">Selecciona un producto:</label>
-      <select id="product-select">
+      <select id="product-select" (change)="onProductSelect($event)">
         <option *ngFor="let producto of productos" [value]="producto.id">
           {{ producto.producto }} - {{ producto.descripcion }}
         </option>
@@ -12,7 +12,7 @@
     </div>
   
     <div class="buttons">
-      <button class="btn-create">Crear nueva Hoja</button>
+      <button class="btn-create" (click)="crearNuevaHoja()">Crear nueva Hoja</button>
       <button class="btn-checklist">Consultar</button>
       <button class="btn-export">Modificar Hoja</button>
     </div>
