@@ -4,6 +4,7 @@
     margin-top: 20px;
     font-family: Arial, sans-serif;
     font-size: 1rem;
+    
   }
   
   .header,
@@ -113,7 +114,7 @@ padding: 5.55px;
     text-align: center;
 }
 #content {
-  width: 1430px;
+  width: 1440px;
   content: center;
   overflow: hidden;
 }

@@ -119,3 +119,18 @@
       width: 100%;
       margin-bottom: 10px;
     }}
+    
+
+    .swal2-custom-popup {
+      overflow: visible !important;
+      position: relative !important; /* Ajusta la posición si es necesario */
+    }
+    
+    .swal2-container {
+      z-index: 10000 !important;
+    }
+    
+    .swal2-popup select {
+      z-index: 10001 !important; /* Forzar que el select esté por encima del modal */
+    }
+    

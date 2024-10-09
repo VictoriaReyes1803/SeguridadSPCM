@@ -10,7 +10,10 @@ import { CommonModule } from '@angular/common';
 import { ChecklistKraussMaffeiComponent } from '../checklist-krauss-maffei/checklist-krauss-maffei.component';
 import { KraussMaffeiMc62Component } from "../krauss-maffei-mc6-2/krauss-maffei-mc6-2.component";
 import { ActivatedRoute } from '@angular/router'; 
-import { Producto, Productos } from '../../../Models/Productos';
+import { Producto, Productos , Producto_Maquina} from '../../../Models/Productos';
+import { Maquina } from '../../../Models/Maquina';
+import { SecureCookieService } from '../../../services/cookies/cookies.service';
+import { User } from '../../../Models/user';
 @Component({
   selector: 'app-krauss-maffei-mc6',
   standalone: true,
@@ -28,26 +31,38 @@ import { Producto, Productos } from '../../../Models/Productos';
 })
 export class KraussMaffeiMC6Component {
   title = 'angular-pdf-export';
-  
+  maquina: Maquina | null = null;
+  Producto_Maquina: Producto_Maquina | null = null;
   currentContainer = 0; 
   productos: Productos = [];
+  user: User | null = null;
   productoSeleccionado: Producto | null = null;
   productoId:  number | null = null;
- 
+  Fecha: string | null = null;
+  estado: boolean = false;
 
   checklist = false;
   @ViewChild('container0') container0!: ElementRef;
   @ViewChild('container1') container1!: ElementRef;
   @ViewChild('container2') container2!: ElementRef;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,
+    private secureCookieService: SecureCookieService
+  ) {
   }
   containers: ElementRef[] = [];
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      if (params['producto']) {
+      if (params['producto'] && params['maquina']) {
         this.productoSeleccionado = JSON.parse(params['producto']);
+        this.Producto_Maquina = JSON.parse(params['producto_maquina']);
+        this.maquina = JSON.parse(params['maquina']);
+        this.Fecha = params['fecha'];
+        this.estado = params['estado'] === 'true';
+        console.log('estado:', this.estado, typeof this.estado);
+        this.user = this.secureCookieService.getSecureCookie('user');
         console.log('Producto recibido:', this.productoSeleccionado);
+        console.log('Maquina recibida:', this.Producto_Maquina);
       } else {
         console.log('No se recibió ningún producto.');
       }
@@ -105,8 +120,15 @@ export class KraussMaffeiMC6Component {
         addImageToPDF(canvases[0], true);  
         addImageToPDF(canvases[1], false);
         addImageToPDF(canvases[2], false); 
-  
-        pdf.save('SPCM.pdf');
+        
+        const now = new Date();
+        const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
+        const formattedTime = `${now.getHours().toString().padStart(2, '0')}-${now.getMinutes().toString().padStart(2, '0')}`;
+        const productName = this.productoSeleccionado ? this.productoSeleccionado.producto : 'ProductoDesconocido';
+
+        const pdfFileName = `MC6_${productName}_${formattedDate}_${formattedTime}.pdf`;
+        
+        pdf.save(pdfFileName);
   
         this.currentContainer = originalContainer;
       });

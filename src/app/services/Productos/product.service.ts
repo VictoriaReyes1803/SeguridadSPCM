@@ -4,7 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { SecureCookieService } from '../cookies/cookies.service';
-import { Productos } from '../../Models/Productos';
+import { Maquina } from '../../Models/Maquina';
+import { Productos, Producto_Maquina } from '../../Models/Productos';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,5 +19,13 @@ export class ProductService {
 
   getProducts(): Observable<Productos> {
     return this.http.get<Productos>(`${this.apiurl}productos/`);
+  }
+
+  getProducto_Maquina(ruta: string): Observable<Producto_Maquina> {
+    return this.http.get<Producto_Maquina>(`${this.apiurl}producto-maquina/${ruta}/`);
+  }
+
+  getMaquinas(): Observable<Maquina[]> {
+    return this.http.get<Maquina[]>(`${this.apiurl}maquinas/`);
   }
 }
