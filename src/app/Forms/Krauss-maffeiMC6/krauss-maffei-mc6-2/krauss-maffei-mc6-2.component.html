@@ -1,150 +1,19 @@
     <h1 class="fv" style="font-size: large;" >Parámetros del proceso Krauss Maffei MC6</h1>
     <div>
-      <table>
-        <tr>
-          <th rowspan="4">
-            <img
-              src="../../assets/images/logo.png"
-              alt="Descripción de la imagen"
-              style="width: 120px; height: auto"
-            />
-          </th>
-          <th class="fv" colspan="1">Cliente:</th>
-          <th name="cliente" colspan="1"></th>
-          <th class="fv" colspan="1">Producto 1:</th>
-          <th colspan="1">
-            <input
-              type="text"
-              class="no-border-input"
-              name="producto1"
-              style="width: 100%; border: none"
-            />
-          </th>
-          <th class="fv" colspan="1">Num. Cav th 1:</th>
-          <th colspan="1">
-            <input
-              type="text"
-              class="no-border-input"
-              name="Num. Cav th 1"
-              style="width: 100%; border: none"
-            />
-          </th>
-        </tr>
-        <tr>
-          <th class="fv" colspan="1">Maquina:</th>
-          <th colspan="1">
-            <input
-              type="text"
-              class="no-border-input"
-              name="Maquina"
-              style="width: 100%; border: none"
-            />
-          </th>
-          <th class="fv" colspan="1">Producto 2:</th>
-          <th colspan="1">
-            <input
-              type="text"
-              class="no-border-input"
-              name="Producto2"
-              style="width: 100%; border: none"
-            />
-          </th>
-          <th class="fv" colspan="1">Num. Cav real 1:</th>
-          <th colspan="1">
-            <input
-              type="text"
-              class="no-border-input"
-              name="Num. Cav real 1"
-              style="width: 100%; border: none"
-            />
-          </th>
-        </tr>
-        <tr>
-          <th class="fv" colspan="1">Arch/Disq:</th>
-          <th colspan="1">
-            <input
-              type="text"
-              class="no-border-input"
-              name="Arch/Disq:"
-              style="width: 100%; border: none"
-            />
-          </th>
-          <th class="fv" colspan="1">Molde:</th>
-          <th colspan="1">
-            <input
-              type="text"
-              class="no-border-input"
-              name="Molde"
-              style="width: 100%; border: none"
-            />
-          </th>
-          <th class="fv" colspan="1">Num. Cav th 2:</th>
-          <th colspan="1">
-            <input
-              type="text"
-              class="no-border-input"
-              name="Num. Cav th 2"
-              style="width: 100%; border: none"
-            />
-          </th>
-        </tr>
-        <tr>
-          <th class="fv" colspan="1">Fecha Rev:</th>
-          <th colspan="1">
-            <input
-              type="text"
-              class="no-border-input"
-              name="Fecha Rev"
-              style="width: 100%; border: none"
-            />
-          </th>
-          <th class="fv" colspan="1">Resina:</th>
-          <th colspan="1">
-            <input
-              type="text"
-              class="no-border-input"
-              name="Resina"
-              style="width: 100%; border: none"
-            />
-          </th>
-          <th class="fv" colspan="1">Num. Cav real 2:</th>
-          <th colspan="1">
-            <input
-              type="text"
-              class="no-border-input"
-              name="Num. Cav real 2"
-              style="width: 100%; border: none"
-            />
-          </th>
-        </tr>
-        <tr>
-          <th class="fv" colspan="3" style="border-bottom: 1px solid white">
-            REGISTRO DE PARAMETROS
-          </th>
-          <th  class="fv" colspan="1" style="border-bottom: 1px solid white">
-            Pigmento:
-          </th>
-          <th colspan="1" style="border-bottom: 1px solid white">
-            <input
-              type="text"
-              class="no-border-input"
-              name="pigmento"
-              style="width: 100%; border: none"
-            />
-          </th>
-          <th class="fv" colspan="1" style="border-bottom: 1px solid white">
-            % de Pigmento:
-          </th>
-          <th colspan="1" style="border-bottom: 1px solid white">
-            <input
-              type="text"
-              class="no-border-input"
-              name="% de pigmento"
-              style="width: 100%; border: none"
-            />
-          </th>
-        </tr>
-      </table>
+      <app-header-mc6 
+         [cliente]="cliente"
+         [producto_1]="producto_1"
+         [maquina] = "maquina"
+         [Num_Cav_th_1]="Num_Cav_th_1"
+         [Num_Cav_real_1]="Num_Cav_real_1"
+          [Molde]="Molde"
+          [Resina]="Resina"
+          [Fecha]=" Fecha"
+          [Producto_Maquina]="Producto_Maquina"
+          [estado]="estado"
+         >
+          
+         </app-header-mc6>
     </div>
     <table>
       <tr>
@@ -1112,76 +981,8 @@
           </td>
           <td class="none">gr</td>
         </tr>
-        <tr>
-          <td style="padding: 4px; border-bottom:none" colspan="11">
-            Comentario: Revisar tolerancias en la hoja de "Checklist de
-            Procesos". El parámetro de la BRIDA puede variar entre un rango
-            de 20° y 100° C.
-          </td>
-        </tr>
-        <tr>
-          <td class="none" style="padding: 4px" colspan="11">
-            CUIDADO: Los cambios deben quedar registrados
-          </td>
-        </tr>
-        <tr>
-          <td class="none" style="text-align: left" colspan="9" rowspan="3">
-            Comentarios:
-          </td>
-          <td class="none fv">Secado min(Lts)</td>
-          <td>
-            <input
-              type="number"
-              class="no-border-input"
-              name="Secado min(Lts)"
-              style="width: 100%"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td class="none fv">Consumo(Lts x H)</td>
-          <td>
-            <input
-              type="number"
-              class="no-border-input"
-              name="Consumo(Lts x H)"
-              style="width: 100%"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td  class="none fv">Rate(Pzas x H)</td>
-          <td >
-            <input
-              type="number"
-              class="no-border-input"
-              name="Temp. de Secado"
-              style="width: 100%"
-            />
-          </td>
-        </tr>
       </tbody>
     </table>
-    <table cellspacing="0" cellpadding="5">
-      <thead>
-        <tr>
-          <th>Fecha/Hora</th>
-          <th>Autor</th>
-          <th>Parametro Cambiado</th>
-          <th>Motivo</th>
-          <th>Resultado</th>
-          <th>T Ciclo</th>
-          <th>Comentarios</th>
-        </tr>
-      </thead>
-      <tbody>
-        <th style="height: 95px" rowspan="3"></th>
-        <th rowspan="3"></th>
-        <th rowspan="3"></th>
-        <th rowspan="3"></th>
-        <th rowspan="3"></th>
-        <th rowspan="3"></th>
-        <th rowspan="3"></th>
-      </tbody>
-    </table>
+    <app-footer2></app-footer2>    
+    <app-footer3></app-footer3>
   

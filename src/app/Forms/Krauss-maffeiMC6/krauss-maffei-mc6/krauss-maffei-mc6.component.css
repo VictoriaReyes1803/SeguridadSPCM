@@ -63,7 +63,10 @@
     border-collapse: collapse;
 
   }
-  
+  input{
+    text-align: center;
+  }
+
   table, th, td {
     border: 1px solid #000;
   }
@@ -123,3 +126,56 @@ padding: 5.55px;
 }
 
 
+
+
+
+/* botones */
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.nav-button {
+  background-color: #f9ad3b; 
+  color: #333; 
+  border: 1px solid #ccc; 
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s; 
+}
+
+.nav-button:hover {
+  background-color: #ff8c00; 
+}
+
+.page-button {
+  background-color: #f9ad3b; 
+  color: white; 
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer; 
+  transition: background-color 0.3s; 
+}
+
+.page-button:hover {
+  background-color: #ff8c00;
+}
+
+.save-button {
+  display: block; 
+  margin: 20px auto 0; 
+  background-color: #f9ad3b; 
+  color: white;
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.save-button:hover {
+  background-color: #fb8c00; 
+}

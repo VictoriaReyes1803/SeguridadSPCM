@@ -14,6 +14,12 @@ import { Producto, Productos , Producto_Maquina} from '../../../Models/Productos
 import { Maquina } from '../../../Models/Maquina';
 import { SecureCookieService } from '../../../services/cookies/cookies.service';
 import { User } from '../../../Models/user';
+import { HeaderMc6Component } from "../header-mc6/header-mc6.component";
+import { mc6 } from '../../../Models/Interfaz_mc6.ts/mc6';
+import { Mc6Service } from '../../../services/Forms/mc6.service';
+import { Footer3Component } from '../../Componentes/footer3/footer3.component';
+import { Footer2Component } from '../../Componentes/footer2/footer2.component';
+
 @Component({
   selector: 'app-krauss-maffei-mc6',
   standalone: true,
@@ -24,7 +30,10 @@ import { User } from '../../../Models/user';
     ToolbarComponent,
     SidebarComponent,
     CommonModule,
-    KraussMaffeiMc62Component
+    KraussMaffeiMc62Component,
+    HeaderMc6Component,
+    Footer3Component,
+    Footer2Component
 ],
   templateUrl: './krauss-maffei-mc6.component.html',
   styleUrl: './krauss-maffei-mc6.component.css'
@@ -33,6 +42,7 @@ export class KraussMaffeiMC6Component {
   title = 'angular-pdf-export';
   maquina: Maquina | null = null;
   Producto_Maquina: Producto_Maquina | null = null;
+  mc6!: mc6;
   currentContainer = 0; 
   productos: Productos = [];
   user: User | null = null;
@@ -41,14 +51,18 @@ export class KraussMaffeiMC6Component {
   Fecha: string | null = null;
   estado: boolean = false;
 
+
   checklist = false;
   @ViewChild('container0') container0!: ElementRef;
   @ViewChild('container1') container1!: ElementRef;
   @ViewChild('container2') container2!: ElementRef;
 
   constructor(private route: ActivatedRoute,
-    private secureCookieService: SecureCookieService
+    private secureCookieService: SecureCookieService,
+    private mc6Service: Mc6Service
   ) {
+    this.mc6 = this.mc6Service.getlist();
+    console.log('mc6:', this.mc6);
   }
   containers: ElementRef[] = [];
   ngOnInit(): void {
@@ -77,6 +91,8 @@ export class KraussMaffeiMC6Component {
     });
   }
   downloadPDF() {
+    this.mc6Service.setlist(this.mc6);
+    console.log('mc6:', this.mc6);
     const pdf = new jsPDF('p', 'pt', 'letter');
     const marginTop = 20;
     const marginSide = 20;

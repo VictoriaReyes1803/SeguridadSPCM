@@ -27,7 +27,8 @@
     <tr>
       <th class="fv" colspan="1">Maquina:</th>
       <th colspan="1">
-        {{maquina}}
+        <span *ngIf="estado">{{ Producto_Maquina }}</span>
+        <span *ngIf="!estado">{{ maquina }}</span>
       </th>
       <th class="fv" colspan="1">Producto 2:</th>
       <th colspan="1">

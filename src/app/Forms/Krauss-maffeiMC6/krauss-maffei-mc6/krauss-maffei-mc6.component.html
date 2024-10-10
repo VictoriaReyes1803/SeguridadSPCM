@@ -8,136 +8,20 @@
       <div *ngIf="currentContainer == 0 || currentContainer == -1" #container0 class="container">
         <h1 class="fv" style="font-size: large;" >Parámetros del proceso Krauss Maffei MC6</h1>
         <div>
-          <table>
-            <tr>
-              <th rowspan="4">
-                <img
-                  src="../../assets/images/logo.png"
-                  alt="Descripción de la imagen"
-                  style="width: 120px; height: auto"
-                />
-              </th>
-              <th class="fv" colspan="1">Cliente:</th>
-              <th  name="cliente" colspan="1"> {{productoSeleccionado?.codigo_cliente}}</th>
-              <th class="fv" colspan="1">Producto 1:</th>
-              <th colspan="1">
-                {{productoSeleccionado?.producto}}
-              </th>
-              <th class="fv" colspan="1">Num. Cav th 1:</th>
-              <th colspan="1">
-                <input
-                  type="text"
-                  class="no-border-input"
-                  name="Num. Cav th 1"
-                  style="width: 100%; border: none"
-                  placeholder="{{Producto_Maquina?.Cadence_theo}}"
-                />
-              </th>
-            </tr>
-            <tr>
-              <th class="fv" colspan="1">Maquina:</th>
-              <th colspan="1">
-                <span *ngIf="estado">{{ Producto_Maquina?.Centro_trabajo_ppal }} </span>
-                <span *ngIf="!estado">{{ maquina?.maquina }}</span>
-              </th>
-              <th class="fv" colspan="1">Producto 2:</th>
-              <th colspan="1">
-                <input
-                  type="text"
-                  class="no-border-input"
-                  name="Producto2"
-                  style="width: 100%; border: none"
-                />
-              </th>
-              <th class="fv" colspan="1">Num. Cav real 1:</th>
-              <th colspan="1">
-                <input
-                  type="text"
-                  class="no-border-input"
-                  name="Num. Cav real 1"
-                  style="width: 100%; border: none"
-                  placeholder="{{Producto_Maquina?.Cadencia}}"
-                />
-              </th>
-            </tr>
-            <tr>
-              <th class="fv" colspan="1">Arch/Disq:</th>
-              <th colspan="1">
-                <input
-                  type="text"
-                  class="no-border-input"
-                  name="Arch/Disq:"
-                  style="width: 100%; border: none"
-                />
-              </th>
-              <th class="fv" colspan="1">Molde:</th>
-              <th colspan="1">
-                <input
-                  type="text"
-                  class="no-border-input"
-                  name="Molde"
-                  style="width: 100%; border: none"
-                  placeholder="{{Producto_Maquina?.Utillaje}}"
-                />
-                
-              </th>
-              <th class="fv" colspan="1">Num. Cav th 2:</th>
-              <th colspan="1">
-                <input
-                  type="text"
-                  class="no-border-input"
-                  name="Num. Cav th 2"
-                  style="width: 100%; border: none"
-                />
-              </th>
-            </tr>
-            <tr>
-              <th class="fv" colspan="1">Fecha Rev:</th>
-              <th colspan="1">
-                {{Fecha}}
-              </th>
-              <th class="fv" colspan="1">Resina:</th>
-              <th colspan="1">
-                {{productoSeleccionado?.resina_1}}
-              </th>
-              <th class="fv" colspan="1">Num. Cav real 2:</th>
-              <th colspan="1">
-                <input
-                  type="text"
-                  class="no-border-input"
-                  name="Num. Cav real 2"
-                  style="width: 100%; border: none"
-                />
-              </th>
-            </tr>
-            <tr>
-              <th class="fv" colspan="3" style="border-bottom: 1px solid white">
-                REGISTRO DE PARAMETROS
-              </th>
-              <th class="fv" colspan="1" style="border-bottom: 1px solid white">
-                Pigmento:
-              </th>
-              <th colspan="1" style="border-bottom: 1px solid white">
-                <input
-                  type="text"
-                  class="no-border-input"
-                  name="pigmento"
-                  style="width: 100%; border: none"
-                />
-              </th>
-              <th class="fv" colspan="1" style="border-bottom: 1px solid white">
-                % de Pigmento:
-              </th>
-              <th colspan="1" style="border-bottom: 1px solid white">
-                <input
-                  type="text"
-                  class="no-border-input"
-                  name="% de pigmento"
-                  style="width: 100%; border: none"
-                />
-              </th>
-            </tr>
-          </table>
+         <app-header-mc6 
+         [cliente]="productoSeleccionado?.codigo_cliente ?? ''"
+         [producto_1]="productoSeleccionado?.producto ?? null"
+         [maquina] = "maquina?.maquina ?? null"
+         [Num_Cav_th_1]="Producto_Maquina?.Cadence_theo ?? null"
+         [Num_Cav_real_1]="Producto_Maquina?.Cadencia ?? null"
+          [Molde]="Producto_Maquina?.Utillaje ?? null"
+          [Resina]="productoSeleccionado?.resina_1 ?? null"
+          [Fecha]=" Fecha"
+          [Producto_Maquina]="Producto_Maquina?.Centro_trabajo_ppal ?? null"
+          [estado]="estado"
+         >
+          
+         </app-header-mc6>
         </div>
         <table>
           <tr>
@@ -157,6 +41,7 @@
               <input
                 type="text"
                 class="no-border-input"
+                [(ngModel)]="mc6.editado_por"
                 name="EDITADO POR"
                 placeholder="{{user?.nombre}} {{user?.apellido_paterno}}"
                 style="width: 100%; border: none"
@@ -181,10 +66,12 @@
                 type="text"
                 name="t.Supervision"
                 style="width: 50%;"
+                [(ngModel)]="mc6.t_Supervision"
               />  seg </td>
               <td  style="padding: 20px; border-bottom:none"  colspan="6"><input
                 type="text"
                 name="sostenimiento"
+                [(ngModel)]="mc6.sostenimiento_mm"
                 style="width: 50%;"
               /> mm </td>
               
@@ -192,6 +79,7 @@
                padding-left:10px; padding-right:10px "> n° <input
                 type="number"
                 name="v carga"
+                [(ngModel)]="mc6.carga_n_mm"
                 style="width: 70%; height: 32px"
               /></td>
               <td class="none" style="padding-top:21px;">1/mm</td>
@@ -222,6 +110,7 @@
                 type="number"
                 name="p carga"
                 style="width: 72%; height: 32px"
+                [(ngModel)]="mc6.carga_p_bar"
               /></td>
               <td class="none" style="padding-bottom:15px;" >bar</td>
             </tr>
@@ -231,85 +120,102 @@
                 type="number"
                 class="no-border-input"
                 name="10 v"
+                [(ngModel)]="mc6.Inyeccion_10_v"
               /></td>
               <td> <input
                 type="number"
                 class="no-border-input"
                 name="9v"
+                [(ngModel)]="mc6.Inyeccion_9_v"
               /></td>
               <td> <input
                 type="number"
                 class="no-border-input"
                 name="8v"
+                [(ngModel)]="mc6.Inyeccion_8_v"
               /></td>
               <td> <input
                 type="number"
                 class="no-border-input"
                 name="7v"
+                [(ngModel)]="mc6.Inyeccion_7_v"
               /></td>
               <td> <input
                 type="number"
                 class="no-border-input"
                 name="6v"
+                [(ngModel)]="mc6.Inyeccion_6_v"
               /></td>
               <td> <input
                 type="number"
                 class="no-border-input"
                 name="5v"
+                [(ngModel)]="mc6.Inyeccion_5_v"
               /></td>
               <td> <input
                 type="number"
                 class="no-border-input"
                 name="4v"
+                [(ngModel)]="mc6.Inyeccion_4_v"
               /></td>
               <td> <input
                 type="number"
                 class="no-border-input"
                 name="3v"
+                [(ngModel)]="mc6.Inyeccion_3_v"
               /></td>
               <td> <input
                 type="number"
                 class="no-border-input"
                 name="2v"
+                [(ngModel)]="mc6.Inyeccion_2_v"
               /></td>
               <td> <input
                 type="number"
                 class="no-border-input"
                 name="1v"
+                [(ngModel)]="mc6.Inyeccion_1_v"
               /></td>
               <td class="none fv" > V(mm/s)</td>
               <td> <input
-                type="number"
+                type="text"
                 class="no-border-input"
                 name="sostenimiento bar"
+                [(ngModel)]="mc6.sostenimiento_bar_1"
               /></td>
               <td> <input
-                type="number"
+                type="text"
                 class="no-border-input"
                 name="sostenimiento bar"
+                [(ngModel)]="mc6.sostenimiento_bar_2"
               /></td>
               <td> <input
-                type="number"
+                type="text"
                 class="no-border-input"
                 name="sostenimiento bar"
+                placeholder="200"
+                [(ngModel)]="mc6.sostenimiento_bar_3"
               /></td>
               <td class="fv  none"> bar</td>
               <td style="border-left: none; border-top:none" rowspan="7"></td>
               <td class="none" style="padding-left:10px; padding-right:10px "> S <input
                 type="number"
                 name="s carga"
+                [(ngModel)]="mc6.carga_s_1"
                 style="width: 70%; height: 32px"
               /></td>
               <td class="none" colspan="1"></td>
               <td class="none" style="padding-left:5px; padding-right:5px ">  <input
                 type="number"
                 name="v carga"
+                [(ngModel)]="mc6.carga_s_2"
                 style="width: 80%; height: 32px"
               /></td>
               <td class="none"></td>
               <td class="none" style="padding-left:5px; padding-right:5px ">  <input
                 type="number"
                 name="v carga"
+                [(ngModel)]="mc6.carga_s_mm"
                 style="width: 80%; height: 32px"
               /></td>
               <td class="none">mm</td>
@@ -321,18 +227,23 @@
                 type="number"
                 class="no-border-input"
                 name="10 p"
+                [(ngModel)]="mc6.Inyeccion_10_p"
+
               /></td>
               <td> <input
                 type="number"
                 class="no-border-input"
                 name="9p"
+                [(ngModel)]="mc6.Inyeccion_9_p"
               /></td>
               <td> <input
                 type="number"
+                [(ngModel)]="mc6.Inyeccion_8_p"
                 class="no-border-input"
                 name="8p"
               /></td>
               <td> <input
+                [(ngModel)]="mc6.Inyeccion_7_p"
                 type="number"
                 class="no-border-input"
                 name="7p"
@@ -340,59 +251,72 @@
               <td> <input
                 type="number"
                 class="no-border-input"
+                
+                [(ngModel)]="mc6.Inyeccion_6_p"
                 name="6p"
               /></td>
               <td> <input
                 type="number"
                 class="no-border-input"
+                [(ngModel)]="mc6.Inyeccion_5_p"
                 name="5p"
               /></td>
               <td> <input
                 type="number"
                 class="no-border-input"
+                [(ngModel)]="mc6.Inyeccion_4_p"
                 name="4p"
               /></td>
               <td> <input
                 type="number"
                 class="no-border-input"
+                [(ngModel)]="mc6.Inyeccion_3_p"
                 name="3p"
               /></td>
               <td> <input
                 type="number"
                 class="no-border-input"
+                [(ngModel)]="mc6.Inyeccion_2_p"
                 name="2p"
               /></td>
               <td> <input
                 type="number"
                 class="no-border-input"
+                [(ngModel)]="mc6.Inyeccion_1_p"
                 name="1p"
               /></td>
               <td class="none fv"> P(bar)</td>
               <td> <input
                 type="number"
                 class="no-border-input"
+                [(ngModel)]="mc6.sostenimiento_seg_1"
+
+                name="sostenimiento seg"
+              /></td>
+              <td> <input
+                type="number"
+                class="no-border-input"
+                [(ngModel)]="mc6.sostenimiento_seg_2"
                 name="sostenimiento seg"
               /></td>
               <td> <input
                 type="number"
                 class="no-border-input"
                 name="sostenimiento seg"
-              /></td>
-              <td> <input
-                type="number"
-                class="no-border-input"
-                name="sostenimiento seg"
+                [(ngModel)]="mc6.sostenimiento_seg_3"
               /></td>
               <td class="none">seg</td>
               <td class="none" style="padding-left:10px; padding-right:10px "> V <input
                 type="number"
                 name="v carga"
+                [(ngModel)]="mc6.carga_v"
                 style="width: 70%; height: 32px"
               /></td>
               <td class="none" colspan="3"></td>
               <td class="none" style="padding-left:5px; padding-right:5px ">  <input
                 type="number"
                 name="v carga"
+                [(ngModel)]="mc6.carga_v_mms"
                 style="width: 80%; height: 32px"
               /></td>
               <td class="fv none">mm/s</td>
@@ -402,52 +326,63 @@
                 <td><input
                   type="number"
                   class="no-border-input"
+                  [(ngModel)]="mc6.Inyeccion_10_s"
                   name="10 s"
                 /></td>
                 <td> <input
                   type="number"
                   class="no-border-input"
                   name="9s"
+                  [(ngModel)]="mc6.Inyeccion_9_s"
+                  
                 /></td>
                 <td> <input
                   type="number"
                   class="no-border-input"
                   name="8s"
+                  [(ngModel)]="mc6.Inyeccion_8_s"
                 /></td>
                 <td> <input
                   type="number"
                   class="no-border-input"
                   name="7s"
+                  [(ngModel)]="mc6.Inyeccion_7_s"
                 /></td>
                 <td> <input
                   type="number"
                   class="no-border-input"
                   name="6s"
+                  [(ngModel)]="mc6.Inyeccion_6_s"
                 /></td>
                 <td> <input
                   type="number"
                   class="no-border-input"
                   name="5s"
+                  [(ngModel)]="mc6.Inyeccion_5_s"
                 /></td>
                 <td> <input
                   type="number"
                   class="no-border-input"
                   name="4s"
+                  [(ngModel)]="mc6.Inyeccion_4_s"
                 /></td>
                 <td> <input
                   type="number"
                   class="no-border-input"
                   name="3s"
+                  [(ngModel)]="mc6.Inyeccion_3_s"
                 /></td>
                 <td> <input
                   type="number"
                   class="no-border-input"
                   name="2s"
+                  [(ngModel)]="mc6.Inyeccion_2_s"
                 /></td>
                 <td> <input
                   type="number"
                   class="no-border-input"
                   name="1s"
+                  [(ngModel)]="mc6.Inyeccion_1_s"
                 /></td>
                 <td class="none" style="padding: 10px;">s(mm)</td>
                 <td class="none" colspan="4"></td>
@@ -458,6 +393,7 @@
                 <td class="none" style="padding: 15px;" colspan="2"> Niveles</td>
                 <td class="none"><input
                   type="number"
+                  [(ngModel)]="mc6.Sostenimiento_niveles"
                   name="Niveles"
                   style="width: 100%; height: 32px"></td>
 
@@ -466,6 +402,7 @@
                   <td class="none"><input
                     type="number"
                     name="Niveles"
+                    [(ngModel)]="mc6.carga_niveles"
                     style="width: 100%; height: 32px"></td>
                     <td class="none fv" colspan="1">n°
                     </td>
@@ -478,6 +415,8 @@
                 <td class="none">% de Llenado</td>
                 <td class="none"><input
                   type="number"
+                  name="% de Llenado"
+                  [(ngModel)]="mc6.porc_llenado"
                   name="v carga"
                   style="width: 100%; height: 32px"></td>
                   <td class="none"> % </td>
@@ -486,12 +425,14 @@
                   <td class="none"><input
                     type="number"
                     name="v carga"
+                    [(ngModel)]="mc6.inyeccion_niveles"
                     style="width: 100%; height: 32px"></td>
                     <td class="none"></td>
                     <td class="none" colspan="2">t enfriamiento</td>
                     <td class="none"><input
                       type="number"
                       name="t enfriamiento"
+                      [(ngModel)]="mc6.t_enfriamiento"
                       style="width: 100%; height: 32px"></td>
                       <td class="none">seg</td>
                       <td class="none" colspan="1"></td>
@@ -499,6 +440,7 @@
                       <td class="none"><input
                         type="number"
                         name="retardo dosificacion"
+                        [(ngModel)]="mc6.retardo_dosificacion"
                         style="width: 100%; height: 32px"></td>
                         <td class="none">s</td>
 
@@ -546,60 +488,70 @@
                 class="no-border-input"
                 style="width: 100%;"
                 name="14 c"
+                [(ngModel)]="mc6.temp_barril_14"
+               ></td>
+               <td><input
+                type="number"
+                class="no-border-input"
+                style="width: 100%;"
+                name="13 c"
+                [(ngModel)]="mc6.temp_barril_13"
+               ></td>
+               <td><input
+                type="number"
+                class="no-border-input"
+                style="width: 100%;"
+                name="11 c"
+                [(ngModel)]="mc6.temp_barril_11"
+               ></td>
+               <td><input
+                type="number"
+                class="no-border-input"
+                style="width: 100%;"
+                name="6 c"
+                [(ngModel)]="mc6.temp_barril_6"
                ></td>
                <td><input
                 type="number"
                 class="no-border-input"
                 style="width: 100%;"
                 name="14 c"
+                [(ngModel)]="mc6.temp_barril_5"
                ></td>
                <td><input
                 type="number"
                 class="no-border-input"
                 style="width: 100%;"
                 name="14 c"
+                [(ngModel)]="mc6.temp_barril_4"
                ></td>
                <td><input
                 type="number"
                 class="no-border-input"
                 style="width: 100%;"
                 name="14 c"
+                [(ngModel)]="mc6.temp_barril_3"
                ></td>
                <td><input
                 type="number"
                 class="no-border-input"
                 style="width: 100%;"
                 name="14 c"
+                [(ngModel)]="mc6.temp_barril_2"
                ></td>
                <td><input
                 type="number"
                 class="no-border-input"
                 style="width: 100%;"
                 name="14 c"
-               ></td>
-               <td><input
-                type="number"
-                class="no-border-input"
-                style="width: 100%;"
-                name="14 c"
-               ></td>
-               <td><input
-                type="number"
-                class="no-border-input"
-                style="width: 100%;"
-                name="14 c"
-               ></td>
-               <td><input
-                type="number"
-                class="no-border-input"
-                style="width: 100%;"
-                name="14 c"
+                [(ngModel)]="mc6.temp_barril_1"
                ></td>
                <td><input
                 type="number"
                 class="no-border-input"
                 style="width: 100%;"
                 name="Brida c"
+                [(ngModel)]="mc6.temp_barril_brida"
                ></td>
                <td colspan="2" class="none fv">
                 °C
@@ -613,14 +565,16 @@
                 type="number"
                 style="width: 100%;"
                 name="Temp fija"
+                [(ngModel)]="mc6.temp_fija"
                 >
               </td>
               
               <td class="none" colspan="2"> 
                 <input
                 type="number"
-                style="width: 100%;"
+                style="width: 100%; "
                 name="Temp movil"
+                [(ngModel)]="mc6.temp_movil"
                 >
               </td>
                 <td class="none">
@@ -628,6 +582,7 @@
                   type="number"
                 style="width: 100%;"
                 name="Temp otros"
+                [(ngModel)]="mc6.temp_otros"
                   >
                 </td>
                 <td class="none">°C</td>
@@ -645,6 +600,7 @@
                   class="no-border-input"
                   style="width: 100%;"
                   name="14 porcentual"
+                  [(ngModel)]="mc6.porcentual_1"
                 />
               </td>
               <td>
@@ -653,6 +609,7 @@
                   class="no-border-input"
                   style="width: 100%;"
                   name="13 porcentual"
+                  [(ngModel)]="mc6.porcentual_2"
                 />
               </td>
               <td>
@@ -661,6 +618,7 @@
                   class="no-border-input"
                   style="width: 100%;"
                   name="11 porcentual"
+                  [(ngModel)]="mc6.porcentual_3"
                 />
               </td>
               <td>
@@ -669,6 +627,7 @@
                   class="no-border-input"
                   style="width: 100%;"
                   name="6 porcentual"
+                  [(ngModel)]="mc6.porcentual_4"
                 />
               </td>
               <td>
@@ -677,6 +636,7 @@
                   class="no-border-input"
                   style="width: 100%;"
                   name="5 porcentual"
+                  [(ngModel)]="mc6.porcentual_5"
                 />
               </td>
               <td>
@@ -685,6 +645,7 @@
                   class="no-border-input"
                   style="width: 100%;"
                   name="4 porcentual"
+                  [(ngModel)]="mc6.porcentual_6"
                 />
               </td>
               <td>
@@ -693,6 +654,7 @@
                   class="no-border-input"
                   style="width: 100%;"
                   name="3 porcentual"
+                  [(ngModel)]="mc6.porcentual_7"
                 />
               </td>
               <td>
@@ -701,6 +663,7 @@
                   class="no-border-input"
                   style="width: 100%;"
                   name="2 porcentual"
+                  [(ngModel)]="mc6.porcentual_8"
                 />
               </td>
               <td>
@@ -709,6 +672,7 @@
                   class="no-border-input"
                   style="width: 100%;"
                   name="1 porcentual"
+                  [(ngModel)]="mc6.porcentual_9"
                 />
               </td>
               <td>
@@ -717,6 +681,7 @@
                   class="no-border-input"
                   style="width: 100%;"
                   name="brida porcentual"
+                  [(ngModel)]="mc6.porcentual_10"
                 />
               </td>
               <td class="none" colspan="2" rowspan="2"></td>
@@ -727,16 +692,19 @@
                 type="number"
                 style="width: 100%;"
                 name="Flujo fija"
+                [(ngModel)]="mc6.flujo_fija"
               /></td>
               <td class="none" colspan="2"><input
                 type="number"
                 style="width: 100%;"
                 name="Flujo movil"
+                [(ngModel)]="mc6.flujo_movil"
               /></td>
               <td class="none"><input
                 type="number"
                 style="width: 100%;"
                 name="Flujo otros"
+                [(ngModel)]="mc6.flujo_otros"
               /></td>
               <td class="none fv">l/min</td>
 
@@ -783,6 +751,7 @@
                   type="number"
                   class="no-border-input"
                   name="C1 1"
+                  [(ngModel)]="mc6.c1_1"
                 />
               </td>
               <td colspan="1">
@@ -790,6 +759,7 @@
                   type="number"
                   class="no-border-input"
                   name="C1 2"
+                  [(ngModel)]="mc6.c1_2"
                 />
               </td>
               <td colspan="1">
@@ -797,6 +767,7 @@
                   type="number"
                   class="no-border-input"
                   name="C1 3"
+                  [(ngModel)]="mc6.c1_3"
                 />
               </td>
               <td colspan="1">
@@ -1430,81 +1401,25 @@
               </td>
               <td class="none">gr</td>
             </tr>
-            <tr>
-              <td class="fv" style="padding: 4px; border-bottom:none" colspan="11">
-                Comentario: Revisar tolerancias en la hoja de "Checklist de
-                Procesos". El parámetro de la BRIDA puede variar entre un rango
-                de 20° y 100° C.
-              </td>
-            </tr>
-            <tr>
-              <td class="none fv" style="padding: 4px" colspan="11">
-                CUIDADO: Los cambios deben quedar registrados
-              </td>
-            </tr>
-            <tr>
-              <td class="none" style="text-align: left" colspan="9" rowspan="3">
-                Comentarios:
-              </td>
-              <td class="none fv">Secado min(Lts)</td>
-              <td>
-                <input
-                  type="text"
-                  class="no-border-input"
-                  name="Secado min(Lts)"
-                  style="width: 100%"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td class="none fv">Consumo(Lts x H)</td>
-              <td>
-                <input
-                  type="text"
-                  class="no-border-input"
-                  name="Consumo(Lts x H)"
-                  style="width: 100%"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td  class="none fv">Rate(Pzas x H)</td>
-              <td >
-                <input
-                  type="text"
-                  class="no-border-input"
-                  name="Temp. de Secado"
-                  style="width: 100%"
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <table cellspacing="0" cellpadding="5">
-          <thead>
-            <tr>
-              <th>Fecha/Hora</th>
-              <th>Autor</th>
-              <th>Parametro Cambiado</th>
-              <th>Motivo</th>
-              <th>Resultado</th>
-              <th>T Ciclo</th>
-              <th>Comentarios</th>
-            </tr>
-          </thead>
-          <tbody>
-            <th style="height: 95px" rowspan="3"></th>
-            <th rowspan="3"></th>
-            <th rowspan="3"></th>
-            <th rowspan="3"></th>
-            <th rowspan="3"></th>
-            <th rowspan="3"></th>
-            <th rowspan="3"></th>
-          </tbody>
-        </table>
+          </table>
+        <app-footer2></app-footer2>
+
+        <app-footer3></app-footer3>
+
       </div>
       <div *ngIf="currentContainer == 1 || currentContainer == -1" #container1 class="container">
-        <app-krauss-maffei-mc6-2></app-krauss-maffei-mc6-2>
+        <app-krauss-maffei-mc6-2
+        [cliente]="productoSeleccionado?.codigo_cliente ?? ''"
+        [producto_1]="productoSeleccionado?.producto ?? null"
+        [maquina]="maquina?.maquina ?? null"
+        [Num_Cav_th_1]="Producto_Maquina?.Cadence_theo ?? null"
+        [Num_Cav_real_1]="Producto_Maquina?.Cadencia ?? null"
+        [Molde]="Producto_Maquina?.Utillaje ?? null"
+        [Resina]="productoSeleccionado?.resina_1 ?? null"
+        [Fecha]="Fecha"
+        [Producto_Maquina]="Producto_Maquina?.Centro_trabajo_ppal ?? null"
+        [estado]="estado"
+        ></app-krauss-maffei-mc6-2>
         </div>
       <div *ngIf="currentContainer == 2 || currentContainer == -1" #container2 class="container">
           <app-checklist-krauss-maffei></app-checklist-krauss-maffei>
@@ -1514,20 +1429,20 @@
      </div>
 
     
-    <div style="text-align: center; margin-top: 20px;">
-      <button (click)="prevContainer()" [disabled]="currentContainer === 0">
+     <div class="button-container">
+      <button class="nav-button" (click)="prevContainer()" [disabled]="currentContainer === 0">
         &#8592; 
       </button>
-  
-      <button *ngFor="let page of containers; let i = index" (click)="goToContainer(i)">
+    
+      <button *ngFor="let page of containers; let i = index" class="page-button" (click)="goToContainer(i)">
         {{ i + 1 }}
       </button>
-  
-      <button (click)="nextContainer()" [disabled]="currentContainer === containers.length - 1">
+    
+      <button class="nav-button" (click)="nextContainer()" [disabled]="currentContainer === containers.length - 1">
         &#8594; 
       </button>
     </div>
-
-    <button style="text-align: center; margin-top: 20px;" (click)="downloadPDF()">Guardar</button>
-  </div>
+    
+    <button class="save-button" (click)="downloadPDF()">Guardar</button>
+    
 

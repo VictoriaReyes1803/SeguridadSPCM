@@ -68,6 +68,7 @@ th, td {
 .fv
 {
 padding: 5.55px;
+border: none;
 }
 .no-border-input {
     width: 100%;
@@ -87,3 +88,7 @@ padding: 5.55px;
   .no-border-input::placeholder {
     color: #000;      
   }
+  .none{
+    border: none;
+  }
+  
