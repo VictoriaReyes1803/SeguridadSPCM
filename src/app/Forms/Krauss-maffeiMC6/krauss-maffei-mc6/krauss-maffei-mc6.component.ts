@@ -19,7 +19,7 @@ import { mc6 } from '../../../Models/Interfaz_mc6.ts/mc6';
 import { Mc6Service } from '../../../services/Forms/mc6.service';
 import { Footer3Component } from '../../Componentes/footer3/footer3.component';
 import { Footer2Component } from '../../Componentes/footer2/footer2.component';
-
+import { SpinerComponent } from '../../Componentes/spiner/spiner.component';
 @Component({
   selector: 'app-krauss-maffei-mc6',
   standalone: true,
@@ -33,12 +33,15 @@ import { Footer2Component } from '../../Componentes/footer2/footer2.component';
     KraussMaffeiMc62Component,
     HeaderMc6Component,
     Footer3Component,
-    Footer2Component
+    Footer2Component,
+    SpinerComponent
 ],
   templateUrl: './krauss-maffei-mc6.component.html',
   styleUrl: './krauss-maffei-mc6.component.css'
 })
 export class KraussMaffeiMC6Component {
+  loading = false;
+
   title = 'angular-pdf-export';
   maquina: Maquina | null = null;
   Producto_Maquina: Producto_Maquina | null = null;
@@ -91,6 +94,7 @@ export class KraussMaffeiMC6Component {
     });
   }
   downloadPDF() {
+    this.loading = true;
     this.mc6Service.setlist(this.mc6);
     console.log('mc6:', this.mc6);
     const pdf = new jsPDF('p', 'pt', 'letter');
@@ -147,6 +151,7 @@ export class KraussMaffeiMC6Component {
         pdf.save(pdfFileName);
   
         this.currentContainer = originalContainer;
+        this.loading = false;
       });
     }, 0);  
   }

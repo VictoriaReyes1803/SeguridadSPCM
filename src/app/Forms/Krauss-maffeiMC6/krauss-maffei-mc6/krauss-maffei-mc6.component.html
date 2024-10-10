@@ -3,6 +3,7 @@
 
   <div style="margin-left: 60px; text-align: center; justify-content:center; align-items:center;">
     <app-toolbar></app-toolbar>
+    <app-spiner [loading]="loading"></app-spiner>
     <div style="overflow-x:auto">
     <div id="content" >
       <div *ngIf="currentContainer == 0 || currentContainer == -1" #container0 class="container">
