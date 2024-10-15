@@ -64,6 +64,8 @@ export class AuthInterceptor implements HttpInterceptor {
         })
       );
     } else {
+      this.secureCookieService.delete('access');
+      this.secureCookieService.delete('refresh');
       this.router.navigate(['/']);
       return throwError(() => 'No refresh token available');
     }

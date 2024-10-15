@@ -15,8 +15,15 @@ export class AuthGuard implements CanActivate {
     if (token) {
       return true;
     } else {
-      this.router.navigate(['/']);
+      this.logoutAndRedirect();
+    
       return false;
     }
+  }
+  private logoutAndRedirect() {
+    // Eliminar los tokens y redirigir al login
+    this.cookieService.delete('access');
+    this.cookieService.delete('refresh');
+    this.router.navigate(['/']);
   }
 }

@@ -20,6 +20,15 @@
           [Fecha]=" Fecha"
           [Producto_Maquina]="Producto_Maquina?.Centro_trabajo_ppal ?? null"
           [estado]="estado"
+          [Arch_Disq]="mc6.Arch_Disq"
+          [Num_Cav_real_2]="mc6.Num_Cav_real_2"
+          [Num_Cav_th_2]="mc6.Num_Cav_th_2"
+          [Producto_2]="mc6.Producto_2"
+          [Pigmento]="mc6.Pigmento"
+          [Porc_pigmento]="mc6.Porc_pigmento"
+          
+
+          (cambioValores)="actualizar($event)"
          >
           
          </app-header-mc6>
@@ -203,6 +212,7 @@
                 type="number"
                 name="s carga"
                 [(ngModel)]="mc6.carga_s_1"
+                (input)="calcular()"
                 style="width: 70%; height: 32px"
               /></td>
               <td class="none" colspan="1"></td>
@@ -210,6 +220,7 @@
                 type="number"
                 name="v carga"
                 [(ngModel)]="mc6.carga_s_2"
+                (input)="calcular()"
                 style="width: 80%; height: 32px"
               /></td>
               <td class="none"></td>
@@ -217,6 +228,7 @@
                 type="number"
                 name="v carga"
                 [(ngModel)]="mc6.carga_s_mm"
+                (input)="calcular()"
                 style="width: 80%; height: 32px"
               /></td>
               <td class="none">mm</td>
@@ -776,6 +788,7 @@
                   type="number"
                   class="no-border-input"
                   name="C1 4"
+                  [(ngModel)]="mc6.c1_4"
                 />
               </td>
               <td colspan="1">
@@ -783,6 +796,7 @@
                   type="number"
                   class="no-border-input"
                   name="C1 5"
+                  [(ngModel)]="mc6.c1_5"
                 />
               </td>
               <td colspan="1">
@@ -790,6 +804,7 @@
                   type="number"
                   class="no-border-input"
                   name="C1 6"
+                  [(ngModel)]="mc6.c1_6"
                 />
               </td>
               <td colspan="1">
@@ -797,6 +812,7 @@
                   type="number"
                   class="no-border-input"
                   name="C1 7"
+                  [(ngModel)]="mc6.c1_7"
                 />
               </td>
               <td colspan="1">
@@ -804,6 +820,7 @@
                   type="number"
                   class="no-border-input"
                   name="C1 8"
+                  [(ngModel)]="mc6.c1_8"
                 />
               </td>
               <td colspan="1">
@@ -811,6 +828,7 @@
                   type="number"
                   class="no-border-input"
                   name="C1 9"
+                  [(ngModel)]="mc6.c1_9"
                 />
               </td>
               <td colspan="1">
@@ -818,6 +836,7 @@
                   type="number"
                   class="no-border-input"
                   name="C1 10"
+                  [(ngModel)]="mc6.c1_10"
                 />
               </td>
               <td colspan="1">
@@ -825,6 +844,7 @@
                   type="number"
                   class="no-border-input"
                   name="C1 11"
+                  [(ngModel)]="mc6.c1_11"
                 />
               </td>
               <td colspan="1">
@@ -832,6 +852,7 @@
                   type="number"
                   class="no-border-input"
                   name="C1 12"
+                  [(ngModel)]="mc6.c1_12"
                 />
               </td>
               <td class="none fv" colspan="1">
@@ -848,6 +869,8 @@
                   type="number"
                   class="no-border-input"
                   name="C2 1"
+                  [(ngModel)]="mc6.c2_1"
+
                 />
               </td>
               <td colspan="1">
@@ -855,6 +878,7 @@
                   type="number"
                   class="no-border-input"
                   name="C2 2"
+                  [(ngModel)]="mc6.c2_2"
                 />
               </td>
               <td colspan="1">
@@ -862,6 +886,7 @@
                   type="number"
                   class="no-border-input"
                   name="C2 3"
+                  [(ngModel)]="mc6.c2_3"
                 />
               </td>
               <td colspan="1">
@@ -869,6 +894,7 @@
                   type="number"
                   class="no-border-input"
                   name="C2 4"
+                  [(ngModel)]="mc6.c2_4"
                 />
               </td>
               <td colspan="1">
@@ -876,6 +902,7 @@
                   type="number"
                   class="no-border-input"
                   name="C2 5"
+                  [(ngModel)]="mc6.c2_5"
                 />
               </td>
               <td colspan="1">
@@ -883,6 +910,7 @@
                   type="number"
                   class="no-border-input"
                   name="C2 6"
+                  [(ngModel)]="mc6.c2_6"
                 />
               </td>
               <td colspan="1">
@@ -890,6 +918,7 @@
                   type="number"
                   class="no-border-input"
                   name="C2 7"
+                  [(ngModel)]="mc6.c2_7"
                 />
               </td>
               <td colspan="1">
@@ -897,6 +926,7 @@
                   type="number"
                   class="no-border-input"
                   name="C2 8"
+                  [(ngModel)]="mc6.c2_8"
                 />
               </td>
               <td colspan="1">
@@ -904,6 +934,7 @@
                   type="number"
                   class="no-border-input"
                   name="C2 9"
+                  [(ngModel)]="mc6.c2_9"
                 />
               </td>
               <td colspan="1">
@@ -911,6 +942,7 @@
                   type="number"
                   class="no-border-input"
                   name="C2 10"
+                  [(ngModel)]="mc6.c2_10"
                 />
               </td>
               <td colspan="1">
@@ -918,6 +950,7 @@
                   type="number"
                   class="no-border-input"
                   name="C2 11"
+                  [(ngModel)]="mc6.c2_11"
                 />
               </td>
               <td colspan="1">
@@ -925,6 +958,7 @@
                   type="number"
                   class="no-border-input"
                   name="C2 12"
+                  [(ngModel)]="mc6.c2_12"
                 />
               </td>
               <td class="none" colspan="1">
@@ -952,6 +986,7 @@
                 type="number"
                 class="no-border-input"
                 name="Temp. de Secador"
+                [(ngModel)]="mc6.Temp_secador"
                 >
               </td>
               <td class="fv none">°C </td>
@@ -967,6 +1002,7 @@
                 type="number"
                 class="no-border-input"
                 name="Max. Humedad"
+                [(ngModel)]="mc6.Max_Humedad"
                 >
               </td>
               <td class="none" colspan="1">%</td>
@@ -975,6 +1011,7 @@
                 type="number"
                 class="no-border-input"
                 name="Dew Point"
+                [(ngModel)]="mc6.Dew_Point"
                 ></td>
               <td class="none fv" colspan="3">°C</td>
             </tr>
@@ -989,6 +1026,8 @@
                 type="number"
                 class="no-border-input"
                 name="Tiempo de Secado"
+                [(ngModel)]="mc6.Tiempo_secado"
+                (input)="calcular()"
                 ></td>
                 <td class="none fv">h</td>
                 <td class="none fv" colspan="6"></td>
@@ -1022,11 +1061,14 @@
                 type="number"
                 class="no-border-input"
                 name="Tiempo de Ciclo set"
+                [(ngModel)]="mc6.Tiempo_ciclo_SET"
+                (input)="calcular()"
                 ></td>
               <td><input
                 type="number"
                 class="no-border-input"
                 name="Tiempo de Ciclo +TOL"
+                [(ngModel)]="mc6.Tiempo_ciclo_tol"
 
                 ></td>
               <td>
@@ -1034,6 +1076,7 @@
                 type="number"
                 class="no-border-input"
                 name="Tiempo de Ciclo -TOL"
+                [(ngModel)]="mc6.Tiempo_ciclo_mtol"
                 >
               </td>
               <td class="none fv">Seg</td>
@@ -1045,12 +1088,14 @@
                 type="number"
                 class="no-border-input"
                 name="Cojín set"
+                [(ngModel)]="mc6.cojin_SET"
                 >
               </td>
               <td><input
                 type="number"
                 class="no-border-input"
                 name="Cojín +TOL"
+                [(ngModel)]="mc6.cojin_tol"
                 >
 
               </td>
@@ -1059,6 +1104,7 @@
                 type="number"
                 class="no-border-input"
                 name="Cojín -TOL"
+                [(ngModel)]="mc6.cojin_mtol"
                 >
               </td>
               <td class="none fv">mm</td>
@@ -1071,6 +1117,7 @@
                 type="number"
                 class="no-border-input"
                 name="Tiempo de Llenado set"
+                [(ngModel)]="mc6.Tiempo_llenado_SET"
                 >
               </td>
               <td>
@@ -1078,6 +1125,7 @@
                 type="number"
                 class="no-border-input"
                 name="Tiempo de Llenado +TOL"
+                [(ngModel)]="mc6.Tiempo_llenado_tol"
                 >
               </td>
               <td>
@@ -1085,6 +1133,7 @@
                 type="number"
                 class="no-border-input"
                 name="Tiempo de Llenado -TOL"
+                [(ngModel)]="mc6.Tiempo_llenado_mtol"
                 >
               </td>
               <td class="none fv">Seg</td>
@@ -1096,6 +1145,7 @@
                 type="number"
                 class="no-border-input"
                 name="Tiempo de Dosif. SET"
+                [(ngModel)]="mc6.Tiempo_Dosificacion_SET"
                 >
               </td>
               <td>
@@ -1103,6 +1153,7 @@
                 type="number"
                 class="no-border-input"
                 name="Tiempo de Dosif. +TOL"
+                [(ngModel)]="mc6.Tiempo_Dosificacion_tol"
                 >
               </td>
               <td>
@@ -1110,6 +1161,7 @@
                 type="number"
                 class="no-border-input"
                 name="Tiempo de Dosif. -TOL"
+                [(ngModel)]="mc6.Tiempo_Dosificacion_mtol"
                 >
               </td>
               <td class="none fv">Seg</td>
@@ -1129,6 +1181,7 @@
                 <input
                   type="text"
                   name="Mando en cascada de la Boquilla del molde"
+                  [(ngModel)]="mc6.Boquilla_Molde"
                   style="width: 20%;"
                 />
               </th>
@@ -1151,6 +1204,8 @@
                 type="number"
                 class="no-border-input"
                 name="Inyección Abierto 1"
+                [(ngModel)]="mc6.In_Abierto_1"
+
                 >
               </td>
               <td class="none fv">seg</td>
@@ -1159,6 +1214,7 @@
                 type="number"
                 class="no-border-input"
                 name="Inyección Cerrado 1"
+                [(ngModel)]="mc6.In_cerrado_1"
                 >
               </td>
               <td class="none fv">seg</td>
@@ -1167,6 +1223,7 @@
                 type="number"
                 class="no-border-input"
                 name="Sostenimiento Abierto 1"
+                [(ngModel)]="mc6.Sost_Abierto_1"
                 >
               </td>
               <td class="none fv">seg</td>
@@ -1175,6 +1232,7 @@
                 type="number"
                 class="no-border-input"
                 name="Sostenimiento Cerrado 1"
+                [(ngModel)]="mc6.Sost_Cerrado_1"
                 >
               </td>
               <td class="none fv">seg</td>
@@ -1185,6 +1243,7 @@
                 type="number"
                 class="no-border-input"
                 name="Inyección Abierto 2"
+                [(ngModel)]="mc6.In_Abierto_2"
                 >
               </td>
               <td class="none" >seg</td>
@@ -1193,6 +1252,7 @@
                 type="number"
                 class="no-border-input"
                 name="Inyección Cerrado 2"
+                [(ngModel)]="mc6.In_cerrado_2"
                 >
               </td>
               <td class="none">seg</td>
@@ -1201,6 +1261,7 @@
                 type="number"
                 class="no-border-input"
                 name="Sostenimiento Abierto 2"
+                [(ngModel)]="mc6.Sost_Abierto_2"
                 >
               </td>
               <td class="none">seg</td>
@@ -1209,6 +1270,7 @@
                 type="number"
                 class="no-border-input"
                 name="Sostenimiento Cerrado 2"
+                [(ngModel)]="mc6.Sost_Cerrado_2"
                 >
               </td>
               <td class="none">seg</td>
@@ -1220,6 +1282,7 @@
                 type="number"
                 class="no-border-input"
                 name="Inyección Abierto 3"
+                [(ngModel)]="mc6.In_Abierto_3"
                 >
               </td>
               <td class="none">seg</td>
@@ -1228,6 +1291,7 @@
                 type="number"
                 class="no-border-input"
                 name="Inyección Cerrado 3"
+                [(ngModel)]="mc6.In_cerrado_3"
                 >
               </td>
               <td class="none">seg</td>
@@ -1236,6 +1300,7 @@
                 type="number"
                 class="no-border-input"
                 name="Sostenimiento Abierto 3"
+                [(ngModel)]="mc6.Sost_Abierto_3"
                 >
               </td>
               <td class="none">seg </td>
@@ -1244,6 +1309,7 @@
                 type="number"
                 class="no-border-input"
                 name="Sostenimiento Cerrado 3"
+                [(ngModel)]="mc6.Sost_Cerrado_3"
                 >
               </td>
               <td class="none">seg</td>
@@ -1254,6 +1320,7 @@
                 type="number"
                 class="no-border-input"
                 name="Inyección Abierto 4"
+                [(ngModel)]="mc6.In_Abierto_4"
                 >
               </td>
               <td class="none">seg</td>
@@ -1262,6 +1329,7 @@
                 type="number"
                 class="no-border-input"
                 name="Inyección Cerrado 4"
+                [(ngModel)]="mc6.In_cerrado_4"
                 >
               </td>
               <td class="none fv">seg</td>
@@ -1270,6 +1338,7 @@
                 type="number"
                 class="no-border-input"
                 name="Sostenimiento Abierto 4"
+                [(ngModel)]="mc6.Sost_Abierto_4"
                 >
               </td>
               <td class="none fv">seg</td>
@@ -1278,6 +1347,7 @@
                 type="number"
                 class="no-border-input"
                 name="Sostenimiento Cerrado 4"
+                [(ngModel)]="mc6.Sost_Cerrado_4"
                 >
               </td>
               <td class="none fv">seg</td>
@@ -1301,7 +1371,7 @@
               <td style="border-left: none; width:10%" colspan="1" rowspan="6"></td>
 
               <td class="none fv" colspan="1">Peso Colada</td>
-              <td class="none fv" colspan="1">3.27</td>
+              <td class="none fv" colspan="1">{{mc6.Peso_Colada}}</td>
               <td class="none fv" colspan="1">g</td>
               <td rowspan="6"  style="border-left: none; width:10%"></td>
               <td class="none fv">Cap Secador:</td>
@@ -1315,11 +1385,11 @@
               <td class="none fv">seg</td>
 
               <td class="none fv">Peso pieza 1:</td>
-              <td class="none" colspan="1">15.13</td>
+              <td class="none" colspan="1">{{Peso_pieza_1}}</td>
               <td class="none fv">g</td>
 
               <td class="none fv">Diametro Huisillo</td>
-              <td class="none" colspan="1">30</td>
+              <td class="none" colspan="1">{{diametro_huisillo}}</td>
               <td class="none fv">mm</td>
             </tr>
             <tr>
@@ -1328,11 +1398,14 @@
               <td class="none"></td>
 
               <td class="none fv">Peso pieza 2:</td>
-              <td class="none" colspan="1">0</td>
+              <td class="none" colspan="1">{{Peso_pieza_2}}</td>
               <td class="none fv">g</td>
 
               <td class="none fv">Volumen max:</td>
-              <td class="none" colspan="1">106.02</td>
+              <td class="none" colspan="1">
+                {{mc6.Volumen_max}}
+
+              </td>
               <td class="none fv">cm³</td>
             </tr>
             <tr>
@@ -1344,13 +1417,14 @@
               <td class="none" colspan="1">Si</td>
               <td class="none"></td>
 
-              <td class="none fv">T . de residencia</td>
+              <td class="none fv">T. de residencia</td>
               <td class="none" colspan="1">
                 <input
                   type="text"
                   class="no-border-input"
-                  name="T . de residencia"
+                  name="T. de residencia"
                   style="width: 100%"
+                  value="{{T_resistencia}}"
                 />
               </td>
               <td class="none fv">min</td>
@@ -1362,6 +1436,7 @@
                   type="text"
                   class="no-border-input"
                   name="Seg. de Piezas"
+                  [(ngModel)]="mc6.seg_piezas"
                   style="width: 100%"
                 />
               </td>
@@ -1378,6 +1453,9 @@
                   class="no-border-input"
                   name="Volumen Carga"
                   style="width: 100%"
+               
+                  (input)="calcular()"
+                  value="{{Volumen_cargaa}} "
                 />
               </td>
               <td class="none fv">cm³</td>
@@ -1398,12 +1476,72 @@
                   class="no-border-input"
                   name="Peso de Disparo"
                   style="width: 100%"
+                  value="{{peso_disparo}}"
+                  (input)="calcular()"
                 />
               </td>
               <td class="none">gr</td>
             </tr>
           </table>
-        <app-footer2></app-footer2>
+
+
+          <table>
+            <tbody>
+              <tr>
+                <td class="fv" style="padding: 4px; border-bottom:none" colspan="11">
+                  Comentario: Revisar tolerancias en la hoja de "Checklist de
+                  Procesos". El parámetro de la BRIDA puede variar entre un rango
+                  de 20° y 100° C.
+                </td>
+              </tr>
+              <tr>
+                <td class="none fv" style="padding: 4px" colspan="11">
+                  CUIDADO: Los cambios deben quedar registrados
+                </td>
+              </tr>
+              <tr>
+                <td class="none fv" style="text-align: left; width: 70%" colspan="9" rowspan="3">
+                  Comentarios:
+                </td>
+                <td class="none fv">Secado min(Lts)</td>
+                <td>
+                  <input
+                    type="text"
+                    class="no-border-input"
+                    name="Secado min(Lts)"
+                    value="{{secado_minimo}}"
+                    style="width: 100%"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="none fv">Consumo(Lts x H)</td>
+                <td>
+                  <input
+                    type="text"
+                    class="no-border-input"
+                    name="Consumo(Lts x H)"
+                    style="width: 100%"
+                    [(ngModel)]="mc6.consumo"
+                    (input)="calcular()"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td  class="none fv">Rate(Pzas x H)</td>
+                <td >
+                  <input
+                    type="text"
+                    class="no-border-input"
+                    name="Temp. de Secado"
+                    style="width: 100%"
+                    [(ngModel)]="mc6.rate_pzas"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        
 
         <app-footer3></app-footer3>
 
@@ -1420,6 +1558,38 @@
         [Fecha]="Fecha"
         [Producto_Maquina]="Producto_Maquina?.Centro_trabajo_ppal ?? null"
         [estado]="estado"
+
+        [Arch_Disq]="mc6.Arch_Disq"
+        [Num_Cav_real_2]="mc6.Num_Cav_real_2"
+        [Num_Cav_th_2]="mc6.Num_Cav_th_2"
+        [producto_2]="mc6.Producto_2"
+        [Pigmento]="mc6.Pigmento"
+        [Porc_pigmento]="mc6.Porc_pigmento"
+
+        [creado_por]="(user?.nombre ?? '') + ' ' + (user?.apellido_paterno ?? '')+ ' ' + (user?.apellido_materno ?? '')"
+        [editado_por]="mc6.editado_por"
+        [editado]="(user?.nombre ?? '') + ' ' + (user?.apellido_paterno ?? '')+ ' ' + (user?.apellido_materno ?? '')"
+        (cambioValores)="actualizar($event)"
+        (cambioValores2)="recibirValores($event)"
+        [valores]="valores"
+
+        [consumo]="mc6.consumo"
+        [rate]="mc6.rate_pzas"
+        [secado_minimo]="secado_minimo"
+
+        [Peso_Colada]="mc6.Peso_Colada"
+        [Peso_pieza_1]="Peso_pieza_1"
+        [Peso_pieza_2]="Peso_pieza_2"
+        [Volumen_cargaa]="Volumen_cargaa"
+        [T_resistencia]="T_resistencia"
+        [peso_disparo]="peso_disparo"
+        [Volumen_max]="mc6.Volumen_max"
+        [diametro_huisillo]="diametro_huisillo"
+
+        [carrera_apertura]="mc6.carrera_apertura"
+        [cerrar_f1]="mc6.cerrar_f1"
+        [cerrar_f2]="mc6.cerrar_f2"
+
         ></app-krauss-maffei-mc6-2>
         </div>
       <div *ngIf="currentContainer == 2 || currentContainer == -1" #container2 class="container">
@@ -1427,7 +1597,8 @@
       </div>
     
     </div>
-     </div>
+    
+   
 
     
      <div class="button-container">
@@ -1443,7 +1614,15 @@
         &#8594; 
       </button>
     </div>
-    
+
     <button class="save-button" (click)="downloadPDF()">Guardar</button>
     
+    <div class="modal" *ngIf="isModalOpen && imagePreviewUrl">
+      <span class="close-button" (click)="closeModal()">&times;</span>
+      <div class="modal-content">
+        
+        <iframe [src]="imagePreviewUrl" width="100%" height="600px"></iframe>
+      </div>
+    </div>
 
+     </div>

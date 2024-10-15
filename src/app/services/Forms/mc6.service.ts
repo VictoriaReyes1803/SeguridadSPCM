@@ -12,6 +12,7 @@ export class Mc6Service {
     Producto_2: '',
     Molde: '',
     Pigmento: '',
+    Porc_pigmento: 0,
     Num_Cav_th_2: 0,
     Num_Cav_real_2: 0,
     Num_Cav_th_1: 0,
@@ -118,6 +119,114 @@ export class Mc6Service {
     c1_8: 0,
     c1_9: 0,
     c1_10: 0,
+    c1_11: 0,
+    c1_12: 0,
+
+    c2_1: 0,
+    c2_2: 0,
+    c2_3: 0,
+    c2_4: 0,
+    c2_5: 0,
+    c2_6: 0,
+    c2_7: 0,
+    c2_8: 0,
+    c2_9: 0,
+    c2_10: 0,
+    c2_11: 0,
+    c2_12: 0,
+
+    Temp_secador: 0,
+    Max_Humedad: 0,
+    Tiempo_secado: 0,
+    Dew_Point: 0,
+
+    Tiempo_ciclo_SET: 0,
+    cojin_SET : 0,
+    Tiempo_llenado_SET: 0,
+    Tiempo_Dosificacion_SET: 0,
+
+    Tiempo_ciclo_tol: 0,
+    cojin_tol: 0,
+    Tiempo_llenado_tol: 0,
+    Tiempo_Dosificacion_tol: 0,
+
+    Tiempo_ciclo_mtol: 0,
+    cojin_mtol: 0,
+    Tiempo_llenado_mtol: 0,
+    Tiempo_Dosificacion_mtol: 0,
+
+    Boquilla_Molde: 0,
+
+    In_Abierto_1: 0,
+    In_Abierto_2: 0,
+    In_Abierto_3: 0,
+    In_Abierto_4: 0,
+
+    In_cerrado_1: 0,
+    In_cerrado_2: 0,
+    In_cerrado_3: 0,
+    In_cerrado_4: 0,
+
+    Sost_Abierto_1: 0,
+    Sost_Abierto_2: 0,
+    Sost_Abierto_3: 0,
+    Sost_Abierto_4: 0,
+
+    Sost_Cerrado_1: 0,
+    Sost_Cerrado_2: 0,
+    Sost_Cerrado_3: 0,
+    Sost_Cerrado_4: 0,
+
+    Volumen_carga: 0,
+    Volumen_max: 106.02,
+
+    consumo: 0,
+    rate_pzas: 0,
+    seg_piezas: 0,
+
+    Peso_Colada: 3.27,
+    diametro_huisillo: 0,
+    Peso_pieza_1: 0,
+    Peso_pieza_2: 0,
+    peso_disparo: 0,
+    T_resistencia: 0,
+    Volumen_cargaa: 0,
+
+    // Hoja 2
+    carrera_apertura: 0,
+
+    cerrar_f1: 0,
+    cerrar_f2: 0,
+    cerrar_f3: 0,
+    cerrar_f4: 0,
+    cerrar_f5: 0,
+    cerrar_v1: 0,
+    cerrar_v2: 0,
+    cerrar_v3: 0,
+    cerrar_v4: 0,
+    cerrar_v5: 0,
+    cerrar_s1: 0,
+    cerrar_s2: 0,
+    cerrar_s3: 0,
+    cerrar_s4: 0,
+    cerrar_s5: 0, 
+
+    fuerza_cierre_kn: 0,
+    fuerza_cierre_mm: 0,
+    duracion_max_lim_desplazamiento: 0,
+
+    abrir_v5: 0,
+    abrir_v4: 0,
+    abrir_v3: 0,
+    abrir_v2: 0,
+    abrir_v1: 0,
+    abrir_s5: 0,
+    abrir_s4: 0,
+    abrir_s3: 0,
+    abrir_s2: 0,
+    abrir_s1: 0,
+
+    posicion_arranque: 0,
   
   }
   getlist(): mc6{

@@ -120,5 +120,7 @@ padding: 5.55px;
 .none{
   border: none;
 }
-
+input{
+  text-align: center;
+}
 
