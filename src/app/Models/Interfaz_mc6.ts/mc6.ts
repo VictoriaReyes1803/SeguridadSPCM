@@ -223,5 +223,71 @@
 
     posicion_arranque: number;
 
+    salida_f1: number;
+    salida_f2: number;
+
+    salida_v1: number;
+    salida_v2: number;
+
+    salida_s1: number;
+    
+    salida2_f1: number;
+    salida2_f2: number;
+
+    salida2_v1: number;
+    salida2_v2: number;
+
+    salida2_s2: number;
+
+    carrera_expulsor: number;
+    arranque_posicion: number;
+    tiempo_retardo: number;
+    avance_expulsor: number;
+    mantener_expulsor: number;
+    carrera_vibraciones: number;
+    contador_vibraciones: number;
+
+    carrera_grupo: number;
+
+    avance_velocidad: number;
+    avance_punto_conmut: number;
+    avance_velocidad2: number;
+
+    retroceso_velocidad: number;
+    retroceso_punto_conmut: number;
+    retroceso_velocidad2: number;
+
+    noyohidr_1_activo: number;
+    noyohidr_2_activo: number;
+    noyohidr_expulsor_activo: number;
+
+    noyohidr_1_robo: number;
+    noyohidr_2_robo: number;
+    noyohidr_expulsor_robo: number;
+
+    noyoppmm_1_activo: number;
+    noyoppmf_2_activo: number;
+
+    noyoppmm_1_robo: number;
+    noyoppmf_2_robo: number;
+
+    noyohidr_ppmf_activo: number;
+    noyohidr_ppmf_robo: number;
+
+    salida_noyos2_p: number;
+    salida_noyos2_q: number;
+
+    entrada_noyos2_p: number;
+    entrada_noyos2_q: number;
+
+    salida_noyosexp_p: number;
+    salida_noyosexp_q: number;
+    entrada_noyosexp_p: number;
+    entrada_noyosexp_q: number;
+
+    salida_noyos1_p: number;
+    salida_noyos1_q: number;
+    entrada_noyos1_p: number;
+    entrada_noyos1_q: number;
     //hoja 3
   }

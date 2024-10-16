@@ -1585,15 +1585,14 @@
         [peso_disparo]="peso_disparo"
         [Volumen_max]="mc6.Volumen_max"
         [diametro_huisillo]="diametro_huisillo"
-
-        [carrera_apertura]="mc6.carrera_apertura"
-        [cerrar_f1]="mc6.cerrar_f1"
-        [cerrar_f2]="mc6.cerrar_f2"
-
         ></app-krauss-maffei-mc6-2>
         </div>
       <div *ngIf="currentContainer == 2 || currentContainer == -1" #container2 class="container">
-          <app-checklist-krauss-maffei></app-checklist-krauss-maffei>
+          <app-checklist-krauss-maffei
+          [mc6]="mc6"
+          >
+            
+          </app-checklist-krauss-maffei>
       </div>
     
     </div>

@@ -65,41 +65,6 @@ export class KraussMaffeiMc62Component {
   @Input() T_secado: number = 0;
   @Input() peso_disparo: number = 0;
 
-  
-  @Input() carrera_apertura: number = 0;
-  @Input() cerrar_f1: number = 0;
-  @Input() cerrar_f2: number = 0;
-  @Input() cerrar_f3: number = 0;
-  @Input() cerrar_f4: number = 0;
-  @Input() cerrar_f5: number = 0;
-  @Input() cerrar_v1: number = 0;
-  @Input() cerrar_v2: number = 0;
-  @Input() cerrar_v3: number = 0;
-  @Input() cerrar_v4: number = 0;
-  @Input() cerrar_v5: number = 0;
-
-  @Input() cerrar_s1: number = 0;
-  @Input() cerrar_s2: number = 0;
-  @Input() cerrar_s3: number = 0;
-  @Input() cerrar_s4: number = 0;
-  @Input() cerrar_s5: number = 0;
-
-  @Input() abrir_v5: number = 0;
-  @Input() abrir_v4: number = 0;
-  @Input() abrir_v3: number = 0;
-  @Input() abrir_v2: number = 0;
-  @Input() abrir_v1: number = 0;
-
-  @Input() abrir_s5: number = 0;
-  @Input() abrir_s4: number = 0;
-  @Input() abrir_s3: number = 0;
-  @Input() abrir_s2: number = 0;
-  @Input() abrir_s1: number = 0;
-
-  @Input() fuerza_cierre_kn: number = 0;
-  @Input() fuerza_cierre_mm: number = 0;
-  @Input() duracion_max_lim_desplazamiento: number = 0;
-  @Input() posicion_arranque: number = 0;
   @Input() valores!: mc6;
 
   @Output() cambioValores = new EventEmitter<any>();
@@ -110,11 +75,9 @@ export class KraussMaffeiMc62Component {
     this.cambioValores.emit(event);
   }
   actualizarValores(event: any) {
-    this.carrera_apertura = event;
+    // this.carrera_apertura = event;
     const updateData: Partial<mc6> = {
-      
     };
     this.mc6Service.setlist(updateData);
-    console.log('actualizarValores:',updateData);
   }
 }

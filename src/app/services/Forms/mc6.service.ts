@@ -227,7 +227,72 @@ export class Mc6Service {
     abrir_s1: 0,
 
     posicion_arranque: 0,
-  
+
+    salida_f1: 0,
+    salida_f2: 0,
+    salida_v1: 0,
+    salida_v2: 0,
+    salida_s1: 0,
+
+
+    salida2_f1: 0,
+    salida2_f2: 0,
+    salida2_v1: 0,
+    salida2_v2: 0,
+    salida2_s2: 0,
+    
+    carrera_expulsor: 0,
+
+    arranque_posicion: 0,
+    tiempo_retardo: 0,
+    avance_expulsor: 0,
+    mantener_expulsor: 0,
+    carrera_vibraciones: 0,
+    contador_vibraciones : 0,
+
+    carrera_grupo: 0,
+
+    avance_velocidad: 0,
+    avance_punto_conmut: 0,
+    avance_velocidad2: 0,
+
+    retroceso_velocidad: 0,
+    retroceso_punto_conmut: 0,
+    retroceso_velocidad2: 0,
+
+    noyohidr_1_activo: 0,
+    noyohidr_2_activo: 0,
+    noyohidr_expulsor_activo: 0,
+
+    noyohidr_1_robo: 0,
+    noyohidr_2_robo: 0,
+    noyohidr_expulsor_robo: 0,
+
+    noyoppmm_1_activo: 0,
+    noyoppmf_2_activo: 0,
+
+    noyoppmm_1_robo: 0,
+    noyoppmf_2_robo: 0,
+
+    noyohidr_ppmf_activo: 0,
+    noyohidr_ppmf_robo: 0,
+
+    salida_noyos2_p: 0,
+    salida_noyos2_q: 0,
+
+    entrada_noyos2_p: 0,
+    entrada_noyos2_q: 0,
+
+    salida_noyosexp_p: 0,
+    salida_noyosexp_q: 0,
+
+    entrada_noyosexp_p: 0,
+    entrada_noyosexp_q: 0,
+
+    salida_noyos1_p: 0,
+    salida_noyos1_q: 0,
+    entrada_noyos1_p: 0,
+    entrada_noyos1_q: 0,
   }
   getlist(): mc6{
     return this.mc6_1;

@@ -47,7 +47,7 @@ export class KraussMaffeiMC6Component {
   maquina: Maquina | null = null;
   Producto_Maquina: Producto_Maquina | null = null;
   mc6!: mc6;
-  currentContainer = 1; 
+  currentContainer = 2; 
   productos: Productos = [];
   user: User | null = null;
   productoSeleccionado: Producto | null = null;

@@ -41,7 +41,7 @@
         </th>
       </tr>
       <tr>
-        <th class="fv" rowspan="2" colspan="4">Revisión 1 vez por turno por técnicos</th>
+        <th class="fv fondo" rowspan="2"  colspan="4">Revisión 1 vez por turno por técnicos</th>
         <th rowspan="1" colspan="2">LUNES</th>
         <th colspan="2">MARTES</th>
         <th colspan="2">MIERCOLES</th>
@@ -52,20 +52,20 @@
       </tr>
       <tr>
         
-        <td>1er T.</td>
-        <td>2do T.</td>
-        <td>1er T.</td>
-        <td>2do T.</td>
-        <td>1er T.</td>
-        <td>2do T.</td>
-        <td>1er T.</td>
-        <td>2do T.</td>
-        <td>1er T.</td>
-        <td>2do T.</td>
-        <td>1er T.</td>
-        <td>2do T.</td>
-        <td>1er T.</td>
-        <td>2do T.</td>
+        <td class="fondo">1er T.</td>
+        <td class="fondo">2do T.</td>
+        <td class="fondo">1er T.</td>
+        <td class="fondo">2do T.</td>
+        <td class="fondo">1er T.</td>
+        <td class="fondo">2do T.</td>
+        <td class="fondo">1er T.</td>
+        <td class="fondo">2do T.</td>
+        <td class="fondo">1er T.</td>
+        <td class="fondo">2do T.</td>
+        <td class="fondo">1er T.</td>
+        <td class="fondo">2do T.</td>
+        <td class="fondo">1er T.</td>
+        <td class="fondo">2do T.</td>
 
       </tr>
     <tr>
@@ -82,7 +82,12 @@
     <tr>
       <td class="fv" colspan="2">Zona 14</td>
       <td colspan="1">
-        <input type="number" name="Zona 14 SET" class="no-border-input" style="width: 100%; border: none" />
+        <input type="number" 
+        name="Zona 14 SET" 
+        class="no-border-input" 
+        style="width: 100%; border: none"
+        [(ngModel)]="mc6.temp_barril_14"
+        />
       </td>
       <td colspan="1">
         <input type="text" name="Zona 14 Tolerancia" class="no-border-input" style="width: 100%; border: none" />
@@ -106,7 +111,11 @@
     <tr>
       <td class="fv" colspan="2">Zona 13</td>
       <td colspan="1">
-        <input type="text" name="Zona 13 SET" class="no-border-input none"  />
+        <input type="number" 
+        name="Zona 13 SET" 
+        class="no-border-input none"
+        [(ngModel)]="mc6.temp_barril_13"
+        />
       </td>
       <td colspan="1">
         <input type="text" name="Zona 13 Tolerancia" class="no-border-input none"  />
@@ -131,7 +140,12 @@
         Zona 11
       </td>
       <td>
-        <input type="text" name="Zona 11 SET" class="no-border-input none"  />
+        <input 
+        type="number" 
+        name="Zona 11 SET" 
+        class="no-border-input none"  
+        [(ngModel)]="mc6.temp_barril_11"
+        />
       </td>
       <td>
         <input type="text" name="Zona 11 Tolerancia" class="no-border-input none"  />
@@ -156,7 +170,12 @@
         Zona 6
       </td>
       <td>
-        <input type="text" name="Zona 6 SET" class="no-border-input none"  />
+        <input 
+        type="number" 
+        name="Zona 6 SET" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.temp_barril_6"
+        />
       </td>
       <td>
         <input type="text" name="Zona 6 Tolerancia" class="no-border-input none"  />
@@ -180,7 +199,12 @@
     <tr>
       <td class="fv" colspan="2">Zona 5</td>
       <td>
-        <input type="text" name="Zona 5 SET" class="no-border-input none"  />
+        <input 
+        type="number" 
+        name="Zona 5 SET" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.temp_barril_5"
+        />
       </td>
       <td>
         <input type="text" name="Zona 5 Tolerancia" class="no-border-input none"  />
@@ -204,7 +228,11 @@
     <tr>
       <td class="fv" colspan="2">Zona 4</td>
       <td>
-        <input type="text" name="Zona 4 SET" class="no-border-input none"  />
+        <input type="number" 
+        name="Zona 4 SET" 
+        class="no-border-input none"
+        [(ngModel)]="mc6.temp_barril_4"
+        />
       </td>
       <td>
         <input type="text" name="Zona 4 Tolerancia" class="no-border-input none"  />
@@ -227,7 +255,11 @@
     <tr>
       <td class="fv" colspan="2">Zona 3</td>
       <td>
-        <input type="text" name="Zona 3 SET" class="no-border-input none"  />
+        <input type="number" 
+        name="Zona 3 SET" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.temp_barril_3"
+        />
       </td>
       <td>
         <input type="text" name="Zona 3 Tolerancia" class="no-border-input none"  />
@@ -250,7 +282,11 @@
     <tr>
       <td class="fv" colspan="2">Zona 2</td>
       <td>
-        <input type="text" name="Zona 2 SET" class="no-border-input none"  />
+        <input type="number"
+         name="Zona 2 SET" 
+         class="no-border-input none"  
+         [(ngModel)]="mc6.temp_barril_2"
+         />
       </td>
       <td>
         <input type="text" name="Zona 2 Tolerancia" class="no-border-input none"  />
@@ -273,7 +309,11 @@
     <tr>
       <td class="fv" colspan="2">Zona 1</td>
       <td>
-        <input type="text" name="Zona 1 SET" class="no-border-input none"  />
+        <input type="number"
+         name="Zona 1 SET" 
+         class="no-border-input none" 
+         [(ngModel)]="mc6.temp_barril_1"
+         />
       </td>
       <td>
         <input type="text" name="Zona 1 Tolerancia" class="no-border-input none"  />
