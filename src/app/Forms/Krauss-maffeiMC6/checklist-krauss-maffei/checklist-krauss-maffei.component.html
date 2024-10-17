@@ -90,7 +90,12 @@
         />
       </td>
       <td colspan="1">
-        <input type="text" name="Zona 14 Tolerancia" class="no-border-input" style="width: 100%; border: none" />
+        <input type="text" 
+        name="Zona 14 Tolerancia"
+         class="no-border-input" 
+         style="width: 100%; border: none"
+         [(ngModel)]="mc6.tolerancia1"
+         />
       </td>
       <td name="zona 14 Lunes 1er T."></td>
       <td name="zona 14 Lunes 2do T."></td>
@@ -118,7 +123,11 @@
         />
       </td>
       <td colspan="1">
-        <input type="text" name="Zona 13 Tolerancia" class="no-border-input none"  />
+        <input type="text"
+         name="Zona 13 Tolerancia"
+          class="no-border-input none" 
+          [(ngModel)]="mc6.tolerancia2"
+          />
       </td>
       <td name="zona 13 Lunes 1er T."></td>
       <td name="zona 13 Lunes 2do T."></td>
@@ -148,7 +157,11 @@
         />
       </td>
       <td>
-        <input type="text" name="Zona 11 Tolerancia" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 11 Tolerancia" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.tolerancia3"
+        />
       </td>
       <td name="zona 11 Lunes 1er T."></td>
       <td name="zona 11 Lunes 2do T."></td>
@@ -178,7 +191,11 @@
         />
       </td>
       <td>
-        <input type="text" name="Zona 6 Tolerancia" class="no-border-input none"  />
+        <input type="text"
+         name="Zona 6 Tolerancia" 
+         class="no-border-input none" 
+         [(ngModel)]="mc6.tolerancia4"
+         />
       </td>
       <td name="zona 6 Lunes 1er T."></td>
       <td name="zona 6 Lunes 2do T."></td>
@@ -207,7 +224,11 @@
         />
       </td>
       <td>
-        <input type="text" name="Zona 5 Tolerancia" class="no-border-input none"  />
+        <input type="text"
+         name="Zona 5 Tolerancia"
+          class="no-border-input none" 
+          [(ngModel)]="mc6.tolerancia5"
+          />
       </td>
       <td name="zona 5 Lunes 1er T."></td>
       <td name="zona 5 Lunes 2do T."></td>
@@ -235,7 +256,11 @@
         />
       </td>
       <td>
-        <input type="text" name="Zona 4 Tolerancia" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 4 Tolerancia" 
+        class="no-border-input none"
+        [(ngModel)]="mc6.tolerancia6"
+        />
       </td>
       <td name="zona 4 Lunes 1er T."></td>
       <td name="zona 4 Lunes 2do T."></td>
@@ -262,7 +287,11 @@
         />
       </td>
       <td>
-        <input type="text" name="Zona 3 Tolerancia" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 3 Tolerancia" 
+        class="no-border-input none"
+        [(ngModel)]="mc6.tolerancia7"
+        />
       </td>
       <td name="zona 3 Lunes 1er T."></td>
       <td name="zona 3 Lunes 2do T."></td>
@@ -289,7 +318,11 @@
          />
       </td>
       <td>
-        <input type="text" name="Zona 2 Tolerancia" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 2 Tolerancia"
+         class="no-border-input none" 
+         [(ngModel)]="mc6.tolerancia8"
+         />
       </td>
       <td name="zona 2 Lunes 1er T."></td>
       <td name="zona 2 Lunes 2do T."></td>
@@ -316,7 +349,11 @@
          />
       </td>
       <td>
-        <input type="text" name="Zona 1 Tolerancia" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 1 Tolerancia"
+         class="no-border-input none" 
+         [(ngModel)]="mc6.tolerancia9"
+         />
       </td>
       <td name="zona 1 Lunes 1er T."></td>
       <td name="zona 1 Lunes 2do T."></td>
@@ -340,10 +377,18 @@
     <tr >
       <td class="fv" colspan="2">Limite de Presion Max</td>
       <td>
-        <input type="text" name="SET LIMITE DE PRESION MAX" class="no-border-input none"  />
+        <input type="text" 
+        name="SET LIMITE DE PRESION MAX" 
+        class="no-border-input none" 
+        value="{{getMaxValue()}}"
+        />
       </td>
       <td>
-        <input type="text" name="Tolerancia LIMITE DE PRESION MAX" class="no-border-input none"  />
+        <input type="text"
+         name="Tolerancia LIMITE DE PRESION MAX"
+          class="no-border-input none" 
+          [(ngModel)]="mc6.tolerancia10"
+          />
       </td>
       <td name="LIMITE DE PRESION MAX Lunes 1er T."></td>
       <td name="LIMITE DE PRESION MAX Lunes 2do T."></td>
@@ -363,10 +408,18 @@
     <tr>
       <td class="fv" colspan="2">Corte</td>
       <td colspan="1">
-        <input type="text" name="SET Corte" class="no-border-input none"  />
+        <input type="text" 
+        name="SET Corte" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.sostenimiento_mm"
+        />
       </td>
       <td colspan="1">
-        <input type="text" name="Tolerancia Corte" class="no-border-input none"  />
+        <input type="text" 
+        name="Tolerancia Corte"
+         class="no-border-input none" 
+         [(ngModel)]="mc6.tolerancia11"
+         />
       </td>
       <td name="Corte Lunes 1er T."></td>
       <td name="Corte Lunes 2do T."></td>
@@ -392,10 +445,18 @@
     <tr>
       <td class="fv" colspan="2">Tiempo total de sostenimiento</td>
       <td>
-        <input type="text" name="SET Tiempo total de sostenimiento" class="no-border-input none"  />
+        <input type="text" 
+        name="SET Tiempo total de sostenimiento" 
+        class="no-border-input none" 
+        value="{{sostenimientoMax()}}"
+        />
       </td>
       <td>
-        <input type="text" name="Tolerancia Tiempo total de sostenimiento" class="no-border-input none"  />
+        <input type="text"
+         name="Tolerancia Tiempo total de sostenimiento" 
+         class="no-border-input none" 
+         [(ngModel)]="mc6.tolerancia12"
+         />
       </td>
       <td name="Tiempo total de sostenimiento Lunes 1er T."></td>
       <td name="Tiempo total de sostenimiento Lunes 2do T."></td>
@@ -415,10 +476,18 @@
     <tr>
       <td class="fv" colspan="2">Presion maxima de sostenimiento</td>
       <td>
-        <input type="text" name="SET Presion maxima de sostenimiento" class="no-border-input none"  />
+        <input type="text" 
+        name="SET Presion maxima de sostenimiento" 
+        class="no-border-input none" 
+        value="{{sostenimientobarMax()}}"
+        />
       </td>
       <td>
-        <input type="text" name="Tolerancia Presion maxima de sostenimiento" class="no-border-input none"  />
+        <input type="text"
+         name="Tolerancia Presion maxima de sostenimiento" 
+         class="no-border-input none"  
+         [(ngModel)]="mc6.tolerancia13"
+         />
       </td>
       <td name="Presion maxima de sostenimiento Lunes 1er T."></td>
       <td name="Presion maxima de sostenimiento Lunes 2do T."></td>
@@ -439,10 +508,18 @@
     <tr>
       <td class="fv" colspan="2">Tiempo de enfriamiento</td>
       <td >
-        <input type="text" name="SET Tiempo de enfriamiento" class="no-border-input none"  />
+        <input type="text" 
+        name="SET Tiempo de enfriamiento" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.t_enfriamiento"
+        />
       </td>
       <td >
-        <input type="text" name="Tolerancia Tiempo de enfriamiento" class="no-border-input none"  />
+        <input type="text" 
+        name="Tolerancia Tiempo de enfriamiento" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.tolerancia14"
+        />
       </td>
       <td name="Tiempo de enfriamiento Lunes 1er T."></td>
       <td name="Tiempo de enfriamiento Lunes 2do T."></td>
@@ -467,10 +544,18 @@
     <tr>
       <td colspan="2"> Revoluciones del tornillo</td>
       <td >
-        <input type="text" name="SET Revoluciones del tornillo" class="no-border-input none"  />
+        <input type="text"
+         name="SET Revoluciones del tornillo" 
+         class="no-border-input none"
+         [(ngModel)]="mc6.carga_n_mm"
+         />
       </td>
       <td >
-        <input type="text" name="Tolerancia Revoluciones del tornillo" class="no-border-input none"  />
+        <input type="text" 
+        name="Tolerancia Revoluciones del tornillo"
+         class="no-border-input none" 
+         [(ngModel)]="mc6.tolerancia15"
+         />
       </td>
       <td name="Revoluciones del tornillo Lunes 1er T."></td>
       <td name="Revoluciones del tornillo Lunes 2do T."></td>
@@ -490,10 +575,18 @@
     <tr>
       <td class="fv" colspan="2">Contrapresion</td>
       <td >
-        <input type="text" name="SET Contrapresion" class="no-border-input none"  />
+        <input type="text" 
+        name="SET Contrapresion" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.carga_p_bar"
+        />
       </td>
       <td >
-        <input type="text" name="Tolerancia Contrapresion" class="no-border-input none"  />
+        <input type="text" 
+        name="Tolerancia Contrapresion" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.tolerancia16"
+        />
       </td>
       <td name="Contrapresion Lunes 1er T."></td>
       <td name="Contrapresion Lunes 2do T."></td>
@@ -513,10 +606,18 @@
     <tr>
       <td class="fv" colspan="2">Tamaño carga</td>
       <td >
-        <input type="text" name="SET Tamaño carga" class="no-border-input none"  />
+        <input type="text" 
+        name="SET Tamaño carga" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.carga_s_2"
+        />
       </td>
       <td >
-        <input type="text" name="Tolerancia Tamaño carga" class="no-border-input none"  />
+        <input type="text" 
+        name="Tolerancia Tamaño carga" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.tolerancia17"
+        />
       </td>
       <td name="Tamaño carga Lunes 1er T."></td>
       <td name="Tamaño carga Lunes 2do T."></td>
@@ -536,10 +637,18 @@
     <tr>
       <td class="fv" colspan="2">Succion/Descompresion</td>
       <td >
-        <input type="text" name="SET Succion/Descompresion" class="no-border-input none"  />
+        <input type="text" 
+        name="SET Succion/Descompresion" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.carga_s_mm"
+        />
       </td>
       <td >
-        <input type="text" name="Tolerancia Succion/Descompresion" class="no-border-input none"  />
+        <input type="text" 
+        name="Tolerancia Succion/Descompresion" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.tolerancia18"
+        />
       </td>
       <td name="Succion/Descompresion Lunes 1er T."></td>
       <td name="Succion/Descompresion Lunes 2do T."></td>
@@ -567,10 +676,19 @@
         Zona 1/2
       </td>
       <td>
-        <input type="text" name="Zona 1/2 SET" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 1/2 SET" 
+        class="no-border-input none" 
+        value="{{zona_1_2}}"
+        
+        />
       </td>
       <td>
-        <input type="text" name="Zona 1/2 Tolerancia" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 1/2 Tolerancia" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.tolerancia19"
+        />
       </td>
       <td name="Zona 1/2 Lunes 1er T."></td>
       <td name="Zona 1/2 Lunes 2do T."></td>
@@ -593,10 +711,18 @@
         Zona 3/4
       </td>
       <td>
-        <input type="text" name="Zona 3/4 SET" class="no-border-input none"  />
+        <input type="text"
+         name="Zona 3/4 SET" 
+         class="no-border-input none"
+         value="{{zona_3_4}}"
+         />
       </td>
       <td>
-        <input type="text" name="Zona 3/4 Tolerancia" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 3/4 Tolerancia" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.tolerancia20"
+        />
       </td>
       <td name="Zona 3/4 Lunes 1er T."></td>
       <td name="Zona 3/4 Lunes 2do T."></td>
@@ -618,10 +744,19 @@
         Zona 5/6
       </td>
       <td>
-        <input type="text" name="Zona 5/6 SET" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 5/6 SET"
+         class="no-border-input none" 
+         value="{{zona_5_6}}"
+         
+         />
       </td>
       <td>
-        <input type="text" name="Zona 5/6 Tolerancia" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 5/6 Tolerancia" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.tolerancia21"
+        />
       </td>
       <td name="Zona 5/6 Lunes 1er T."></td>
       <td name="Zona 5/6 Lunes 2do T."></td>
@@ -644,10 +779,18 @@
         Zona 7/8
       </td>
       <td>
-        <input type="text" name="Zona 7/8 SET" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 7/8 SET" 
+        class="no-border-input none" 
+        value="{{zona_7_8}}"
+        />
       </td>
       <td>
-        <input type="text" name="Zona 7/8 Tolerancia" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 7/8 Tolerancia"
+         class="no-border-input none" 
+         [(ngModel)]="mc6.tolerancia22"
+         />
       </td>
       <td name="Zona 7/8 Lunes 1er T."></td>
       <td name="Zona 7/8 Lunes 2do T."></td>
@@ -669,10 +812,18 @@
         Zona 9/10
       </td>
       <td>
-        <input type="text" name="Zona 9/10 SET" class="no-border-input none"  />
+        <input type="text"
+         name="Zona 9/10 SET"
+          class="no-border-input none"
+          value="{{zona_9_10}}"
+          />
       </td>
       <td>
-        <input type="text" name="Zona 9/10 Tolerancia" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 9/10 Tolerancia" 
+        class="no-border-input none"
+        [(ngModel)]="mc6.tolerancia23"
+        />
       </td>
       <td name="Zona 9/10 Lunes 1er T."></td>
       <td name="Zona 9/10 Lunes 2do T."></td>
@@ -694,10 +845,18 @@
         Zona 11/12
       </td>
       <td>
-        <input type="text" name="Zona 11/12 SET" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 11/12 SET" 
+        class="no-border-input none"  
+        value="{{zona_11_12}}"
+        />
       </td>
       <td>
-        <input type="text" name="Zona 11/12 Tolerancia" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 11/12 Tolerancia" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.tolerancia24"
+        />
       </td>
       <td name="Zona 11/12 Lunes 1er T."></td>
       <td name="Zona 11/12 Lunes 2do T."></td>
@@ -719,10 +878,18 @@
         Zona 13/14
       </td>
       <td>
-        <input type="text" name="Zona 13/14 SET" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 13/14 SET" 
+        class="no-border-input none"
+        value="{{zona_13_14}}"
+        />
       </td>
       <td>
-        <input type="text" name="Zona 13/14 Tolerancia" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 13/14 Tolerancia"
+         class="no-border-input none" 
+         [(ngModel)]="mc6.tolerancia25"
+         />
       </td>
       <td name="Zona 13/14 Lunes 1er T."></td>
       <td name="Zona 13/14 Lunes 2do T."></td>
@@ -744,10 +911,18 @@
         Zona 15/16
       </td>
       <td>
-        <input type="text" name="Zona 15/16 SET" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 15/16 SET" 
+        class="no-border-input none"
+        value="{{zona_15_16}}"
+        />
       </td>
       <td>
-        <input type="text" name="Zona 15/16 Tolerancia" class="no-border-input none"  />
+        <input type="text"
+         name="Zona 15/16 Tolerancia"
+          class="no-border-input none" 
+          [(ngModel)]="mc6.tolerancia26"
+          />
       </td>
       <td name="Zona 15/16 Lunes 1er T."></td>
       <td name="Zona 15/16 Lunes 2do T."></td>
@@ -769,10 +944,18 @@
         Zona 17/18
       </td>
       <td>
-        <input type="text" name="Zona 17/18 SET" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 17/18 SET" 
+        class="no-border-input none"
+        value="{{zona_17_18}}"
+        />
       </td>
       <td>
-        <input type="text" name="Zona 17/18 Tolerancia" class="no-border-input none"  />
+        <input type="text"
+         name="Zona 17/18 Tolerancia"
+          class="no-border-input none"
+          [(ngModel)]="mc6.tolerancia27"
+          />
       </td>
       <td name="Zona 17/18 Lunes 1er T."></td>
       <td name="Zona 17/18 Lunes 2do T."></td>
@@ -794,10 +977,18 @@
         Zona 19/20
       </td>
       <td>
-        <input type="text" name="Zona 19/20 SET" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 19/20 SET" 
+        class="no-border-input none"
+        value="{{zona_19_20}}"
+        />
       </td>
       <td>
-        <input type="text" name="Zona 19/20 Tolerancia" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 19/20 Tolerancia"
+         class="no-border-input none" 
+         [(ngModel)]="mc6.tolerancia28"
+         />
       </td>
       <td name="Zona 19/20 Lunes 1er T."></td>
       <td name="Zona 19/20 Lunes 2do T."></td>
@@ -819,10 +1010,18 @@
         Zona 21/22
       </td>
       <td>
-        <input type="text" name="Zona 21/22 SET" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 21/22 SET" 
+        class="no-border-input none"
+        value="{{zona_21_22}}"
+        />
       </td>
       <td>
-        <input type="text" name="Zona 21/22 Tolerancia" class="no-border-input none"  />
+        <input type="text" 
+        name="Zona 21/22 Tolerancia" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.tolerancia29"
+        />
       </td>
       <td name="Zona 21/22 Lunes 1er T."></td>
       <td name="Zona 21/22 Lunes 2do T."></td>
@@ -866,10 +1065,18 @@
     <tr>
       <td class="fv" colspan="2">Termo parte fija</td>
       <td>
-        <input type="text" name="SET Termo parte fija" class="no-border-input none"  />
+        <input type="text"
+         name="SET Termo parte fija" 
+         class="no-border-input none"
+         [(ngModel)]="mc6.temp_fija"
+         />
       </td>
       <td>
-        <input type="text" name="Tolerancia Termo parte fija" class="no-border-input none"  />
+        <input type="text" 
+        name="Tolerancia Termo parte fija" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.tolerancia30"
+        />
       </td>
       <td name="Termo parte fija Lunes 1er T."></td>
       <td name="Termo parte fija Lunes 2do T."></td>
@@ -889,10 +1096,18 @@
     <tr>
       <td class="fv" colspan="2">Termo parte movil</td>
       <td>
-        <input type="text" name="SET Termo parte movil" class="no-border-input none"  />
+        <input type="text" 
+        name="SET Termo parte movil" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.temp_movil"
+        />
       </td>
       <td>
-        <input type="text" name="Tolerancia Termo parte movil" class="no-border-input none"  />
+        <input type="text"
+         name="Tolerancia Termo parte movil" 
+         class="no-border-input none" 
+         [(ngModel)]="mc6.tolerancia31"
+         />
       </td>
       <td name="Termo parte movil Lunes 1er T."></td>
       <td name="Termo parte movil Lunes 2do T."></td>
@@ -912,10 +1127,18 @@
     <tr>
       <td class="fv" colspan="2">Temperatura otro (si aplica)</td>
       <td>
-        <input type="text" name="SET Temperatura otro" class="no-border-input none"  />
+        <input type="text" 
+        name="SET Temperatura otro"
+         class="no-border-input none" 
+         [(ngModel)]="mc6.temp_otros"
+         />
       </td>
       <td>
-        <input type="text" name="Tolerancia Temperatura otro" class="no-border-input none"  />
+        <input type="text"
+         name="Tolerancia Temperatura otro"
+          class="no-border-input none" 
+          [(ngModel)]="mc6.tolerancia32"
+          />
       </td>
       <td name="Temperatura otro Lunes 1er T."></td>
       <td name="Temperatura otro Lunes 2do T."></td>
@@ -937,10 +1160,18 @@
         Temperatura secado
       </td>
       <td>
-        <input type="text" name="SET Temperatura secado" class="no-border-input none"  />
+        <input type="text" 
+        name="SET Temperatura secado" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.Temp_secador"
+        />
       </td>
       <td>
-        <input type="text" name="Tolerancia Temperatura secado" class="no-border-input none"  />
+        <input type="text"
+         name="Tolerancia Temperatura secado" 
+         class="no-border-input none" 
+         [(ngModel)]="mc6.tolerancia33"
+         />
       </td>
       <td name="Temperatura secado Lunes 1er T."></td>
       <td name="Temperatura secado Lunes 2do T."></td>
@@ -963,10 +1194,18 @@
         Dew point
       </td>
       <td>
-        <input type="text" name="SET Dew point" class="no-border-input none"  />
+        <input type="text" 
+        name="SET Dew point" 
+        class="no-border-input none" 
+        [(ngModel)]="mc6.Dew_Point"
+        />
       </td>
       <td>
-        <input type="text" name="Tolerancia Dew point" class="no-border-input none"  />
+        <input type="text"
+         name="Tolerancia Dew point"
+          class="no-border-input none"
+          [(ngModel)]="mc6.tolerancia34"
+          />
       </td>
       <td name="Dew point Lunes 1er T."></td>
       <td name="Dew point Lunes 2do T."></td>
@@ -1011,10 +1250,18 @@
     <tr>
       <td class="fv" colspan="2">Tiempo de ciclo</td>
       <td>
-        <input type="text" name="SET Tiempo de ciclo" class="no-border-input none"  />
+        <input type="text" 
+        name="SET Tiempo de ciclo" 
+        class="no-border-input none"
+        value="{{mc6.Tiempo_ciclo_SET}} seg "
+        />
       </td>
       <td>
-        <input type="text" name="Tolerancia Tiempo de ciclo" class="no-border-input none"  />
+        <input type="text" 
+        name="Tolerancia Tiempo de ciclo"
+         class="no-border-input none" 
+         value="{{tiempo_de_ciclo}} seg"
+         />
       </td>
       <td name="Tiempo de ciclo Lunes 1er T."></td>
       <td name="Tiempo de ciclo Lunes 2do T."></td>
@@ -1036,10 +1283,18 @@
     <tr>
       <td class="fv" colspan="2">Cojin</td>
       <td>
-        <input type="text" name="SET Cojin" class="no-border-input none"  />
+        <input type="text" 
+        name="SET Cojin" 
+        class="no-border-input none"
+        value="{{mc6.cojin_SET}} mm"
+        />
       </td>
       <td>
-        <input type="text" name="Tolerancia Cojin" class="no-border-input none"  />
+        <input type="text" 
+        name="Tolerancia Cojin"
+         class="no-border-input none"
+         value="{{cojin}} mm"
+         />
       </td>
       <td name="Cojin Lunes 1er T."></td>
       <td name="Cojin Lunes 2do T."></td>
@@ -1060,10 +1315,18 @@
     <tr>
       <td class="fv" colspan="2">Tiempo de llenado</td>
       <td>
-        <input type="text" name="SET Tiempo de llenado" class="no-border-input none"  />
+        <input type="text"
+         name="SET Tiempo de llenado"
+          class="no-border-input none"  
+          value="{{mc6.Tiempo_llenado_SET}} seg"
+          />
       </td>
       <td>
-        <input type="text" name="Tolerancia Tiempo de llenado" class="no-border-input none"  />
+        <input type="text"
+         name="Tolerancia Tiempo de llenado" 
+         class="no-border-input none" 
+         value="{{tiempo_llenado}} seg"
+         />
       </td>
       <td name="Tiempo de llenado Lunes 1er T."></td>
       <td name="Tiempo de llenado Lunes 2do T."></td>
@@ -1084,10 +1347,18 @@
     <tr>
       <td class="fv" colspan="2">Tiempo de dosificacion</td>
       <td>
-        <input type="text" name="SET Tiempo de dosificacion" class="no-border-input none"  />
+        <input type="text" 
+        name="SET Tiempo de dosificacion" 
+        class="no-border-input none"  
+        value="{{mc6.Tiempo_Dosificacion_SET}} seg"
+        />
       </td>
       <td>
-        <input type="text" name="Tolerancia Tiempo de dosificacion" class="no-border-input none"  />
+        <input type="text"
+         name="Tolerancia Tiempo de dosificacion"
+          class="no-border-input none" 
+          value="{{tiempo_dosificacion}} seg"
+          />
       </td>
       <td name="Tiempo de dosificacion Lunes 1er T."></td>
       <td name="Tiempo de dosificacion Lunes 2do T."></td>
@@ -1113,10 +1384,18 @@
     <tr>
       <td class="fv" colspan="2">Fuerza de cierre</td>
       <td>
-        <input type="text" name="SET Fuerza de cierre" class="no-border-input none"  />
+        <input type="text" 
+        name="SET Fuerza de cierre"
+         class="no-border-input none"
+         value="{{mc6.fuerza_cierre_kn}} kn"
+         />
       </td>
       <td>
-        <input type="text" name="Tolerancia Fuerza de cierre" class="no-border-input none"  />
+        <input type="text" 
+        name="Tolerancia Fuerza de cierre"
+         class="no-border-input none" 
+         value="±  %"
+         />
       </td>
       <td name="Fuerza de cierre Lunes 1er T."></td>
       <td name="Fuerza de cierre Lunes 2do T."></td>
@@ -1179,8 +1458,14 @@
 
     </tr>
     <tr>
-      <td class="fv" class="none" colspan="4">NOMBRE DEL TECNICO:</td>
-      <td class="none" colspan="14"></td>
+      <td class="fv" class="none" colspan="3">NOMBRE DEL TECNICO:</td>
+      <td class="none" colspan="16">
+        <input type="text" 
+        style="width: 100%;"
+        class="no-border-input none"
+        name="Nombre del tecnico" 
+          />
+      </td>
     </tr>
   </table>
     NOTA: EN CASO DE ENCONTRAR VALORES FUERA DE 

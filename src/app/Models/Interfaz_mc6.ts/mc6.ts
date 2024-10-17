@@ -28,9 +28,9 @@
     Inyeccion_1_v: number;
 
 
-    sostenimiento_bar_1: string;
-    sostenimiento_bar_2: string;
-    sostenimiento_bar_3: string;
+    sostenimiento_bar_1: number;
+    sostenimiento_bar_2: number;
+    sostenimiento_bar_3: number;
     carga_s_1: number;
     carga_s_2: number;
     carga_s_mm: number;
@@ -289,5 +289,41 @@
     salida_noyos1_q: number;
     entrada_noyos1_p: number;
     entrada_noyos1_q: number;
+
+    tolerancia1: string;
+    tolerancia2: string;
+    tolerancia3: string;
+    tolerancia4: string;
+    tolerancia5: string;
+    tolerancia6: string;
+    tolerancia7: string;
+    tolerancia8: string;
+    tolerancia9: string;
+    tolerancia10: string;
+    tolerancia11: string;
+    tolerancia12: string;
+    tolerancia13: string;
+    tolerancia14: string;
+    tolerancia15: string;
+    tolerancia16: string;
+    tolerancia17: string;
+    tolerancia18: string;
+    tolerancia19: string;
+    tolerancia20: string;
+    tolerancia21: string;
+    tolerancia22: string;
+    tolerancia23: string;
+    tolerancia24: string;
+    tolerancia25: string;
+    tolerancia26: string;
+    tolerancia27: string;
+    tolerancia28: string;
+    tolerancia29: string;
+    tolerancia30: string;
+    tolerancia31: string;
+    tolerancia32: string;
+    tolerancia33: string;
+    tolerancia34: string;
+
     //hoja 3
   }

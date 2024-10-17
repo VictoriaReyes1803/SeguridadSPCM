@@ -42,12 +42,13 @@ import { SpinerComponent } from '../../Componentes/spiner/spiner.component';
 })
 export class KraussMaffeiMC6Component {
   loading = false;
+  currentContainer = 2; 
 
   title = 'angular-pdf-export';
   maquina: Maquina | null = null;
   Producto_Maquina: Producto_Maquina | null = null;
   mc6!: mc6;
-  currentContainer = 2; 
+  
   productos: Productos = [];
   user: User | null = null;
   productoSeleccionado: Producto | null = null;
@@ -138,7 +139,7 @@ export class KraussMaffeiMC6Component {
     console.log('Valores actualizados:', this.valores);
   }
 
-  downloadPDF() {
+  downloadPDF(guardar: boolean ) {
     this.loading = true;
     this.mc6Service.setlist(this.mc6);
     console.log('mc6:', this.mc6);
@@ -189,17 +190,24 @@ export class KraussMaffeiMC6Component {
         addImageToPDF(canvases[0], true);  
         addImageToPDF(canvases[1], false);
         addImageToPDF(canvases[2], false); 
+
+        if (guardar)
+        {
+          const now = new Date();
+          const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
+          const formattedTime = `${now.getHours().toString().padStart(2, '0')}-${now.getMinutes().toString().padStart(2, '0')}`;
+          const productName = this.productoSeleccionado ? this.productoSeleccionado.producto : 'ProductoDesconocido';
+          const pdfFileName = `MC6_${productName}_${formattedDate}_${formattedTime}.pdf`;
+          pdf.save(pdfFileName);
+        } 
+        else{
         const pdfBlob = pdf.output('blob');
         const pdfUrl = URL.createObjectURL(pdfBlob);
-
-        const now = new Date();
-        const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
-        const formattedTime = `${now.getHours().toString().padStart(2, '0')}-${now.getMinutes().toString().padStart(2, '0')}`;
-        const productName = this.productoSeleccionado ? this.productoSeleccionado.producto : 'ProductoDesconocido';
-        const pdfFileName = `MC6_${productName}_${formattedDate}_${formattedTime}.pdf`;
         this.isModalOpen = true;
         this.pdfSrc = pdfUrl;
         this.imagePreviewUrl = this.getSafeUrl(pdfUrl);
+
+        }
         this.currentContainer = originalContainer;
         this.loading = false;
       

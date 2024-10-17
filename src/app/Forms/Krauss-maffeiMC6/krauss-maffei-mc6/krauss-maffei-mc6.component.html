@@ -188,19 +188,19 @@
               /></td>
               <td class="none fv" > V(mm/s)</td>
               <td> <input
-                type="text"
+                type="number"
                 class="no-border-input"
                 name="sostenimiento bar"
                 [(ngModel)]="mc6.sostenimiento_bar_1"
               /></td>
               <td> <input
-                type="text"
+                type="number"
                 class="no-border-input"
                 name="sostenimiento bar"
                 [(ngModel)]="mc6.sostenimiento_bar_2"
               /></td>
               <td> <input
-                type="text"
+                type="number"
                 class="no-border-input"
                 name="sostenimiento bar"
                 placeholder="200"
@@ -1612,9 +1612,13 @@
       <button class="nav-button" (click)="nextContainer()" [disabled]="currentContainer === containers.length - 1">
         &#8594; 
       </button>
+      <div style="display:flex;  ">
+        <button class="save-button" (click)="downloadPDF(true)">Descargar</button>
+        <button class="save-button" (click)="downloadPDF(false)">Vista Previa</button>
+      
+      </div>
     </div>
-
-    <button class="save-button" (click)="downloadPDF()">Guardar</button>
+    
     
     <div class="modal" *ngIf="isModalOpen && imagePreviewUrl">
       <span class="close-button" (click)="closeModal()">&times;</span>
