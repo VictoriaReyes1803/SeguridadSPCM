@@ -1,14 +1,51 @@
-<app-sidebar></app-sidebar>
-<div class="container">
-    <h2>Lista de Productos</h2>
-    <select id="productList">
-        <option value="" disabled selected>[Seleccione]</option>
-    </select>
-    
-    <div class="button-section">
-        <p-button label="Nueva Hoja de Parámetros" icon="pi pi-check" severity="success" size="small" [raised]="true"></p-button>
-        <p-button label="Modificación de Parámetros" icon="pi pi-check" severity="primary" size="small" [raised]="true"></p-button>
-        <p-button label="Consulta de Parámetros" icon="pi pi-check" severity="warning" size="small" [raised]="true"></p-button>
-        <p-button label="Checklist Procesos" icon="pi pi-check" severity="danger" size="small" [raised]="true"></p-button>
-    </div>
+<div class="flex">
+  <!-- Sidebar -->
+ 
+  <app-toolbar></app-toolbar>
+
+  <div class="flex justify-content-end" style="flex: 1; padding: 20px; margin-left: 16%;">
+    <p-card header="Seleccione un producto" [style]="{ width: '80%' }">
+      <!-- Select -->
+      <div class="w-64 mx-auto mt-5">
+        <label for="select" class="block text-sm font-medium text-gray-700">Seleccione una opción</label>
+        <div class="relative mt-1">
+          <select
+            id="select"
+            name="options"
+            class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md appearance-none bg-white"
+            style="width: 70%;">
+            <option>Opción 1</option>
+            <option>Opción 2</option>
+            <option>Opción 3</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Botones con márgenes -->
+      <ng-template pTemplate="footer">
+        <div class="flex flex-wrap justify-between mt-4">
+          <p-button label="Nueva Hoja de Parámetros" icon="pi pi-check" severity="success" size="small" [raised]="true" [style]="{ 'margin-bottom': '10px', 'margin-right': '10px' }"></p-button>
+          <p-button label="Modificación de Parámetros" icon="pi pi-check" severity="primary" size="small" [raised]="true" [style]="{ 'margin-bottom': '10px', 'margin-right': '10px' }"></p-button> 
+          <p-button label="Eliminar Parámetros" icon="pi pi-times" severity="danger" size="small" [raised]="true" [style]="{ 'margin-bottom': '10px', 'margin-right': '10px' }"></p-button> 
+          <p-button label="Duplicar Parámetros" icon="pi pi-copy" severity="warning" size="small" [raised]="true" [style]="{ 'margin-bottom': '10px', 'margin-right': '10px' }"></p-button> 
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
 </div>
+
+
+<!--<div class="container p-6 ml-64">
+    <h2 class="text-2xl font-bold mb-4">Lista de Productos</h2>
+    <select id="productList" class="border border-gray-300 rounded p-2 w-full mb-4">
+      <option value="" disabled selected>[Seleccione]</option>
+    </select>
+  
+    <div class="button-section flex space-x-4">
+      <p-button label="Nueva Hoja de Parámetros" icon="pi pi-check" severity="success" size="small" [raised]="true"></p-button>
+      <p-button label="Modificación de Parámetros" icon="pi pi-check" severity="primary" size="small" [raised]="true"></p-button>
+      <p-button label="Consulta de Parámetros" icon="pi pi-check" severity="warning" size="small" [raised]="true"></p-button>
+      <p-button label="Checklist Procesos" icon="pi pi-check" severity="danger" size="small" [raised]="true"></p-button>
+    </div>
+  </div>
+-->
