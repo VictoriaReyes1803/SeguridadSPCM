@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ToolbarModule } from 'primeng/toolbar';
 import { AvatarModule } from 'primeng/avatar';
 import { FormsModule } from '@angular/forms'; 
@@ -29,6 +29,8 @@ export class ToolbarComponent {
 
   selectedOption: string | null = null;
   dropdownOpen: boolean = false;
+
+  @Input() report: boolean = false;
   @Output() optionSelected = new EventEmitter<Reporteresponse>();
 
   constructor(

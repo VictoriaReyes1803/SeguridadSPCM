@@ -4,7 +4,7 @@
         <ng-template pTemplate="start">
             <img style="height: 30px;" src="../../../assets/images/CLAYENS_Mexico-Logo.png" />
         </ng-template>
-        <ng-template pTemplate="center">
+        <ng-template *ngIf="report"  pTemplate="center">
             <label for="reporteSelect" class="">Prellenar reporte:</label>
             <div class="custom-select" (click)="toggleDropdown()">
                 <div class="select-header">

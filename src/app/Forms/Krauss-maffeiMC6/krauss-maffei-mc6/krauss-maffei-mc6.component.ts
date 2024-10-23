@@ -200,7 +200,7 @@ export class KraussMaffeiMC6Component {
     const pdf = new jsPDF('p', 'pt', 'letter');
     const marginTop = 20;
     const marginSide = 20;
-    const scale = 2;
+    const scale = 1;
   
     const captureElement = (element: HTMLElement): Promise<HTMLCanvasElement> => {
       return html2canvas(element, {
