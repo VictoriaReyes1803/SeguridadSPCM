@@ -3,6 +3,7 @@ export interface Reporte{
     producto: number;
     producto_maquina: number;
     content: JSON;
+    formato: string;
     
 }
 export interface Reporteresponse{

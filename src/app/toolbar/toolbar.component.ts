@@ -45,7 +45,7 @@ export class ToolbarComponent {
 
   }
   loadReportes(): void {
-    this.productService.getReportes().subscribe(
+    this.productService.getAllReportes().subscribe(
       (data) => {
         this.reportes = data; 
         console.log(this.reportes);

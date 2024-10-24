@@ -75,6 +75,7 @@ export class KraussMaffeiMC6Component {
   secado_minimo: number = 0;
   consumo: number = 0;
   valores!: mc6
+  pdfurl: string = '';
 
   checklist = false;
   @ViewChild('container0') container0!: ElementRef;
@@ -250,35 +251,43 @@ export class KraussMaffeiMC6Component {
         const pdfFile = new File([pdfBlob], pdfFileName, { type: 'application/pdf' });
         const formData = new FormData();
         formData.append('file', pdfFile);  
-        const pdffile = `clayenss/MC6_${productName}_${formattedDate}_${formattedTime}.pdf`;
         
         if (guardar)
         {
+          
           this.digitalOceanService.putpdf(formData).subscribe(
             (data) => {
-              
+              this.pdfurl = data.file_url;
               console.log('PDF guardado:', data);
+
+              this.reportData = {
+                ruta: this.pdfurl, 
+                formato: 'Krauss_maffei_mc6',
+                content: JSON.parse(JSON.stringify(this.mc6)),
+                producto: this.productoSeleccionado?.id ?? 0, 
+                producto_maquina: this.Producto_Maquina?.id ?? 0 
+            };
+              this.productService.postReporte(this.reportData).subscribe(
+                (data) => {
+                  console.log('Reporte guardado:', data);
+                  console.log(this.reportData);
+                  this.loading = false;
+                  this.router.navigate(['/Menu']);
+                  
+                },
+                (error) => {
+                  console.log(this.reportData);
+                  console.error('Error al guardar el reporte:', error);
+                }
+              );
+
             },
             (error) => {
               console.error('Error al guardar el PDF:', error);
             }
           );
           
-
-          this.reportData = {
-            ruta: pdffile, 
-            content: JSON.parse(JSON.stringify(this.mc6)),
-            producto: this.productoSeleccionado?.id ?? 0, 
-            producto_maquina: this.Producto_Maquina?.id ?? 0 
-        };
-          this.productService.postReporte(this.reportData).subscribe(
-            (data) => {
-              console.log('Reporte guardado:', data);
-            },
-            (error) => {
-              console.error('Error al guardar el reporte:', error);
-            }
-          );
+         
           
           pdf.save(pdfFileName);
         } 
@@ -287,11 +296,11 @@ export class KraussMaffeiMC6Component {
         this.isModalOpen = true;
         this.pdfSrc = pdfUrl;
         this.imagePreviewUrl = this.getSafeUrl(pdfUrl);
-
+        this.loading = false;
         }
         this.currentContainer = originalContainer;
-        this.loading = false;
-        this.router.navigate(['/menu']);
+        
+        
       
       });
     }, 0);  
