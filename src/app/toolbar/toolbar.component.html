@@ -17,7 +17,7 @@
                         *ngFor="let reporte of reportes"
                         (click)="selectOption(reporte)"
                     >
-                        {{ reporte.fecha }}
+                        {{formatDate(reporte.fecha) }} {{ reporte.user.nombre }} {{ reporte.producto.producto}}
                     </div>
                 </div>
             </div>

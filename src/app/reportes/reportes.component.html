@@ -2,15 +2,29 @@
 <div style="margin-left: 60px; text-align: center; justify-content:center; align-items:center;">
   <app-toolbar></app-toolbar>
 
+  <div class="search-container">
+    <input type="text" placeholder="Buscar por usuario" [(ngModel)]="searchUser" (input)="filterReportes()">
+    <input type="text" placeholder="Buscar por fecha (YYYY-MM-DD)" [(ngModel)]="searchDate" (input)="filterReportes()">
+    
+  </div>
+
   <div class="container" *ngIf="pdfFiles.length > 0">
     <ul>
-      <li *ngFor="let pdf of pdfFiles">
-        <a [href]="getPdfUrl(pdf)" target="_blank">{{ pdf }}</a>
+      <li *ngFor="let reporte of filteredReportes">
+        <button (click)="previewPdf(reporte.ruta)" style="cursor: pointer;" class="pdf-button">Ver pdf</button>
+        <span class="pdf-name">{{ getPdfName(reporte.ruta) }} - {{reporte.user.nombre}} 
+          {{reporte.user.apellido_paterno}}  </span>
       </li>
     </ul>
   </div>
   <div class="container" *ngIf="pdfFiles.length === 0">
     No PDF files found.
   </div>
-  
+
+  <div class="modal" *ngIf="isModalOpen && pdfSrc">
+    <span class="close-button" (click)="closeModal()">&times;</span>
+    <div class="modal-content">
+      <iframe [src]="pdfSrc" width="100%" height="600px"></iframe>
+    </div>
+  </div>
 </div>

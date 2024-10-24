@@ -158,7 +158,7 @@ export class KraussMaffeiMC6Component {
       (data) => {
         console.log('Reporte cargado:', data.content);
         if (this.productoSeleccionado) {
-          this.productoSeleccionado.id = data.producto;
+          this.productoSeleccionado.id = data.producto.id;
         }
         if (this.Producto_Maquina) {
           this.Producto_Maquina.id = data.producto_maquina;
