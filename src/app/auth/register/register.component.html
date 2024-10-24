@@ -2,11 +2,12 @@
 <div  class="login-container h-screen w-screen ">
     <div class="login-left">
         <img src="../../assets/images/CLAYENS_Mexico-Logo.png" alt="Logo" class="logo">
+        <p-dialog header="Detalles" >
         <div class="container">
             <div class="screen">
                 <div class="screen__content">
                     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register">
-                        <h2 class="login__icon fas fas fa-user">Agregar empleado</h2>
+                        <h2 class="login__icon fas fas fa-user">  Agregar empleado</h2>
 
                         <div style="display:flex; gap:25px" class="">
                         <div class="login__field">
@@ -120,7 +121,7 @@
                             <input formControlName="password" type="password" class="login__input" name="password" placeholder="Contraseña" required>
                         </div>
                         <button style="width: 130px;" class="button login__submit" type="submit">
-                            <span class="button__text">Ingresar</span>
+                            <span class="button__text">Agregar</span>
                             <i class="button__icon fas fa-chevron-right"></i>
                         </button>
                     </form>
@@ -137,6 +138,7 @@
                 
             </div>
         </div>
+      </p-dialog>
     </div>
    
 </div>

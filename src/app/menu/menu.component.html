@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="flex">
   <!-- Sidebar -->
  
@@ -32,6 +33,26 @@
       </ng-template>
     </p-card>
   </div>
+=======
+<app-sidebar></app-sidebar>
+<div class="container">
+    <h2>Menu</h2>
+
+    <div class="product-selector">
+      <label for="product-select">Selecciona un producto:</label>
+      <select id="product-select" (change)="onProductSelect($event)">
+        <option *ngFor="let producto of productos" [value]="producto.id">
+          {{ producto.producto }} - {{ producto.descripcion }}
+        </option>
+      </select>
+    </div>
+  
+    <div class="buttons">
+      <button class="btn-create" (click)="crearNuevaHoja()">Crear nueva Hoja</button>
+      <button class="btn-checklist">Consultar</button>
+      <button class="btn-export">Modificar Hoja</button>
+    </div>
+>>>>>>> 881e614f056c670c9002692b205c49f29d5abd59
 </div>
 
 

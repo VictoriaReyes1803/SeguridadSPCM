@@ -1,0 +1,26 @@
+<app-sidebar></app-sidebar>
+<div style="margin-left: 60px; text-align: center; justify-content:center; align-items:center;">
+  <app-toolbar></app-toolbar>
+
+  <div class="container" *ngIf="pdfFiles.length > 0">
+    <ul>
+      <li *ngFor="let pdf of pdfFiles">
+        <div class="pdf-preview" (click)="openPdfModal(pdf)">
+          <ngx-extended-pdf-viewer [src]="getPdfUrl(pdf)" [height]="'150px'" [showToolbar]="false"></ngx-extended-pdf-viewer>
+          <p>{{ pdf }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container" *ngIf="pdfFiles.length === 0">
+    No PDF files found.
+  </div>
+
+  <div *ngIf="selectedPdf" class="modal" (click)="closePdfModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="closePdfModal()">&times;</span>
+      <ngx-extended-pdf-viewer [src]="selectedPdf" useBrowserLocale="true" height="600px"></ngx-extended-pdf-viewer>
+    </div>
+  </div>
+</div>

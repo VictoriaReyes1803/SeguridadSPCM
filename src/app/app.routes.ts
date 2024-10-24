@@ -6,6 +6,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { MenuComponent } from './menu/menu.component';
 import { AuthGuard } from './Guards/Auth/auth.guard';
 import { RegisterComponent } from './auth/register/register.component';
+import { UsersComponent } from './auth/users/users.component';
+import { ReportesComponent } from './reportes/reportes.component';
+
 export const routes: Routes = [
    
     {
@@ -28,10 +31,19 @@ export const routes: Routes = [
         component: KraussMaffeiMC6Component,
         canActivate: [AuthGuard] 
     },
-  
     {
         path: 'register',
-        component: RegisterComponent
+        component: RegisterComponent,
+        canActivate: [AuthGuard]
+    },
+    {   path: 'users',
+        component: UsersComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'reportes',
+        component: ReportesComponent,
+        canActivate: [AuthGuard]
     }
 
 ];

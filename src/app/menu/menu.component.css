@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    background-color: #005792;
+    color: #ffffff;
+  }
+  
+  .container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 70px;
+  }
+  
+
+  
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+  }
+  
+
+
+  h2 {
+    color: #ff6600;
+    margin-bottom: 20px;
+  }
+  
+  .product-selector {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    color: #333;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  select {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    color: #333;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  button {
+    background-color: #ff6600;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #e65c00;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  .btn-create {
+    background-color: #ff6600;
+  }
+  
+  .btn-checklist {
+    background-color: #666666;
+  }
+  
+  .btn-checklist:hover {
+    background-color: #505050;
+  }
+
+  .btn-export {
+    background-color: #4caf50;
+  }
+  .btn-export:hover {
+    background-color: #45a045;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .buttons {
+      flex-direction: column;
+    }
+  
+    button {
+      width: 100%;
+      margin-bottom: 10px;
+    }}
+    
+
+    .swal2-custom-popup {
+      overflow: visible !important;
+      position: relative !important; /* Ajusta la posición si es necesario */
+    }
+    
+    .swal2-container {
+      z-index: 10000 !important;
+    }
+    
+    .swal2-popup select {
+      z-index: 10001 !important; /* Forzar que el select esté por encima del modal */
+    }
+    

@@ -1,0 +1,992 @@
+    <h1 class="fv" style="font-size: large;" >Parámetros del proceso Krauss Maffei MC6</h1>
+    <div>
+      <app-header-mc6 
+         [cliente]="cliente"
+         [producto_1]="producto_1"
+         [maquina] = "maquina"
+         [Num_Cav_th_1]="Num_Cav_th_1"
+         [Num_Cav_real_1]="Num_Cav_real_1"
+          [Molde]="Molde"
+          [Resina]="Resina"
+          [Fecha]=" Fecha"
+          [Producto_Maquina]="Producto_Maquina"
+          [estado]="estado"
+
+          [Arch_Disq]="Arch_Disq"
+          [Num_Cav_real_2]="Num_Cav_real_2"
+          [Num_Cav_th_2]="Num_Cav_th_2"
+          [Producto_2]="Producto_2"
+          [Pigmento]="Pigmento"
+          [Porc_pigmento]="Porc_pigmento"
+
+          (cambioValores)="onValoresCambiados($event)"
+         >
+          
+         </app-header-mc6>
+    </div>
+    <table>
+      <tr>
+        <th class="fv" colspan="2">CREADO POR:</th>
+        <th colspan="2">
+          {{creado_por}}
+        
+        </th>
+        <th class="fv" colspan="2">EDITADO POR:</th>
+        <th colspan="2">
+          <input
+            type="text"
+            class="no-border-input"
+            name="EDITADO POR"
+            placeholder="{{editado}}"
+            value="{{editado_por}}"
+            style="width: 100%; border: none"
+          />
+        </th>
+      </tr>
+    </table>
+
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th style="padding: 10px;" colspan="16">ABRIR/CERRAR MOLDE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border: none;" class="fv" colspan="3" rowspan="9">
+            Carrera de Apertura<br /><input
+              type="number"
+              name="cliente"
+              style="width: 80%"
+              [(ngModel)]="valores.carrera_apertura"
+              (ngModelChange)="actualizarValores($event)"
+            />
+            <br />
+            mm
+          </td>
+          <td  style="padding: 7px; border:none;" colspan="7">Cerrar Molde</td>
+        </tr>
+        <tr>
+          <td style="border: none;"></td>
+          <td style="border: none;" class="fv">1</td>
+          <td style="border: none;" class="fv">2</td>
+          <td style="border: none;" class="fv">3</td>
+          <td style="border: none;" class="fv">4</td>
+          <td style="border: none;" class="fv">5</td>
+          <td style="border: none;"></td>
+          <td style="border: none;" rowspan="4">Fuerza de Cierre :</td>
+          <td style="border: none;" rowspan="2">
+            <input
+              type="number"
+              name="Fuerza de CierrekN"
+              style="width: 80%;"
+              (ngModelChange)="actualizarValores($event)"
+              [(ngModel)]="valores.fuerza_cierre_kn"
+            />
+          </td>
+          <td style="border: none;" rowspan="2">kN</td>
+
+          <td style="border: none; " rowspan="4">Duración Max de Lim. de F de Desplazamiento</td>
+          <td style="border: none;" rowspan="4">
+            <input
+              type="number"
+              name="Duración Max de Lim. de F de Desplazamiento"
+              style="width: 90%;"
+              [(ngModel)]="valores.duracion_max_lim_desplazamiento"
+            />
+          </td>
+          <td style="border: none;" rowspan="4">seg</td>
+        </tr>
+        <tr>
+          <td style="border: none;padding:10px" class="fv">F</td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="F1"
+              [(ngModel)]="valores.cerrar_f1"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="F2"
+              [(ngModel)]="valores.cerrar_f2"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="F3"
+              
+              [(ngModel)]="valores.cerrar_f3"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              [(ngModel)]="valores.cerrar_f4"
+              name="F4"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="F5"
+              [(ngModel)]="valores.cerrar_f5"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td style="border: none;"></td>
+        </tr>
+        <tr>
+          <td style="border: none; padding:10px" class="fv">V</td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="V1"
+              [(ngModel)]="valores.cerrar_v1"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="V2"
+              [(ngModel)]="valores.cerrar_v2"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="V3"
+              [(ngModel)]="valores.cerrar_v3"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="V4"
+              [(ngModel)]="valores.cerrar_v4"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="V5"
+              [(ngModel)]="valores.cerrar_v5"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td style="border:none">%</td>
+          <td style="border: none;" rowspan="2">
+            <input
+              type="number"
+              name="Fuerza de Cierremm"
+              style="width: 80%;"
+              [(ngModel)]="valores.fuerza_cierre_mm"
+            />
+          </td>
+          <td style="border: none;" rowspan="2">mm</td>
+        </tr>
+        <tr>
+          <td style="border: none; padding:10px" class="fv">S</td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="S1"
+              [(ngModel)]="valores.cerrar_s1"
+              style="width: 100%"
+
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="S2"
+              [(ngModel)]="valores.cerrar_s2"
+              style="width: 100%"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="S3"
+              [(ngModel)]="valores.cerrar_s3"
+              style="width: 100%"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="S4"
+              [(ngModel)]="valores.cerrar_s4"
+              style="width: 100%"
+            />
+          </td>
+
+          <td style="background-color: rgb(235, 235, 235)"></td>
+          <td style="border: none;">mm</td>
+        </tr>
+        <tr>
+          <td style="border: none; padding:10px" colspan="7">Abrir Molde</td>
+          <td style="border: none;" colspan="3" rowspan="4">
+            Posición de apertura de molde para arranque de extracción
+          </td>
+          <td style="border: none;" colspan="1" rowspan="4">
+            <input
+              type="number"
+              name="Posición de apertura de molde para arranque de extracción"
+              style="width: 85%"
+              [(ngModel)]="valores.posicion_arranque"
+              
+            />
+          </td>
+          <td style="border: none;" colspan="1" rowspan="4">mm</td>
+        </tr>
+        <tr>
+          <td style="border: none;"></td>
+          <td style="border: none;" class="fv">5</td>
+          <td style="border: none;" class="fv">4</td>
+          <td style="border: none;" class="fv">3</td>
+          <td style="border: none;" class="fv">2</td>
+          <td style="border: none;" class="fv">1</td>
+          <td style="border: none;"></td>
+        </tr>
+        <tr>
+          <td style="border: none; padding:10px" class="fv">V</td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="AV5"
+              [(ngModel)]="valores.abrir_v5"
+              style="width: 100%"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="AV4"
+              [(ngModel)]="valores.abrir_v4"
+              style="width: 100%"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="AV3"
+              [(ngModel)]="valores.abrir_v3"
+              style="width: 100%"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="AV2"
+              [(ngModel)]="valores.abrir_v2"
+              style="width: 100%"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="AV1"
+             
+              [(ngModel)]="valores.abrir_v1"
+              style="width: 100%"
+            />
+          </td>
+          <td class="fv" style="border: none;">%</td>
+        </tr>
+        <tr>
+          <td style="border: none; padding:10px" class="fv">S</td>
+          <td style="background-color: rgb(235, 235, 235)"></td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="S4"
+              [(ngModel)]="valores.abrir_s4"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="S3"
+              [(ngModel)]="valores.abrir_s3"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="S2"
+              [(ngModel)]="valores.abrir_s2"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="S1"
+              [(ngModel)]="valores.abrir_s1"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td class="fv" style="border: none;">mm</td>
+        </tr>
+      </tbody>
+    </table>
+    <table cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th colspan="10">EXPULSORES</th>
+          <th colspan="8">MOVIMIENTO DEL GRUPO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border: none;" colspan="1" rowspan="10"></td>
+          <td style="border: none;" colspan="4">Salida Expulsor</td>
+          <td style="border: none;" colspan="5"></td>
+          <td
+            style="border-right: 1px solid white"
+            colspan="1"
+            rowspan="10"
+          ></td>
+          <td style="border: none;">Carrera del grupo</td>
+          <td style="border: none;">
+            <input
+              type="number"
+              name="Carrera del grupo"
+              style="width: 80%;"
+              [(ngModel)]="valores.carrera_grupo"
+            />
+          </td>
+          <td style="border: none;">mm</td>
+          <td
+            colspan="1"
+            rowspan="9"
+            style="border: none"
+          ></td>
+        </tr>
+        <tr>
+          <td style="border: none;" colspan="1"></td>
+          <td style="border: none;" colspan="1">1</td>
+          <td style="border: none;" colspan="1">2</td>
+          <td style="border: none;" colspan="3"></td>
+
+          <td style="border: none;" class="fv">Arranque por la posicion del molde</td>
+          <td style="border: none;">
+            <input
+              type="number"
+              name="Arranque por la posicion del molde"
+              style="width: 85%;"
+              [(ngModel)]="valores.arranque_posicion"
+            />
+          </td>
+          <td style="border: none;">mm</td>
+
+          <td style="border: none;" colspan="3">Avance</td>
+        </tr>
+        <tr>
+          <td style="border: none; padding: 10px" >F</td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="F1"
+              style="width: 100%; border: none"
+              [(ngModel)]="valores.salida_f1"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="F2"
+              [(ngModel)]="valores.salida_f2"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td style="border: none;">kN</td>
+          <td
+            style="border:none"
+          ></td>
+
+          <td style="border: none" colspan="1" rowspan="2">
+            Carrera del expulsor
+          </td>
+
+          <td style="border: none;" class="fv">Tiempo de retardo por avance</td>
+          <td style="border: none;">
+            <input
+              type="number"
+              name="Tiempo de retardo por avance"
+              style="width: 85%;"
+              [(ngModel)]="valores.tiempo_retardo"
+            />
+          </td>
+          <td style="border: none;">seg</td>
+
+          <td style="border: none;">Velocidad 1</td>
+          <td style="border: none;">
+            <input
+              type="number"
+              name="Velocidad 1"
+              [(ngModel)]="valores.avance_velocidad"
+              style="width: 85%;"
+            />
+          </td>
+          <td style="border: none;" class="fv">mm/s</td>
+        </tr>
+        <tr>
+          <td style="border: none;">V</td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="V1"
+              [(ngModel)]="valores.salida_v1"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="V2"
+              [(ngModel)]="valores.salida_v2"
+              style="width: 100%; border: none"
+            />
+          </td>
+          <td style="border: none;" class="fv">mm/s</td>
+          <td style="border: none"></td>
+
+          <td style="border: none;" class="fv">Avance del expulsor en func. del tiempo</td>
+          <td style="border: none;">
+            <input
+              type="number"
+              name="Avance del expulsor en func. del tiempo"
+              style="width: 85%;"
+              [(ngModel)]="valores.avance_expulsor"
+            />
+          </td>
+          <td style="border: none;">seg</td>
+
+          <td style="border: none;">Punto de conmut</td>
+          <td style="border: none;">
+            <input
+              type="number"
+              name="Punto de conmut"
+              style="width: 85%;"
+              [(ngModel)]="valores.avance_punto_conmut"
+
+            />
+          </td>
+          <td style="border: none;">mm</td>
+        </tr>
+        <tr>
+          <td style="border: none; padding:10px">S</td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="S1"
+              style="width: 100%; border: none"
+              [(ngModel)]="valores.salida_s1"
+            />
+          </td>
+          <td style="border: none"></td>
+
+          <td style="border: none;">mm</td>
+          <td style="border: none"></td>
+          <td style="border: none" colspan="1" rowspan="2">
+            <input
+              type="number"
+              class=""
+              name="Carrera del expulsor"
+              style="width: 60%"
+              [(ngModel)]="valores.carrera_expulsor"
+            />
+            mm
+          </td>
+
+          <td style="border: none;" class="fv">Mantener expulsor adelante</td>
+          <td style="border: none;">
+            <input
+              type="number"
+              name="Avance del expulsor en func. del tiempo"
+              style="width: 85%;"
+              [(ngModel)]="valores.mantener_expulsor"
+            />
+          </td>
+          <td style="border: none;">seg</td>
+
+          <td style="border: none;">Velocidad 2</td>
+          <td style="border: none;">
+            <input
+              type="number"
+              name="Velocidad 2"
+              style="width: 85%;"
+              [(ngModel)]="valores.avance_velocidad2"
+            />
+          </td>
+          <td style="border: none;" class="fv">mm/s</td>
+        </tr>
+
+        <tr>
+          <td style="border: none;" colspan="4">Salida Expulsor</td>
+          <td style="border: none;"></td>
+
+          <td style="border: none;" class="fv">Carrera con vibraciones</td>
+          <td style="border: none;">
+            <input
+              type="number"
+              name="Avance del expulsor en func. del tiempo"
+              style="width: 85%; "
+              [(ngModel)]="valores.carrera_vibraciones"
+            />
+          </td>
+          <td style="border: none;">mm</td>
+
+          <td style="border: none;" colspan="3">Retroceso</td>
+        </tr>
+        <tr>
+          <td style="border: none;" colspan="1"></td>
+          <td style="border: none;" colspan="1">1</td>
+          <td style="border: none;" colspan="1">2</td>
+          <td style="border: none;" colspan="3"></td>
+
+          <td style="border: none;" class="fv">Contador de vibraciones</td>
+          <td style="border: none;">
+            <input
+              type="number"
+              name="Avance del expulsor en func. del tiempo"
+              style="width: 85%;"
+              [(ngModel)]="valores.contador_vibraciones"
+            />
+          </td>
+          <td style="border: none;" class="fv">num</td>
+
+          <td style="border: none;">Velocidad 1</td>
+          <td style="border: none;">
+            <input
+              type="number"
+              name="Velocidad 1 retroceso"
+              style="width: 85%;"
+              [(ngModel)]="valores.retroceso_velocidad"
+            />
+          </td>
+          <td style="border: none;" class="fv">mm/s</td>
+        </tr>
+        <tr>
+          <td  style="border: none; padding:10px">F</td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="F1"
+              style="width: 100%; border: none"
+              [(ngModel)]="valores.salida2_f1"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="F2"
+              style="width: 100%; border: none"
+              [(ngModel)]="valores.salida2_f2"
+            />
+          </td>
+          <td style="border: none;">kN</td>
+          <td style="border: none;" colspan="6" rowspan="3"></td>
+
+          <td style="border: none;">Punto de conmut</td>
+          <td style="border: none;">
+            <input
+              type="number"
+              name="punto de conmut retroceso"
+              style="width: 85%;"
+              [(ngModel)]="valores.retroceso_punto_conmut"
+            />
+          </td>
+          <td style="border: none;">mm</td>
+        </tr>
+        <tr>
+          <td style="border: none;padding:10px;">V</td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="V1"
+              style="width: 100%; border: none"
+              [(ngModel)]="valores.salida2_v1"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="V2"
+              style="width: 100%; border: none"
+              [(ngModel)]="valores.salida2_v2"
+            />
+          </td>
+          <td style="border: none;" class="fv">mm/s</td>
+
+          <td style="border: none;">Velocidad 2</td>
+          <td style="border: none;">
+            <input
+              type="number"
+              name="Velocidad 2 retroceso"
+              style="width: 85%"
+              [(ngModel)]="valores.retroceso_velocidad2"
+            />
+          </td>
+          <td style="border: none;" class="fv">mm/s</td>
+        </tr>
+        <tr>
+          <td  style="border: none; padding:10px;">S</td>
+          <td style="border: none"></td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="S2"
+              style="width: 100%"
+              [(ngModel)]="valores.salida2_s2"
+              
+            />
+          </td>
+
+          <td style="border: none;">mm</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table cellspacing="0" cellpadding="1">
+      <thead>
+        <tr>
+          <th colspan="18">Noyos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border: none;" colspan="1" rowspan="10"></td>
+          <td style="border: none;" colspan="4"></td>
+
+          <td style="border: none;" colspan="1">Activo</td>
+
+          <td style="border: none;" rowspan="10"></td>
+
+          <td style="border: none;" colspan="1">S. Robot</td>
+
+          <td style="border: none;" rowspan="10"></td>
+
+          <td style="border: none; padding: 15px;" colspan="4">Salida de Noyos</td>
+          <td style="border: none;" colspan="4">Entrada de Noyos</td>
+        </tr>
+        <tr>
+          <td style="border: none;" colspan="2" rowspan="3">Noyos Hidr. PPMM</td>
+
+          <td style="border: none;" colspan="2">Noyo 1</td>
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="Noyo Hidr PPMM 1"
+              [(ngModel)]="valores.noyohidr_1_activo"
+              style="width: 85%"
+            />
+          </td>
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="Noyo Hidr PPMM 1"
+              style="width: 85%"
+              [(ngModel)]="valores.noyohidr_1_robo"
+            />
+          </td>
+
+          <td style="border: none;" colspan="1">P</td>
+          <td style="border: none;" colspan="1"></td>
+
+          <td style="border: none;" colspan="1">Q</td>
+          <td style="border: none;" colspan="1"></td>
+
+          <td style="border: none;" colspan="1">P</td>
+          <td style="border: none;" colspan="1"></td>
+
+          <td style="border: none;" colspan="1">Q</td>
+          <td style="border: none;" colspan="1"></td>
+        </tr>
+        <tr>
+          <td style="border: none;" colspan="2">Noyo 2</td>
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="Noyo Hidr PPMM 1"
+              style="width: 85%"
+              [(ngModel)]="valores.noyohidr_2_activo"
+            />
+          </td>
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="Noyo Hidr PPMM 1"
+              style="width: 85%"
+              [(ngModel)]="valores.noyohidr_2_robo"
+            />
+          </td>
+
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="Salida de Noyos P"
+              style="width: 85%"
+              [(ngModel)]="valores.salida_noyos2_p"
+            />
+          </td>
+          <td style="border: none;" class="fv" colspan="1">bar</td>
+
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="Salida de Noyos Q"
+              style="width: 85%"
+              [(ngModel)]="valores.salida_noyos2_q"
+            />
+          </td>
+          <td style="border: none;" class="fv" colspan="1">l/min</td>
+
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="Entrada de Noyos P"
+              style="width: 85%"
+              [(ngModel)]="valores.entrada_noyos2_p"
+            />
+          </td>
+          <td style="border: none;" class="fv" colspan="1">bar</td>
+
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="Entrada de Noyos Q"
+            
+              [(ngModel)]="valores.entrada_noyos2_q"
+              style="width: 85%"
+            />
+          </td>
+          <td style="border: none;" class="fv" colspan="1">l/min</td>
+        </tr>
+        <tr>
+          <td style="border: none;" colspan="2">Expulsor</td>
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="Noyo Hidr PPMM expulsor activo"
+              style="width: 85%"
+              [(ngModel)]="valores.noyohidr_expulsor_activo"
+            />
+          </td>
+          <td style="border: none;">
+            <input
+              type="number"
+              name="Noyo Hidr PPMM expulsor S.Robot"
+              style="width: 85%"
+              [(ngModel)]="valores.noyohidr_expulsor_robo"
+            />
+          </td>
+          <td style="border: none;"> <input
+            type="number"
+            name="Salida de Noyos P expulsor"
+            style="width: 85%"
+            [(ngModel)]="valores.salida_noyosexp_p"
+          /></td>
+          <td style="border: none;">bar</td>
+          <td style="border: none;"> <input
+            type="number"
+            name="Salida de Noyos Q expulsor"
+            style="width: 85%"
+            [(ngModel)]="valores.salida_noyosexp_q"
+          /></td>
+          <td style="border: none;">l/min</td>
+          <td style="border: none;"> <input
+            type="number"
+            name="Entrada de Noyos P expulsor"
+            style="width: 85%"
+            [(ngModel)]="valores.entrada_noyosexp_p"
+          /></td>
+          <td style="border: none;">bar</td>
+          <td style="border: none;"> <input
+            type="number"
+            name="Entrada de Noyos Q expulsor"
+            style="width: 85%"
+            [(ngModel)]="valores.entrada_noyosexp_q"
+          /></td>
+          <td style="border: none;">l/min</td>
+        </tr>
+        <tr>
+          <td style="border: none" colspan="18"></td>
+        </tr>
+        <tr>
+          <td style="border: none; padding-top:10px" colspan="2">Noyos Neum. PPMM</td>
+          <td style="border: none;" colspan="2">Noyo 1</td>
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="Noyos Neum. PPMM 1 activo"
+              style="width: 85%"
+              [(ngModel)]="valores.noyoppmm_1_activo"
+            />
+          </td>
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="Noyos Neum. PPMM 1 S.Robot"
+              style="width: 85%"
+              [(ngModel)]="valores.noyoppmm_1_robo"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td style="border: none;" colspan="2">Noyos Neum. PPMF</td>
+          <td style="border: none;" colspan="2">Noyo 1</td>
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="Noyo Neum PPMF 1 activo"
+              style="width: 85%"
+              [(ngModel)]="valores.noyoppmf_2_activo"
+            />
+          </td>
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="Noyo Neum PPMF 1 S.Robot"
+              style="width: 85%"
+              [(ngModel)]="valores.noyoppmf_2_robo"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td style="border: none" colspan="18"></td>
+        </tr>
+        <tr>
+          <td style="border: none; padding: 20px;" colspan="2">Noyos Hidr. PPMF</td>
+          <td style="border: none;" colspan="2">Noyo 1</td>
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="Noyo Hidr PPMF 1 activo"
+              style="width: 85%"
+              [(ngModel)]="valores.noyohidr_ppmf_activo"
+            />
+          </td>
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="Noyo Hidr PPMF 1 S.Robot"
+              style="width: 85%"
+              [(ngModel)]="valores.noyohidr_ppmf_robo"
+            />
+          </td>
+
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="salida de noyos P bar"
+              style="width: 85%;"
+              [(ngModel)]="valores.salida_noyos1_p"
+            />
+          </td>
+          <td style="border: none;"  colspan="1">bar</td>
+
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="salida de noyos Q l/min"
+            
+              [(ngModel)]="valores.salida_noyos1_q"
+            />
+          </td>
+          <td style="border:none" colspan="1">l/min</td>
+
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="entrada de noyos P bar"
+          
+              [(ngModel)]="valores.entrada_noyos1_p"
+            />
+          </td>
+          <td style="border: none;" colspan="1">bar</td>
+
+          <td style="border: none;" colspan="1">
+            <input
+              type="number"
+              name="entrada de noyos Q l/min"
+              
+              [(ngModel)]="valores.entrada_noyos1_q"
+            />
+          </td>
+          <td style="border: none;" colspan="1">l/min</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+    <app-footer1
+    [Peso_Colada]="Peso_Colada"
+    [T_resistencia]="T_resistencia"
+    [seg_piezas]="seg_piezas"
+    [Volumen_cargaa]="Volumen_cargaa"
+    [peso_disparo]="peso_disparo"
+    [Peso_pieza_1]="Peso_pieza_1"
+    [Peso_pieza_2]="Peso_pieza_2"
+    [diametro_huisillo]="diametro_huisillo"
+    [Volumen_max]="Volumen_max"
+    >
+
+    </app-footer1>
+    <app-footer2
+    [secado_minimo]="secado_minimo"
+    [consumo]="consumo"
+    [rate]="rate"
+    >
+    </app-footer2>    
+    <app-footer3></app-footer3>
+  

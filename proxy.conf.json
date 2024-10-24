@@ -1,0 +1,9 @@
+{
+    "/api": {
+      "target": "https://clayens.fo2.cdn.digitaloceanspaces.com",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }
+  

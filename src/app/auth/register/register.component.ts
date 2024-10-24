@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/Auth/auth.service';
 import { UserRegister } from '../../Models/user';
@@ -16,6 +16,7 @@ import {KeyValuePipe, NgClass, NgForOf, NgIf} from "@angular/common";
     CommonModule
 
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
