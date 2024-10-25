@@ -10,6 +10,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { NgSelectComponent } from '@ng-select/ng-select';
 import Swal from 'sweetalert2';
 import { Maquina } from '../Models/Maquina';
+import { Mc6Service } from '../services/Forms/mc6.service';
 
 @Component({
   selector: 'app-menu',
@@ -30,12 +31,14 @@ export class MenuComponent implements OnInit {
   productoSeleccionado: Producto | null = null;
   productoMaquina: Producto_Maquina | null = null; 
   maquinas: Maquina[] = [];
+  maquina: string | null = null;
   fecha: string | null = null; 
   maquinaSeleccionada: Maquina | null = null;
 
   constructor(private productService: ProductService,
     private maquinaService: ProductService,
-    private router: Router
+    private router: Router,
+    private mc6Service: Mc6Service
   ) { }
 
   ngOnInit(): void {
@@ -192,11 +195,66 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['/KraussMaffeiMC6'], { 
       queryParams: { 
         producto: JSON.stringify(this.productoSeleccionado),
-        maquina: JSON.stringify(maquina),
+        maquina: JSON.stringify(maquina.maquina),
         producto_maquina : JSON.stringify(this.productoMaquina),
         fecha : fechaSeleccionada,
         estado : estado
       }
     });
   }
+  getPdfName(pdf: string): string {
+    return pdf.substring(pdf.lastIndexOf('/') + 1);
+  }
+  modificarHoja(): void {
+    this.productService.getReportes().subscribe(
+      (reportes) => {
+        const opcionesReportes = reportes.reduce((options: { [key: string]: string }, reporte) => {
+          options[reporte.id] = ` ${this.getPdfName(reporte.ruta)} ${reporte.user.nombre}`;
+          return options;
+        }, {});
+  
+        Swal.fire({
+          title: 'Selecciona un reporte para modificar (solo puedes modificar reportes que hayas creado)',
+          input: 'select',
+          inputOptions: opcionesReportes,
+          showCancelButton: true,
+          inputValidator: (value) => {
+            return new Promise((resolve) => {
+              if (value) {
+                const reporteSeleccionado = reportes.find(r => r.id === parseInt(value));
+                resolve('');
+                const maquina = reporteSeleccionado?.producto_maquina?.Cod_maquina ?? null; 
+                // se va a hacer una peticion para buscar el formato correspondiente 
+                this.navegarConReporte(reporteSeleccionado, maquina?? '');
+
+              } else {
+                resolve('Debes seleccionar un reporte');
+              }
+            });
+          }
+        });
+      },
+      (error) => {
+        console.error('Error al cargar los reportes', error);
+      }
+    );
+  }
+  
+  navegarConReporte(reporteSeleccionado: any, maquina: string): void {
+    console.log('Reporte seleccionado:', reporteSeleccionado);
+    console.log('maquinaaa',maquina)
+    this.mc6Service.setlist(reporteSeleccionado.content);
+    this.router.navigate(['/KraussMaffeiMC6'], { 
+      queryParams: { 
+        reporte: JSON.stringify(reporteSeleccionado),
+        producto: JSON.stringify(reporteSeleccionado.producto),
+        maquina: JSON.stringify(maquina),
+        producto_maquina : JSON.stringify(reporteSeleccionado.producto_maquina),
+        
+      }
+      
+    });
+   
+  }
+  
 }

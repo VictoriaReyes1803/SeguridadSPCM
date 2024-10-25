@@ -16,7 +16,7 @@
          <app-header-mc6 
          [cliente]="productoSeleccionado?.codigo_cliente ?? ''"
          [producto_1]="productoSeleccionado?.producto ?? null"
-         [maquina] = "maquina?.maquina ?? null"
+         [maquina] = "maquina"
          [Num_Cav_th_1]="Producto_Maquina?.Cadence_theo ?? null"
          [Num_Cav_real_1]="Producto_Maquina?.Cadencia ?? null"
           [Molde]="Producto_Maquina?.Utillaje ?? null"
@@ -1554,7 +1554,7 @@
         <app-krauss-maffei-mc6-2
         [cliente]="productoSeleccionado?.codigo_cliente ?? ''"
         [producto_1]="productoSeleccionado?.producto ?? null"
-        [maquina]="maquina?.maquina ?? null"
+        [maquina]="maquina"
         [Num_Cav_th_1]="Producto_Maquina?.Cadence_theo ?? null"
         [Num_Cav_real_1]="Producto_Maquina?.Cadencia ?? null"
         [Molde]="Producto_Maquina?.Utillaje ?? null"

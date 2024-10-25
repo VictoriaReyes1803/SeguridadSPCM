@@ -1,5 +1,6 @@
 import { User } from "./user";
 import { Producto } from "./Productos";
+import { Producto_Maquina } from "./Productos";
 
 export interface Reporte{
     ruta: string;
@@ -13,7 +14,7 @@ export interface Reporteresponse{
     id: number;
     formato: string;
     producto: Producto;
-    producto_maquina: number;
+    producto_maquina: Producto_Maquina;
     content: string;
     fecha: string;
     user: User;

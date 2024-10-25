@@ -79,5 +79,4 @@ export class ReportesComponent {
       return matchesUser && matchesDate && matchesFormat;
     });
   }
-
 }

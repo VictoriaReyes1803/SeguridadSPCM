@@ -51,7 +51,7 @@ export class KraussMaffeiMC6Component {
   currentContainer = 0; 
 
   title = 'angular-pdf-export';
-  maquina: Maquina | null = null;
+  maquina: string | null = null;
   Producto_Maquina: Producto_Maquina | null = null;
   mc6!: mc6;
   
@@ -96,6 +96,7 @@ export class KraussMaffeiMC6Component {
     this.mc6 = this.mc6Service.getlist();
     console.log('mc6:', this.mc6);
 
+
    
   }
   containers: ElementRef[] = [];
@@ -112,8 +113,22 @@ export class KraussMaffeiMC6Component {
         this.user = this.secureCookieService.getSecureCookie('user');
         console.log('Producto recibido:', this.productoSeleccionado);
         console.log('Maquina recibida:', this.Producto_Maquina);
+        console.log('Maquina:', this.maquina);
         this.calcular();
-      } else {
+      } else if (params['producto'] && params['producto_maquina']) {
+        this.productoSeleccionado = JSON.parse(params['producto']);
+        this.Producto_Maquina = JSON.parse(params['producto_maquina']);
+        this.maquina = params['maquina'];
+        this.Fecha = params['fecha'];
+        this.estado = params['estado'] === 'true';
+        console.log('estado:', this.estado, typeof this.estado);
+        this.user = this.secureCookieService.getSecureCookie('user');
+        console.log('Producto recibido:', this.productoSeleccionado);
+        console.log('Maquina recibida:', this.Producto_Maquina);
+        console.log('Maquina:', this.maquina);
+        this.calcular();
+      }
+      else {
         console.log('No se recibió ningún producto.');
       }
       this.valores = this.mc6Service.getlist();
@@ -161,7 +176,7 @@ export class KraussMaffeiMC6Component {
           this.productoSeleccionado.id = data.producto.id;
         }
         if (this.Producto_Maquina) {
-          this.Producto_Maquina.id = data.producto_maquina;
+          this.Producto_Maquina.id = data.producto_maquina.id;
         }
 
         let contentParsed;
