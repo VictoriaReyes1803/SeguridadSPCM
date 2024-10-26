@@ -5,14 +5,16 @@
   <div class="search-container">
     <input type="text" placeholder="Buscar por usuario" [(ngModel)]="searchUser" (input)="filterReportes()">
     <input type="text" placeholder="Buscar por fecha (YYYY-MM-DD)" [(ngModel)]="searchDate" (input)="filterReportes()">
-    
+
+    <input type="text" placeholder="Buscar por producto" [(ngModel)]="searchProduct" (input)="filterReportes()">
+    <input type="text" placeholder="Buscar por máquina" [(ngModel)]="searchMachine" (input)="filterReportes()">
   </div>
 
   <div class="container" *ngIf="pdfFiles.length > 0">
     <ul>
-      <li *ngFor="let reporte of filteredReportes">
+      <li style="margin: 10px;" *ngFor="let reporte of filteredReportes">
         <button (click)="previewPdf(reporte.ruta)" style="cursor: pointer;" class="pdf-button">Ver pdf</button>
-        <span class="pdf-name">{{ getPdfName(reporte.ruta) }} - {{reporte.user.nombre}} 
+        <span class="pdf-name">{{ getPdfName(reporte.ruta) }} - Producto  {{reporte.producto.producto}}- Maquina {{reporte.producto_maquina.Cod_maquina}} -{{reporte.user.nombre}} 
           {{reporte.user.apellido_paterno}}  </span>
       </li>
     </ul>

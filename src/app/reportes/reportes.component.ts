@@ -40,6 +40,8 @@ export class ReportesComponent {
   searchUser: string = ''; 
   searchDate: string = ''; 
   searchFormat: string = ''; 
+  searchProduct: string = '';
+  searchMachine: string = '';
 
   ngOnInit(): void {
   
@@ -74,9 +76,9 @@ export class ReportesComponent {
     this.filteredReportes = this.reportes.filter(reporte => {
       const matchesUser = reporte.user.nombre.toLowerCase().includes(this.searchUser.toLowerCase());
       const matchesDate = reporte.ruta.includes(this.searchDate);
-      const matchesFormat = reporte.formato.includes(this.searchFormat);
-      
-      return matchesUser && matchesDate && matchesFormat;
+      const matchesProduct = reporte.producto.producto.toLowerCase().includes(this.searchProduct.toLowerCase());
+      const matchesMachine = reporte.producto_maquina.Cod_maquina.toLowerCase().includes(this.searchMachine.toLowerCase());
+      return matchesUser && matchesDate && matchesProduct && matchesMachine;
     });
   }
 }

@@ -4,7 +4,7 @@
 
     <div class="product-selector">
       <label for="product-select">Selecciona un producto:</label>
-      <select id="product-select" (change)="onProductSelect($event)">
+      <select id="product-select"  (change)="onProductSelect($event)">
         <option *ngFor="let producto of productos" [value]="producto.id">
           {{ producto.producto }} - {{ producto.descripcion }}
         </option>
