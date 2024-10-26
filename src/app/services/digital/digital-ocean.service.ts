@@ -13,7 +13,7 @@ export class DigitalOceanService {
   constructor(private http: HttpClient) { }
   private apiurl = url;
  
-  putpdf(formdata: any ): Observable<any> {
+  postpdf(formdata: any ): Observable<any> {
     return this.http.post<any>(`${this.apiurl}pdf/`, formdata);
   }
 
@@ -21,5 +21,8 @@ export class DigitalOceanService {
     return this.http.get<any>(`${this.apiurl}pdfs/`);
   }
  
+  putpdf(data: any): Observable<any> {
+    return this.http.put<any>(`${this.apiurl}update/`, data);
+  }
 }
 

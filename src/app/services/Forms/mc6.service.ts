@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { mc6 } from '../../Models/Interfaz_mc6.ts/mc6';
+import { initZone } from 'zone.js/lib/zone-impl';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Mc6Service {
-
-  constructor() { }
+  private readonly initialState: mc6;
+  constructor() { 
+    
+    this.initialState = { ...this.mc6_1 };
+  }
   private mc6_1: mc6 ={
     Arch_Disq: '',
     Producto_2: '',
@@ -336,5 +340,13 @@ export class Mc6Service {
   }
   setlist(data:Partial<mc6>): void{
     this.mc6_1 = {...this.mc6_1, ...data};
+  }
+
+  
+
+
+  resetList(): void {
+      this.mc6_1 = { ...this.initialState };
+      console.log('resetList:', this.mc6_1);
   }
 }

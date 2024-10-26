@@ -54,16 +54,18 @@ export class KraussMaffeiMC6Component {
   maquina: string | null = null;
   Producto_Maquina: Producto_Maquina | null = null;
   mc6!: mc6;
-  
+  reporte: Reporteresponse | null = null;
+
   productos: Productos = [];
   user: User | null = null;
   productoSeleccionado: Producto | null = null;
   productoId:  number | null = null;
   Fecha: string | null = null;
   estado: boolean = false;
-
+  
   reportData: Reporte | null = null;
-
+  report: boolean = false;
+  titi: boolean = false;
   
   T_resistencia: number = 0;
   Volumen_cargaa: number = 0;
@@ -94,32 +96,52 @@ export class KraussMaffeiMC6Component {
     private router: Router
   ) {
     this.mc6 = this.mc6Service.getlist();
-    console.log('mc6:', this.mc6);
-
-
+    // console.log('mc6:', this.mc6)
    
   }
   containers: ElementRef[] = [];
   
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      if (params['producto'] && params['maquina']) {
+      if (params['producto'] && params['maquina']&& params['titi']) {
+        this.mc6Service.resetList();
+        this.mc6 = this.mc6Service.getlist();
+        
         this.productoSeleccionado = JSON.parse(params['producto']);
         this.Producto_Maquina = JSON.parse(params['producto_maquina']);
         this.maquina = JSON.parse(params['maquina']);
         this.Fecha = params['fecha'];
+        this.titi = params['titi'] === 'true';
+        this.report = true;
+        console.log('reportt:', this.report);
         this.estado = params['estado'] === 'true';
         console.log('estado:', this.estado, typeof this.estado);
         this.user = this.secureCookieService.getSecureCookie('user');
-        console.log('Producto recibido:', this.productoSeleccionado);
+        console.log('Productoo recibido:', this.productoSeleccionado);
         console.log('Maquina recibida:', this.Producto_Maquina);
         console.log('Maquina:', this.maquina);
         this.calcular();
-      } else if (params['producto'] && params['producto_maquina']) {
+
+      } else if (params['producto'] && params['report'] ) {
         this.productoSeleccionado = JSON.parse(params['producto']);
         this.Producto_Maquina = JSON.parse(params['producto_maquina']);
         this.maquina = params['maquina'];
-        this.Fecha = params['fecha'];
+        const Fechaform = new Date(params['fecha']);
+        const options: Intl.DateTimeFormatOptions = {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false };
+
+        this.Fecha =  new Intl.DateTimeFormat('es-ES', options).format(Fechaform);
+
+        this.reporte = JSON.parse(params['reporte']);
+        this.mc6Service.setlist(this.reporte?.content ?? {});
+        this.mc6 = this.mc6Service.getlist();
+
+        console.log('reporte:', this.reporte);
         this.estado = params['estado'] === 'true';
         console.log('estado:', this.estado, typeof this.estado);
         this.user = this.secureCookieService.getSecureCookie('user');
@@ -262,15 +284,16 @@ export class KraussMaffeiMC6Component {
         const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
         const formattedTime = `${now.getHours().toString().padStart(2, '0')}-${now.getMinutes().toString().padStart(2, '0')}`;
         const productName = this.productoSeleccionado ? this.productoSeleccionado.producto : 'ProductoDesconocido';
-        const pdfFileName = `MC6_${productName}_${formattedDate}_${formattedTime}.pdf`;
-        const pdfFile = new File([pdfBlob], pdfFileName, { type: 'application/pdf' });
-        const formData = new FormData();
-        formData.append('file', pdfFile);  
+         
         
-        if (guardar)
+        if (guardar && this.titi)
         {
+          const pdfFileName = `MC6_${productName}_${formattedDate}_${formattedTime}.pdf`;
+          const pdfFile = new File([pdfBlob], pdfFileName, { type: 'application/pdf' });
+          const formData = new FormData();
+          formData.append('file', pdfFile);
           
-          this.digitalOceanService.putpdf(formData).subscribe(
+          this.digitalOceanService.postpdf(formData).subscribe(
             (data) => {
               this.pdfurl = data.file_url;
               console.log('PDF guardado:', data);
@@ -279,8 +302,8 @@ export class KraussMaffeiMC6Component {
                 ruta: this.pdfurl, 
                 formato: 'Krauss_maffei_mc6',
                 content: JSON.parse(JSON.stringify(this.mc6)),
-                producto: this.productoSeleccionado?.id ?? 0, 
-                producto_maquina: this.Producto_Maquina?.id ?? 0 
+                producto_id: this.productoSeleccionado?.id ?? 0, 
+                producto_maquina_id: this.Producto_Maquina?.id ?? 0 
             };
               this.productService.postReporte(this.reportData).subscribe(
                 (data) => {
@@ -301,11 +324,52 @@ export class KraussMaffeiMC6Component {
               console.error('Error al guardar el PDF:', error);
             }
           );
-          
-         
-          
+           
           pdf.save(pdfFileName);
         } 
+        else if (guardar && !this.titi)
+        {
+          const pdfFileName = this.reporte?.ruta ? this.reporte.ruta.substring(this.reporte.ruta.lastIndexOf('/') + 1) : '';
+          console.log('PDF a actualizar:', pdfFileName);
+
+          const pdfFile = new File([pdfBlob], pdfFileName, { type: 'application/pdf' });
+          const formData = new FormData();
+          formData.append('file', pdfFile);
+
+          this.digitalOceanService.putpdf(formData).subscribe(
+            (data) => {
+              console.log('PDF actualizado:', data);
+              this.pdfurl = data.file_url;
+              console.log('PDF actualizado:', data);
+
+              this.reportData = {
+                ruta: this.reporte?.ruta ?? '', 
+                formato: this.reporte?.formato ?? '',
+                content: JSON.parse(JSON.stringify(this.mc6)),
+                producto_id: this.reporte?.producto?.id ?? 0, 
+                producto_maquina_id: this.reporte?.producto_maquina?.id ?? 0,
+              
+            };
+              this.productService.updateReporte(this.reporte?.id ?? 0, this.reportData).subscribe(
+                (data) => {
+                  console.log('Reporte actualizado:', data);
+                  this.loading = false;
+                  this.router.navigate(['/Menu']);
+                },
+                (error) => {
+                  console.error('Error al actualizar el reporte:', error);
+                }
+              );
+              pdf.save(pdfFileName);
+
+            },
+            (error) => {
+              console.error('Error al actualizar el PDF:', error);
+            }
+          );
+
+         
+        }
         else{
         const pdfUrl = URL.createObjectURL(pdfBlob);
         this.isModalOpen = true;

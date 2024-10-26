@@ -191,17 +191,7 @@ export class MenuComponent implements OnInit {
     });
   }
 
-  navegarConMaquina(maquina: any, fechaSeleccionada: string, estado: boolean): void {
-    this.router.navigate(['/KraussMaffeiMC6'], { 
-      queryParams: { 
-        producto: JSON.stringify(this.productoSeleccionado),
-        maquina: JSON.stringify(maquina.maquina),
-        producto_maquina : JSON.stringify(this.productoMaquina),
-        fecha : fechaSeleccionada,
-        estado : estado
-      }
-    });
-  }
+ 
   getPdfName(pdf: string): string {
     return pdf.substring(pdf.lastIndexOf('/') + 1);
   }
@@ -246,15 +236,27 @@ export class MenuComponent implements OnInit {
     this.mc6Service.setlist(reporteSeleccionado.content);
     this.router.navigate(['/KraussMaffeiMC6'], { 
       queryParams: { 
-        reporte: JSON.stringify(reporteSeleccionado),
         producto: JSON.stringify(reporteSeleccionado.producto),
+        report: false,
+        reporte: JSON.stringify(reporteSeleccionado),
         maquina: JSON.stringify(maquina),
         producto_maquina : JSON.stringify(reporteSeleccionado.producto_maquina),
-        
+        fecha : reporteSeleccionado.fecha,
       }
       
     });
    
   }
-  
+  navegarConMaquina(maquina: any, fechaSeleccionada: string, estado: boolean): void {
+    this.router.navigate(['/KraussMaffeiMC6'], { 
+      queryParams: { 
+        producto: JSON.stringify(this.productoSeleccionado),
+        maquina: JSON.stringify(maquina),
+        producto_maquina : JSON.stringify(this.productoMaquina),
+        fecha : fechaSeleccionada,
+        estado : estado,
+        titi: true
+      }
+    });
+  }
 }
