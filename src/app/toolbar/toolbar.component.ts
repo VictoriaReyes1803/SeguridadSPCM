@@ -8,6 +8,7 @@ import { Reporte, Reporteresponse } from '../Models/Reporte';
 import { ProductService } from '../services/Productos/product.service';
 import { DropdownModule } from 'primeng/dropdown';
 import { CommonModule } from '@angular/common';
+import { format } from 'crypto-js';
 
 @Component({
   selector: 'app-toolbar',
@@ -57,7 +58,9 @@ export class ToolbarComponent {
     );
   }
   toggleDropdown() {
-    this.dropdownOpen = !this.dropdownOpen;
+    if (!this.dropdownOpen) {
+      this.dropdownOpen = true;
+    }
   }
   formatDate(originalDate: string): string {
     const date = new Date(originalDate);
@@ -71,11 +74,11 @@ export class ToolbarComponent {
     return `${day}/${month}/${year} ${hours}:${minutes}`;
   }
   
-  selectOption(reporte: Reporteresponse) {
-    this.selectedOption = reporte.fecha; 
-    console.log(this.selectedOption);
+  selectOption(reporte: Reporteresponse, event: Event) {
+    this.selectedOption = `${this.formatDate(reporte.fecha)} - ${reporte.user.nombre} - ${reporte.producto.producto}` 
+    event.stopPropagation();
     this.dropdownOpen = false; 
-
+    
     this.optionSelected.emit(reporte);
   }
 

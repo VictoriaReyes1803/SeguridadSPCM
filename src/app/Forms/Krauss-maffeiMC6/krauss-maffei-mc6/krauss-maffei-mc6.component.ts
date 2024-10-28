@@ -236,9 +236,9 @@ export class KraussMaffeiMC6Component {
     console.log('Datos completos:', JSON.stringify(datosCompletos));
 
     const pdf = new jsPDF('p', 'pt', 'letter');
-    const marginTop = 20;
-    const marginSide = 20;
-    const scale = 1;
+    const marginTop = 5;
+    const marginSide = 15;
+    const scale = .8;
   
     const captureElement = (element: HTMLElement): Promise<HTMLCanvasElement> => {
       return html2canvas(element, {

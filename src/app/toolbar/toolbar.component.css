@@ -1,12 +1,15 @@
 .custom-select {
     position: relative;
-    width: 300px; /* Cambia el ancho según tus necesidades */
+    width: 400px; /* Cambia el ancho según tus necesidades */
     border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
     background-color: white;
 }
-
+.label 
+{
+    margin: 8px;
+}
 .select-header {
     display: flex;
     justify-content: space-between;

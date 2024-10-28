@@ -70,23 +70,163 @@ th {
 }
 
 .btn-edit {
-    background-color: #ffcc00; /* Amarillo */
+    background-color: #ffcc00; 
     color: #fff;
 }
 
 .btn-edit:hover {
-    background-color: #e6b800; /* Un tono más oscuro de amarillo */
+    background-color: #e6b800; 
 }
 
 .btn-delete {
-    background-color: #ff4d4d; /* Rojo */
+    background-color: #ff4d4d; 
     color: #fff;
 }
 
 .btn-delete:hover {
-    background-color: #e63939; /* Un tono más oscuro de rojo */
+    background-color: #e63939; 
 }
 .p-table {
     margin-top: 20px;
   }
-  
+
+
+
+  .modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  .modal.is-active {
+    display: flex;
+  }
+  .reg {
+    position: relative;
+    display: inline-block;
+    color: #ff5722; 
+   
+    
+  }
+  .reg .fas {
+    transition: transform 0.2s ease;
+    font-size: 2rem;
+  }
+
+  .reg:hover .fas {
+    transform: scale(1.5);
+  }
+
+  .modal-content {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+     }
+
+  .box {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    justify-content: center;          
+    align-items: center;
+ 
+  }
+
+  .title {
+    color: #ff5722;
+  }
+
+  .button.is-success {
+    background-color: #ff5722; 
+    color: white;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+
+  .button.is-danger {
+    background-color: #ccc; 
+    color: black;
+    border-radius: 8px;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .logo {
+    max-height: 50px;
+  }
+
+  .delete {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .field {
+    margin-bottom: 15px;
+  }
+
+  .control.has-icons-left {
+    position: relative;
+  }
+
+  .control.has-icons-left .icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+  }
+
+  .input.is-rounded {
+    border-radius: 8px;
+    padding-left: 2.5rem; 
+    border-color: rgb(255, 166, 65);
+  }
+
+  .tooltip {
+    visibility: hidden;
+    width: 160px;
+    background-color: #feb519; /* Color naranja */
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 21%;
+    right: 105%; /* Posición a la derecha */
+    margin-top: -12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #f6a80c transparent transparent;
+  }
+
+  .reg:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }

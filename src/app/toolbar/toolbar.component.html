@@ -5,7 +5,7 @@
             <img style="height: 30px;" src="../../../assets/images/CLAYENS_Mexico-Logo.png" />
         </ng-template>
         <ng-template *ngIf="report"  pTemplate="center">
-            <label for="reporteSelect" class="">Prellenar reporte:</label>
+            <label for="reporteSelect" class="label">Prellenar reporte:</label>
             <div class="custom-select" (click)="toggleDropdown()">
                 <div class="select-header">
                     <span>{{ selectedOption || 'Selecciona un reporte' }}</span>
@@ -15,9 +15,9 @@
                     <div
                         class="select-option"
                         *ngFor="let reporte of reportes"
-                        (click)="selectOption(reporte)"
+                        (click)="selectOption(reporte, $event)"
                     >
-                        {{formatDate(reporte.fecha) }} {{ reporte.user.nombre }} {{ reporte.producto.producto}}
+                        {{formatDate(reporte.fecha) }} {{ reporte.user.nombre }}    {{ reporte.producto.producto}}
                     </div>
                 </div>
             </div>

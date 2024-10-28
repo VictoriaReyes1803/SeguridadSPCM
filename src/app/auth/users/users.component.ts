@@ -5,6 +5,7 @@ import { User } from '../../Models/user';
 import { UserService } from '../../services/User/user.service';
 import{ Form, FormsModule } from '@angular/forms';
 import { RegisterComponent } from '../register/register.component';
+import Swal from 'sweetalert2';
 
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
@@ -17,7 +18,6 @@ import { InputTextModule } from 'primeng/inputtext';
     SidebarComponent,
     CommonModule,
     FormsModule,
-  
     TableModule,
     ButtonModule,
     DialogModule,
@@ -56,19 +56,74 @@ export class UsersComponent {
   }
 
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {
+    
+   }
 
-deleteUser(arg0: any) {
-throw new Error('Method not implemented.');
-}
-editUser(_t31: any) {
-throw new Error('Method not implemented.');
-}
+  deleteUser(user: User) {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: `¿Quieres eliminar a ${user.nombre} ${user.apellido_paterno}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.userService.deleteUser(user.id).subscribe({
+          next: () => {
+            this.loadUsers(); 
+            Swal.fire(
+              'Eliminado!',
+              `El usuario ${user.nombre} ha sido eliminado.`,
+              'success'
+            );
+          },
+          error: (error) => {
+            Swal.fire(
+              'Error!',
+              'Hubo un problema al eliminar el usuario.',
+              'error'
+            );
+          }
+        });
+      }
+    });
+  }
+  
 
-showDialog(user?: User) {
-  this.selectedUser = user ? { ...user } : { id: 0, nombre: '', email: '', rol: '', apellido_paterno: '', apellido_materno: '', no_empleado: '', username: '', is_active: false };
-  this.displayDialog = true;
-}
+  updateUser() {
+    if (this.selectedUser.id) {
+      this.userService.putUser(this.selectedUser.id, this.selectedUser).subscribe(
+        {
+        next: (updatedUser) => {
+          console.log('Usuario actualizado:', updatedUser);
+          this.loadUsers(); 
+          this.displayDialog = false; 
+          Swal.fire(
+            'Actualizado!',
+            `El usuario ${updatedUser.nombre} ha sido actualizado.`,
+            'success'
+          );
+        },
+        error: (error) => {
+          Swal.fire(
+            'Error!',
+            'Hubo un problema al actualizar el usuario.',
+            'error'
+          );
+        }
+      });
+    }
+  }
+  
+  showDialog(user?: User) {
+    this.selectedUser = user ? { ...user } : { id: 0, nombre: '', email: '', rol: '', apellido_paterno: '', apellido_materno: '', no_empleado: '', username: '', is_active: false };
+    this.displayDialog = true; 
+  }
+  
 filterUsers(event: Event) {
   const input = event.target as HTMLInputElement; 
   this.dt.filterGlobal(input.value, 'contains'); 
