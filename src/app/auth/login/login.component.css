@@ -69,7 +69,7 @@ html, body {
     width: 520px;
     background: #FFF;	
     top: -50px;
-    right: 120px;	
+    right: 90px;	
     border-radius: 0 72px 0 0;
 }
 
@@ -96,7 +96,7 @@ html, body {
 .login {
     width: 320px;
     padding: 30px;
-    padding-top: 156px;
+    padding-top: 120px;
 }
 
 .login__field {

@@ -34,7 +34,7 @@
         <span class="menu-text">Configuración</span>
       </a>
     </li>-->
-    <li class="menu-item" [class.active]="isActive('/users')">
+    <li class="menu-item" *ngIf="user?.rol === 'admin'" [class.active]="isActive('/users')">
       <a href="/users">
         <i class="fas fa-users"></i> 
         <span class="menu-text">Gestión de Usuarios</span>

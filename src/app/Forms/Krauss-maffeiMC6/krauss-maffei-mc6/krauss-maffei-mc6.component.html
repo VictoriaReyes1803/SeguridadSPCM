@@ -7,7 +7,9 @@
     [report]="report"
     >
     </app-toolbar>
-    <app-spiner [loading]="loading"></app-spiner>
+    <app-spiner [loading]="loading"
+    [message] = "message"
+    ></app-spiner>
     <div style="overflow-x:auto">
     <div id="content" >
       <div *ngIf="currentContainer == 0 || currentContainer == -1" #container0 class="container">

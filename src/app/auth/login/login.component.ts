@@ -20,6 +20,9 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+forgotPassword() {
+throw new Error('Method not implemented.');
+}
   isSubmitting = false;
   backendErrors: any;
   constructor(

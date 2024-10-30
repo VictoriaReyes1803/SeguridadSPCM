@@ -1,0 +1,45 @@
+.not-found {
+    text-align: center;
+    margin: 50px;
+    background-color: #f8f8f8; /* Fondo blanco suave */
+    padding: 40px; /* Añadir algo de padding */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  .not-found h1 {
+    font-size: 2.5em;
+    color: #ff6600; /* Color naranja para el mensaje de error */
+  }
+  
+  .not-found p {
+    font-size: 1.2em;
+    color: #555; /* Gris para el texto */
+  }
+  
+  .not-found a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #ff6600; /* Color naranja para el enlace */
+    font-weight: bold; /* Negrita para el enlace */
+  }
+  
+  .not-found a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+  }
+
+  .animated-icon {
+    font-size: 3em; /* Tamaño del icono */
+    color: #ff6600; /* Color naranja */
+    animation: spin 2s infinite linear; /* Animación de rotación */
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

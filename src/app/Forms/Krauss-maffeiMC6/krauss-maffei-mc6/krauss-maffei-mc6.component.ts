@@ -55,7 +55,7 @@ export class KraussMaffeiMC6Component {
   Producto_Maquina: Producto_Maquina | null = null;
   mc6!: mc6;
   reporte: Reporteresponse | null = null;
-
+  message = '';
   productos: Productos = [];
   user: User | null = null;
   productoSeleccionado: Producto | null = null;
@@ -190,7 +190,9 @@ export class KraussMaffeiMC6Component {
   }
   onOptionSelected(reporte: Reporteresponse): void {
     console.log('Reporte seleccionado:', reporte);
+    this.message= 'Cargando reporte...';
     this.loading = true;
+
     this.productService.getReporte(reporte.id).subscribe(
       (data) => {
         console.log('Reporte cargado:', data.content);
@@ -228,7 +230,9 @@ export class KraussMaffeiMC6Component {
   }
   
   downloadPDF(guardar: boolean ) {
+    this.message= 'Generando PDF, por favor espera ...';
     this.loading = true;
+    
     this.mc6Service.setlist(this.mc6);
     console.log('mc6:', this.mc6);
 
@@ -292,10 +296,12 @@ export class KraussMaffeiMC6Component {
           const pdfFile = new File([pdfBlob], pdfFileName, { type: 'application/pdf' });
           const formData = new FormData();
           formData.append('file', pdfFile);
+
           
           this.digitalOceanService.postpdf(formData).subscribe(
             (data) => {
               this.pdfurl = data.file_url;
+              this.message= 'Guardando en base de datos pdf';
               console.log('PDF guardado:', data);
 
               this.reportData = {
@@ -371,7 +377,7 @@ export class KraussMaffeiMC6Component {
          
         }
         else{
-        const pdfUrl = URL.createObjectURL(pdfBlob);
+        const pdfUrl = URL.createObjectURL(pdfBlob) + "#toolbar=0&navpanes=0&scrollbar=0";
         this.isModalOpen = true;
         this.pdfSrc = pdfUrl;
         this.imagePreviewUrl = this.getSafeUrl(pdfUrl);

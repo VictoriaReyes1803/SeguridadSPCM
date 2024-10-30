@@ -8,7 +8,8 @@ import { AuthGuard } from './Guards/Auth/auth.guard';
 import { RegisterComponent } from './auth/register/register.component';
 import { UsersComponent } from './auth/users/users.component';
 import { ReportesComponent } from './reportes/reportes.component';
-
+import { NotFoundComponent } from './not-found/not-found.component';
+import { UserRoleGuard } from './Guards/user-role.guard';
 export const routes: Routes = [
    
     {
@@ -38,12 +39,16 @@ export const routes: Routes = [
     },
     {   path: 'users',
         component: UsersComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard, UserRoleGuard]
     },
     {
         path: 'reportes',
         component: ReportesComponent,
         canActivate: [AuthGuard]
+    },
+    {
+        path: '**', 
+        component: NotFoundComponent
     }
 
 ];
