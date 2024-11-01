@@ -1,0 +1,105 @@
+<!-- user.component.html -->
+
+<app-sidebar></app-sidebar>
+<div class="user-profile" *ngIf="user">
+    <div class="modal-content">
+    <div class="box">
+    <div class="modal-header">
+        <img src="../../../assets/images/logo-removebg-preview.png" alt="Logo" class="logo"/>
+      </div>
+    <h3>Perfil de Usuario</h3>
+    <form class="form" (ngSubmit)="updateUser()">
+    <div class="field">
+      <label>Username</label>
+      <div class="control has-icons-left">
+      <input class="input is-rounded" [(ngModel)]="user.username" name="username" readonly />
+      <span class="icon is-small is-left">
+        <i class="fas fa-user" style="color: #ff5722;"></i>
+      </span> 
+    </div>
+    </div>
+    
+    <div class="field">
+      <label>Nombre</label>
+      <div class="control has-icons-left">
+      <input class="input is-rounded" [(ngModel)]="user.nombre" name="nombre" />
+      <span class="icon is-small is-left">
+        <i class="fas fa-id-card" style="color: #ff5722;"></i>
+      </span>
+    </div>
+    </div>
+
+    <div class="field">
+      <label>Apellido Paterno</label>
+      <div class="control has-icons-left">
+      <input class="input is-rounded" [(ngModel)]="user.apellido_paterno" name="apellido_paterno" />
+      <span class="icon is-small is-left">
+        <i class="fas fa-id-card" style="color: #ff5722;"></i>
+      </span>
+    </div>
+    </div>
+
+    <div class="field">
+      <label>Apellido Materno</label>
+      <div class="control has-icons-left">
+      <input class="input is-rounded" [(ngModel)]="user.apellido_materno" name="apellido_materno" />
+      <span class="icon is-small is-left">
+        <i class="fas fa-id-card" style="color: #ff5722;"></i>
+      </span>
+    </div>
+    </div>
+
+    <div class="field">
+        <label>Numero empleado</label>
+        <div class="control has-icons-left">
+        <input class="input is-rounded" [(ngModel)]="user.no_empleado" name="no_empleado" />
+        <span class="icon is-small is-left">
+          <i class="fas fa-id-card" style="color: #ff5722;"></i>
+        </span>
+      </div>
+      </div>
+
+    <div class="field">
+      <label>Correo Electrónico</label>
+      <div class="control has-icons-left">
+      <input class="input is-rounded" [(ngModel)]="user.email" name="email" readonly />
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope" style="color: #ff5722;"></i>
+      </span>
+    </div>
+    </div>
+
+    <div class="field">
+      <label>Rol</label>
+      <div class="control has-icons-left">
+      <input class="input is-rounded" [(ngModel)]="user.rol" name="rol" readonly />
+      <span class="icon is-small is-left">
+        <i class="fas fa-user-tag" style="color: #ff5722;"></i>
+      </span>
+    </div>
+    </div>
+
+    <div class="field">
+        <label>Contraseña</label>
+        <div class="control has-icons-left">
+        <input class="input is-rounded"
+        [type]="passwordVisible ? 'text' : 'password'"
+        [(ngModel)]="user.password" name="password" />
+        <i
+            class="fas"
+            [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"
+            (click)="togglePasswordVisibility()"
+            style="cursor: pointer; position: absolute; right: 10px; top: 7px"
+        ></i>
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock" style="color: #ff5722;"></i>
+        </span>
+        </div>
+    </div>
+
+
+      <button class="button is-success " type="submit">Guardar cambios</button>
+    </form>
+  </div>
+</div>
+</div>

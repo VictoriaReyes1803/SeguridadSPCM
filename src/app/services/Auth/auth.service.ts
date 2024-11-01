@@ -46,12 +46,16 @@ export class AuthService {
         
   }
   
-  
- 
   isAuthenticated(): boolean {
     return !!this.cookieService.get('access');
   }
   refreshToken(refreshToken: string): Observable<any> {
     return this.http.post(`${this.apiurl}token/refresh/`, { refresh: refreshToken });
   }
+
+  sendemail(email: any){
+    return this.http.post(`${this.apiurl}send-email/`, email)
+  }
+
+
 }

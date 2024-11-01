@@ -24,5 +24,9 @@ export class DigitalOceanService {
   putpdf(data: any): Observable<any> {
     return this.http.put<any>(`${this.apiurl}update/`, data);
   }
+
+  deletepdf(id: number, pdfname: string): Observable<any> {
+    return this.http.delete<any>(`${this.apiurl}pdf/delete/${id}/`, { body: { "pdf_name": pdfname } });
+  }
 }
 

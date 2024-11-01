@@ -6,6 +6,7 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import { NgIf } from '@angular/common';
 import { UserLogin } from '../../Models/user';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -20,11 +21,15 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-forgotPassword() {
-throw new Error('Method not implemented.');
-}
+
   isSubmitting = false;
   backendErrors: any;
+  authError: string | null = null;
+  passwordVisible = false;
+
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+  }
   constructor(
   private router : Router,
   private authservice : AuthService,
@@ -50,6 +55,7 @@ throw new Error('Method not implemented.');
 
   onSubmit(){
     this.isSubmitting = true;
+    this.authError = null;
     const formValues: UserLogin = {
       username: this.loginForm.value.username || '',
       // email: this.loginForm.value.email || '',
@@ -59,13 +65,23 @@ throw new Error('Method not implemented.');
     this.authservice.login(formValues).subscribe(
       data => {
         console.log(data)
+        Swal.fire({
+          icon: 'success',
+          title: '¡Bienvenido!',
+          text: 'Inicio de sesión exitoso.',
+          timer: 2000,
+          showConfirmButton: false
+        });
         this.router.navigate(['/Menu']);
       },
       err => {
         this.isSubmitting = false;
+        if (err.status === 401) {
+          this.authError = 'Usuario o contraseña incorrectos.';
+        } else
         if (err.message === 'User account is inactive') {
           console.log('La cuenta del usuario está desactivada');
-          this.backendErrors = 'Tu cuenta está desactivada. Contacta al administrador.';
+          this.authError  = 'Tu cuenta está desactivada. Contacta al administrador.';
         } else
         if (err.error.errors){
           for (let error in err.error.errors){
@@ -77,5 +93,8 @@ throw new Error('Method not implemented.');
       }
     )
   }
+  forgotPassword() {
+    this.router.navigate(['/forgotpassword']);
+    }
 
 }

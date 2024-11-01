@@ -9,7 +9,9 @@ import {Reporte, Reporteresponse} from '../Models/Reporte';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
-
+import Swal from 'sweetalert2';
+import { SecureCookieService } from '../services/cookies/cookies.service';
+import { User } from '../Models/user';
 @Component({
   selector: 'app-reportes',
   standalone: true,
@@ -27,8 +29,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class ReportesComponent {
   constructor(private digitalOceanService: DigitalOceanService
-    , private productService: ProductService, private sanitizer: DomSanitizer
+    , private productService: ProductService, public sanitizer: DomSanitizer,
+    private secureCookieService: SecureCookieService
   ) { }
+  user: User | null = null;
   pdfFiles: string[] = [];
   reportes: Reporteresponse[] = [];
   selectedPdf: string | null = null;
@@ -44,17 +48,34 @@ export class ReportesComponent {
   searchMachine: string = '';
 
   ngOnInit(): void {
-  
-    this.productService.getAllReportes().subscribe((data) => {
-      this.reportes = data;
-      this.filteredReportes = data;
-      console.log('reportes',this.reportes);
-      this.pdfFiles = data.map(reporte => reporte.ruta);
-    },
-    (error) => {
-      console.error('Error al obtener los archivos pdf', error);
+   this.user = this.secureCookieService.getSecureCookie('user');  
+   console.log(this.user);
 
-  });}
+    if (this.user?.rol == 'admin') {
+      this.productService.getAllReportes().subscribe((data) => {
+        this.reportes = data;
+        this.filteredReportes = data;
+        console.log('reportes',this.reportes);
+        this.pdfFiles = data.map(reporte => reporte.ruta);
+      },
+      (error) => {
+        console.error('Error al obtener los archivos pdf', error);
+  
+    });
+    }
+ else {
+  this.productService.getReportes().subscribe((data) => {
+    this.reportes = data;
+    this.filteredReportes = data;
+    console.log('reportes',this.reportes);
+    this.pdfFiles = data.map(reporte => reporte.ruta);
+  },
+  (error) => {
+    console.error('Error al obtener los archivos pdf', error);
+
+});
+ }
+    }
 
   getPdfUrl(pdf: string): string {
     return `${pdf}`;
@@ -79,6 +100,41 @@ export class ReportesComponent {
       const matchesProduct = reporte.producto.producto.toLowerCase().includes(this.searchProduct.toLowerCase());
       const matchesMachine = reporte.producto_maquina.Cod_maquina.toLowerCase().includes(this.searchMachine.toLowerCase());
       return matchesUser && matchesDate && matchesProduct && matchesMachine;
+    });
+  }
+
+
+  deletePdf( id: number, pdfName: string) {
+    console.log('id', id, pdfName, );
+    Swal.fire({
+      title: '¿Estás seguro de que deseas eliminar el PDF?',
+      text: 'No podrás revertir esta acción.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.digitalOceanService.deletepdf(id, pdfName).subscribe(
+          (response) => {
+            console.log(response);
+            this.filteredReportes = this.filteredReportes.filter(reporte => reporte.id !== id);
+            Swal.fire({
+              icon: 'success',
+              title: '¡PDF eliminado!',
+              text: 'El PDF se ha eliminado correctamente.',
+              timer: 2000,
+              showConfirmButton: false
+            });
+          },
+          (error) => {
+            console.error('Error al eliminar el PDF:', error);
+            alert('No se pudo eliminar el PDF. Inténtalo de nuevo.');
+          }
+        );
+      }
     });
   }
 }

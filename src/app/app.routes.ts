@@ -10,11 +10,18 @@ import { UsersComponent } from './auth/users/users.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UserRoleGuard } from './Guards/user-role.guard';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { UserComponent } from './user/user.component';
+
 export const routes: Routes = [
    
     {
         path:'',
         component: LoginComponent
+    },
+    {
+        path: 'forgotpassword',
+        component: ForgotPasswordComponent
     },
    
     {
@@ -40,6 +47,11 @@ export const routes: Routes = [
     {   path: 'users',
         component: UsersComponent,
         canActivate: [AuthGuard, UserRoleGuard]
+    },
+    {
+        path: 'user',
+        component: UserComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'reportes',

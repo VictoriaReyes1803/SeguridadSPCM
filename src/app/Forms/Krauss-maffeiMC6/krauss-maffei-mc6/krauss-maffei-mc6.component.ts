@@ -288,11 +288,12 @@ export class KraussMaffeiMC6Component {
         const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
         const formattedTime = `${now.getHours().toString().padStart(2, '0')}-${now.getMinutes().toString().padStart(2, '0')}`;
         const productName = this.productoSeleccionado ? this.productoSeleccionado.producto : 'ProductoDesconocido';
+        const userName = this.user ? this.user.id : '0';
          
         
         if (guardar && this.titi)
         {
-          const pdfFileName = `MC6_${productName}_${formattedDate}_${formattedTime}.pdf`;
+          const pdfFileName = `MC6_${productName}_${formattedDate}_${formattedTime}_${userName}.pdf`;
           const pdfFile = new File([pdfBlob], pdfFileName, { type: 'application/pdf' });
           const formData = new FormData();
           formData.append('file', pdfFile);
