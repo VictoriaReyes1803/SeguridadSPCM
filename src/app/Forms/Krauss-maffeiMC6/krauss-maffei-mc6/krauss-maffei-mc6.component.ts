@@ -49,7 +49,7 @@ import { Router } from '@angular/router';
 export class KraussMaffeiMC6Component {
   loading = false;
   currentContainer = 0; 
-
+  ver = false;
   title = 'angular-pdf-export';
   maquina: string | null = null;
   Producto_Maquina: Producto_Maquina | null = null;
@@ -126,7 +126,10 @@ export class KraussMaffeiMC6Component {
         this.productoSeleccionado = JSON.parse(params['producto']);
         this.Producto_Maquina = JSON.parse(params['producto_maquina']);
         this.maquina = params['maquina'];
+        
+
         const Fechaform = new Date(params['fecha']);
+
         const options: Intl.DateTimeFormatOptions = {
           day: '2-digit',
           month: '2-digit',
@@ -149,6 +152,9 @@ export class KraussMaffeiMC6Component {
         console.log('Maquina recibida:', this.Producto_Maquina);
         console.log('Maquina:', this.maquina);
         this.calcular();
+        if (params['ver']){
+          this.ver = params['ver'] === 'true';
+        }
       }
       else {
         console.log('No se recibió ningún producto.');

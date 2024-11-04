@@ -3,12 +3,29 @@
     <h2>Menu</h2>
 
     <div class="product-selector">
+
       <label for="product-select">Selecciona un producto:</label>
-      <select id="product-select"  (change)="onProductSelect($event)">
-        <option *ngFor="let producto of productos" [value]="producto.id">
-          {{ producto.producto }} - {{ producto.descripcion }}
-        </option>
-      </select>
+      <input
+      class="inputt"
+      type="text"
+      id="product-select"
+      [(ngModel)]="searchTerm"
+      (input)="filterProducts()"
+      placeholder="Buscar o seleccionar producto"
+      (focus)="showOptions = true"
+      (blur)="hideOptions()"
+    />
+  
+    <!-- Lista de productos filtrados -->
+    <ul *ngIf="showOptions" class="options-list">
+      <li
+        *ngFor="let producto of filteredProducts"
+        (mousedown)="selectProduct(producto)"
+      >
+        {{ producto.producto }} - {{ producto.descripcion }}
+      </li>
+    </ul>
+
     </div>
   
     <div class="buttons">

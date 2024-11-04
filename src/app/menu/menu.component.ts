@@ -11,6 +11,7 @@ import { NgSelectComponent } from '@ng-select/ng-select';
 import Swal from 'sweetalert2';
 import { Maquina } from '../Models/Maquina';
 import { Mc6Service } from '../services/Forms/mc6.service';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @Component({
   selector: 'app-menu',
@@ -21,7 +22,8 @@ import { Mc6Service } from '../services/Forms/mc6.service';
     NgSelectComponent,
     ButtonModule,
     DropdownModule,
-    FormsModule
+    FormsModule,
+    NgSelectModule
   ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
@@ -34,6 +36,11 @@ export class MenuComponent implements OnInit {
   maquina: string | null = null;
   fecha: string | null = null; 
   maquinaSeleccionada: Maquina | null = null;
+
+  filteredProducts: Productos = [];
+  searchTerm: string = '';
+
+  showOptions: boolean = false;
 
   constructor(private productService: ProductService,
     private maquinaService: ProductService,
@@ -50,6 +57,7 @@ export class MenuComponent implements OnInit {
     this.productService.getProducts().subscribe(
       (data) => {
         this.productos = data; 
+        this.filteredProducts = data;
         console.log(this.productos);
       },
       (error) => {
@@ -63,6 +71,26 @@ export class MenuComponent implements OnInit {
     );
 
   }
+
+  filterProducts(): void {
+    const term = this.searchTerm.toLowerCase();
+    this.filteredProducts = this.productos.filter((producto) =>
+      `${producto.producto} ${producto.descripcion}`.toLowerCase().includes(term)
+    );
+  }
+  hideOptions(): void {
+    setTimeout(() => {
+      this.showOptions = false;
+    }, 200); // Delay para permitir que se seleccione el producto antes de ocultar
+  }
+
+  selectProduct(producto: Producto): void {
+    this.productoSeleccionado = producto;
+    this.searchTerm = `${producto.producto} - ${producto.descripcion}`;
+    this.showOptions = false;
+    console.log('Producto seleccionado:', this.productoSeleccionado);
+  }
+
 
   onProductSelect(event: any): void {
     this.productoSeleccionado = event.value; 

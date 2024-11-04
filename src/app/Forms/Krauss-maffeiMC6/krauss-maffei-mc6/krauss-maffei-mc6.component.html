@@ -11,8 +11,10 @@
     [message] = "message"
     ></app-spiner>
     <div style="overflow-x:auto">
-    <div id="content" >
-      <div *ngIf="currentContainer == 0 || currentContainer == -1" #container0 class="container">
+    <div  id="content" >
+
+      <div [class.disabled]="ver" *ngIf="currentContainer == 0 || currentContainer == -1" #container0 class="container">
+
         <h1 class="fv" style="font-size: large;" >Parámetros del proceso Krauss Maffei MC6</h1>
         <div>
          <app-header-mc6 
@@ -1552,7 +1554,7 @@
         <app-footer3></app-footer3>
 
       </div>
-      <div *ngIf="currentContainer == 1 || currentContainer == -1" #container1 class="container">
+      <div  *ngIf="currentContainer == 1 || currentContainer == -1" #container1 class="container">
         <app-krauss-maffei-mc6-2
         [cliente]="productoSeleccionado?.codigo_cliente ?? ''"
         [producto_1]="productoSeleccionado?.producto ?? null"
@@ -1611,18 +1613,25 @@
         &#8592; 
       </button>
     
-      <button *ngFor="let page of containers; let i = index" class="page-button" (click)="goToContainer(i)">
+      <button  *ngFor="let page of containers; let i = index" class="page-button" (click)="goToContainer(i)">
         {{ i + 1 }}
       </button>
     
-      <button class="nav-button" (click)="nextContainer()" [disabled]="currentContainer === containers.length - 1">
+      <button  class="nav-button" (click)="nextContainer()" [disabled]="currentContainer === containers.length - 1">
         &#8594; 
       </button>
-      <div style="display:flex;  ">
+      <a *ngIf="ver" href="/reportes" class="save-button">Regresar</a>
+
+      <div *ngIf="!ver" style="display:flex;  ">
         <button class="save-button" (click)="downloadPDF(true)">Guardar</button>
         <button class="save-button" (click)="downloadPDF(false)">Vista Previa</button>
       
       </div>
+
+     
+       
+      
+
     </div>
     
     

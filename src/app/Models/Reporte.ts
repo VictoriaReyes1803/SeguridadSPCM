@@ -5,6 +5,7 @@ import { mc6 } from "./Interfaz_mc6.ts/mc6";
 
 export interface Reporte{
     ruta: string;
+    
     producto_id: number;
     producto_maquina_id: number;
     content: JSON;
