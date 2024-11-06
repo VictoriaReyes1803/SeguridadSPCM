@@ -81,6 +81,7 @@
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
+    width: 40%;
     transition: background-color 0.3s ease;
   }
   
@@ -93,7 +94,7 @@
   }
   
   .btn-create {
-    width: 20rem;
+
     background-color: #ff6600;
   }
   
@@ -106,7 +107,7 @@
   }
 
   .btn-export {
-    width: 20rem;
+ 
     background-color: #4caf50;
   }
   .btn-export:hover {
