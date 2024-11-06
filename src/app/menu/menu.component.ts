@@ -1,3 +1,5 @@
+import { CardModule } from 'primeng/card';
+import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -12,6 +14,7 @@ import Swal from 'sweetalert2';
 import { Maquina } from '../Models/Maquina';
 import { Mc6Service } from '../services/Forms/mc6.service';
 import { NgSelectModule } from '@ng-select/ng-select';
+
 
 @Component({
   selector: 'app-menu',
