@@ -8,6 +8,7 @@ import { Reporte, Reporteresponse } from '../Models/Reporte';
 import { ProductService } from '../services/Productos/product.service';
 import { DropdownModule } from 'primeng/dropdown';
 import { CommonModule } from '@angular/common';
+import { format } from 'crypto-js';
 
 @Component({
   selector: 'app-toolbar',
@@ -45,7 +46,7 @@ export class ToolbarComponent {
 
   }
   loadReportes(): void {
-    this.productService.getReportes().subscribe(
+    this.productService.getAllReportes().subscribe(
       (data) => {
         this.reportes = data; 
         console.log(this.reportes);
@@ -57,14 +58,27 @@ export class ToolbarComponent {
     );
   }
   toggleDropdown() {
-    this.dropdownOpen = !this.dropdownOpen;
+    if (!this.dropdownOpen) {
+      this.dropdownOpen = true;
+    }
   }
-
-  selectOption(reporte: Reporteresponse) {
-    this.selectedOption = reporte.fecha; 
-    console.log(this.selectedOption);
+  formatDate(originalDate: string): string {
+    const date = new Date(originalDate);
+    
+    const day = String(date.getDate()).padStart(2, '0'); // Día
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Mes (0-11)
+    const year = date.getFullYear(); // Año
+    const hours = String(date.getHours()).padStart(2, '0'); // Horas
+    const minutes = String(date.getMinutes()).padStart(2, '0'); // Minutos
+  
+    return `${day}/${month}/${year} ${hours}:${minutes}`;
+  }
+  
+  selectOption(reporte: Reporteresponse, event: Event) {
+    this.selectedOption = `${this.formatDate(reporte.fecha)} - ${reporte.user.nombre} - ${reporte.producto.producto}` 
+    event.stopPropagation();
     this.dropdownOpen = false; 
-
+    
     this.optionSelected.emit(reporte);
   }
 

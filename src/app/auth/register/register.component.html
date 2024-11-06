@@ -118,8 +118,16 @@
 
                         <div class="login__field">
                             <i class="login__icon fas fa-lock"></i>
-                            <input formControlName="password" type="password" class="login__input" name="password" placeholder="Contraseña" required>
-                        </div>
+                            <input formControlName="password"  [type]="passwordVisible ? 'text' : 'password'"
+                             class="login__input" name="password" placeholder="Contraseña" required>
+                             <i
+                             class="fas login__icon"
+                             [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"
+                             (click)="togglePasswordVisibility()"
+                             style="cursor: pointer; right: 10px;"
+                           ></i>
+
+                            </div>
                         <button style="width: 130px;" class="button login__submit" type="submit">
                             <span class="button__text">Agregar</span>
                             <i class="button__icon fas fa-chevron-right"></i>

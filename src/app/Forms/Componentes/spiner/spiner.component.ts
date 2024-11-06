@@ -11,4 +11,5 @@ import { CommonModule } from '@angular/common';
 })
 export class SpinerComponent {
   @Input() loading: boolean = false;
+  @Input() message: string = 'Cargando...';
 }

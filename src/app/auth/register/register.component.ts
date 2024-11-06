@@ -23,6 +23,12 @@ import {KeyValuePipe, NgClass, NgForOf, NgIf} from "@angular/common";
 export class RegisterComponent {
   isSubmitting = false;
   backendErrors: any;
+
+  passwordVisible = false;
+
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+  }
   constructor(
   private router : Router,
   private authservice : AuthService,

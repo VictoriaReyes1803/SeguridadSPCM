@@ -29,6 +29,14 @@
   transition: all 0.3s ease;
 }
 
+.divv :hover
+{
+  background-color: #eea61f;
+  border-radius: 20px;
+  padding: 7px;
+}
+
+
 .user-icon {
   font-size: 45px; /* Tamaño del ícono */
   margin: 2px;

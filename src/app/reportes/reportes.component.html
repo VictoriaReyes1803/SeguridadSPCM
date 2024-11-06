@@ -2,25 +2,68 @@
 <div style="margin-left: 60px; text-align: center; justify-content:center; align-items:center;">
   <app-toolbar></app-toolbar>
 
-  <div class="container" *ngIf="pdfFiles.length > 0">
-    <ul>
-      <li *ngFor="let pdf of pdfFiles">
-        <div class="pdf-preview" (click)="openPdfModal(pdf)">
-          <ngx-extended-pdf-viewer [src]="getPdfUrl(pdf)" [height]="'150px'" [showToolbar]="false"></ngx-extended-pdf-viewer>
-          <p>{{ pdf }}</p>
-        </div>
-      </li>
-    </ul>
+  <div class="search-container">
+    <input type="text" placeholder="Buscar por usuario" [(ngModel)]="searchUser" (input)="filterReportes()">
+    <input type="text" placeholder="Buscar por fecha (YYYY-MM-DD)" [(ngModel)]="searchDate" (input)="filterReportes()">
+
+    <input type="text" placeholder="Buscar por producto" [(ngModel)]="searchProduct" (input)="filterReportes()">
+    <input type="text" placeholder="Buscar por máquina" [(ngModel)]="searchMachine" (input)="filterReportes()">
   </div>
+
+  <div class="container" *ngIf="pdfFiles.length > 0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Vista Previa</th>
+          <th>Nombre del PDF</th>
+          <th>Producto</th>
+          <th>Máquina</th>
+          <th>Usuario</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <tr *ngFor="let reporte of filteredReportes">
+        <td>
+          <iframe 
+            [src]="sanitizer.bypassSecurityTrustResourceUrl(reporte.ruta)" 
+            width="200px" 
+            height="150px" 
+            style="border: none;">
+          </iframe>
+          
+        </td>
+        <td>{{ getPdfName(reporte.ruta) }}</td>
+        <td>{{ reporte.producto.producto }}</td>
+        <td>{{ reporte.producto_maquina.Cod_maquina }}</td>
+        <td>{{ reporte.user.nombre }} {{ reporte.user.apellido_paterno }}</td>
+        <td>
+          <button (click)="previewPdf(reporte.ruta)" style="cursor: pointer;" class="pdf-button">
+            Ver en pantalla completa
+          </button>
+
+          <button (click)="verenformato(reporte,getPdfName(reporte.ruta) )" style="cursor: pointer;" class="ver">
+            Ver
+          </button>
+
+          <button *ngIf="user?.rol === 'admin'" (click)="deletePdf(reporte.id, getPdfName(reporte.ruta) )" style="cursor: pointer;" class="delete-button">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
   <div class="container" *ngIf="pdfFiles.length === 0">
     No PDF files found.
   </div>
 
-  <div *ngIf="selectedPdf" class="modal" (click)="closePdfModal()">
-    <div class="modal-content" (click)="$event.stopPropagation()">
-      <span class="close" (click)="closePdfModal()">&times;</span>
-      <ngx-extended-pdf-viewer [src]="selectedPdf" useBrowserLocale="true" height="600px"></ngx-extended-pdf-viewer>
+  <div class="modal" *ngIf="isModalOpen && pdfSrc">
+    <span class="close-button" (click)="closeModal()">&times;</span>
+    <div class="modal-content">
+      <iframe [src]="pdfSrc" width="100%" height="600px"></iframe>
     </div>
   </div>
 </div>

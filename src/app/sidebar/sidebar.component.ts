@@ -8,6 +8,7 @@ import { AuthService } from '../services/Auth/auth.service';
 import { SecureCookieService } from '../services/cookies/cookies.service';
 import { UserService } from '../services/User/user.service';
 import { catchError, tap, throwError } from 'rxjs';
+import { RouterModule,Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -15,7 +16,8 @@ import { catchError, tap, throwError } from 'rxjs';
   imports: [
     SidebarModule,
     ButtonModule,
-    AvatarModule
+    AvatarModule,
+    CommonModule
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
@@ -27,7 +29,9 @@ export class SidebarComponent {
 
   constructor(private userService: UserService,
      private secureCookieService: SecureCookieService
-    , private authService: AuthService
+    , private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
     ) { }
   ngOnInit() {
     this.user = this.secureCookieService.getSecureCookie('user'); 
@@ -38,5 +42,10 @@ export class SidebarComponent {
     this.authService.logout();
     window.location.href = '/';
   }
-
+  isActive(route: string): boolean {
+    return this.router.url === route;
+  }
+  navigateToUser() {
+    this.router.navigate(['/user']);
+  }
 }

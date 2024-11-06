@@ -12,6 +12,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { NgSelectComponent } from '@ng-select/ng-select';
 import Swal from 'sweetalert2';
 import { Maquina } from '../Models/Maquina';
+import { Mc6Service } from '../services/Forms/mc6.service';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @Component({
@@ -23,7 +25,8 @@ import { Maquina } from '../Models/Maquina';
     NgSelectComponent,
     ButtonModule,
     DropdownModule,
-    FormsModule
+    FormsModule,
+    NgSelectModule
   ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
@@ -33,12 +36,19 @@ export class MenuComponent implements OnInit {
   productoSeleccionado: Producto | null = null;
   productoMaquina: Producto_Maquina | null = null; 
   maquinas: Maquina[] = [];
+  maquina: string | null = null;
   fecha: string | null = null; 
   maquinaSeleccionada: Maquina | null = null;
 
+  filteredProducts: Productos = [];
+  searchTerm: string = '';
+
+  showOptions: boolean = false;
+
   constructor(private productService: ProductService,
     private maquinaService: ProductService,
-    private router: Router
+    private router: Router,
+    private mc6Service: Mc6Service
   ) { }
 
   ngOnInit(): void {
@@ -50,6 +60,7 @@ export class MenuComponent implements OnInit {
     this.productService.getProducts().subscribe(
       (data) => {
         this.productos = data; 
+        this.filteredProducts = data;
         console.log(this.productos);
       },
       (error) => {
@@ -63,6 +74,26 @@ export class MenuComponent implements OnInit {
     );
 
   }
+
+  filterProducts(): void {
+    const term = this.searchTerm.toLowerCase();
+    this.filteredProducts = this.productos.filter((producto) =>
+      `${producto.producto} ${producto.descripcion}`.toLowerCase().includes(term)
+    );
+  }
+  hideOptions(): void {
+    setTimeout(() => {
+      this.showOptions = false;
+    }, 200); // Delay para permitir que se seleccione el producto antes de ocultar
+  }
+
+  selectProduct(producto: Producto): void {
+    this.productoSeleccionado = producto;
+    this.searchTerm = `${producto.producto} - ${producto.descripcion}`;
+    this.showOptions = false;
+    console.log('Producto seleccionado:', this.productoSeleccionado);
+  }
+
 
   onProductSelect(event: any): void {
     this.productoSeleccionado = event.value; 
@@ -191,6 +222,62 @@ export class MenuComponent implements OnInit {
     });
   }
 
+ 
+  getPdfName(pdf: string): string {
+    return pdf.substring(pdf.lastIndexOf('/') + 1);
+  }
+  modificarHoja(): void {
+    this.productService.getReportes().subscribe(
+      (reportes) => {
+        const opcionesReportes = reportes.reduce((options: { [key: string]: string }, reporte) => {
+          options[reporte.id] = ` ${this.getPdfName(reporte.ruta)} ${reporte.user.nombre}`;
+          return options;
+        }, {});
+  
+        Swal.fire({
+          title: 'Selecciona un reporte para modificar (solo puedes modificar reportes que hayas creado)',
+          input: 'select',
+          inputOptions: opcionesReportes,
+          showCancelButton: true,
+          inputValidator: (value) => {
+            return new Promise((resolve) => {
+              if (value) {
+                const reporteSeleccionado = reportes.find(r => r.id === parseInt(value));
+                resolve('');
+                const maquina = reporteSeleccionado?.producto_maquina?.Cod_maquina ?? null; 
+                // se va a hacer una peticion para buscar el formato correspondiente 
+                this.navegarConReporte(reporteSeleccionado, maquina?? '');
+
+              } else {
+                resolve('Debes seleccionar un reporte');
+              }
+            });
+          }
+        });
+      },
+      (error) => {
+        console.error('Error al cargar los reportes', error);
+      }
+    );
+  }
+  
+  navegarConReporte(reporteSeleccionado: any, maquina: string): void {
+    console.log('Reporte seleccionado:', reporteSeleccionado);
+    console.log('maquinaaa',maquina)
+    this.mc6Service.setlist(reporteSeleccionado.content);
+    this.router.navigate(['/KraussMaffeiMC6'], { 
+      queryParams: { 
+        producto: JSON.stringify(reporteSeleccionado.producto),
+        report: false,
+        reporte: JSON.stringify(reporteSeleccionado),
+        maquina: JSON.stringify(maquina),
+        producto_maquina : JSON.stringify(reporteSeleccionado.producto_maquina),
+        fecha : reporteSeleccionado.fecha,
+      }
+      
+    });
+   
+  }
   navegarConMaquina(maquina: any, fechaSeleccionada: string, estado: boolean): void {
     this.router.navigate(['/KraussMaffeiMC6'], { 
       queryParams: { 
@@ -198,7 +285,8 @@ export class MenuComponent implements OnInit {
         maquina: JSON.stringify(maquina),
         producto_maquina : JSON.stringify(this.productoMaquina),
         fecha : fechaSeleccionada,
-        estado : estado
+        estado : estado,
+        titi: true
       }
     });
   }

@@ -134,3 +134,45 @@
       z-index: 10001 !important; /* Forzar que el select esté por encima del modal */
     }
     
+    .ng-select {
+      width: 100%;
+    }
+    
+
+    .product-selector {
+      position: relative;
+      width: 100%;
+    }
+    
+    .options-list {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      max-height: 150px;
+      overflow-y: auto;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      z-index: 1000;
+    }
+    
+    .options-list li {
+      padding: 8px;
+      cursor: pointer;
+    }
+    
+    .options-list li:hover {
+      background-color: #f0f0f0;
+    }
+    
+    .inputt{
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f8f8f8;
+    }

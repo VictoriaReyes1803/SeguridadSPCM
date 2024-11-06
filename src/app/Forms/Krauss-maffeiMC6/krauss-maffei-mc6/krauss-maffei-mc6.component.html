@@ -4,19 +4,23 @@
   <div style="margin-left: 60px; text-align: center; justify-content:center; align-items:center;">
     <app-toolbar
     (optionSelected)="onOptionSelected($event)"
-    [report]="true"
+    [report]="report"
     >
     </app-toolbar>
-    <app-spiner [loading]="loading"></app-spiner>
+    <app-spiner [loading]="loading"
+    [message] = "message"
+    ></app-spiner>
     <div style="overflow-x:auto">
-    <div id="content" >
-      <div *ngIf="currentContainer == 0 || currentContainer == -1" #container0 class="container">
+    <div  id="content" >
+
+      <div [class.disabled]="ver" *ngIf="currentContainer == 0 || currentContainer == -1" #container0 class="container">
+
         <h1 class="fv" style="font-size: large;" >Parámetros del proceso Krauss Maffei MC6</h1>
         <div>
          <app-header-mc6 
          [cliente]="productoSeleccionado?.codigo_cliente ?? ''"
          [producto_1]="productoSeleccionado?.producto ?? null"
-         [maquina] = "maquina?.maquina ?? null"
+         [maquina] = "maquina"
          [Num_Cav_th_1]="Producto_Maquina?.Cadence_theo ?? null"
          [Num_Cav_real_1]="Producto_Maquina?.Cadencia ?? null"
           [Molde]="Producto_Maquina?.Utillaje ?? null"
@@ -1550,11 +1554,11 @@
         <app-footer3></app-footer3>
 
       </div>
-      <div *ngIf="currentContainer == 1 || currentContainer == -1" #container1 class="container">
+      <div  *ngIf="currentContainer == 1 || currentContainer == -1" #container1 class="container">
         <app-krauss-maffei-mc6-2
         [cliente]="productoSeleccionado?.codigo_cliente ?? ''"
         [producto_1]="productoSeleccionado?.producto ?? null"
-        [maquina]="maquina?.maquina ?? null"
+        [maquina]="maquina"
         [Num_Cav_th_1]="Producto_Maquina?.Cadence_theo ?? null"
         [Num_Cav_real_1]="Producto_Maquina?.Cadencia ?? null"
         [Molde]="Producto_Maquina?.Utillaje ?? null"
@@ -1609,18 +1613,25 @@
         &#8592; 
       </button>
     
-      <button *ngFor="let page of containers; let i = index" class="page-button" (click)="goToContainer(i)">
+      <button  *ngFor="let page of containers; let i = index" class="page-button" (click)="goToContainer(i)">
         {{ i + 1 }}
       </button>
     
-      <button class="nav-button" (click)="nextContainer()" [disabled]="currentContainer === containers.length - 1">
+      <button  class="nav-button" (click)="nextContainer()" [disabled]="currentContainer === containers.length - 1">
         &#8594; 
       </button>
-      <div style="display:flex;  ">
-        <button class="save-button" (click)="downloadPDF(true)">Descargar</button>
+      <a *ngIf="ver" href="/reportes" class="save-button">Regresar</a>
+
+      <div *ngIf="!ver" style="display:flex;  ">
+        <button class="save-button" (click)="downloadPDF(true)">Guardar</button>
         <button class="save-button" (click)="downloadPDF(false)">Vista Previa</button>
       
       </div>
+
+     
+       
+      
+
     </div>
     
     

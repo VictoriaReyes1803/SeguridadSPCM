@@ -2,10 +2,12 @@
     <div class="login-left">
         <img src="../../assets/images/CLAYENS_Mexico-Logo.png" alt="Logo" class="logo">
         <div class="container">
+            
             <div class="screen">
                 <div class="screen__content">
+                    
                     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login">
-                        <h2 class="login__icon fas fas fa-user">Inicio de Sesión</h2>
+                        <p class="login__icon fas fas fa-user">Login</p>
                         
                         <div class="login__field">
                             <i class="login__icon fas fa-user"></i>
@@ -20,19 +22,37 @@
                         </div>
                         <div class="login__field">
                             <i class="login__icon fas fa-lock"></i>
-                            <input formControlName="password"  type="password" class="login__input" name="password" placeholder="Contraseña" required>
+                            <input formControlName="password" 
+                             [type]="passwordVisible ? 'text' : 'password'"
+                             class="login__input"
+                              name="password"
+                               placeholder="Contraseña" 
+                              required
+                              >
+                              <i
+                                class="fas"
+                                [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"
+                                (click)="togglePasswordVisibility()"
+                                style="cursor: pointer; position: absolute; right: 10px; margin-top:10px"
+                            ></i>
                             <div class="alert"
                             *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
                          <div
                            *ngIf="loginForm.controls['password'].errors?.['required']">La contraseña es requerida.
                          </div>
                        </div>
-                        
+                       <div *ngIf="authError" class="alert alert-danger">
+                        {{ authError }}
+                      </div>
                         </div>
                         <button class="button login__submit" type="submit">
                             <span class="button__text">Ingresar</span>
                             <i class="button__icon fas fa-chevron-right"></i>
                         </button>
+
+                        <div class="forgot-password" style=" margin-top: 15px;margin-left: 15px;">
+                            <a href="/forgotpassword"  style="color: #ff8c00; font-weight: bold; text-decoration: underline;">¿Olvidaste tu contraseña?</a>
+                          </div>
                     </form>
                     <div class="social-login">
                         <h1 class="h_spcm">SPCM</h1>

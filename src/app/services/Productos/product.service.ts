@@ -29,15 +29,21 @@ export class ProductService {
   getMaquinas(): Observable<Maquina[]> {
     return this.http.get<Maquina[]>(`${this.apiurl}maquinas/`);
   }
+//  reportees
 
   postReporte(data: Reporte): Observable<Reporte> {
     return this.http.post<Reporte>(`${this.apiurl}reportes/`, data);
   }
-
   getReporte(id: number): Observable<Reporteresponse> {
     return this.http.get<Reporteresponse>(`${this.apiurl}reportes/${id}/`);
   }
   getReportes(): Observable<Reporteresponse[]> {
     return this.http.get<Reporteresponse[]>(`${this.apiurl}reportes/`);
+  }
+  getAllReportes(): Observable<Reporteresponse[]> {
+    return this.http.get<Reporteresponse[]>(`${this.apiurl}all-report/`);
+  }
+  updateReporte(id: number, data: Reporte): Observable<Reporte> {
+    return this.http.put<Reporte>(`${this.apiurl}reportes/${id}/`, data);
   }
 }
