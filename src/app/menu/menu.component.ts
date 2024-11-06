@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
 import { CardModule } from 'primeng/card';
-import { SidebarComponent } from '../sidebar/sidebar.component';
-import { ButtonModule } from 'primeng/button';
-import { DropdownModule } from 'primeng/dropdown';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
-
-=======
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -19,20 +12,13 @@ import { DropdownModule } from 'primeng/dropdown';
 import { NgSelectComponent } from '@ng-select/ng-select';
 import Swal from 'sweetalert2';
 import { Maquina } from '../Models/Maquina';
->>>>>>> 881e614f056c670c9002692b205c49f29d5abd59
+
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-<<<<<<< HEAD
-  imports: [ 
-    ToolbarComponent,
-    DropdownModule,
-    CardModule,
-=======
   imports: [
     CommonModule,
->>>>>>> 881e614f056c670c9002692b205c49f29d5abd59
     SidebarComponent,
     NgSelectComponent,
     ButtonModule,
@@ -50,10 +36,6 @@ export class MenuComponent implements OnInit {
   fecha: string | null = null; 
   maquinaSeleccionada: Maquina | null = null;
 
-<<<<<<< HEAD
-
-
-=======
   constructor(private productService: ProductService,
     private maquinaService: ProductService,
     private router: Router
@@ -220,5 +202,4 @@ export class MenuComponent implements OnInit {
       }
     });
   }
->>>>>>> 881e614f056c670c9002692b205c49f29d5abd59
 }
