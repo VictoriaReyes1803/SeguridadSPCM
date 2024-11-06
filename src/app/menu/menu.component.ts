@@ -73,15 +73,16 @@ export class MenuComponent implements OnInit {
   }
 
   filterProducts(): void {
-    const term = this.searchTerm.toLowerCase();
-    this.filteredProducts = this.productos.filter((producto) =>
-      `${producto.producto} ${producto.descripcion}`.toLowerCase().includes(term)
+    const searchTermLower = this.searchTerm.toLowerCase();
+    this.filteredProducts = this.productos.filter(producto =>
+      producto.producto.toLowerCase().includes(searchTermLower) ||
+      producto.descripcion.toLowerCase().includes(searchTermLower)
     );
   }
   hideOptions(): void {
     setTimeout(() => {
       this.showOptions = false;
-    }, 200); // Delay para permitir que se seleccione el producto antes de ocultar
+    }, 200); 
   }
 
   selectProduct(producto: Producto): void {
