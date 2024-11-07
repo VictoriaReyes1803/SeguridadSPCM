@@ -9,6 +9,7 @@ import { SecureCookieService } from '../services/cookies/cookies.service';
 import { UserService } from '../services/User/user.service';
 import { catchError, tap, throwError } from 'rxjs';
 import { RouterModule,Router, ActivatedRoute } from '@angular/router';
+import {urll} from '../../Enviroments/enviroment';
 
 @Component({
   selector: 'app-sidebar',
@@ -24,6 +25,8 @@ import { RouterModule,Router, ActivatedRoute } from '@angular/router';
 })
 export class SidebarComponent {
   user: User | null = null;
+  apiURL = urll;
+  
 
   sidebarVisible: boolean = true;
 
@@ -34,8 +37,19 @@ export class SidebarComponent {
     private route: ActivatedRoute
     ) { }
   ngOnInit() {
-    this.user = this.secureCookieService.getSecureCookie('user'); 
+    this.userService.getme().subscribe((data: User) => {
+      this.user = data;
+      console.log(this.user);
+      if (this.user.profile_picture) {
+        this.user.profile_picture = this.apiURL+ this.user.profile_picture;
+      }
+    });
+    (error: any) => {
+      console.log(error);
+    }
+
     console.log(this.user);
+    console.log(this.user?.profile_picture);
   }
   logout()  {
    

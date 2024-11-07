@@ -28,7 +28,8 @@ export class AuthService {
         this.secureCookieService.setSecureCookie('access', response.access);
         this.secureCookieService.setSecureCookie('refresh', response.refresh);
         this.secureCookieService.setSecureCookie('user', response.user);
-        console.log('Tokens guardados en las cookies');
+
+        console.log('Tokens guardados en las cookies', response.user);
       })
     );
   }

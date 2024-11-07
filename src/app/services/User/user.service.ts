@@ -28,7 +28,7 @@ export class UserService {
     return this.http.get<User>(`${this.apiUrl}me/`);
   }
 
-  putme(data: User): Observable<User> {
+  putme(data: any): Observable<User> {
     return this.http.put<User>(`${this.apiUrl}me/`, data);
   }
 

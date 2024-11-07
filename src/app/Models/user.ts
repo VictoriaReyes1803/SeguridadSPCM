@@ -14,6 +14,7 @@ export interface UserRegister{
     rol : string;
     username : string;
     password: string;
+    profile_picture?: any;
   }
   export interface User{
     id: number;
@@ -25,6 +26,7 @@ export interface UserRegister{
     rol : string;
     username : string;
     is_active: boolean;
+    profile_picture?: any;
     }
 
   export interface LoginResponseInterface {

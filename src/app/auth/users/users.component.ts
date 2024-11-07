@@ -37,7 +37,7 @@ export class UsersComponent {
   showRegister: false | undefined;
   registerForm: Form | undefined;
   users: User[] = [];
-  selectedUser: User = { id: 0, nombre: '', email: '', rol: '', apellido_paterno: '', apellido_materno: '', no_empleado: '', username: '', is_active: false };
+  selectedUser: User = { id: 0, nombre: '', email: '', rol: '', apellido_paterno: '', apellido_materno: '', no_empleado: '', username: '', is_active: true, profile_picture: '' };
   
 
   ngOnInit(): void {
@@ -96,7 +96,9 @@ export class UsersComponent {
 
   updateUser() {
     if (this.selectedUser.id) {
-      this.userService.putUser(this.selectedUser.id, this.selectedUser).subscribe(
+      console.log('Usuario a actualizar:', this.selectedUser);
+      const { profile_picture, ...userToUpdate } = this.selectedUser;
+      this.userService.putUser(this.selectedUser.id, userToUpdate).subscribe(
         {
         next: (updatedUser) => {
           console.log('Usuario actualizado:', updatedUser);

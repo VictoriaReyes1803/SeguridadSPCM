@@ -3,7 +3,9 @@
     <img src="../../assets/images/CLAYENS_Mexico-Logo.png" alt="Logo de Clayens" class="logo-img">
   </div>
   <div class="user-info divv" (click)="navigateToUser()">
-    <i class="fas fa-user-circle user-icon" style="color: #ffff"></i>
+    <img *ngIf="user?.profile_picture" [src]="user?.profile_picture" alt="Foto de perfil" class="user-icon userdfoto" />
+    <i *ngIf="!user?.profile_picture" class="fas fa-user-circle user-icon" style="color: #ffff"></i>
+
     <div class="user-details">
       <p class="user-name"> {{ user?.nombre }} {{ user?.apellido_paterno }}  {{ user?.apellido_materno }}</p>
       <p class="user-role">{{ user?.rol }}</p>
