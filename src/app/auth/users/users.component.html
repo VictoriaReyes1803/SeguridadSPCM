@@ -32,10 +32,9 @@
      </ng-template>
         <ng-template pTemplate="header">
           <tr>
-            <!-- <th pSortableColumn="id">ID
-                <p-sortIcon field="id" />
-
-            </th> -->
+            <th pSortableColumn="profilePicture">Foto de Perfil
+                
+            </th>
             <th pSortableColumn="username">Username
                 <p-sortIcon field="username" />
             </th>
@@ -61,7 +60,18 @@
         </ng-template>
         <ng-template pTemplate="body" let-user>
           <tr>
-            <!-- <td>{{ user.id }}</td> -->
+            <td >
+             <img
+            *ngIf="user?.profile_picture "
+            [src]="user.profile_picture"
+            alt="Foto de perfil"
+            class="profile-picture"
+          />
+          <span *ngIf="!user?.profile_picture"  class="icon-placeholder">
+            <i class="fas fa-user" style="color: #ff5722;"></i>
+          </span>
+   
+            </td>
             <td>{{ user.username }}</td>
             <td> <span class="p-column-title">nombre</span>
                 {{ user.nombre }}</td>
@@ -89,6 +99,24 @@
         
       </div>
       <h3 class="title is-4">Actualizar Usuario</h3>
+
+      <div class="field">
+        <label>Foto de perfil</label>
+        <div class="profile-picture-container">
+          <img
+            *ngIf="selectedUser?.profile_picture "
+            [src]="selectedUser.profile_picture"
+            alt="Foto de perfil"
+            class="profile-picture"
+          />
+          <span *ngIf="!selectedUser?.profile_picture" class="icon-placeholder">
+            <i class="fas fa-user" style="color: #ff5722;"></i>
+          </span>
+          <input class="file-input" type="file" (change)="onFileChange($event)" accept="image/*" />
+  
+        </div>
+      </div>  
+
       <div class="field">
         <label for="username">Username:</label>
         <div class="control has-icons-left">

@@ -6,8 +6,8 @@
   
   body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--background-color);
+  color: var(--text-color);
   }
   
   header {
@@ -26,6 +26,7 @@
     overflow: hidden;
     padding: 20px;
     background-color: #ffffff;
+    
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 70px;
   }
@@ -180,4 +181,25 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       background-color: #f8f8f8;
+    }
+
+
+    /* dark mode */
+    html[data-theme="dark"] body {
+      background-color: #333;
+      color: #f4f4f4;
+    }
+    
+    html[data-theme="dark"] .container {
+      background-color: #1e1e1e;
+      color: #f4f4f4;
+    }
+    
+    html[data-theme="dark"] .buttons button {
+      background-color: #ff6600;
+      color: white;
+    }
+    
+    html[data-theme="dark"] .buttons button:hover {
+      background-color: #e65c00;
     }

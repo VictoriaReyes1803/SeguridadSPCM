@@ -6,6 +6,7 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import {KeyValuePipe, NgClass, NgForOf, NgIf} from "@angular/common";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +24,7 @@ import {KeyValuePipe, NgClass, NgForOf, NgIf} from "@angular/common";
 export class RegisterComponent {
   isSubmitting = false;
   backendErrors: any;
-
+  profilePicture: File | null = null;
   passwordVisible = false;
 
   togglePasswordVisibility() {
@@ -50,26 +51,30 @@ export class RegisterComponent {
     no_empleado: new FormControl('', [Validators.required, Validators.minLength(3)]),
     rol: new FormControl('', [Validators.required]),
     username: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    
+    profilePicture: new FormControl<string | null>(null)
   });
 
   onSubmit(){
     this.isSubmitting = true;
-    const formValues: UserRegister = {
-      nombre: this.registerForm.value.nombre || '',
-      email: this.registerForm.value.email || '',
-      password: this.registerForm.value.password || '',
-      apellido_materno: this.registerForm.value.apellido_materno || '',
-      apellido_paterno: this.registerForm.value.apellido_paterno || '',
-      no_empleado: this.registerForm.value.no_empleado || '',
-      rol: this.registerForm.value.rol || '',
-      username: this.registerForm.value.username || ''
+    const formData = new FormData();
+    formData.append('nombre', this.registerForm.value.nombre || '');
+    formData.append('email', this.registerForm.value.email || '');
+    formData.append('password', this.registerForm.value.password || '');
+    formData.append('apellido_materno', this.registerForm.value.apellido_materno || '');
+    formData.append('apellido_paterno', this.registerForm.value.apellido_paterno || '');
+    formData.append('no_empleado', this.registerForm.value.no_empleado || '');
+    formData.append('rol', this.registerForm.value.rol || '');
+    formData.append('username', this.registerForm.value.username || '');
 
-      // password_confirmation: this.registerForm.value.passwordConfirm || ''
+    if (this.profilePicture) {
+      formData.append('profile_picture', this.profilePicture, this.profilePicture.name);
     }
-    this.authservice.register(formValues).subscribe(
+
+    this.authservice.register(formData).subscribe(
       data => {
-        this.router.navigate(['']);
+        Swal.fire('Usuario registrado', 'Usuario registrado correctamente', 'success');
+        
+        this.router.navigate(['users']);
       },
       err => {
         this.isSubmitting = false;
@@ -83,6 +88,16 @@ export class RegisterComponent {
       }
     )
   }
-
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.profilePicture = file;
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.registerForm.patchValue({ profilePicture: reader.result as string });
+      };
+      reader.readAsDataURL(file);
+    }
+  }
 
 }

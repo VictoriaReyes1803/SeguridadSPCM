@@ -47,7 +47,7 @@ export class HeaderMc6Component {
     this.cambioValores.emit({
       Arch_Disq: this.Arch_Disq,
       Num_Cav_th_2: this.Num_Cav_th_2,
-      producto_2: this.Producto_2,
+      Producto_2: this.Producto_2,
       Num_Cav_real_2: this.Num_Cav_real_2,
       Pigmento: this.Pigmento,
       Porc_pigmento: this.Porc_pigmento,

@@ -1,6 +1,11 @@
 <app-sidebar></app-sidebar>
-<div class="container">
+<div class="container" >
+
     <h2>Menu</h2>
+
+    <button (click)="toggleDarkMode()" class="toggle-button">
+      {{ isDarkMode ? 'Activar modo claro' : 'Activar modo oscuro' }}
+    </button>
 
     <div class="product-selector">
 
@@ -29,7 +34,7 @@
     </div>
   
     <div class="buttons">
-      <button class="btn-create" (click)="crearNuevaHoja()">Crear nueva Hoja</button>
+      <button class="fancy-button btn-create" (click)="crearNuevaHoja()" tabIndex="0">Crear nueva Hoja</button>
       <!-- <button class="btn-checklist">Consultar</button> -->
       
       <button class="btn-export" (click)="modificarHoja()">Modificar Hoja</button>

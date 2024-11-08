@@ -1,6 +1,7 @@
 import { CardModule } from 'primeng/card';
+import { DOCUMENT } from '@angular/common';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
-import { Component, OnInit } from '@angular/core';
+import { Component,Renderer2,  Inject,InjectionToken, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar.component';
@@ -14,6 +15,7 @@ import Swal from 'sweetalert2';
 import { Maquina } from '../Models/Maquina';
 import { Mc6Service } from '../services/Forms/mc6.service';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { InputSwitchModule } from 'primeng/inputswitch';
 
 
 @Component({
@@ -22,16 +24,18 @@ import { NgSelectModule } from '@ng-select/ng-select';
   imports: [
     CommonModule,
     SidebarComponent,
-    NgSelectComponent,
     ButtonModule,
     DropdownModule,
     FormsModule,
-    NgSelectModule
+    NgSelectModule,
+    InputSwitchModule
   ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })
 export class MenuComponent implements OnInit {
+  isDarkMode: boolean = true;
+
   productos: Productos = [];
   productoSeleccionado: Producto | null = null;
   productoMaquina: Producto_Maquina | null = null; 
@@ -48,11 +52,19 @@ export class MenuComponent implements OnInit {
   constructor(private productService: ProductService,
     private maquinaService: ProductService,
     private router: Router,
-    private mc6Service: Mc6Service
+
+    private mc6Service: Mc6Service,
+    private renderer: Renderer2
   ) { }
 
   ngOnInit(): void {
     this.loadProducts();
+    this.detectSystemTheme();
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+      this.isDarkMode = event.matches;
+      this.applyTheme();
+    });
     
   }
 
@@ -74,6 +86,26 @@ export class MenuComponent implements OnInit {
     );
 
   }
+
+  
+  detectSystemTheme(): void {
+    this.isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    this.applyTheme();
+  }
+
+  applyTheme(): void {
+    if (this.isDarkMode) {
+      this.renderer.setAttribute(document.documentElement, 'data-theme', 'dark');
+    } else {
+      this.renderer.setAttribute(document.documentElement, 'data-theme', 'light');
+    }
+  }
+
+  toggleDarkMode(): void {
+    this.isDarkMode = !this.isDarkMode;
+    this.applyTheme();
+  }
+
 
   filterProducts(): void {
     const searchTermLower = this.searchTerm.toLowerCase();
@@ -292,3 +324,7 @@ export class MenuComponent implements OnInit {
     });
   }
 }
+function inject(DOCUMENT: InjectionToken<Document>) {
+  throw new Error('Function not implemented.');
+}
+

@@ -6,7 +6,7 @@ import { UserService } from '../../services/User/user.service';
 import{ Form, FormsModule } from '@angular/forms';
 import { RegisterComponent } from '../register/register.component';
 import Swal from 'sweetalert2';
-
+import { urll } from '../../../Enviroments/enviroment';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
@@ -22,8 +22,6 @@ import { InputTextModule } from 'primeng/inputtext';
     ButtonModule,
     DialogModule,
     InputTextModule,
-    
-    RegisterComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './users.component.html',
@@ -32,11 +30,12 @@ import { InputTextModule } from 'primeng/inputtext';
 export class UsersComponent {
   @ViewChild('dt') dt: any;
   searchValue: string = '';
-
+  profilePicture: File | null = null;
   displayDialog: boolean = false;
   showRegister: false | undefined;
   registerForm: Form | undefined;
   users: User[] = [];
+  apiurl = urll;
   selectedUser: User = { id: 0, nombre: '', email: '', rol: '', apellido_paterno: '', apellido_materno: '', no_empleado: '', username: '', is_active: true, profile_picture: '' };
   
 
@@ -52,6 +51,12 @@ export class UsersComponent {
     this.userService.getUsers().subscribe(users => {
       console.log(users);
       this.users = users || [];
+      this.users.forEach(user => {
+        if (user.profile_picture) {
+            user.profile_picture = this.apiurl + user.profile_picture;
+        }
+    });
+
     });
   }
 
@@ -97,8 +102,19 @@ export class UsersComponent {
   updateUser() {
     if (this.selectedUser.id) {
       console.log('Usuario a actualizar:', this.selectedUser);
-      const { profile_picture, ...userToUpdate } = this.selectedUser;
-      this.userService.putUser(this.selectedUser.id, userToUpdate).subscribe(
+      const formData = new FormData();
+      formData.append('username', this.selectedUser.username);
+      formData.append('nombre', this.selectedUser.nombre);
+      formData.append('apellido_paterno', this.selectedUser.apellido_paterno);
+      formData.append('apellido_materno', this.selectedUser.apellido_materno);
+      formData.append('no_empleado', this.selectedUser.no_empleado);
+      formData.append('email', this.selectedUser.email);
+      formData.append('rol', this.selectedUser.rol);
+      
+      if (this.profilePicture) {
+        formData.append('profile_picture', this.profilePicture, this.profilePicture.name);
+      }
+      this.userService.putUser(this.selectedUser.id, formData).subscribe(
         {
         next: (updatedUser) => {
           console.log('Usuario actualizado:', updatedUser);
@@ -122,12 +138,23 @@ export class UsersComponent {
   }
   
   showDialog(user?: User) {
-    this.selectedUser = user ? { ...user } : { id: 0, nombre: '', email: '', rol: '', apellido_paterno: '', apellido_materno: '', no_empleado: '', username: '', is_active: false };
+    this.selectedUser = user ? { ...user } : { id: 0, nombre: '', email: '', rol: '', apellido_paterno: '', apellido_materno: '', no_empleado: '', username: '', is_active: true, profile_picture: '' };
     this.displayDialog = true; 
   }
   
 filterUsers(event: Event) {
   const input = event.target as HTMLInputElement; 
   this.dt.filterGlobal(input.value, 'contains'); 
+}
+onFileChange(event: any) {
+  const file = event.target.files[0];
+  if (file) {
+    this.profilePicture = file;
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.selectedUser.profile_picture = reader.result as string;
+    };
+    reader.readAsDataURL(file);
+  }
 }
 }

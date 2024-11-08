@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { jwtDecode } from "jwt-decode";
-import { SecureCookieService } from '../../services/cookies/cookies.service';
-
+import { SecureCookieService } from '../services/cookies/cookies.service';
+import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
@@ -46,7 +46,12 @@ export class AuthGuard implements CanActivate {
 
 }
 private logoutAndRedirect() {
-
+  Swal.fire({
+    title: 'Sesión expirada',
+    text: 'Por favor inicia sesión de nuevo',
+    icon: 'error',
+    confirmButtonText: 'Ok'
+  });
   this.secureCookieService.delete('access');
   this.secureCookieService.delete('refresh');
   this.router.navigate(['/']);

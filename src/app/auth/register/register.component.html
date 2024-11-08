@@ -9,6 +9,13 @@
                     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register">
                         <h2 class="login__icon fas fas fa-user">  Agregar empleado</h2>
 
+                        <div class="login__field">
+                          <i class="login__icon fas fa-user"></i>
+                          <div style="margin-left: 25px; margin-top: 5px;" class="profile-picture-container">
+                            <input class="file-input" type="file" (change)="onFileChange($event)" accept="image/*" />
+                          </div>
+                        </div>
+
                         <div style="display:flex; gap:25px" class="">
                         <div class="login__field">
                             <i class="login__icon fas fa-user"></i>

@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component,HostListener, ElementRef, ViewChild } from '@angular/core';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -40,7 +40,6 @@ import { Router } from '@angular/router';
     KraussMaffeiMc62Component,
     HeaderMc6Component,
     Footer3Component,
-    Footer2Component,
     SpinerComponent
 ],
   templateUrl: './krauss-maffei-mc6.component.html',
@@ -48,7 +47,9 @@ import { Router } from '@angular/router';
 })
 export class KraussMaffeiMC6Component {
   loading = false;
+  isOnline: boolean = navigator.onLine;
   currentContainer = 0; 
+  ismc6!: mc6
   ver = false;
   title = 'angular-pdf-export';
   maquina: string | null = null;
@@ -102,6 +103,7 @@ export class KraussMaffeiMC6Component {
   containers: ElementRef[] = [];
   
   ngOnInit(): void {
+
     this.route.queryParams.subscribe(params => {
       if (params['producto'] && params['maquina']&& params['titi']) {
         this.mc6Service.resetList();
@@ -161,7 +163,14 @@ export class KraussMaffeiMC6Component {
       }
       this.valores = this.mc6Service.getlist();
     });
+    if (sessionStorage.getItem('mc6')) {
+      this.mc6 = JSON.parse(sessionStorage.getItem('mc6') || '{}');
+      this.user = this.secureCookieService.getSecureCookie('user');
+      this.calcular();
+      console.log('mc6:', this.mc6);
+    }
   }
+
 
   ngAfterViewInit() {
     setTimeout(() => {
@@ -169,6 +178,38 @@ export class KraussMaffeiMC6Component {
       
     });
   }
+
+  @HostListener('window:online', ['$event'])
+  onOnline() {
+    this.isOnline = true;
+
+    this.ismc6 = this.mc6Service.getlist();
+    sessionStorage.setItem('mc6', JSON.stringify(this.ismc6));
+
+    console.log('Conectado a internet', this.isOnline);
+    
+  }
+
+  @HostListener('window:offline', ['$event'])
+  onOffline() {
+    this.isOnline = false;
+    this.mc6 = sessionStorage.getItem('mc6') ? JSON.parse(sessionStorage.getItem('mc6') || '{}') : {};
+
+    console.log('Sin conexión a internet', this.mc6 );
+    
+  }
+
+  @HostListener('window:beforeunload', ['$event'])
+  handlePageReload(event: BeforeUnloadEvent) {
+    this.mc6Service.setlist(this.mc6);
+    
+    this.ismc6 = this.mc6Service.getlist();
+    sessionStorage.setItem('mc6', JSON.stringify(this.ismc6));
+
+    console.log('Página está siendo recargada',this.ismc6);
+  }
+
+
   calcular(): void {
     this.Volumen_cargaa = ((this.mc6.carga_s_1 + this.mc6.carga_s_2 + this.mc6.carga_s_mm)/10)*(Math.pow(this.diametro_huisillo/20, 2))*Math.PI;
     this.T_resistencia = ((this.mc6.Volumen_max / this.Volumen_cargaa) * this.mc6.Tiempo_ciclo_SET * 1.4) / 60;
@@ -427,4 +468,8 @@ export class KraussMaffeiMC6Component {
     this.currentContainer = index;
   }
 
+  ngOnDestroy() {
+    this.mc6Service.resetList();
+    sessionStorage.removeItem('mc6');
+  }
 }
