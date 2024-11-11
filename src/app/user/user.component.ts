@@ -56,7 +56,11 @@ export class UserComponent implements OnInit {
     formData.append('no_empleado', this.user.no_empleado);
     formData.append('email', this.user.email);
     formData.append('rol', this.user.rol);
-    formData.append('password', this.user.password);
+    
+
+    if (this.user.password && this.user.password.trim() !== '') {
+      formData.append('password', this.user.password);
+    }
     
     if (this.profilePicture) {
       formData.append('profile_picture', this.profilePicture, this.profilePicture.name);
