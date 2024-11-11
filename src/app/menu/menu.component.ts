@@ -59,12 +59,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProducts();
-    this.detectSystemTheme();
-
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-      this.isDarkMode = event.matches;
-      this.applyTheme();
-    });
+    
     
   }
 
@@ -87,23 +82,10 @@ export class MenuComponent implements OnInit {
 
   }
 
-  
-  detectSystemTheme(): void {
-    this.isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    this.applyTheme();
-  }
-
-  applyTheme(): void {
-    if (this.isDarkMode) {
-      this.renderer.setAttribute(document.documentElement, 'data-theme', 'dark');
-    } else {
-      this.renderer.setAttribute(document.documentElement, 'data-theme', 'light');
-    }
-  }
 
   toggleDarkMode(): void {
     this.isDarkMode = !this.isDarkMode;
-    this.applyTheme();
+    
   }
 
 
