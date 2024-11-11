@@ -26,5 +26,6 @@ export interface Producto_Maquina
     Cadence_theo: number;
     Utillaje: string;
     Eficiencia: number;
+    Formato?: string;
 }
     export type Productos = Producto[];

@@ -40,6 +40,7 @@ export class MenuComponent implements OnInit {
   productoSeleccionado: Producto | null = null;
   productoMaquina: Producto_Maquina | null = null; 
   maquinas: Maquina[] = [];
+  Formato: string | null = null;
   maquina: string | null = null;
   fecha: string | null = null; 
   maquinaSeleccionada: Maquina | null = null;
@@ -294,7 +295,9 @@ export class MenuComponent implements OnInit {
    
   }
   navegarConMaquina(maquina: any, fechaSeleccionada: string, estado: boolean): void {
-    console.log('maquinoooon',maquina)
+
+   this.Formato = this.productoMaquina?.Formato ?? null;
+
     this.router.navigate(['/KraussMaffeiMC6'], { 
       queryParams: { 
         producto: JSON.stringify(this.productoSeleccionado),
@@ -306,8 +309,5 @@ export class MenuComponent implements OnInit {
       }
     });
   }
-}
-function inject(DOCUMENT: InjectionToken<Document>) {
-  throw new Error('Function not implemented.');
 }
 
