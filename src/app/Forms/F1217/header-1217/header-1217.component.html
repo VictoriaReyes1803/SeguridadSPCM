@@ -1,1 +1,121 @@
 <p>header-1217 works!</p>
+<table>
+   
+    <tr>
+      <th rowspan="5">
+        <img
+          src="../../assets/images/logo.png"
+          alt="Descripción de la imagen"
+          style="width: 120px; height: auto"
+        />
+      </th>
+      <th class="fv" colspan="1">Cliente:</th>
+      <th  name="cliente" colspan="1"> {{cliente}}</th>
+      
+      <th class="fv" colspan="1">Num. Cav th:</th>
+      <th colspan="1">
+        <input
+          type="text"
+          class="no-border-input"
+          name="Num. Cav th 1"
+          style="width: 100%; border: none"
+          placeholder="{{Num_Cav_th_1}}"
+        />
+      </th>
+    </tr>
+    <tr>
+        <th class="fv" colspan="1">Producto:</th>
+      <th colspan="1">
+        {{producto_1}}
+      </th>
+
+      <th class="fv" colspan="1">Num. Cav real:</th>
+      <th colspan="1">
+        <input
+          type="text"
+          class="no-border-input"
+          name="Num. Cav real 1"
+          style="width: 100%; border: none"
+          placeholder="{{Num_Cav_real_1}}"
+        />
+      </th>
+    </tr>
+    <tr>
+        <th class="fv" colspan="1">Molde:</th>
+      <th colspan="1">
+        <input
+          type="text"
+          class="no-border-input"
+          name="Molde"
+          style="width: 100%; border: none"
+          placeholder="{{Molde}}"
+        />
+        
+      </th>
+
+      <th class="fv" colspan="1">Arch/Disq:</th>
+      <th colspan="1">
+        <input
+          type="text"
+          class="no-border-input"
+          name="Arch/Disq:"
+          value="{{Arch_Disq}}"
+          style="width: 100%; border: none"
+          [(ngModel)]="Arch_Disq"
+          (input)="onInputChange()"
+        />
+      </th>
+      
+    </tr>
+    <tr>
+        <th class="fv" colspan="1">Maquina:</th>
+        <th colspan="1">
+          <span *ngIf="estado">{{ Producto_Maquina }}</span>
+          <span *ngIf="!estado">{{ maquina }}</span>
+        </th>
+    </tr>
+    <tr>
+      <th class="fv" colspan="1">Fecha Rev:</th>
+      <th colspan="1">
+        {{Fecha}}
+      </th>
+      <th class="fv" colspan="1">Resina:</th>
+      <th colspan="1">
+        {{Resina}}
+      </th>
+      
+    </tr>
+    <tr>
+      <th class="fv" colspan="3" style="border-bottom: 1px solid white">
+        REGISTRO DE PARAMETROS
+      </th>
+      <th class="fv" colspan="1" style="border-bottom: 1px solid white">
+        Pigmento:
+      </th>
+      <th colspan="1" style="border-bottom: 1px solid white">
+        <input
+          type="text"
+          class="no-border-input"
+          name="pigmento"
+          style="width: 100%; border: none"
+          value="{{Pigmento}}"
+          [(ngModel)]="Pigmento"
+          (input)="onInputChange()"
+        />
+      </th>
+      <th class="fv" colspan="1" style="border-bottom: 1px solid white">
+        % de Pigmento:
+      </th>
+      <th colspan="1" style="border-bottom: 1px solid white">
+        <input
+          type="text"
+          class="no-border-input"
+          name="% de pigmento"
+          style="width: 100%; border: none"
+          value="{{Porc_pigmento}}"
+          [(ngModel)]="Porc_pigmento"
+          (input)="onInputChange()"
+        />
+      </th>
+    </tr>
+  </table>
