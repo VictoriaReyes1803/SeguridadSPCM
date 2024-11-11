@@ -232,7 +232,7 @@ export class MenuComponent implements OnInit {
       }
     }).then((result) => {
       if (result.isConfirmed && this.maquinaSeleccionada) {
-        this.navegarConMaquina(this.maquinaSeleccionada, this.fecha ?? '', false);
+        this.navegarConMaquina(parseInt(this.maquinaSeleccionada.maquina), this.fecha ?? '', false);
       }
     });
   }
@@ -294,6 +294,7 @@ export class MenuComponent implements OnInit {
    
   }
   navegarConMaquina(maquina: any, fechaSeleccionada: string, estado: boolean): void {
+    console.log('maquinoooon',maquina)
     this.router.navigate(['/KraussMaffeiMC6'], { 
       queryParams: { 
         producto: JSON.stringify(this.productoSeleccionado),

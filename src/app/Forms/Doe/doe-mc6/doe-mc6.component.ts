@@ -8,14 +8,14 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ToolbarComponent } from "../../../toolbar/toolbar.component";
 import { SidebarComponent } from "../../../sidebar/sidebar.component";
 import { CommonModule } from '@angular/common';
-import { ChecklistKraussMaffeiComponent } from '../checklist-krauss-maffei/checklist-krauss-maffei.component';
-import { KraussMaffeiMc62Component } from "../krauss-maffei-mc6-2/krauss-maffei-mc6-2.component";
+import { ChecklistKraussMaffeiComponent } from '../../Krauss-maffeiMC6/checklist-krauss-maffei/checklist-krauss-maffei.component';
+import { KraussMaffeiMc62Component } from "../../Krauss-maffeiMC6/krauss-maffei-mc6-2/krauss-maffei-mc6-2.component";
 import { ActivatedRoute } from '@angular/router'; 
 import { Producto, Productos , Producto_Maquina} from '../../../Models/Productos';
 import { Maquina } from '../../../Models/Maquina';
 import { SecureCookieService } from '../../../services/cookies/cookies.service';
 import { User } from '../../../Models/user';
-import { HeaderMc6Component } from "../header-mc6/header-mc6.component";
+import { HeaderDoeComponent } from '../header-doe/header-doe.component';
 import { mc6 } from '../../../Models/Interfaz_mc6.ts/mc6';
 import { Mc6Service } from '../../../services/Forms/mc6.service';
 import { Footer3Component } from '../../Componentes/footer3/footer3.component';
@@ -27,8 +27,9 @@ import { content } from 'html2canvas/dist/types/css/property-descriptors/content
 import { DigitalOceanService } from '../../../services/digital/digital-ocean.service';
 import { Router } from '@angular/router';
 
+
 @Component({
-  selector: 'app-krauss-maffei-mc6',
+  selector: 'app-doe-mc6',
   standalone: true,
   imports: [
     FormsModule,
@@ -38,21 +39,20 @@ import { Router } from '@angular/router';
     SidebarComponent,
     CommonModule,
     KraussMaffeiMc62Component,
-    HeaderMc6Component,
     Footer3Component,
-    SpinerComponent
+    SpinerComponent,
+    HeaderDoeComponent
 ],
-  templateUrl: './krauss-maffei-mc6.component.html',
-  styleUrl: './krauss-maffei-mc6.component.css'
+  templateUrl: './doe-mc6.component.html',
+  styleUrl: './doe-mc6.component.css'
 })
-export class KraussMaffeiMC6Component {
+export class DoeMc6Component {
   loading = false;
   isOnline: boolean = navigator.onLine;
   currentContainer = 0; 
   ismc6!: mc6
   ver = false;
   title = 'angular-pdf-export';
-  maq: Maquina | null = null;
   maquina: string | null = null;
   Producto_Maquina: Producto_Maquina | null = null;
   mc6!: mc6;
@@ -112,11 +112,7 @@ export class KraussMaffeiMC6Component {
         
         this.productoSeleccionado = JSON.parse(params['producto']);
         this.Producto_Maquina = JSON.parse(params['producto_maquina']);
-
-        this.maquina = params['maquina'];
-        console.log('Maquinaaaaaaaaaaa:', this.maquina);
-        
-
+        this.maquina = JSON.parse(params['maquina']);
         this.Fecha = params['fecha'];
         this.titi = params['titi'] === 'true';
         this.report = true;
@@ -126,13 +122,12 @@ export class KraussMaffeiMC6Component {
         this.user = this.secureCookieService.getSecureCookie('user');
         console.log('Productoo recibido:', this.productoSeleccionado);
         console.log('Maquina recibida:', this.Producto_Maquina);
-        console.log('Maquinaaaa:', this.maquina);
+        console.log('Maquina:', this.maquina);
         this.calcular();
 
       } else if (params['producto'] && params['report'] ) {
         this.productoSeleccionado = JSON.parse(params['producto']);
         this.Producto_Maquina = JSON.parse(params['producto_maquina']);
-
         this.maquina = params['maquina'];
         
 

@@ -12,6 +12,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { UserRoleGuard } from './Guards/user-role.guard';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { UserComponent } from './user/user.component';
+import { DoeMc6Component } from './Forms/Doe/doe-mc6/doe-mc6.component';
+import { FP1217Component } from './Forms/F1217/fp1217/fp1217.component';
 
 export const routes: Routes = [
    
@@ -38,6 +40,16 @@ export const routes: Routes = [
         path: 'KraussMaffeiMC6',
         component: KraussMaffeiMC6Component,
         canActivate: [AuthGuard] 
+    },
+    {
+        path: 'DoeMc6',
+        component: DoeMc6Component,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'FP1217',
+        component: FP1217Component,
+        canActivate: [AuthGuard]
     },
     {
         path: 'register',
