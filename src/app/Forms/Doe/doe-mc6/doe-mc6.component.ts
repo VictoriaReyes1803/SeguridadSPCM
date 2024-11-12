@@ -16,7 +16,7 @@ import { Maquina } from '../../../Models/Maquina';
 import { SecureCookieService } from '../../../services/cookies/cookies.service';
 import { User } from '../../../Models/user';
 import { HeaderDoeComponent } from '../header-doe/header-doe.component';
-import { mc6 } from '../../../Models/Interfaz_mc6.ts/mc6';
+import { mc6 } from '../../../Models/Formatos.ts/mc6';
 import { Mc6Service } from '../../../services/Forms/mc6.service';
 import { Footer3Component } from '../../Componentes/footer3/footer3.component';
 import { Footer2Component } from '../../Componentes/footer2/footer2.component';

@@ -7,7 +7,7 @@ import { HeaderMc6Component } from '../header-mc6/header-mc6.component';
 import { Footer3Component } from "../../Componentes/footer3/footer3.component";
 import { Footer2Component } from "../../Componentes/footer2/footer2.component";
 import { Footer1Component } from '../../Componentes/footer1/footer1.component';
-import { mc6 } from '../../../Models/Interfaz_mc6.ts/mc6';
+import { mc6 } from '../../../Models/Formatos.ts/mc6';
 import { FormsModule } from '@angular/forms';
 import { Mc6Service } from '../../../services/Forms/mc6.service';
 @Component({

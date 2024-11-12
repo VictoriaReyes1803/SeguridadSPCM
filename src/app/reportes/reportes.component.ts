@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 import { SecureCookieService } from '../services/cookies/cookies.service';
 import { User } from '../Models/user';
 import { Mc6Service } from '../services/Forms/mc6.service';
-import { mc6 } from '../Models/Interfaz_mc6.ts/mc6';
+import { mc6 } from '../Models/Formatos.ts/mc6';
 import { Router } from '@angular/router';
 
 @Component({
@@ -153,7 +153,7 @@ export class ReportesComponent {
      
     
       this.mc6Service.setlist(reporteSeleccionado?.content as mc6);
-
+    if (!reporteSeleccionado.formato || reporteSeleccionado.formato == '') {
       this.router.navigate(['/KraussMaffeiMC6'], {
         queryParams: {
           producto: JSON.stringify(reporteSeleccionado?.producto),
@@ -167,6 +167,22 @@ export class ReportesComponent {
         }
       
       });
+    }else
+    {const formato = '/'+reporteSeleccionado.formato;
+      this.router.navigate([formato], {
+        queryParams: {
+          producto: JSON.stringify(reporteSeleccionado?.producto),
+          report: false,
+          ver: true,
+          reporte: JSON.stringify(reporteSeleccionado),
+          maquina: JSON.stringify(maquina),
+          producto_maquina: JSON.stringify(reporteSeleccionado?.producto_maquina),
+          fecha: reporteSeleccionado?.fecha,
+          user: JSON.stringify(reporteSeleccionado?.user),
+        }
+      
+      });
+    }
     }
 
   }

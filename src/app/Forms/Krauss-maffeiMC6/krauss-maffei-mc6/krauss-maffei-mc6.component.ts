@@ -16,7 +16,7 @@ import { Maquina } from '../../../Models/Maquina';
 import { SecureCookieService } from '../../../services/cookies/cookies.service';
 import { User } from '../../../Models/user';
 import { HeaderMc6Component } from "../header-mc6/header-mc6.component";
-import { mc6 } from '../../../Models/Interfaz_mc6.ts/mc6';
+import { mc6 } from '../../../Models/Formatos.ts/mc6';
 import { Mc6Service } from '../../../services/Forms/mc6.service';
 import { Footer3Component } from '../../Componentes/footer3/footer3.component';
 import { Footer2Component } from '../../Componentes/footer2/footer2.component';
@@ -68,7 +68,7 @@ export class KraussMaffeiMC6Component {
   reportData: Reporte | null = null;
   report: boolean = false;
   titi: boolean = false;
-  
+  formato: string =''
   T_resistencia: number = 0;
   Volumen_cargaa: number = 0;
   diametro_huisillo: number = 30;
@@ -112,11 +112,8 @@ export class KraussMaffeiMC6Component {
         
         this.productoSeleccionado = JSON.parse(params['producto']);
         this.Producto_Maquina = JSON.parse(params['producto_maquina']);
-
+        this.formato = params['Formato'];
         this.maquina = params['maquina'];
-        console.log('Maquinaaaaaaaaaaa:', this.maquina);
-        
-
         this.Fecha = params['fecha'];
         this.titi = params['titi'] === 'true';
         this.report = true;
@@ -132,7 +129,7 @@ export class KraussMaffeiMC6Component {
       } else if (params['producto'] && params['report'] ) {
         this.productoSeleccionado = JSON.parse(params['producto']);
         this.Producto_Maquina = JSON.parse(params['producto_maquina']);
-
+        this.formato = params['Formato'];
         this.maquina = params['maquina'];
         
 
@@ -360,7 +357,7 @@ export class KraussMaffeiMC6Component {
 
               this.reportData = {
                 ruta: this.pdfurl, 
-                formato: 'Krauss_maffei_mc6',
+                formato: this.formato,
                 content: JSON.parse(JSON.stringify(this.mc6)),
                 producto_id: this.productoSeleccionado?.id ?? 0, 
                 producto_maquina_id: this.Producto_Maquina?.id ?? 0 

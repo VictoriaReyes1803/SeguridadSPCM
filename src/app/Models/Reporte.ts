@@ -1,7 +1,7 @@
 import { User } from "./user";
 import { Producto } from "./Productos";
 import { Producto_Maquina } from "./Productos";
-import { mc6 } from "./Interfaz_mc6.ts/mc6";
+import { mc6 } from "./Formatos.ts/mc6";
 
 export interface Reporte{
     ruta: string;

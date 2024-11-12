@@ -16,8 +16,9 @@ import { Maquina } from '../../../Models/Maquina';
 import { SecureCookieService } from '../../../services/cookies/cookies.service';
 import { User } from '../../../Models/user';
 import { Header1217Component } from '../header-1217/header-1217.component';
-import { mc6 } from '../../../Models/Interfaz_mc6.ts/mc6';
-import { Mc6Service } from '../../../services/Forms/mc6.service';
+import {F1217Service} from '../../../services/Forms/f1217.service';
+import { FP1217 } from '../../../Models/Formatos.ts/FP1217';
+
 import { Footer3Component } from '../../Componentes/footer3/footer3.component';
 import { Footer2Component } from '../../Componentes/footer2/footer2.component';
 import { SpinerComponent } from '../../Componentes/spiner/spiner.component';
@@ -49,12 +50,12 @@ export class FP1217Component {
   loading = false;
   isOnline: boolean = navigator.onLine;
   currentContainer = 0; 
-  ismc6!: mc6
+  is1217!: FP1217;
   ver = false;
   title = 'angular-pdf-export';
   maquina: string | null = null;
   Producto_Maquina: Producto_Maquina | null = null;
-  mc6!: mc6;
+  fp1217!: FP1217;
   reporte: Reporteresponse | null = null;
   message = '';
   productos: Productos = [];
@@ -63,7 +64,7 @@ export class FP1217Component {
   productoId:  number | null = null;
   Fecha: string | null = null;
   estado: boolean = false;
-  
+  formato: string | null = null;
   reportData: Reporte | null = null;
   report: boolean = false;
   titi: boolean = false;
@@ -77,26 +78,25 @@ export class FP1217Component {
   peso_disparo: number = 0;
   secado_minimo: number = 0;
   consumo: number = 0;
-  valores!: mc6
+  valores!: FP1217;
   pdfurl: string = '';
 
   checklist = false;
   @ViewChild('container0') container0!: ElementRef;
-  @ViewChild('container1') container1!: ElementRef;
-  @ViewChild('container2') container2!: ElementRef;
+
   pdfSrc: string | null = null;
   isModalOpen = false;
   imagePreviewUrl: SafeResourceUrl | null = null;
 
   constructor(private route: ActivatedRoute,
     private secureCookieService: SecureCookieService,
-    private mc6Service: Mc6Service,
+    private F1217Service: F1217Service,
     private sanitizer: DomSanitizer,
     private productService: ProductService,
     private digitalOceanService: DigitalOceanService,
     private router: Router
   ) {
-    this.mc6 = this.mc6Service.getlist();
+    this.fp1217 = this.F1217Service.getlist();
     // console.log('mc6:', this.mc6)
    
   }
@@ -106,9 +106,9 @@ export class FP1217Component {
 
     this.route.queryParams.subscribe(params => {
       if (params['producto'] && params['maquina']&& params['titi']) {
-        this.mc6Service.resetList();
-        this.mc6 = this.mc6Service.getlist();
-        
+        this.F1217Service.resetList();
+        this.fp1217 = this.F1217Service.getlist();
+        this.formato = params['Formato'];
         this.productoSeleccionado = JSON.parse(params['producto']);
         this.Producto_Maquina = JSON.parse(params['producto_maquina']);
         this.maquina = JSON.parse(params['maquina']);
@@ -128,7 +128,7 @@ export class FP1217Component {
         this.productoSeleccionado = JSON.parse(params['producto']);
         this.Producto_Maquina = JSON.parse(params['producto_maquina']);
         this.maquina = params['maquina'];
-        
+        this.formato = params['Formato'];
 
         const Fechaform = new Date(params['fecha']);
 
@@ -143,8 +143,8 @@ export class FP1217Component {
         this.Fecha =  new Intl.DateTimeFormat('es-ES', options).format(Fechaform);
 
         this.reporte = JSON.parse(params['reporte']);
-        this.mc6Service.setlist(this.reporte?.content ?? {});
-        this.mc6 = this.mc6Service.getlist();
+        this.F1217Service.setlist(this.reporte?.content ?? {});
+        this.fp1217 = this.F1217Service.getlist();
 
         console.log('reporte:', this.reporte);
         this.estado = params['estado'] === 'true';
@@ -161,20 +161,20 @@ export class FP1217Component {
       else {
         console.log('No se recibió ningún producto.');
       }
-      this.valores = this.mc6Service.getlist();
+      this.valores = this.F1217Service.getlist();
     });
     if (sessionStorage.getItem('mc6')) {
-      this.mc6 = JSON.parse(sessionStorage.getItem('mc6') || '{}');
+      this.fp1217 = JSON.parse(sessionStorage.getItem('mc6') || '{}');
       this.user = this.secureCookieService.getSecureCookie('user');
       this.calcular();
-      console.log('mc6:', this.mc6);
+      console.log('fp1217:', this.fp1217);
     }
   }
 
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.containers = [this.container0, this.container1, this.container2];
+      this.containers = [this.container0];
       
     });
   }
@@ -183,8 +183,8 @@ export class FP1217Component {
   onOnline() {
     this.isOnline = true;
 
-    this.ismc6 = this.mc6Service.getlist();
-    sessionStorage.setItem('mc6', JSON.stringify(this.ismc6));
+    this.is1217 = this.F1217Service.getlist();
+    sessionStorage.setItem('fp1217', JSON.stringify(this.is1217));
 
     console.log('Conectado a internet', this.isOnline);
     
@@ -193,46 +193,41 @@ export class FP1217Component {
   @HostListener('window:offline', ['$event'])
   onOffline() {
     this.isOnline = false;
-    this.mc6 = sessionStorage.getItem('mc6') ? JSON.parse(sessionStorage.getItem('mc6') || '{}') : {};
+    this.fp1217 = sessionStorage.getItem('fp1217') ? JSON.parse(sessionStorage.getItem('fp1217') || '{}') : {};
 
-    console.log('Sin conexión a internet', this.mc6 );
+    console.log('Sin conexión a internet', this.fp1217 );
     
   }
 
   @HostListener('window:beforeunload', ['$event'])
   handlePageReload(event: BeforeUnloadEvent) {
-    this.mc6Service.setlist(this.mc6);
+    this.F1217Service.setlist(this.fp1217);
     
-    this.ismc6 = this.mc6Service.getlist();
-    sessionStorage.setItem('mc6', JSON.stringify(this.ismc6));
+    this.is1217 = this.F1217Service.getlist();
+    sessionStorage.setItem('fp1217', JSON.stringify(this.is1217));
 
-    console.log('Página está siendo recargada',this.ismc6);
+    console.log('Página está siendo recargada',this.is1217);
   }
 
 
   calcular(): void {
-    this.Volumen_cargaa = ((this.mc6.carga_s_1 + this.mc6.carga_s_2 + this.mc6.carga_s_mm)/10)*(Math.pow(this.diametro_huisillo/20, 2))*Math.PI;
-    this.T_resistencia = ((this.mc6.Volumen_max / this.Volumen_cargaa) * this.mc6.Tiempo_ciclo_SET * 1.4) / 60;
+    // this.Volumen_cargaa = ((this.fp1217.carga_s_1 + this.mc6.carga_s_2 + this.mc6.carga_s_mm)/10)*(Math.pow(this.diametro_huisillo/20, 2))*Math.PI;
+    // this.T_resistencia = ((this.mc6.Volumen_max / this.Volumen_cargaa) * this.mc6.Tiempo_ciclo_SET * 1.4) / 60;
     
-    this.peso_disparo = this.mc6.Peso_Colada + (this.Peso_pieza_1 * this.mc6.Num_Cav_real_1) + (this.Peso_pieza_2 * this.mc6.Num_Cav_real_2);
+    // this.peso_disparo = this.mc6.Peso_Colada + (this.Peso_pieza_1 * this.mc6.Num_Cav_real_1) + (this.Peso_pieza_2 * this.mc6.Num_Cav_real_2);
 
-    this.secado_minimo = this.mc6.Tiempo_secado * this.mc6.consumo;
+    // this.secado_minimo = this.mc6.Tiempo_secado * this.mc6.consumo;
 
   }
   actualizar(valores: any): void {
-  this.mc6.Arch_Disq = valores.Arch_Disq;
-  this.mc6.Num_Cav_th_2 = valores.Num_Cav_th_2;
-  this.mc6.Num_Cav_real_2 = valores.Num_Cav_real_2;
-  this.mc6.Producto_2 = valores.Producto_2;
-  this.mc6.Pigmento = valores.Pigmento;
-
-  this.mc6Service.setlist(this.mc6);
-  console.log('mc6:', this.mc6);
+  this.fp1217.Arch_Disq = valores.Arch_Disq;
+  this.F1217Service.setlist(this.fp1217);
+  console.log('fp1217:', this.fp1217);
 
   }
-  recibirValores(valoresActualizados: Partial<mc6>): void {
-    this.mc6Service.setlist(valoresActualizados);
-    this.valores = this.mc6Service.getlist(); 
+  recibirValores(valoresActualizados: Partial<FP1217>): void {
+    this.F1217Service.setlist(valoresActualizados);
+    this.valores = this.F1217Service.getlist(); 
     console.log('Valores actualizados:', this.valores);
   }
   onOptionSelected(reporte: Reporteresponse): void {
@@ -259,8 +254,8 @@ export class FP1217Component {
           contentParsed = data.content; 
         }
         console.log('Contenido parseado:', contentParsed);
-        this.mc6Service.setlist(contentParsed);
-        this.mc6 = this.mc6Service.getlist();
+        this.F1217Service.setlist(contentParsed);
+        this.fp1217 = this.F1217Service.getlist();
 
         this.calcular();
       } catch (error) {
@@ -280,10 +275,10 @@ export class FP1217Component {
     this.message= 'Generando PDF, por favor espera ...';
     this.loading = true;
     
-    this.mc6Service.setlist(this.mc6);
-    console.log('mc6:', this.mc6);
+    this.F1217Service.setlist(this.fp1217);
+    console.log('mc6:', this.fp1217);
 
-    const datosCompletos = this.mc6Service.getlist();
+    const datosCompletos = this.F1217Service.getlist();
     console.log('Datos completos:', JSON.stringify(datosCompletos));
 
     const pdf = new jsPDF('p', 'pt', 'letter');
@@ -318,18 +313,11 @@ export class FP1217Component {
   
     setTimeout(() => {
       const content0: HTMLElement = this.container0.nativeElement;
-      const content1: HTMLElement = this.container1.nativeElement;
-      const content2: HTMLElement = this.container2.nativeElement;
   
       Promise.all([
         captureElement(content0),
-        captureElement(content1),
-        captureElement(content2)
       ]).then((canvases) => {
         addImageToPDF(canvases[0], true);  
-        addImageToPDF(canvases[1], false);
-        addImageToPDF(canvases[2], false); 
-
         const pdfBlob = pdf.output('blob');
         const now = new Date();
         const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
@@ -340,7 +328,7 @@ export class FP1217Component {
         
         if (guardar && this.titi)
         {
-          const pdfFileName = `MC6_${productName}_${formattedDate}_${formattedTime}_${userName}.pdf`;
+          const pdfFileName = `F1217_${productName}_${formattedDate}_${formattedTime}_${userName}.pdf`;
           const pdfFile = new File([pdfBlob], pdfFileName, { type: 'application/pdf' });
           const formData = new FormData();
           formData.append('file', pdfFile);
@@ -354,8 +342,8 @@ export class FP1217Component {
 
               this.reportData = {
                 ruta: this.pdfurl, 
-                formato: 'Krauss_maffei_mc6',
-                content: JSON.parse(JSON.stringify(this.mc6)),
+                formato: this.formato ?? '',
+                content: JSON.parse(JSON.stringify(this.fp1217)),
                 producto_id: this.productoSeleccionado?.id ?? 0, 
                 producto_maquina_id: this.Producto_Maquina?.id ?? 0 
             };
@@ -399,7 +387,7 @@ export class FP1217Component {
               this.reportData = {
                 ruta: this.reporte?.ruta ?? '', 
                 formato: this.reporte?.formato ?? '',
-                content: JSON.parse(JSON.stringify(this.mc6)),
+                content: JSON.parse(JSON.stringify(this.fp1217)),
                 producto_id: this.reporte?.producto?.id ?? 0, 
                 producto_maquina_id: this.reporte?.producto_maquina?.id ?? 0,
               
@@ -469,7 +457,7 @@ export class FP1217Component {
   }
 
   ngOnDestroy() {
-    this.mc6Service.resetList();
+    this.F1217Service.resetList();
     sessionStorage.removeItem('mc6');
   }
 }

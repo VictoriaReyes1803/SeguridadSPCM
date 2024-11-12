@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { mc6 } from '../../../Models/Interfaz_mc6.ts/mc6';
+import { mc6 } from '../../../Models/Formatos.ts/mc6';
 @Component({
   selector: 'app-footer2',
   standalone: true,

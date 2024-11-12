@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Mc6Service } from '../../../services/Forms/mc6.service';
-import { mc6 } from '../../../Models/Interfaz_mc6.ts/mc6';
+import {F1217Service} from '../../../services/Forms/f1217.service';
+import { FP1217 } from '../../../Models/Formatos.ts/FP1217';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -17,26 +17,22 @@ import { FormsModule } from '@angular/forms';
 })
 export class Header1217Component {
 
-  constructor(private mc6Service: Mc6Service) { }
+  constructor(private fp1217: F1217Service ) { }
   @Input() cliente: string | null = null;
   @Input() Producto_Maquina: string | null = null;
   @Input() maquina: string | null = null;
-  @Input() producto_1: string | null = null;
-  @Input() Producto_2: string | null = null;
   @Input() Arch_Disq: string | null = null;
-  @Input() Num_Cav_th_1: number | null = null;
-  @Input() Num_Cav_real_1: number | null = null;
-  @Input() Num_Cav_th_2: number | null = null;
-  @Input() Num_Cav_real_2: number | null = null;
-  @Input() Pigmento: string | null = null;
+  @Input() producto: string | null = null;
+  @Input() Molde: string | null = null;
+  @Input() Fecha: string | null = null;
+  @Input() Num_Cav_th: number | null = null;
+  @Input() Num_Cav_real: number | null = null;
+  @Input() Resina: string | null = null;
+  @Input() Porc_reciclado: number | null = null;
   @Input() Porc_pigmento: number | null = null;
 
-  @Input() Molde: string | null = null;
-  @Input() Resina: string | null = null;
   @Input() estado: boolean = false;
-  @Input() Fecha: string | null = null;
   
-
   @Output() cambioValores = new EventEmitter<any>();
 
   ngOnInit() {
@@ -46,13 +42,10 @@ export class Header1217Component {
   onInputChange() {
     this.cambioValores.emit({
       Arch_Disq: this.Arch_Disq,
-      Num_Cav_th_2: this.Num_Cav_th_2,
-      Producto_2: this.Producto_2,
-      Num_Cav_real_2: this.Num_Cav_real_2,
-      Pigmento: this.Pigmento,
       Porc_pigmento: this.Porc_pigmento,
+      Porc_reciclado: this.Porc_reciclado,
     });
-    console.log('cambioValores:', this.Arch_Disq, this.Num_Cav_th_2, this.Num_Cav_real_2);
+    console.log('cambioValores:', this.Arch_Disq);
   }
 
 

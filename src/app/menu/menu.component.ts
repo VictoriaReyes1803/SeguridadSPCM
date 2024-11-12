@@ -40,11 +40,10 @@ export class MenuComponent implements OnInit {
   productoSeleccionado: Producto | null = null;
   productoMaquina: Producto_Maquina | null = null; 
   maquinas: Maquina[] = [];
-  Formato: string | null = null;
   maquina: string | null = null;
   fecha: string | null = null; 
   maquinaSeleccionada: Maquina | null = null;
-
+  formato: string | null = null;
   filteredProducts: Productos = [];
   searchTerm: string = '';
 
@@ -161,7 +160,7 @@ export class MenuComponent implements OnInit {
      
     }).then((result) => {
       if (result.isConfirmed ) {
-        this.navegarConMaquina(this.productoMaquina, fecha, true);
+        this.navegarConMaquina(this.productoMaquina, fecha, true, this.productoMaquina?.Formato ?? ''); 
       } else {
         this.cargarMaquinas();
   
@@ -233,7 +232,7 @@ export class MenuComponent implements OnInit {
       }
     }).then((result) => {
       if (result.isConfirmed && this.maquinaSeleccionada) {
-        this.navegarConMaquina(parseInt(this.maquinaSeleccionada.maquina), this.fecha ?? '', false);
+        this.navegarConMaquina(parseInt(this.maquinaSeleccionada.maquina), this.fecha ?? '', false, this.maquinaSeleccionada.Formato ?? '');
       }
     });
   }
@@ -278,9 +277,12 @@ export class MenuComponent implements OnInit {
   }
   
   navegarConReporte(reporteSeleccionado: any, maquina: string): void {
+    // editar formato
     console.log('Reporte seleccionado:', reporteSeleccionado);
     console.log('maquinaaa',maquina)
     this.mc6Service.setlist(reporteSeleccionado.content);
+    this.formato = reporteSeleccionado.formato
+    if (!this.formato || this.formato === '') {
     this.router.navigate(['/KraussMaffeiMC6'], { 
       queryParams: { 
         producto: JSON.stringify(reporteSeleccionado.producto),
@@ -290,24 +292,50 @@ export class MenuComponent implements OnInit {
         producto_maquina : JSON.stringify(reporteSeleccionado.producto_maquina),
         fecha : reporteSeleccionado.fecha,
       }
-      
-    });
+    });} else {
+      this.formato = '/'+this.formato;
+      this.router.navigate([this.formato], { 
+        queryParams: { 
+          producto: JSON.stringify(reporteSeleccionado.producto),
+          report: false,
+          reporte: JSON.stringify(reporteSeleccionado),
+          maquina: JSON.stringify(maquina),
+          producto_maquina : JSON.stringify(reporteSeleccionado.producto_maquina),
+          fecha : reporteSeleccionado.fecha,
+        }
+      });
+    }
    
   }
-  navegarConMaquina(maquina: any, fechaSeleccionada: string, estado: boolean): void {
+  navegarConMaquina(maquina: any, fechaSeleccionada: string, estado: boolean, Formato:string): void {
+    if (!Formato || Formato === '') {
+      this.router.navigate(['/KraussMaffeiMC6'], { 
+        queryParams: { 
+          producto: JSON.stringify(this.productoSeleccionado),
+          maquina: JSON.stringify(maquina),
+          producto_maquina : JSON.stringify(this.productoMaquina),
+          fecha : fechaSeleccionada,
+          estado : estado,
+          titi: true
+        }
+      });
+    } else {
+      Formato = '/'+Formato;
+      console.log('Formato:', Formato);
+      this.router.navigate([Formato], { 
+        queryParams: { 
+          producto: JSON.stringify(this.productoSeleccionado),
+          maquina: JSON.stringify(maquina),
+          producto_maquina : JSON.stringify(this.productoMaquina),
+          fecha : fechaSeleccionada,
+          estado : estado,
+          Formato: Formato,
+          titi: true
+        }
+      });
+    }
+    }
 
-   this.Formato = this.productoMaquina?.Formato ?? null;
-
-    this.router.navigate(['/KraussMaffeiMC6'], { 
-      queryParams: { 
-        producto: JSON.stringify(this.productoSeleccionado),
-        maquina: JSON.stringify(maquina),
-        producto_maquina : JSON.stringify(this.productoMaquina),
-        fecha : fechaSeleccionada,
-        estado : estado,
-        titi: true
-      }
-    });
-  }
+    
 }
 

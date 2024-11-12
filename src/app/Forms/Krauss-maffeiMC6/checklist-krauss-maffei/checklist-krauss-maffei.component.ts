@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { mc6 } from '../../../Models/Interfaz_mc6.ts/mc6';
+import { mc6 } from '../../../Models/Formatos.ts/mc6';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Mc6Service } from '../../../services/Forms/mc6.service';
