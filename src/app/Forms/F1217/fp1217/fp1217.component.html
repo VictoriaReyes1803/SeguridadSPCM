@@ -72,12 +72,415 @@
             
           </tr>
         </thead>
-        <tbody>
+  
+        </table>
+      <div style="display: flex;">
+        <!-- grupo de inyeccion -->
+        <table>
+          <thead>
             <th style="padding: 10px;" colspan="3">Grupo de Inyección</th>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="none"  colspan="3">
+                Colocar presión
+              </th>
             
+            </tr>
+            <tr>
+              <th class="none fv" style="display: flex;">Velocidad de avance 
+                <input
+                  type="number"
+                  class="no-border-input"
+                  [(ngModel)]="fp1217.Velocidad_avance"
+                  name="Velocidad de avance"
+                  placeholder="Velocidad de avance"
+                  style="width: 80%;"
+                /> mm/s
+              </th>
+            </tr>
+            <tr>
+              <th class="none fv" style="display: flex;">Velocidad de colocacion
+                <input
+                  type="number"
+                  class="no-border-input"
+                  [(ngModel)]="fp1217.Velocidad_colocacion"
+                  name="Velocidad_colocacion"
+                  placeholder="Velocidad_colocacion"
+                  style="width: 80%;"
+                /> mm/s
+            </tr>
+            <tr>
+              <th class="none fv" style="display: flex;">Fuerza de Apoyo
+                <input
+                  type="number"
+                  class="no-border-input"
+                  [(ngModel)]="fp1217.Fuerza_Apoyo"
+                  name="Fuerza de Apoyo"
+                  placeholder="Fuerza_Apoyo"
+                  style="width: 80%;"
+                /> kN
+            </tr>
+            <tr>
+            <th class="none"  colspan="3">
+              Retirada
+            </th>
+            <tr class="none fv" style="display: flex;">Posicion
+              <input
+                type="number"
+                class="no-border-input"
+                [(ngModel)]="fp1217.posicion"
+                name="posicion"
+                placeholder="posicion"
+                style="width: 80%;"
+              /> mm
+            
+          </tr>
+          <tr class="none fv" style="display: flex;">Velocidad
+            <input
+              type="number"
+              class="no-border-input"
+              [(ngModel)]="fp1217.velocidad"
+              name="velocidad"
+              placeholder="velocidad"
+              style="width: 80%;"
+            /> mm/s
+          
+        </tr>
+          
           </tbody>
         </table>
-      
+        <!-- grupo de inyeccion -->
+         <table>
+          <thead>
+            <th style="padding: 10px;" colspan="20">Inyección</th>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="none"  colspan="4">
+                Perfil de Inyeccion
+              </th>
+              <th colspan="5" class="none">
+                Vigilancia presion de Inyeccion
+              </th>
+            </tr>
+            <tr>
+              <th class="none"></th>
+              <th>s[mm]</th>
+              <th>v[mm/s]</th>
+              <th class="none" rowspan="8"></th>
+              <th></th>
+              <th colspan="1" >s [mm]</th>
+              <th colspan="1">t [s]</th>
+              <th>p [bar]</th>
+              <th></th>
+            </tr>
+            <tr>
+              <th class="none">1</th>
+              <th><input
+                type="number"
+              class="no-border-input"
+              [(ngModel)]="fp1217.inyeccion1s"
+              name="inyeccion1s"
+              placeholder="inyeccion1s"
+              style="width: 80%;"
+                >
+              </th>
+              <th><input
+                type="number"
+              class="no-border-input"
+              [(ngModel)]="fp1217.inyeccion1v"
+              name="inyeccion1v"
+              placeholder="inyeccion1v"
+              style="width: 80%;"
+                >
+              </th>
+              <td>1</td>
+              <td>
+                <input
+                  type="number"
+                  class="no-border-input"
+                 [(ngModel)]="fp1217.s1"
+                  name="s1"
+                  placeholder="s1"
+                  style="width: 80%;"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="no-border-input"
+                 [(ngModel)]="fp1217.t1"
+                  name="t1"
+                  placeholder="t1"
+                  style="width: 80%;"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="no-border-input"
+                 [(ngModel)]="fp1217.p1"
+                  name="p1"
+                  placeholder="p1"
+                  style="width: 80%;"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th class="none">2</th>
+              <th><input
+                type="number"
+              class="no-border-input"
+              [(ngModel)]="fp1217.inyeccion2s"
+              name="inyeccion2s"
+              placeholder="inyeccion2s"
+              style="width: 80%;"
+                >
+              </th>
+              <th><input
+                type="number"
+              class="no-border-input"
+              [(ngModel)]="fp1217.inyeccion2v"
+              name="inyeccion2v"
+              placeholder="inyeccion2v"
+              style="width: 80%;"
+                >
+              </th>
+
+              <td>2</td>
+              <td>
+                <input
+                  type="number"
+                  class="no-border-input"
+                 [(ngModel)]="fp1217.s2"
+                  name="s2"
+                  placeholder="s2"
+                  style="width: 80%;"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="no-border-input"
+                 [(ngModel)]="fp1217.t2"
+                  name="t2"
+                  placeholder="t2"
+                  style="width: 80%;"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="no-border-input"
+                 [(ngModel)]="fp1217.p2"
+                  name="p2"
+                  placeholder="p2"
+                  style="width: 80%;"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th class="none">3</th>
+              <th><input
+                type="number"
+              class="no-border-input"
+              [(ngModel)]="fp1217.inyeccion3s"
+              name="inyeccion3s"
+              placeholder="inyeccion3s"
+              style="width: 80%;"
+                >
+              </th>
+              <th><input
+                type="number"
+              class="no-border-input"
+              [(ngModel)]="fp1217.inyeccion3v"
+              name="inyeccion3v"
+              placeholder="inyeccion3v"
+              style="width: 80%;"
+                >
+              </th>
+
+              <td>3</td>
+              <td>
+                <input
+                  type="number"
+                  class="no-border-input"
+                 [(ngModel)]="fp1217.s3"
+                  name="s3"
+                  placeholder="s3"
+                  style="width: 80%;"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="no-border-input"
+                 [(ngModel)]="fp1217.t3"
+                  name="t3"
+                  placeholder="t3"
+                  style="width: 80%;"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="no-border-input"
+                 [(ngModel)]="fp1217.p3"
+                  name="p3"
+                  placeholder="p3"
+                  style="width: 80%;"
+                />
+              </td>
+
+            </tr>
+            <tr>
+              <th class="none">4</th>
+              <th><input
+                type="number"
+              class="no-border-input"
+              [(ngModel)]="fp1217.inyeccion4s"
+              name="inyeccion2s"
+              placeholder="inyeccion4s"
+              style="width: 80%;"
+                >
+              </th>
+              <th><input
+                type="number"
+              class="no-border-input"
+              [(ngModel)]="fp1217.inyeccion4v"
+              name="inyeccion4v"
+              placeholder="inyeccion4v"
+              style="width: 80%;"
+                >
+              </th>
+
+              <td>4</td>
+              <td>
+                <input
+                  type="number"
+                  class="no-border-input"
+                 [(ngModel)]="fp1217.s4"
+                  name="s4"
+                  placeholder="s4"
+                  style="width: 80%;"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="no-border-input"
+                 [(ngModel)]="fp1217.t4"
+                  name="t4"
+                  placeholder="t4"
+                  style="width: 80%;"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="no-border-input"
+                 [(ngModel)]="fp1217.p4"
+                  name="p4"
+                  placeholder="p4"
+                  style="width: 80%;"
+                />
+              </td>
+
+            </tr>
+            <tr>
+              <th class="none">5</th>
+              <th><input
+                type="number"
+              class="no-border-input"
+              [(ngModel)]="fp1217.inyeccion5s"
+              name="inyeccion5s"
+              placeholder="inyeccion5s"
+              style="width: 80%;"
+                >
+              </th>
+              <th><input
+                type="number"
+              class="no-border-input"
+              [(ngModel)]="fp1217.inyeccion5v"
+              name="inyeccion5v"
+              placeholder="inyeccion5v"
+              style="width: 80%;"
+                >
+              </th>
+              <th class="none" colspan="5"></th>
+              
+            </tr>
+            
+            <tr >
+              <th colspan="4" rowspan="2" class="none"></th>
+            </tr>
+            <tr>
+            <th  class="fv none" colspan="5" >v/p switchover release pos.
+             
+                <input
+                  type="number"
+                  class="no-border-input"
+                  [(ngModel)]="fp1217.v_p_switchover_release_pos"
+                  name="v_p_switchover_release_pos"
+                  placeholder="v_p_switchover_release_pos"
+                  style="width: 30%; height: 100%;"
+                /> mm
+              
+              </th>
+
+            </tr>
+            </tbody>
+         </table>
+         <table>
+          <thead>
+            <th style="padding: 10px;" colspan="18">Dosificacion</th>
+          </thead>
+          <tbody>
+            <tr>
+            <th colspan="6">
+              Retroceso
+            </th>
+            <th colspan="6">
+              Perfil de dosificacion
+            </th>
+            <th colspan="6">Retroceso</th>
+          </tr>
+          <tr>
+            <td></td>
+            <td colspan="2">[mm]</td>
+            <td colspan="4"></td>
+            <td>s[mm]</td>
+            <td>p[bar]</td>
+            <td colspan="4"></td>
+            <td>[mm]</td>
+
+          </tr>
+          <tr>
+            <td></td>
+            <td><input
+              type="number"
+                  class="no-border-input"
+                  [(ngModel)]="fp1217.retrocesomm1"
+                  name="retrocesomm1"
+                  placeholder="retrocesomm1"
+                  style="width: 80%; height: 100%;"
+              >
+            </td>
+            <td></td>
+            <td>
+              <input
+              
+              >
+            </td>
+          </tr>
+          </tbody>
+        
+          <tr>
+
+          </tr>
+         </table>
+      </div>
 
       <app-footer3></app-footer3>
 
