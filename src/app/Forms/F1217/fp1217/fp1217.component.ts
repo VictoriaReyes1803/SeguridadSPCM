@@ -69,14 +69,6 @@ export class FP1217Component {
   report: boolean = false;
   titi: boolean = false;
   
-  T_resistencia: number = 0;
-  Volumen_cargaa: number = 0;
-  diametro_huisillo: number = 30;
-  
-  Peso_pieza_1: number = 15.13;
-  Peso_pieza_2: number = 0;
-  peso_disparo: number = 0;
-  secado_minimo: number = 0;
   consumo: number = 0;
   valores!: FP1217;
   pdfurl: string = '';

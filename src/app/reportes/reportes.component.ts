@@ -57,7 +57,7 @@ export class ReportesComponent {
     this.user = this.secureCookieService.getSecureCookie('user');
     console.log(this.user);
 
-    if (this.user?.rol == 'admin') {
+    if (this.user?.rol == 'admin' || this.user?.rol == 'engineer') {
       this.productService.getAllReportes().subscribe((data) => {
         this.reportes = data;
         this.filteredReportes = data;

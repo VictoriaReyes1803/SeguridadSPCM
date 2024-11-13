@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service'; // Asegúrate de instalar y configurar ngx-cookie-service
+
 import { SecureCookieService } from '../services/cookies/cookies.service';
 import { User } from '../Models/user';
 @Injectable({
@@ -15,7 +15,7 @@ export class UserRoleGuard implements CanActivate {
   ): boolean {
     this.user = this.securecookieservice.getSecureCookie('user'); // Obtener el rol del usuario de las cookies
 
-    if (this.user?.rol === 'admin') {
+    if (this.user?.rol === 'admin' || this.user?.rol === 'engineer') {
       return true; 
     }
 

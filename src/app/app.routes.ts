@@ -9,12 +9,12 @@ import { RegisterComponent } from './auth/register/register.component';
 import { UsersComponent } from './auth/users/users.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { UserRoleGuard } from './Guards/user-role.guard';
+import { UserRoleGuard } from './Guards/reportes.guard';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { UserComponent } from './user/user.component';
 import { DoeMc6Component } from './Forms/Doe/doe-mc6/doe-mc6.component';
 import { FP1217Component } from './Forms/F1217/fp1217/fp1217.component';
-
+import { registerGuard } from './Guards/register.guard';
 export const routes: Routes = [
    
     {
@@ -54,11 +54,11 @@ export const routes: Routes = [
     {
         path: 'register',
         component: RegisterComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard, registerGuard]
     },
     {   path: 'users',
         component: UsersComponent,
-        canActivate: [AuthGuard, UserRoleGuard]
+        canActivate: [AuthGuard, UserRoleGuard],
     },
     {
         path: 'user',

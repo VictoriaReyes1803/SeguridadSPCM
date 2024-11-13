@@ -47,7 +47,7 @@
             Ver
           </button>
 
-          <button *ngIf="user?.rol === 'admin'" (click)="deletePdf(reporte.id, getPdfName(reporte.ruta) )" style="cursor: pointer;" class="delete-button">
+           <button *ngIf="user?.rol === 'admin' || user?.rol === 'engineer'" (click)="deletePdf(reporte.id, getPdfName(reporte.ruta) )" style="cursor: pointer;" class="delete-button">
             Eliminar
           </button>
         </td>

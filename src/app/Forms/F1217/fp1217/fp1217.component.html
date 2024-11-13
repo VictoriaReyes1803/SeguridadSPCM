@@ -5,6 +5,7 @@
   <app-toolbar
   (optionSelected)="onOptionSelected($event)"
   [report]="report"
+  [formato]="formato ?? ''"
   >
   </app-toolbar>
 
@@ -67,15 +68,13 @@
       <table class="styled-table">
         <thead>
           <tr>
-            <th style="padding: 10px;" colspan="13">INYECCIÓN</th>
+            <th style="padding: 10px;" colspan="9">Grupo de Inyección</th>
             
-            <th style="padding: 10px;" colspan="6"> SOSTENIMIENTO</th>
-            
-            <th style="padding: 10px;" colspan="6">CARGA</th>
           </tr>
         </thead>
         <tbody>
-       
+            <th style="padding: 10px;" colspan="3">Grupo de Inyección</th>
+            
           </tbody>
         </table>
       

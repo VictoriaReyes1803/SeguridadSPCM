@@ -32,6 +32,7 @@ export class ToolbarComponent {
   dropdownOpen: boolean = false;
 
   @Input() report: boolean = false;
+  @Input() formato: string = '';
   @Output() optionSelected = new EventEmitter<Reporteresponse>();
 
   constructor(
@@ -48,9 +49,17 @@ export class ToolbarComponent {
   loadReportes(): void {
     this.productService.getAllReportes().subscribe(
       (data) => {
-        this.reportes = data; 
-        console.log(this.reportes);
+         
+        console.log('reportes',this.reportes);
+        if (this.formato) {
+          
+          this.reportes = data.filter(reporte => reporte.formato === this.formato);
+        } else {
+          this.reportes = data.filter(reporte => reporte.formato === 'KraussMaffeiMC6');
+        }
+        console.log('reportes', this.reportes);
         console.log("se logro");
+
       },
       (error) => {
         console.error('Error al cargar los reportes:', error);
@@ -60,7 +69,9 @@ export class ToolbarComponent {
   toggleDropdown() {
     if (!this.dropdownOpen) {
       this.dropdownOpen = true;
-    }
+    }else{
+      this.dropdownOpen = false;}
+
   }
   formatDate(originalDate: string): string {
     const date = new Date(originalDate);
