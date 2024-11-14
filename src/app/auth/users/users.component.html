@@ -55,6 +55,10 @@
             <th pSortableColumn="rol">Rol
                 <p-sortIcon field="rol" />
             </th>
+            <th pSortableColumn="no_empleado">No.Empleado
+              <p-sortIcon field="no_empleado" />
+          </th>
+
             <th>Acciones</th>
           </tr>
         </ng-template>
@@ -79,6 +83,7 @@
             <td>{{user.apellido_materno}}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.rol }}</td>
+              <td>{{user.no_empleado}}</td>
             <td>
               <button style="margin: 2px;" class="btn-edit" pButton icon="fas fa-pencil-alt" (click)="showDialog(user)"></button>
               <button style="margin: 2px;" class="btn-delete" pButton icon="fas fa-trash" (click)="deleteUser(user)"></button>

@@ -5,6 +5,7 @@
             <img style="height: 30px;" src="../../../assets/images/CLAYENS_Mexico-Logo.png" />
         </ng-template>
         <ng-template *ngIf="report"  pTemplate="center">
+            <ng-container *ngIf="reportes.length > 0; else noReportes">
             <label for="reporteSelect" class="label">Prellenar reporte:</label>
             <div class="custom-select" (click)="toggleDropdown()">
                 <div class="select-header">
@@ -21,6 +22,10 @@
                     </div>
                 </div>
             </div>
+        </ng-container>
+        <ng-template #noReportes>
+            <p>No hay reportes disponibles para prerellenar </p>
+        </ng-template>
 
         </ng-template>
         <ng-template pTemplate="end">

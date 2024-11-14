@@ -1,0 +1,180 @@
+<app-sidebar></app-sidebar>
+
+<div style="margin-left: 60px; text-align: center; justify-content:center; align-items:center;">
+  <app-toolbar
+  (optionSelected)="onOptionSelected($event)"
+  [report]="report"
+  [formato]="formato"
+  >
+  </app-toolbar>
+  <app-spiner [loading]="loading"
+  [message] = "message"
+  ></app-spiner>
+  <div style="overflow-x:auto">
+  <div  id="content" >
+
+    <div [class.disabled]="ver" *ngIf="currentContainer == 0 || currentContainer == -1" #container0 class="container">
+        <div>
+       <app-header-kmtec-056-v2 
+       [cliente]="productoSeleccionado?.codigo_cliente ?? ''"
+       [producto_1]="productoSeleccionado?.producto ?? null"
+       [maquina] = "maquina"
+       [Num_Cav_th_1]="Producto_Maquina?.Cadence_theo ?? null"
+       [Num_Cav_real_1]="Producto_Maquina?.Cadencia ?? null"
+        [Molde]="Producto_Maquina?.Utillaje ?? null"
+        [Resina]="productoSeleccionado?.resina_1 ?? null"
+        [Fecha]=" Fecha"
+        [Producto_Maquina]="Producto_Maquina?.Centro_trabajo_ppal ?? null"
+        [estado]="estado"
+        [Arch_Disq]="mc6.Arch_Disq"
+        [Num_Cav_real_2]="mc6.Num_Cav_real_2"
+        [Num_Cav_th_2]="mc6.Num_Cav_th_2"
+        [Producto_2]="mc6.Producto_2"
+        [Pigmento]="mc6.Pigmento"
+        [Porc_pigmento]="mc6.Porc_pigmento"
+        (cambioValores)="actualizar($event)"
+       >
+        
+       </app-header-kmtec-056-v2>
+      </div>
+      <table>
+        <tr>
+          <th class="fv" colspan="2">CREADO POR:</th>
+          <th colspan="2">
+            <!-- <input
+              type="text"
+              class="no-border-input"
+              name="CREADO POR"
+              placeholder="{{user?.nombre}} {{user?.apellido_paterno}}"
+              style="width: 100%; border: none"
+            /> -->
+            {{user?.nombre}} {{user?.apellido_paterno}} {{user?.apellido_materno}}
+          </th>
+          <th  class="fv" colspan="2">EDITADO POR:</th>
+          <th colspan="2">
+            <input
+              type="text"
+              class="no-border-input"
+              [(ngModel)]="mc6.editado_por"
+              name="EDITADO POR"
+              placeholder="{{user?.nombre}} {{user?.apellido_paterno}}"
+              style="width: 100%; border: none"
+            />
+          </th>
+        </tr>
+      </table>
+
+      
+
+
+        <table>
+          <tbody>
+            <tr>
+              <td class="fv" style="padding: 4px; border-bottom:none" colspan="11">
+                Comentario: Revisar tolerancias en la hoja de "Checklist de
+                Procesos". El parámetro de la BRIDA puede variar entre un rango
+                de 20° y 100° C.
+              </td>
+            </tr>
+            <tr>
+              <td class="none fv" style="padding: 4px" colspan="11">
+                CUIDADO: Los cambios deben quedar registrados
+              </td>
+            </tr>
+            <tr>
+              <td class="none fv" style="text-align: left; width: 70%" colspan="9" rowspan="3">
+                Comentarios:
+              </td>
+              <td class="none fv">Secado min(Lts)</td>
+              <td>
+                <input
+                  type="text"
+                  class="no-border-input"
+                  name="Secado min(Lts)"
+                  value="{{secado_minimo}}"
+                  style="width: 100%"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td class="none fv">Consumo(Lts x H)</td>
+              <td>
+                <input
+                  type="text"
+                  class="no-border-input"
+                  name="Consumo(Lts x H)"
+                  style="width: 100%"
+                  [(ngModel)]="mc6.consumo"
+                  (input)="calcular()"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td  class="none fv">Rate(Pzas x H)</td>
+              <td >
+                <input
+                  type="text"
+                  class="no-border-input"
+                  name="Temp. de Secado"
+                  style="width: 100%"
+                  [(ngModel)]="mc6.rate_pzas"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      
+
+      <app-footer3></app-footer3>
+
+    </div>
+    
+    <div *ngIf="currentContainer == 1 || currentContainer == -1" #container2 class="container">
+        <app-checklist-krauss-maffei
+        [mc6]="mc6"
+        >
+          
+        </app-checklist-krauss-maffei>
+    </div>
+  
+  </div>
+  
+ 
+
+  
+   <div class="button-container">
+    <button class="nav-button" (click)="prevContainer()" [disabled]="currentContainer === 0">
+      &#8592; 
+    </button>
+  
+    <button  *ngFor="let page of containers; let i = index" class="page-button" (click)="goToContainer(i)">
+      {{ i + 1 }}
+    </button>
+  
+    <button  class="nav-button" (click)="nextContainer()" [disabled]="currentContainer === containers.length - 1">
+      &#8594; 
+    </button>
+    <a *ngIf="ver" href="/reportes" class="save-button">Regresar</a>
+
+    <div *ngIf="!ver" style="display:flex;  ">
+      <button class="save-button" (click)="downloadPDF(true)">Guardar</button>
+      <button class="save-button" (click)="downloadPDF(false)">Vista Previa</button>
+    
+    </div>
+
+   
+     
+    
+
+  </div>
+  
+  
+  <div class="modal" *ngIf="isModalOpen && imagePreviewUrl">
+    <span class="close-button" (click)="closeModal()">&times;</span>
+    <div class="modal-content">
+      
+      <iframe [src]="imagePreviewUrl" width="100%" height="600px"></iframe>
+    </div>
+  </div>
+
+   </div>

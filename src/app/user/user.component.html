@@ -47,7 +47,7 @@
     <div class="field">
       <label>Correo Electrónico</label>
       <div class="control has-icons-left">
-      <input class="input is-rounded" [(ngModel)]="user.email" name="email" readonly />
+      <input class="input is-rounded" type="email" [(ngModel)]="user.email" name="email" />
       <span class="icon is-small is-left">
         <i class="fas fa-envelope" style="color: #ff5722;"></i>
       </span>
@@ -96,7 +96,7 @@
     <div class="field">
         <label>Numero empleado</label>
         <div class="control has-icons-left">
-        <input  class="input is-rounded" [(ngModel)]="user.no_empleado" name="no_empleado" />
+        <input type="number"  class="input is-rounded" [(ngModel)]="user.no_empleado" name="no_empleado" />
         <span class="icon is-small is-left">
           <i class="fas fa-id-card" style="color: #ff5722;"></i>
         </span>
