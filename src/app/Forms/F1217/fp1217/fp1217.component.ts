@@ -34,11 +34,9 @@ import { Router } from '@angular/router';
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    ChecklistKraussMaffeiComponent,
     ToolbarComponent,
     SidebarComponent,
     CommonModule,
-    KraussMaffeiMc62Component,
     Footer3Component,
     SpinerComponent,
     Header1217Component

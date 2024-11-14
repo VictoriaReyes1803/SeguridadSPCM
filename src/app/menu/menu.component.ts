@@ -283,16 +283,15 @@ export class MenuComponent implements OnInit {
     this.mc6Service.setlist(reporteSeleccionado.content);
     this.formato = reporteSeleccionado.formato
     if (!this.formato || this.formato === '') {
-    this.router.navigate(['/KraussMaffeiMC6'], { 
-      queryParams: { 
-        producto: JSON.stringify(reporteSeleccionado.producto),
-        report: false,
-        reporte: JSON.stringify(reporteSeleccionado),
-        maquina: JSON.stringify(maquina),
-        producto_maquina : JSON.stringify(reporteSeleccionado.producto_maquina),
-        fecha : reporteSeleccionado.fecha,
-      }
-    });} else {
+      Swal.fire({
+        // maquina sin formato habilitado
+        title: 'Maquina sin formato habilitado',
+        text: 'La máquina seleccionada aun no tiene un formato habilitado aun.. por favor selecciona otra máquina',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar'
+  
+       });
+      } else {
       this.formato = '/'+this.formato;
       this.router.navigate([this.formato], { 
         queryParams: { 
@@ -309,16 +308,14 @@ export class MenuComponent implements OnInit {
   }
   navegarConMaquina(maquina: any, fechaSeleccionada: string, estado: boolean, Formato:string): void {
     if (!Formato || Formato === '') {
-      this.router.navigate(['/KraussMaffeiMC6'], { 
-        queryParams: { 
-          producto: JSON.stringify(this.productoSeleccionado),
-          maquina: JSON.stringify(maquina),
-          producto_maquina : JSON.stringify(this.productoMaquina),
-          fecha : fechaSeleccionada,
-          estado : estado,
-          titi: true
-        }
-      });
+     Swal.fire({
+      // maquina sin formato habilitado
+      title: 'Maquina sin formato habilitado',
+      text: 'La máquina seleccionada aun no tiene un formato habilitado aun.., por favor selecciona otra máquina',
+      icon: 'warning',
+      confirmButtonText: 'Aceptar'
+
+     });
     } else {
       Formato = '/'+Formato;
       console.log('Formato:', Formato);
