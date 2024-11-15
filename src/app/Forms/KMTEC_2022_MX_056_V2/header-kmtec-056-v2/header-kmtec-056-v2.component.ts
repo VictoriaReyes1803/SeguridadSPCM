@@ -20,15 +20,15 @@ export class HeaderKMTEC056V2Component {
   @Input() cliente: string | null = null;
   @Input() Producto_Maquina: string | null = null;
   @Input() maquina: string | null = null;
-  @Input() producto_1: string | null = null;
-  @Input() Producto_2: string | null = null;
-  @Input() Arch_Disq: string | null = null;
-  @Input() Num_Cav_th_1: number | null = null;
-  @Input() Num_Cav_real_1: number | null = null;
-  @Input() Num_Cav_th_2: number | null = null;
-  @Input() Num_Cav_real_2: number | null = null;
-  @Input() Pigmento: string | null = null;
-  @Input() Porc_pigmento: number | null = null;
+
+  @Input() producto: string | null = null;
+ 
+  @Input() Archivo: string | null = null;
+  @Input() Disquete: string | null = null;
+
+  @Input() Num_Cav_th: number | null = null;
+  @Input() Num_Cav_real: number | null = null;
+  
 
   @Input() Molde: string | null = null;
   @Input() Resina: string | null = null;
@@ -44,14 +44,11 @@ export class HeaderKMTEC056V2Component {
  
   onInputChange() {
     this.cambioValores.emit({
-      Arch_Disq: this.Arch_Disq,
-      Num_Cav_th_2: this.Num_Cav_th_2,
-      Producto_2: this.Producto_2,
-      Num_Cav_real_2: this.Num_Cav_real_2,
-      Pigmento: this.Pigmento,
-      Porc_pigmento: this.Porc_pigmento,
+      Archivo: this.Archivo,
+      Disquete: this.Disquete,
+      
     });
-    console.log('cambioValores:', this.Arch_Disq, this.Num_Cav_th_2, this.Num_Cav_real_2);
+    console.log('cambioValores:', this.Archivo, this.Disquete );
   }
   
 }

@@ -17,21 +17,18 @@
         <div>
        <app-header-kmtec-056-v2 
        [cliente]="productoSeleccionado?.codigo_cliente ?? ''"
-       [producto_1]="productoSeleccionado?.producto ?? null"
+       [producto]="productoSeleccionado?.producto ?? null"
        [maquina] = "maquina"
-       [Num_Cav_th_1]="Producto_Maquina?.Cadence_theo ?? null"
-       [Num_Cav_real_1]="Producto_Maquina?.Cadencia ?? null"
+       [Num_Cav_th]="Producto_Maquina?.Cadence_theo ?? null"
+       [Num_Cav_real]="Producto_Maquina?.Cadencia ?? null"
         [Molde]="Producto_Maquina?.Utillaje ?? null"
         [Resina]="productoSeleccionado?.resina_1 ?? null"
         [Fecha]=" Fecha"
         [Producto_Maquina]="Producto_Maquina?.Centro_trabajo_ppal ?? null"
         [estado]="estado"
-        [Arch_Disq]="mc6.Arch_Disq"
-        [Num_Cav_real_2]="mc6.Num_Cav_real_2"
-        [Num_Cav_th_2]="mc6.Num_Cav_th_2"
-        [Producto_2]="mc6.Producto_2"
-        [Pigmento]="mc6.Pigmento"
-        [Porc_pigmento]="mc6.Porc_pigmento"
+        [Archivo]="KM056.Archivo"
+        [Disquete]="KM056.Disquete"
+      
         (cambioValores)="actualizar($event)"
        >
         
@@ -41,13 +38,7 @@
         <tr>
           <th class="fv" colspan="2">CREADO POR:</th>
           <th colspan="2">
-            <!-- <input
-              type="text"
-              class="no-border-input"
-              name="CREADO POR"
-              placeholder="{{user?.nombre}} {{user?.apellido_paterno}}"
-              style="width: 100%; border: none"
-            /> -->
+            
             {{user?.nombre}} {{user?.apellido_paterno}} {{user?.apellido_materno}}
           </th>
           <th  class="fv" colspan="2">EDITADO POR:</th>
@@ -55,15 +46,181 @@
             <input
               type="text"
               class="no-border-input"
-              [(ngModel)]="mc6.editado_por"
+              [(ngModel)]="KM056.editado_por"
               name="EDITADO POR"
               placeholder="{{user?.nombre}} {{user?.apellido_paterno}}"
               style="width: 100%; border: none"
             />
           </th>
         </tr>
+        <tr>
+          <th class="fv none" colspan="4">
+            Parametros del proceso - Krauss Maffei
+          </th>
+          <td class="fv none" colspan="3">
+            TEC-2022-MX-056-V2
+          </td>
+        </tr>
       </table>
-
+      <div style="display: flex;">
+        <table style="border-collapse: collapse; width: 100%; text-align: center;">
+          <thead>
+              <tr style="background-color: #c0c0c0;">
+                  <th colspan="8">INYECCION</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+            </tr>
+              <tr>
+                <td colspan="2"></td>
+                  <td colspan="1">t supervi.</td>
+                  <td colspan="1">
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="t_supervi"
+                          style="width: 100%; border: none"
+                          placeholder="3"
+                      />
+                  </td>
+                  <td colspan="1">seg</td>
+                  <td></td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td>
+                    <input
+                        type="number"
+                        class="no-border-input"
+                        name="v1"
+                        style="width: 100%; border: none"
+                        
+                    />
+                </td>
+                  <td>
+                    <input
+                        type="text"
+                        class="no-border-input"
+                        name="v1"
+                        style="width: 100%; border: none"
+                        
+                    />
+                </td>
+                  <td>
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="v1"
+                          style="width: 100%; border: none"
+                          placeholder="80"
+                      />
+                  </td>
+                  <td>
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="v2"
+                          style="width: 100%; border: none"
+                          placeholder="80"
+                      />
+                  </td>
+                  <td>
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="v3"
+                          style="width: 100%; border: none"
+                          placeholder="70"
+                      />
+                  </td>
+                  <td colspan="2">v (mm/s)</td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td>
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="p1"
+                          style="width: 100%; border: none"
+                          placeholder="125"
+                      />
+                  </td>
+                  <td>
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="p2"
+                          style="width: 100%; border: none"
+                          placeholder="125"
+                      />
+                  </td>
+                  <td>
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="p3"
+                          style="width: 100%; border: none"
+                          placeholder="120"
+                      />
+                  </td>
+                  <td colspan="2">p (bar)</td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td></td>
+                  <td>
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="s1"
+                          style="width: 100%; border: none"
+                          placeholder="40"
+                      />
+                  </td>
+                  <td>
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="s2"
+                          style="width: 100%; border: none"
+                          placeholder="70"
+                      />
+                  </td>
+                  <td colspan="2">s (mm)</td>
+              </tr>
+              <tr>
+                  <td colspan="2">tiempo de inyeccion</td>
+                  <td colspan="3">
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="tiempo_inyeccion"
+                          style="width: 100%; border: none"
+                          placeholder="1.3"
+                      />
+                  </td>
+                  <td>seg</td>
+              </tr>
+              <tr>
+                  <td colspan="2">tiempo de calentamiento</td>
+                  <td colspan="3">
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="tiempo_calentamiento"
+                          style="width: 100%; border: none"
+                          placeholder="13"
+                      />
+                  </td>
+                  <td>seg</td>
+              </tr>
+          </tbody>
+      </table>
+      
+      </div>
       
 
 
@@ -85,41 +242,12 @@
               <td class="none fv" style="text-align: left; width: 70%" colspan="9" rowspan="3">
                 Comentarios:
               </td>
-              <td class="none fv">Secado min(Lts)</td>
-              <td>
-                <input
-                  type="text"
-                  class="no-border-input"
-                  name="Secado min(Lts)"
-                  value="{{secado_minimo}}"
-                  style="width: 100%"
-                />
-              </td>
+              </tr>
+            <tr>
+            
             </tr>
             <tr>
-              <td class="none fv">Consumo(Lts x H)</td>
-              <td>
-                <input
-                  type="text"
-                  class="no-border-input"
-                  name="Consumo(Lts x H)"
-                  style="width: 100%"
-                  [(ngModel)]="mc6.consumo"
-                  (input)="calcular()"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td  class="none fv">Rate(Pzas x H)</td>
-              <td >
-                <input
-                  type="text"
-                  class="no-border-input"
-                  name="Temp. de Secado"
-                  style="width: 100%"
-                  [(ngModel)]="mc6.rate_pzas"
-                />
-              </td>
+             
             </tr>
           </tbody>
         </table>
@@ -129,9 +257,9 @@
 
     </div>
     
-    <div *ngIf="currentContainer == 1 || currentContainer == -1" #container2 class="container">
+    <div *ngIf="currentContainer == 1 || currentContainer == -1" #container1 class="container">
         <app-checklist-krauss-maffei
-        [mc6]="mc6"
+        [mc6]="KM056"
         >
           
         </app-checklist-krauss-maffei>

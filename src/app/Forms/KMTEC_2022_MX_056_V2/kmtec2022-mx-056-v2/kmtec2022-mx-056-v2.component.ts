@@ -16,8 +16,8 @@ import { Maquina } from '../../../Models/Maquina';
 import { SecureCookieService } from '../../../services/cookies/cookies.service';
 import { User } from '../../../Models/user';
 import { HeaderKMTEC056V2Component } from '../header-kmtec-056-v2/header-kmtec-056-v2.component';
-import { mc6 } from '../../../Models/Formatos.ts/mc6';
-import { Mc6Service } from '../../../services/Forms/mc6.service';
+import { km056 } from '../../../Models/Formatos.ts/km056';
+import { KMTEC2022MX056V2Service } from '../../../services/Forms/kmtec-2022-mx-056-v2.service';
 import { Footer3Component } from '../../Componentes/footer3/footer3.component';
 import { Footer2Component } from '../../Componentes/footer2/footer2.component';
 import { SpinerComponent } from '../../Componentes/spiner/spiner.component';
@@ -37,7 +37,6 @@ import { Router } from '@angular/router';
     ToolbarComponent,
     SidebarComponent,
     CommonModule,
-    KraussMaffeiMc62Component,
     HeaderKMTEC056V2Component,
     Footer3Component,
     SpinerComponent
@@ -49,13 +48,13 @@ export class KMTEC2022MX056V2Component {
   loading = false;
   isOnline: boolean = navigator.onLine;
   currentContainer = 0; 
-  ismc6!: mc6
+  isKM056!: km056;
   ver = false;
   title = 'angular-pdf-export';
   maq: Maquina | null = null;
   maquina: string | null = null;
   Producto_Maquina: Producto_Maquina | null = null;
-  mc6!: mc6;
+  KM056!: km056;
   reporte: Reporteresponse | null = null;
   message = '';
   productos: Productos = [];
@@ -69,16 +68,8 @@ export class KMTEC2022MX056V2Component {
   report: boolean = false;
   titi: boolean = false;
   formato: string =''
-  T_resistencia: number = 0;
-  Volumen_cargaa: number = 0;
-  diametro_huisillo: number = 30;
 
-  Peso_pieza_1: number = 15.13;
-  Peso_pieza_2: number = 0;
-  peso_disparo: number = 0;
-  secado_minimo: number = 0;
-  consumo: number = 0;
-  valores!: mc6
+  valores!: km056;
   pdfurl: string = '';
 
   checklist = false;
@@ -91,13 +82,13 @@ export class KMTEC2022MX056V2Component {
 
   constructor(private route: ActivatedRoute,
     private secureCookieService: SecureCookieService,
-    private mc6Service: Mc6Service,
+    private km056Service: KMTEC2022MX056V2Service,
     private sanitizer: DomSanitizer,
     private productService: ProductService,
     private digitalOceanService: DigitalOceanService,
     private router: Router
   ) {
-    this.mc6 = this.mc6Service.getlist();
+    this.KM056 = this.km056Service.getlist();
     // console.log('mc6:', this.mc6)
    
   }
@@ -107,8 +98,8 @@ export class KMTEC2022MX056V2Component {
 
     this.route.queryParams.subscribe(params => {
       if (params['producto'] && params['maquina']&& params['titi']) {
-        this.mc6Service.resetList();
-        this.mc6 = this.mc6Service.getlist();
+        this.km056Service.resetList();
+        this.KM056 = this.km056Service.getlist();
         
         this.productoSeleccionado = JSON.parse(params['producto']);
         this.Producto_Maquina = JSON.parse(params['producto_maquina']);
@@ -147,8 +138,8 @@ export class KMTEC2022MX056V2Component {
         this.Fecha =  new Intl.DateTimeFormat('es-ES', options).format(Fechaform);
 
         this.reporte = JSON.parse(params['reporte']);
-        this.mc6Service.setlist(this.reporte?.content ?? {});
-        this.mc6 = this.mc6Service.getlist();
+        this.km056Service.setlist(this.reporte?.content ?? {});
+        this.KM056 = this.km056Service.getlist();
 
         console.log('reporte:', this.reporte);
         this.estado = params['estado'] === 'true';
@@ -165,13 +156,13 @@ export class KMTEC2022MX056V2Component {
       else {
         console.log('No se recibió ningún producto.');
       }
-      this.valores = this.mc6Service.getlist();
+      this.valores = this.km056Service.getlist();
     });
-    if (sessionStorage.getItem('mc6')) {
-      this.mc6 = JSON.parse(sessionStorage.getItem('mc6') || '{}');
+    if (sessionStorage.getItem('KM056')) {
+      this.KM056 = JSON.parse(sessionStorage.getItem('KM056') || '{}');
       this.user = this.secureCookieService.getSecureCookie('user');
       this.calcular();
-      console.log('mc6:', this.mc6);
+      console.log('KM056:', this.KM056);
     }
   }
 
@@ -187,8 +178,8 @@ export class KMTEC2022MX056V2Component {
   onOnline() {
     this.isOnline = true;
 
-    this.ismc6 = this.mc6Service.getlist();
-    sessionStorage.setItem('mc6', JSON.stringify(this.ismc6));
+    this.isKM056 = this.km056Service.getlist();
+    sessionStorage.setItem('KM056', JSON.stringify(this.isKM056));
 
     console.log('Conectado a internet', this.isOnline);
     
@@ -197,46 +188,37 @@ export class KMTEC2022MX056V2Component {
   @HostListener('window:offline', ['$event'])
   onOffline() {
     this.isOnline = false;
-    this.mc6 = sessionStorage.getItem('mc6') ? JSON.parse(sessionStorage.getItem('mc6') || '{}') : {};
+    this.KM056 = sessionStorage.getItem('KM056') ? JSON.parse(sessionStorage.getItem('KM056') || '{}') : {};
 
-    console.log('Sin conexión a internet', this.mc6 );
+    console.log('Sin conexión a internet', this.KM056 );
     
   }
 
   @HostListener('window:beforeunload', ['$event'])
   handlePageReload(event: BeforeUnloadEvent) {
-    this.mc6Service.setlist(this.mc6);
+    this.km056Service.setlist(this.KM056);
     
-    this.ismc6 = this.mc6Service.getlist();
-    sessionStorage.setItem('mc6', JSON.stringify(this.ismc6));
+    this.isKM056 = this.km056Service.getlist();
+    sessionStorage.setItem('KM056', JSON.stringify(this.isKM056));
 
-    console.log('Página está siendo recargada',this.ismc6);
+    console.log('Página está siendo recargada',this.isKM056);
   }
 
 
   calcular(): void {
-    this.Volumen_cargaa = ((this.mc6.carga_s_1 + this.mc6.carga_s_2 + this.mc6.carga_s_mm)/10)*(Math.pow(this.diametro_huisillo/20, 2))*Math.PI;
-    this.T_resistencia = ((this.mc6.Volumen_max / this.Volumen_cargaa) * this.mc6.Tiempo_ciclo_SET * 1.4) / 60;
-    
-    this.peso_disparo = this.mc6.Peso_Colada + (this.Peso_pieza_1 * this.mc6.Num_Cav_real_1) + (this.Peso_pieza_2 * this.mc6.Num_Cav_real_2);
-
-    this.secado_minimo = this.mc6.Tiempo_secado * this.mc6.consumo;
-
+   
   }
   actualizar(valores: any): void {
-  this.mc6.Arch_Disq = valores.Arch_Disq;
-  this.mc6.Num_Cav_th_2 = valores.Num_Cav_th_2;
-  this.mc6.Num_Cav_real_2 = valores.Num_Cav_real_2;
-  this.mc6.Producto_2 = valores.Producto_2;
-  this.mc6.Pigmento = valores.Pigmento;
+  this.KM056.Archivo = valores.Archivo;
+  this.KM056.Disquete = valores.Disquete;
 
-  this.mc6Service.setlist(this.mc6);
-  console.log('mc6:', this.mc6);
+  this.km056Service.setlist(this.KM056);
+  console.log('KM056:', this.KM056);
 
   }
-  recibirValores(valoresActualizados: Partial<mc6>): void {
-    this.mc6Service.setlist(valoresActualizados);
-    this.valores = this.mc6Service.getlist(); 
+  recibirValores(valoresActualizados: Partial<km056>): void {
+    this.km056Service.setlist(valoresActualizados);
+    this.valores = this.km056Service.getlist(); 
     console.log('Valores actualizados:', this.valores);
   }
   onOptionSelected(reporte: Reporteresponse): void {
@@ -263,8 +245,8 @@ export class KMTEC2022MX056V2Component {
           contentParsed = data.content; 
         }
         console.log('Contenido parseado:', contentParsed);
-        this.mc6Service.setlist(contentParsed);
-        this.mc6 = this.mc6Service.getlist();
+        this.km056Service.setlist(contentParsed);
+        this.KM056 = this.km056Service.getlist();
 
         this.calcular();
       } catch (error) {
@@ -284,10 +266,10 @@ export class KMTEC2022MX056V2Component {
     this.message= 'Generando PDF, por favor espera ...';
     this.loading = true;
     
-    this.mc6Service.setlist(this.mc6);
-    console.log('mc6:', this.mc6);
+    this.km056Service.setlist(this.KM056);
+    console.log('km056:', this.KM056);
 
-    const datosCompletos = this.mc6Service.getlist();
+    const datosCompletos = this.km056Service.getlist();
     console.log('Datos completos:', JSON.stringify(datosCompletos));
 
     const pdf = new jsPDF('p', 'pt', 'letter');
@@ -343,7 +325,7 @@ export class KMTEC2022MX056V2Component {
         
         if (guardar && this.titi)
         {
-          const pdfFileName = `MC6_${productName}_${formattedDate}_${formattedTime}_${userName}.pdf`;
+          const pdfFileName = `KMTEC2022MX056V2_${productName}_${formattedDate}_${formattedTime}_${userName}.pdf`;
           const pdfFile = new File([pdfBlob], pdfFileName, { type: 'application/pdf' });
           const formData = new FormData();
           formData.append('file', pdfFile);
@@ -358,7 +340,7 @@ export class KMTEC2022MX056V2Component {
               this.reportData = {
                 ruta: this.pdfurl, 
                 formato: this.formato,
-                content: JSON.parse(JSON.stringify(this.mc6)),
+                content: JSON.parse(JSON.stringify(this.KM056)),
                 producto_id: this.productoSeleccionado?.id ?? 0, 
                 producto_maquina_id: this.Producto_Maquina?.id ?? 0 
             };
@@ -402,7 +384,7 @@ export class KMTEC2022MX056V2Component {
               this.reportData = {
                 ruta: this.reporte?.ruta ?? '', 
                 formato: this.reporte?.formato ?? '',
-                content: JSON.parse(JSON.stringify(this.mc6)),
+                content: JSON.parse(JSON.stringify(this.KM056)),
                 producto_id: this.reporte?.producto?.id ?? 0, 
                 producto_maquina_id: this.reporte?.producto_maquina?.id ?? 0,
               
@@ -472,7 +454,7 @@ export class KMTEC2022MX056V2Component {
   }
 
   ngOnDestroy() {
-    this.mc6Service.resetList();
+    this.km056Service.resetList();
     sessionStorage.removeItem('mc6');
   }
 }
