@@ -62,167 +62,1412 @@
           </td>
         </tr>
       </table>
-      <div style="display: flex;">
+      <div  style="display: flex; margin-top:15px"
+      >
+      <!-- INYECCION -->
         <table style="border-collapse: collapse; width: 100%; text-align: center;">
           <thead>
-              <tr style="background-color: #c0c0c0;">
-                  <th colspan="8">INYECCION</th>
+              <tr style="background-color: #d8d8d8;">
+                  <th colspan="10">INYECCION</th>
               </tr>
           </thead>
           <tbody>
             <tr>
-              <td></td>
+              <td class="none"></td>
             </tr>
               <tr>
-                <td colspan="2"></td>
-                  <td colspan="1">t supervi.</td>
-                  <td colspan="1">
+                <td class="none" colspan="2"></td>
+                  <td class="none" colspan="1">T Supervi.</td>
+                  <td class="none" colspan="2">
                       <input
-                          type="text"
-                          class="no-border-input"
+                          type="number"
                           name="t_supervi"
-                          style="width: 100%; border: none"
-                          placeholder="3"
+                          style="width: 100%; "
+                          [(ngModel)]="KM056.t_supervi"
                       />
                   </td>
-                  <td colspan="1">seg</td>
-                  <td></td>
+                  <td class="none" colspan="1">seg</td>
+                  <td class="none" colspan="1"></td>
               </tr>
               <tr>
-                  <td></td>
-                  <td>
+                  <td class="none"></td>
+                  <td style="background-color: #d8d8d8;">
                     <input
                         type="number"
                         class="no-border-input"
-                        name="v1"
+                        name="inyeccion1v"
+                        style="width: 100%; border: none"
+                        [(ngModel)]="KM056.inyeccion1v"
+                    />
+                </td>
+                  <td style="background-color: #d8d8d8;">
+                    <input
+                        type="number"
+                        class="no-border-input"
+                        name="inyeccion2v"
+                        style="width: 100%; border: none"
+                        [(ngModel)]="KM056.inyeccion2v"
+                    />
+                </td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="inyeccion3v"
+                          style="width: 100%; border: none"
+                          [(ngModel)]="KM056.inyeccion3v"
+                      />
+                  </td>
+                  <td  style="background-color: #d8d8d8; ">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="inyeccion4v"
+                          style="width: 100%; border: none"
+                         [(ngModel)]="KM056.inyeccion4v"
+                      />
+                  </td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          style="width: 100%; border: none"
+                          name="inyeccion5v"
+                          [(ngModel)]="KM056.inyeccion5v"
+                      />
+                  </td>
+                  <td class="none" colspan="2">v (mm/s)</td>
+              </tr>
+              <tr>
+                  <td class="none"></td>
+                  <td style="background-color: #d8d8d8;">
+                    <input
+                        type="number"
+                        class="no-border-input"
+                        style="width: 100%; border: none"
+                        name="inyeccion1p"
+                        [(ngModel)]="KM056.inyeccion1p"
+                    />
+                </td>
+                <td style="background-color: #d8d8d8;">
+                  <input
+                      type="number"
+                      class="no-border-input"
+                      style="width: 100%; border: none"
+                      name="inyeccion2p"
+                      [(ngModel)]="KM056.inyeccion2p"
+                  />
+              </td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="inyeccion3p"
+                          [(ngModel)]="KM056.inyeccion3p"
+                          style="width: 100%; border: none"
+                        
+                      />
+                  </td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          style="width: 100%; border: none"
+                          name="inyeccion4p"
+                          [(ngModel)]="KM056.inyeccion4p"
+                      />
+                  </td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="inyeccion5p"
+                          [(ngModel)]="KM056.inyeccion5p"
+                          style="width: 100%; border: none"
+                         
+                      />
+                  </td>
+                  <td class="none" colspan="2">p (bar)</td>
+              </tr>
+              <tr>
+                  <td class="none"></td>
+                  <td style="background-color: #d8d8d8;">
+                    <input
+                          type="number"
+                          class="no-border-input"
+                          name="inyeccion1s"
+                          [(ngModel)]="KM056.inyeccion1s"
+                          style="width: 100%; border: none"
+                          
+                      />
+                  </td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="inyeccion2s"
+                          [(ngModel)]="KM056.inyeccion2s"
+                          style="width: 100%; border: none"
+                          
+                      />
+                  </td>
+                  <td style="background-color: #d8d8d8;">
+                    <input
+                        type="number"
+                        class="no-border-input"
+                        name="inyeccion3s"
+                        [(ngModel)]="KM056.inyeccion3s"
                         style="width: 100%; border: none"
                         
                     />
                 </td>
-                  <td>
+                <td style="background-color: #d8d8d8;">
+                  <input
+                      type="number"
+                      class="no-border-input"
+                      name="inyeccion4s"
+                      [(ngModel)]="KM056.inyeccion4s"
+                      style="width: 100%; border: none"
+                      
+                  />
+              </td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="inyeccion5s"
+                          [(ngModel)]="KM056.inyeccion5s"
+                          style="width: 100%; border: none"
+                          placeholder="70"
+                      />
+                  </td>
+                  <td class="none" colspan="1">s (mm)</td>
+              </tr>
+              <tr>
+                <td class="none" colspan="1"></td>
+                  <td class="none" colspan="4">Tiempo de Inyeccion</td>
+                  <td colspan="1">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="tiempo_inyeccion"
+                          style="width: 100%; border: none"
+                          placeholder="1.3"
+                          [(ngModel)]="KM056.tiempo_inyeccion"
+                      />
+                  </td>
+                  <td  class="none">seg</td>
+              </tr>
+              <tr>
+                <td class="none" colspan="1"></td>
+                  <td class="none" colspan="4">Tiempo de Calentamiento</td>
+                  <td style="background-color: #d8d8d8;"
+                   colspan="1">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="tiempo_calentamiento"
+                          style="width: 100%; border: none"
+                          placeholder="13"
+                          [(ngModel)]="KM056.tiempo_calentamiento"
+                      />
+                  </td>
+                  <td class="none">seg</td>
+              </tr>
+          </tbody>
+      </table>
+      <!-- sostenimiento -->
+      <table style="border-collapse: collapse; width: 100%; text-align: center;">
+        <thead>
+            <tr style="background-color: #d8d8d8;">
+                <th colspan="5">SOSTENIMIENTO</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="none"></td>
+          </tr>
+            <tr>
+                <td class="none" colspan="2"></td>
+                <td style="background-color: #d8d8d8; ">
                     <input
                         type="text"
                         class="no-border-input"
-                        name="v1"
+                        name="sostenimiento_mm"
                         style="width: 100%; border: none"
-                        
+                        placeholder="11.5"
+                        [(ngModel)]="KM056.sostenimiento_mm"
                     />
                 </td>
-                  <td>
-                      <input
-                          type="text"
-                          class="no-border-input"
-                          name="v1"
-                          style="width: 100%; border: none"
-                          placeholder="80"
-                      />
-                  </td>
-                  <td>
-                      <input
-                          type="text"
-                          class="no-border-input"
-                          name="v2"
-                          style="width: 100%; border: none"
-                          placeholder="80"
-                      />
-                  </td>
-                  <td>
-                      <input
-                          type="text"
-                          class="no-border-input"
-                          name="v3"
-                          style="width: 100%; border: none"
-                          placeholder="70"
-                      />
-                  </td>
-                  <td colspan="2">v (mm/s)</td>
-              </tr>
+                <td  class="none" colspan="1">mm</td>
+                <td class="none" colspan="2"></td>
+            </tr>
+            <tr>
+              <td class="none" style="height: 20px;">
+
+              </td>
+            </tr>
+            <tr>
+                <td class="f none">P</td>
+                <td>
+                  <input
+                  type="text"
+                  class="no-border-input"
+                  name="presion_bar"
+                  style="width: 100%; border: none"
+                  placeholder="40"
+                  [(ngModel)]="KM056.presion_bar1"
+              />
+                </td>
+                <td style="background-color: #d8d8d8; ">
+                    <input
+                        type="text"
+                        class="no-border-input"
+                        name="presion_bar"
+                        style="width: 100%; border: none"
+                        placeholder="40"
+                        [(ngModel)]="KM056.presion_bar2"
+                    />
+                </td>
+                <td>
+                  <input
+                  type="text"
+                  class="no-border-input"
+                  name="presion_bar"
+                  style="width: 100%; border: none"
+                  placeholder="40"
+                  [(ngModel)]="KM056.presion_bar3"
+              />
+                </td>
+                <td class="fv none">bar</td>
+            </tr>
+            <tr>
+                <td class="fv none" >t</td>
+                <td>
+                  <input
+                  type="text"
+                  class="no-border-input"
+                  name="tiempo_seg"
+                  style="width: 100%; border: none"
+             
+                  [(ngModel)]="KM056.tiempo_seg1"
+              />
+                </td>
+                <td style="background-color: #d8d8d8;">
+                    <input
+                        type="text"
+                        class="no-border-input"
+                        name="tiempo_seg"
+                        style="width: 100%; border: none"
+                    
+                        [(ngModel)]="KM056.tiempo_seg2"
+                    />
+                </td>
+                <td>
+                  <input
+                  type="text"
+                  class="no-border-input"
+                  name="tiempo_seg"
+                  style="width: 100%; border: none"
+              
+                  [(ngModel)]="KM056.tiempo_seg3"
+              />
+                </td>
+                <td class="fv none">seg</td>
+            </tr>
+            <tr><td class="none" style="height: 20px;"></td></tr>
+            <tr>
+              <td class="none" colspan="2"></td>
+                <td class="none" colspan="1">Niveles</td>
+                <td>
+                    <input
+                        type="text"
+                        class="no-border-input"
+                        name="niveles"
+                        style="width: 100%; border: none"
+                        placeholder="1"
+                        [(ngModel)]="KM056.niveles"
+                    />
+                </td>
+                <td class="none" colspan="2"></td>
+            </tr>
+            <tr>
+              <td class="none" colspan="2"></td>
+                <td class="none" colspan="1">Cojin</td>
+               
+                <td style="background-color: #d8d8d8;">
+                    <input
+                        type="text"
+                        class="no-border-input"
+                        name="cojin_mm"
+                        style="width: 100%; border: none"
+                        placeholder="3.5"
+                        [(ngModel)]="KM056.cojin_mm"
+                    />
+                </td>
+                <td class="none">mm</td>
+            </tr>
+        </tbody>
+        
+    </table>
+          <!-- Carga -->
+          <table style="border-collapse: collapse; width: 100%; text-align: center;">
+            <thead>
+                <tr style="background-color: #d8d8d8;">
+                    <th colspan="15">CARGA</th>
+                </tr>
+            </thead>
+            <tbody>
               <tr>
-                  <td></td>
-                  <td>
-                      <input
-                          type="text"
-                          class="no-border-input"
-                          name="p1"
-                          style="width: 100%; border: none"
-                          placeholder="125"
-                      />
-                  </td>
-                  <td>
-                      <input
-                          type="text"
-                          class="no-border-input"
-                          name="p2"
-                          style="width: 100%; border: none"
-                          placeholder="125"
-                      />
-                  </td>
-                  <td>
-                      <input
-                          type="text"
-                          class="no-border-input"
-                          name="p3"
-                          style="width: 100%; border: none"
-                          placeholder="120"
-                      />
-                  </td>
-                  <td colspan="2">p (bar)</td>
+                <td class="none" style="height:20px"></td>
               </tr>
-              <tr>
-                  <td></td>
-                  <td></td>
-                  <td>
-                      <input
-                          type="text"
-                          class="no-border-input"
-                          name="s1"
-                          style="width: 100%; border: none"
-                          placeholder="40"
-                      />
-                  </td>
-                  <td>
-                      <input
-                          type="text"
-                          class="no-border-input"
-                          name="s2"
-                          style="width: 100%; border: none"
-                          placeholder="70"
-                      />
-                  </td>
-                  <td colspan="2">s (mm)</td>
+                <tr>
+                    <td class="none" rowspan="6" style="width: 20px;"></td>
+                    <td class="none fv"  colspan="4">n</td>
+                    <td colspan="3" style="background-color: #d8d8d8;">
+                        <input
+                            type="text"
+                            class="no-border-input"
+                            name="n_value"
+                            style="width: 100%; border: none"
+                            placeholder="23"
+                            [(ngModel)]="KM056.n_value"
+                        />
+                    </td>
+                    <td class="none" colspan="2"></td>
+                    <td class="none" >1/mm</td>
+                </tr>
+                <tr>
+                  
+                    <td class="none fv"  colspan="4">P</td>
+                    <td colspan="3" style="background-color: #d8d8d8;">
+                        <input
+                            type="text"
+                            class="no-border-input"
+                            name="p_value"
+                            style="width: 100%; border: none"
+                            placeholder="1.2"
+                            [(ngModel)]="KM056.p_value"
+                        />
+                    </td>
+                    <td class="none" colspan="2"></td>
+                    <td class="none">bar</td>
+                </tr>
+                <tr>
+
+                    <td colspan="2" class="none fv">s</td>
+                    <td colspan="2" >
+                        <input
+                            type="text"
+                            class="no-border-input"
+                            name="s_value1"
+                            style="width: 100%; border: none"
+                            placeholder="12"
+                            [(ngModel)]="KM056.s_value1"
+                        />
+                    </td>
+                    <td class="none" colspan="3"></td>
+                    <td colspan="2" style="background-color: #d8d8d8;">
+                        <input
+                            type="text"
+                            class="no-border-input"
+                            name="s_value2"
+                            style="width: 100%; border: none"
+                            placeholder="80"
+                            [(ngModel)]="KM056.s_value2"
+                        />
+                    </td>
+                    <td class="none"></td>
+                    <td >
+                        <input
+                            type="text"
+                            class="no-border-input"
+                            name="s_value3"
+                            style="width: 100%; border: none"
+                            placeholder="10"
+                            [(ngModel)]="KM056.s_value3"
+                        />
+                    </td>
+                    <td class="none">mm</td>
+                </tr>
+                <tr>
+                
+                    <td class="none" colspan="2">v</td>
+                    <td colspan="2" >
+                        <input
+                            type="text"
+                            class="no-border-input"
+                            name="v_value1"
+                            style="width: 100%; border: none"
+                            placeholder="20"
+                            [(ngModel)]="KM056.v_value1"
+                        />
+                    </td>
+                    <td class="none" colspan="6"></td>
+                    <td >
+                        <input
+                            type="text"
+                            class="no-border-input"
+                            name="v_value2"
+                            style="width: 100%; border: none"
+                            placeholder="35"
+                            [(ngModel)]="KM056.v_value2"
+                        />
+                    </td>
+                    <td class="none">mm/s</td>
+                </tr>
+                <tr>
+                    <td class="none" colspan="7"></td>
+                    <td class="none" colspan="3">Niveles</td>
+                    <td >
+                        <input
+                            type="text"
+                            class="no-border-input"
+                            name="carga_niveles"
+                            style="width: 100%; border: none"
+                            placeholder="1"
+                            [(ngModel)]="KM056.carga_niveles"
+                        />
+                    </td>
+                    <td class="none" colspan="4"></td>
+                </tr>
+                <tr>
+                  <td class="none" colspan="7"></td>
+                    <td class="none" colspan="3">Tiempo de Carga</td>
+                    <td style="background-color: #d8d8d8;">
+                        <input
+                            type="text"
+                            class="no-border-input"
+                            name="tiempo_carga"
+                            style="width: 100%; border: none"
+                            placeholder="9.5"
+                            [(ngModel)]="KM056.tiempo_carga"
+                        />
+                    </td>
+                    <td class="none">s</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Parametros de Salida -->
+        <table style="border-collapse: collapse; width: 100%; text-align: center;">
+          <thead>
+              <tr style="background-color: #d8d8d8;">
+                  <th colspan="4">PARAMETROS DE SALIDA</th>
               </tr>
-              <tr>
-                  <td colspan="2">tiempo de inyeccion</td>
-                  <td colspan="3">
+          </thead>
+          <tbody>
+            <tr>
+              <td class="none" style="height: 15px;"></td>
+            </tr>
+              <tr class="none">
+                  <td class="none" colspan="2">COJIN</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="cojin"
+                          style="width: 100%; border: none"
+                          placeholder="3.5"
+                          [(ngModel)]="KM056.cojin"
+                      />
+                  </td>
+                  <td class="none">mm</td>
+              </tr>
+              <tr class="none">
+                  <td class="none" colspan="2">TIEMPO DE INYECCION</td>
+                  <td style="background-color: #d8d8d8;">
                       <input
                           type="text"
                           class="no-border-input"
                           name="tiempo_inyeccion"
                           style="width: 100%; border: none"
                           placeholder="1.3"
+                          [(ngModel)]="KM056.parametros_salida_tiempo_inyeccion"
                       />
                   </td>
-                  <td>seg</td>
+                  <td class="none">s</td>
               </tr>
-              <tr>
-                  <td colspan="2">tiempo de calentamiento</td>
-                  <td colspan="3">
+              <tr class="none">
+                  <td class="none" colspan="2">TIEMPO DE CARGA</td>
+                  <td style="background-color: #d8d8d8;">
                       <input
                           type="text"
                           class="no-border-input"
-                          name="tiempo_calentamiento"
+                          name="tiempo_carga"
                           style="width: 100%; border: none"
-                          placeholder="13"
+                          placeholder="9.5"
+                          [(ngModel)]="KM056.parametros_salida_tiempo_carga"
                       />
                   </td>
-                  <td>seg</td>
+                  <td class="none">s</td>
+              </tr>
+              <tr class="none">
+                  <td class="none" colspan="2">TIEMPO DE CICLO</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="tiempo_ciclo"
+                          style="width: 100%; border: none"
+                          placeholder="25"
+                          [(ngModel)]="KM056.tiempo_ciclo"
+                      />
+                  </td>
+                  <td class="none">s</td>
+              </tr>
+              <tr class="none">
+                  <td class="none" colspan="2">PRESION CONMUTACION</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="presion_conmutacion"
+                          style="width: 100%; border: none"
+                          placeholder="144"
+                          [(ngModel)]="KM056.presion_conmutacion"
+                      />
+                  </td>
+                  <td class="none">bar</td>
+              </tr>
+              <tr class="none">
+                  <td class="none" colspan="2">INDICE DE VISCOSIDAD</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="indice_viscosidad"
+                          style="width: 100%; border: none"
+                          placeholder="40"
+                          [(ngModel)]="KM056.indice_viscosidad"
+                      />
+                  </td>
+                  <td class="none">psi</td>
+              </tr>
+              <tr>
+                <td class="none" style="height: 15px;"></td>
               </tr>
           </tbody>
       </table>
       
       </div>
-      
+      <div style="display: flex; margin-top:15px">
+        <table style="border-collapse: collapse; width: 50%; text-align: center;">
+          <thead>
+              <tr style="background-color: #d8d8d8;">
+                  <th class="fv" colspan="8">TEMPERATURA DE BARRIL</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="none" style="height: 15px;"></td>
+            </tr>
+              <tr class="none">
+                  <td class="none" colspan="2">ZONA 101</td>
+                  <td class="none" colspan="2">ZONA 102</td>
+                  <td class="none" colspan="2">ZONA 103</td>
+              </tr>
+              <tr class="none">
+                  <td class="none" colspan="2">TERMO 1</td>
+                  <td class="none" colspan="2">TERMO 2</td>
+                  <td class="none" colspan="2">TERMO 3</td>
+              </tr>
+              <tr class="none">
+                  <td class="none">SET</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="set_zona101"
+                          style="width: 100%; border: none"
+                          placeholder="33"
+                          [(ngModel)]="KM056.set_zona101"
+                      />
+                  </td>
+                  <td class="none">SET</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="set_zona102"
+                          style="width: 100%; border: none"
+                          placeholder="33"
+                          [(ngModel)]="KM056.set_zona102"
+                      />
+                  </td>
+                  <td class="none">SET</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="set_zona103"
+                          style="width: 100%; border: none"
+                          placeholder="N/A"
+                          [(ngModel)]="KM056.set_zona103"
+                      />
+                  </td>
+                  <td class="none">°C</td>
+              </tr>
+              <tr class="none">
+                  <td class="none">REAL</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="real_zona101"
+                          style="width: 100%; border: none"
+                          [(ngModel)]="KM056.real_zona101"
+                      />
+                  </td>
+                  <td class="none">REAL</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="real_zona102"
+                          style="width: 100%; border: none"
+                          [(ngModel)]="KM056.real_zona102"
+                      />
+                  </td>
+                  <td class="none">REAL</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="real_zona103"
+                          style="width: 100%; border: none"
+                          [(ngModel)]="KM056.real_zona103"
+                      />
+                  </td>
+              </tr>
+              <tr>
+                <td class="none" style="height: 15px;"></td>
+              </tr>
+          </tbody>
+      </table>
+      <!-- temperatura de molde -->
 
+      <table>
+        <thead>
+          <tr>
+            <th class="fv" colspan="16" style="text-align: center; background-color: #d8d8d8; ">TEMP DE MOLDE °C</th>
+          </tr>
+          <tr>
+            <th class="none" colspan="5"></th>
+            <th  colspan="8" class="fv none" style="text-align: center;">CONTROL TEMPERATURA</th>
+            <th class="none" colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="none" colspan="4">Parte fija Chiller</td>
+           <td class="none" colspan="3"></td>
+            <td style="border: 2px solid black;" colspan="8">Maquina</td>
+            <td class="none" colspan="1"></td>
+          </tr>
+          <tr>
+            <td class="none" colspan="1">SET</td>
+            <td colspan="3">
+              <input type="number" 
+              class="no-border-input" 
+              name="set_temp" 
+              style="width: 100%; border: none" 
+              [(ngModel)]="KM056.set_temp"
+              />
+            </td>
+            <td colspan="1" class="fv none">°c</td>
+            <td class="none" colspan="2"></td>
+            <td colspan="1">Z1</td>
+            <td colspan="1">Z2</td>
+            <td colspan="1">Z3</td>
+            <td colspan="1">Z4</td>
+            <td colspan="1">Z17</td>
+            <td colspan="1">Z18</td>
+            <td colspan="1">Z19</td>
+            <td colspan="1">Z20</td>
+          </tr>
+          <tr>
+            <td class="none" colspan="1">REAL</td>
+            <td colspan="3">
+              <input type="number" 
+              class="no-border-input" 
+              name="real_temp" 
+              style="width: 100%; border: none" 
+              [(ngModel)]="KM056.real_temp"
+               />
+            </td>
+            <td class="none fv">°c</td>
+            <td  class="none" colspan="1"></td>
+            <td class="none" colspan="1">Set</td>
+            <td style="background-color: #d8d8d8;">
+              <input type="number" 
+              class="no-border-input"
+               name="Z1_Set" 
+               style=" width: 100%; border: none" 
+               [(ngModel)]="KM056.Z1_Set" />
+            </td>
+            <td style="background-color: #d8d8d8;">
+              <input type="number"
+               class="no-border-input"
+                name="Z2_Set" 
+                style="width: 100%; border: none" 
+                [(ngModel)]="KM056.Z2_Set"
+                />
+            </td>
+            <td style="background-color: #d8d8d8;">
+              <input type="number" 
+              class="no-border-input" 
+              name="Z3_Set" 
+              style="width: 100%; border: none" 
+               [(ngModel)]="KM056.Z3_Set"
+              />
+            </td>
+            <td style="background-color: #d8d8d8;">
+              <input type="number" 
+              class="no-border-input" 
+              name="Z4_Set" 
+              style="width: 100%; border: none" 
+              [(ngModel)]="KM056.Z4_Set" />
+            </td>
+            <td style="background-color: #d8d8d8;">
+              <input type="number" 
+              class="no-border-input" 
+              name="Z17_Set" 
+              style="width: 100%; border: none" 
+              [(ngModel)]="KM056.Z17_Set"
+              />
+            </td>
+            <td style="background-color: #d8d8d8;">
+              <input type="number" 
+              class="no-border-input" 
+              name="Z18_Set" 
+              style="width: 100%; border: none"
+              [(ngModel)]="KM056.Z18_Set" 
+               />
+            </td>
+            <td style="background-color: #d8d8d8;">
+              <input type="number" 
+              class="no-border-input" 
+              name="Z19_Set" 
+              [(ngModel)]="KM056.Z19_Set"
+              style="width: 100%; border: none" 
+               />
+            </td>
+            <td style="background-color: #d8d8d8;">
+              <input 
+              type="number" 
+              class="no-border-input" 
+              name="Z20_Set" 
+              [(ngModel)]="KM056.Z20_Set"
+              style="width: 100%; border: none"
+               />
+            </td>
+            <td class="fv none">°c</td>
+          </tr>
+          <tr>
+            <td class="none" colspan="2">N° CIRC</td>
+            <td colspan="1">
+              <input type="number"
+               class="no-border-input" 
+               name="N_CIRC" 
+               style="width: 100%; border: none" 
+               [(ngModel)]="KM056.N_CIRC" />
+            </td>
+            <td class="none" colspan="3"></td>
+            <td class="fv none">Real</td>
+            <td>
+              <input
+              type="number"
+              class="no-border-input"
+              name="Molde_real_1"
+              [(ngModel)]="KM056.Molde_real_1"
+              style="width: 100%; border: none"  
+              >
+            </td>
+            <td>
+              <input
+              type="number"
+              class="no-border-input"
+              name="Molde_real_2"
+              [(ngModel)]="KM056.Molde_real_2"
+              style="width: 100%; border: none"  
+              >
+            </td>
+            <td>
+              <input
+              type="number"
+              class="no-border-input"
+              name="Molde_real_3"
+              [(ngModel)]="KM056.Molde_real_3"
+              style="width: 100%; border: none"  
+              >
+            </td>
+            <td>
+              <input
+              type="number"
+              class="no-border-input"
+              name="Molde_real_4"
+              [(ngModel)]="KM056.Molde_real_4"
+              style="width: 100%; border: none"  
+              >
+            </td>
+            
+            <td>
+              <input
+              type="number"
+              class="no-border-input"
+              name="Molde_real_5"
+              [(ngModel)]="KM056.Molde_real_5"
+              style="width: 100%; border: none"  
+              >
+            </td>
+            
+            <td>
+              <input
+              type="number"
+              class="no-border-input"
+              name="Molde_real_6"
+              [(ngModel)]="KM056.Molde_real_6"
+              style="width: 100%; border: none"  
+              >
+            </td>
+            <td>
+              <input
+              type="number"
+              class="no-border-input"
+              name="Molde_real_7"
+              [(ngModel)]="KM056.Molde_real_7"
+              style="width: 100%; border: none"  
+              >
+            </td>
+            <td>
+              <input
+              type="number"
+              class="no-border-input"
+              name="Molde_real_8"
+              [(ngModel)]="KM056.Molde_real_8"
+              style="width: 100%; border: none"  
+              >
+            </td>
+            
+          </tr>
+          <tr>
+            <td class="none fv" colspan="2">PUENTES</td>
+            <td colspan="4">
+              <input type="number" 
+              class="no-border-input" 
+              name="puentes" 
+              style="width: 100%; border: none" 
+              [(ngModel)]="KM056.puentes"
+              />
+            </td>
+            <td class="none" colspan="6"></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <!-- dispositivos adicionales al cerrar el molde -->
+      <table style="border-collapse: collapse; width: 50%; text-align: center;">
+        <thead>
+            <tr style="background-color: #d8d8d8;">
+                <th class="fv" colspan="5">DISPOSITIVOS ADICIONALES AL CERRAR EL MOLDE</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="height: 20px;" class="none"></td>
+          </tr>
+            <tr class="none">
+                <td class="none" colspan="3">VACIO DEL MOLDE</td>
+                <td style="background-color: #d8d8d8;">
+                    <input
+                        type="text"
+                        class="no-border-input"
+                        name="vacio_molde"
+                        style="width: 100%; border: none"
+                        placeholder="SI"
+                        [(ngModel)]="KM056.vacio_molde"
+                    />
+                </td>
+            </tr>
+            <tr class="none">
+                <td class="none" colspan="3">TIEMPO PARA EL VACIO DEL MOLDE</td>
+                <td style="background-color: #d8d8d8;">
+                    <input
+                        type="number"
+                        class="no-border-input"
+                        name="tiempo_vacio_molde"
+                        style="width: 100%; border: none"
+                        placeholder="1.5"
+                        [(ngModel)]="KM056.tiempo_vacio_molde"
+                    />
+                </td>
+                <td class="none">s</td>
+            </tr>
+            <tr class="none">
+                <td class="none" colspan="3">NIVEL DE VACIO</td>
+                <td style="background-color: #d8d8d8;">
+                    <input
+                        type="number"
+                        class="no-border-input"
+                        name="nivel_vacio"
+                        style="width: 100%; border: none"
+                        placeholder="0.75"
+                        [(ngModel)]="KM056.nivel_vacio"
+                    />
+                </td>
+                <td class="none">bar</td>
+            </tr>
+            <tr>
+              <td style="height: 20px;" class="none"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+      </div>
+
+      <div style="display: flex;">
+      
+        <table style="border-collapse: collapse; width: 100%; text-align: center;">
+          <thead>
+              <tr style="background-color: #d8d8d8;">
+                  <th colspan="8">EXPULSOR</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="none" style="height: 10px;"></td>
+            </tr>
+              <tr class="none">
+                  <td class="none" colspan="1">ETAPA</td>
+                 <td>1</td>
+                 <td>2</td>
+                  <td class="none" colspan="1"></td>
+                  <td class="none" colspan="1">ETAPA</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td></td>
+              </tr>
+              <tr class="none">
+                  <td>F</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="f_70"
+                          style="width: 100%; border: none"
+                          placeholder="70"
+                          [(ngModel)]="KM056.f_70"
+                      />
+                  </td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="f_55"
+                          style="width: 100%; border: none"
+                          placeholder="55"
+                          [(ngModel)]="KM056.f_55"
+                      />
+                  </td>
+                  <td class="none" colspan="1">CARRERA</td>
+                  <td>F</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="f_42"
+                          style="width: 100%; border: none"
+                          placeholder="42"
+                          [(ngModel)]="KM056.f_42"
+                      />
+                  </td>
+                  <td style="background-color: #d8d8d8;">
+                    <input
+                        type="number"
+                        class="no-border-input"
+                        name="etapa_repetida_1"
+                        style="width: 100%; border: none"
+                        placeholder="1"
+                        [(ngModel)]="KM056.etapa_repetida_1"
+                    />
+                </td>
+
+              </tr>
+              <tr class="none">
+                  <td>V</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="v_35"
+                          style="width: 100%; border: none"
+                          placeholder="35"
+                          [(ngModel)]="KM056.v_35"
+                      />
+                  </td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="v_85"
+                          style="width: 100%; border: none"
+                          placeholder="85"
+                          [(ngModel)]="KM056.v_85"
+                      />
+                  </td>
+                  <td class="none" colspan="1">
+                    <input
+                    type="number"
+                    class="no-border-input"
+                    name="carrera"
+                    style="width: 100%; border: none"
+                    [(ngModel)]="KM056.carrera"
+                    >
+                  </td>
+                  <td>V</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="v_50"
+                          style="width: 100%; border: none"
+                          placeholder="50"
+                          [(ngModel)]="KM056.v_50"
+                      />
+                  </td>
+                  <td style="background-color: #d8d8d8;">
+                    <input
+                        type="number"
+                        class="no-border-input"
+                        name="etapa_repetida_2"
+                        style="width: 100%; border: none"
+                        placeholder="2"
+                        [(ngModel)]="KM056.etapa_repetida_2"
+                    />
+                </td>
+              </tr>
+              <tr class="none">
+                  <td>S</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="number"
+                          class="no-border-input"
+                          name="s_2_1"
+                          style="width: 100%; border: none"
+                          placeholder="2.1"
+                          [(ngModel)]="KM056.s_2_1"
+                      />
+                  </td>
+                  <td style="background-color: #d8d8d8;">
+                    <input
+                        type="number"
+                        class="no-border-input"
+                        name="etapa_2"
+                        style="width: 100%; border: none"
+                        placeholder="2"
+                        [(ngModel)]="KM056.etapa_2"
+                    />
+                </td>
+                  <td colspan="1"></td>
+                  <td>S</td>
+                  <td>
+                    <input
+                    type="number"
+                    class="no-border-input"
+                    name="etapa_1"
+                    style="width: 100%; border: none"
+                    placeholder="1"
+                    [(ngModel)]="KM056.etapa_1"
+                />
+                  </td>
+
+              </tr>
+              <tr class="none">
+                  <td colspan="6">Arranque en la posición de molde</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="posicion_molde"
+                          style="width: 100%; border: none"
+                          placeholder="NA"
+                          [(ngModel)]="KM056.posicion_molde"
+                      />
+                  </td>
+              </tr>
+              <tr class="none">
+                  <td colspan="6">Contador de vibraciones</td>
+                  <td style="background-color: #d8d8d8;">
+                      <input
+                          type="text"
+                          class="no-border-input"
+                          name="contador_vibraciones"
+                          style="width: 100%; border: none"
+                          placeholder="NA"
+                          [(ngModel)]="KM056.contador_vibraciones"
+                      />
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      
+      <table>
+        
+        <tr>
+          <th style="background-color: #d8d8d8; border: 2px black" colspan="3" class="fv">Corte de Vena</th>
+       
+        </tr>
+        <tr>
+          <td>Función de Corte de Vena accionado por Noyo</td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="funcionCorteVenaNoyo"
+              style="width: 100%; border: none"
+              [(ngModel)]="KM056.funcionCorteVenaNoyo"
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>Estampado y Separación del Bebedero con Expulsor</td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="estampadoSeparacionBebedero"
+              style="width: 100%; border: none"
+              [(ngModel)]="KM056.estampadoSeparacionBebedero"
+            >
+          </td>
+        </tr>
+        <tr>
+          <th>Avance del Expulsor después de la presión posterior</th>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="avanceExpulsorPresion"
+              style="width: 100%; border: none"
+              [(ngModel)]="KM056.avanceExpulsorPresion"
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>Tiempo de Retardo Movimiento Avance del Expulsor Conectado</td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="tiempoRetardoAvanceConectado"
+              style="width: 100%; border: none"
+              [(ngModel)]="KM056.tiempoRetardoAvanceConectado"
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>Tiempo de Retardo Movimiento Avance del Expulsor Desconectado</td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="tiempoRetardoAvanceDesconectado"
+              style="width: 100%; border: none"
+              [(ngModel)]="KM056.tiempoRetardoAvanceDesconectado"
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>Supervisión de Recorrido para Desbloqueo de la Apertura del Molde</td>
+          <td>
+            <input
+              type="number"
+              class="no-border-input"
+              name="supervisionRecorridoDesbloqueo"
+              style="width: 100%; border: none"
+              [(ngModel)]="KM056.supervisionRecorridoDesbloqueo"
+            >
+          </td>
+        </tr>
+      </table>
+      
+      </div>
+
+      <div style="display: flex;">
+        <table>
+          <tr>
+            <th colspan="10" class="fv">Cerrar/Abrir Molde</th>
+          </tr>
+          <tr>
+            
+            <th>Etapa</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th class="none"></th>
+            <th>Etapa</th>
+            <th>3</th>
+            <th>2</th>
+            <th>1</th>
+          </tr>
+          <tr>
+            <td class="none"></td>
+            <td>F</td>
+            <td>
+              <input
+                type="number"
+                class="no-border-input"
+                name="f1"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.f1"
+              >
+            </td>
+            <td>
+              <input
+                type="number"
+                class="no-border-input"
+                name="f2"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.f2"
+              >
+            </td>
+            <td>
+              <input
+                type="number"
+                class="no-border-input"
+                name="f3"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.f3"
+              >
+            </td>
+            <td class="none"></td>
+            <td>Fuerza de Cierre</td>
+            <td>
+              <input
+                type="number"
+                class="no-border-input"
+                name="fuerzaCierre1"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.fuerzaCierre1"
+              >
+            </td>
+            <td>
+              <input
+                type="number"
+                class="no-border-input"
+                name="fuerzaCierre2"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.fuerzaCierre2"
+              >
+            </td>
+            <td>
+              <input
+                type="number"
+                class="no-border-input"
+                name="fuerzaCierre3"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.fuerzaCierre3"
+              >
+            </td>
+          </tr>
+          <tr>
+            <td class="none"></td>
+            <td>N</td>
+            <td>
+              <input
+                type="number"
+                class="no-border-input"
+                name="n1"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.n1"
+              >
+            </td>
+            <td>
+              <input
+                type="number"
+                class="no-border-input"
+                name="n2"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.n2"
+              >
+            </td>
+            <td>
+              <input
+                type="number"
+                class="no-border-input"
+                name="n3"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.n3"
+              >
+            </td>
+            <td class="none"></td>
+            <td>S</td>
+            <td>
+              <input
+                type="number"
+                class="no-border-input"
+                name="s1"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.s1"
+              >
+            </td>
+            <td>
+              <input
+                type="number"
+                class="no-border-input"
+                name="s2"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.s2"
+              >
+            </td>
+            <td class="none"></td>
+          </tr>
+          <tr>
+            <td class="none"></td>
+            <td>Carrera de Apertura</td>
+            <td colspan="3">
+              <input
+                type="number"
+                class="no-border-input"
+                name="carreraApertura"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.carreraApertura"
+              >
+            </td>
+            <td class="none"></td>
+            <td>Carrera de Apertura</td>
+            <td colspan="3">
+              <input
+                type="number"
+                class="no-border-input"
+                name="carreraApertura2"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.carreraApertura2"
+              >
+            </td>
+          </tr>
+          <tr>
+            <td class="none"></td>
+            <td>Duración Max. del Límite de Fuerza de Desplazamiento</td>
+            <td class="none" colspan="3">
+              ....................................
+            </td>
+            <td class="none"></td>
+            <td>1</td>
+            <td colspan="3">
+              <input
+                type="number"
+                class="no-border-input"
+                name="limiteFuerzaDesplazamiento"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.limiteFuerzaDesplazamiento"
+              >
+            </td>
+          </tr>
+        </table>
+        
+      </div>
 
         <table>
           <tbody>
