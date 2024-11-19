@@ -130,4 +130,7 @@ export interface FP1217 {
     piezaInfo_proceso: number;
     piezaInfo_pesoColada: number;
     piezaInfo_tiempoSostenimientoMax: number;
+
+   
+
 }

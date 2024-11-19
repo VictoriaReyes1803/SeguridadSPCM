@@ -62,7 +62,7 @@
           </td>
         </tr>
       </table>
-      <div  style="display: flex; margin-top:15px"
+      <div  style="display: flex; margin-top:10px"
       >
       <!-- INYECCION -->
         <table style="border-collapse: collapse; width: 100%; text-align: center;">
@@ -651,7 +651,7 @@
       </table>
       
       </div>
-      <div style="display: flex; margin-top:15px">
+      <div style="display: flex; margin-top:10px">
         <table style="border-collapse: collapse; width: 50%; text-align: center;">
           <thead>
               <tr style="background-color: #d8d8d8;">
@@ -1025,7 +1025,7 @@
     </table>
     
       </div>
-
+   
       <div style="display: flex;">
       
         <table style="border-collapse: collapse; width: 100%; text-align: center;">
@@ -1293,19 +1293,20 @@
       </table>
       
       </div>
-
+      <div style="display: flex;">
+        <div>
       <div style="display: flex;">
         <table>
           <tr>
             <th colspan="10" class="fv">Cerrar/Abrir Molde</th>
           </tr>
           <tr>
-            
+            <td class="none"></td>
             <th>Etapa</th>
             <th>1</th>
             <th>2</th>
             <th>3</th>
-            <th class="none"></th>
+            <th colspan="3" class="none"></th>
             <th>Etapa</th>
             <th>3</th>
             <th>2</th>
@@ -1352,6 +1353,7 @@
                 [(ngModel)]="KM056.fuerzaCierre1"
               >
             </td>
+            <td>V</td>
             <td>
               <input
                 type="number"
@@ -1370,9 +1372,18 @@
                 [(ngModel)]="KM056.fuerzaCierre3"
               >
             </td>
+            <td>
+              <input
+                type="number"
+                class="no-border-input"
+                name="fuerzaCierre4"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.fuerzaCierre4"
+              >
+            </td>
           </tr>
           <tr>
-            <td class="none"></td>
+            <td class="none" rowspan="2"></td>
             <td>N</td>
             <td>
               <input
@@ -1402,7 +1413,9 @@
               >
             </td>
             <td class="none"></td>
+            <td colspan="2"></td>
             <td>S</td>
+            <td></td>
             <td>
               <input
                 type="number"
@@ -1424,15 +1437,47 @@
             <td class="none"></td>
           </tr>
           <tr>
+            <td>
+              S
+            </td>
+            <td>
+              <input
+              type="number"
+              class="no-border-input"
+              name="cerrars1"
+              style="width: 100%; border: none"
+              [(ngModel)]="KM056.cerrars1"
+            >
+            </td>
+            <td>
+              <input
+              type="number"
+              class="no-border-input"
+              name="cerrars2"
+              style="width: 100%; border: none"
+              [(ngModel)]="KM056.cerrars2"
+            >
+            </td>
+          </tr>
+          <tr>
             <td class="none"></td>
             <td>Carrera de Apertura</td>
-            <td colspan="3">
+            <td colspan="2">
               <input
                 type="number"
                 class="no-border-input"
                 name="carreraApertura"
                 style="width: 100%; border: none"
                 [(ngModel)]="KM056.carreraApertura"
+              >
+            </td>
+            <td colspan="2">
+              <input
+                type="number"
+                class="no-border-input"
+                name="carreraApertura"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.carreraApertura7"
               >
             </td>
             <td class="none"></td>
@@ -1468,28 +1513,821 @@
         </table>
         
       </div>
+      <div style="display: flex;">
+        <table style="border-collapse: collapse; width: 100%; text-align: left;">
+          <thead>
+              <tr style="background-color: #c0c0c0;">
+                  <th colspan="3">PROCEDIMIENTO E INICIO DE ESTAMPADO</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr class="none">
+                  <td style="width: 50%;">FUNCION DE ESTAMPADO</td>
+                  <td style="width: 40%; background-color: #d8d8d8;">
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="funcion_estampado" 
+                          style="width: 100%; border: none" 
+                          [(ngModel)]="KM056.FUNCION_DE_ESTAMPADO"
+                          placeholder="NO"
+                      />
+                  </td>
+                  <td></td>
+              </tr>
+              <tr class="none">
+                  <td colspan="3" style="width: 100%;">INYECCION POR COMPRESION/VENTILACION PROCESOS EXPERTOS</td>
+              </tr>
+              <tr class="none">
+                  <td colspan="3" style="height: 20px;"></td>
+              </tr>
+              <tr class="none">
+                  <td colspan="3" style="font-weight: bold;">FUERZA DE CIERRE INICIAL</td>
+              </tr>
+              <tr class="none">
+                  <td style="width: 70%;">Inicio de fuerza de cierre para estampado ….......................</td>
+                  <td style="width: 20%; background-color: #d8d8d8;">
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="inicio_fuerza_cierre" 
+                          style="width: 100%; border: none" 
+                          [(ngModel)]="KM056.Inicio_de_fuerza_de_cierre"
+                          placeholder="NA"
+                      />
+                  </td>
+                  <td style="width: 10%;">kn</td>
+              </tr>
+          </tbody>
+      </table>
+      <table style="border-collapse: collapse; width: 100%; text-align: left;">
+        <thead>
+            <tr style="background-color: #c0c0c0;">
+                <th colspan="3">VENTILACIÓN DURANTE LA INYECCIÓN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="none">
+                <td colspan="2" style="width: 80%;">Inicio de la inyección retardado …...............................................................</td>
+                <td style="width: 20%; background-color: #d8d8d8;">
+                    <input 
+                        type="text" 
+                        class="no-border-input" 
+                        name="inyeccion_retardado" 
+                        [(ngModel)]="KM056.inyeccionRetardado" 
+                        style="width: 100%; border: none" 
+                        placeholder="NA"
+                    />
+                </td>
+            </tr>
+            <tr class="none">
+                <td colspan="3" style="font-weight: bold;">Ventilación sencilla</td>
+            </tr>
+            <tr class="none">
+                <td style="width: 50%;">Inicio en posición de husillo …..................</td>
+                <td style="width: 25%; background-color: #d8d8d8;">
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="posicion_husillo" 
+                        [(ngModel)]="KM056.posicionHusillo" 
+                        style="width: 100%; border: none"
+                    />
+                </td>
+                <td style="width: 25%;">mm</td>
+            </tr>
+            <tr class="none">
+                <td>Velocidad de apertura …..................</td>
+                <td style="background-color: #d8d8d8;">
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="velocidad_apertura" 
+                        [(ngModel)]="KM056.velocidadApertura" 
+                        style="width: 100%; border: none"
+                    />
+                </td>
+                <td>mm/s</td>
+            </tr>
+            <tr class="none">
+                <td>Carrera de apertura …..................</td>
+                <td style="background-color: #d8d8d8;">
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="carrera_apertura" 
+                        [(ngModel)]="KM056.ventilacioncarreraApertura" 
+                        style="width: 100%; border: none"
+                    />
+                </td>
+                <td>mm</td>
+            </tr>
+            <tr class="none">
+                <td>Tiempo de ventilación …..................</td>
+                <td style="background-color: #d8d8d8;">
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="tiempo_ventilacion" 
+                        [(ngModel)]="KM056.tiempoVentilacion" 
+                        style="width: 100%; border: none"
+                    />
+                </td>
+                <td></td>
+            </tr>
+            <tr class="none">
+                <td>Velocidad de cierre …..................</td>
+                <td style="background-color: #d8d8d8;">
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="velocidad_cierre" 
+                        [(ngModel)]="KM056.velocidadCierre" 
+                        style="width: 100%; border: none"
+                    />
+                </td>
+                <td>mm/s</td>
+            </tr>
+            <tr class="none">
+                <td>Final purgar el aire …..................</td>
+                <td style="background-color: #d8d8d8;">
+                    <input 
+                        type="text" 
+                        class="no-border-input" 
+                        name="final_purgar_aire" 
+                        [(ngModel)]="KM056.finalPurgarAire" 
+                        style="width: 100%; border: none"
+                    />
+                </td>
+                <td></td>
+            </tr>
+            <tr class="none">
+                <td>Fuerza de desplazamiento/Fuerza de cierre …..................</td>
+                <td style="background-color: #d8d8d8;">
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="fuerza_desplazamiento" 
+                        [(ngModel)]="KM056.fuerzaDesplazamiento" 
+                        style="width: 100%; border: none"
+                    />
+                </td>
+                <td>kN</td>
+            </tr>
+        </tbody>
+    </table>
+    
+      </div>
+      <div style="display: flex;">
 
-        <table>
+        
+        <table style="border-collapse: collapse; width: 100%; text-align: center;">
+          <thead>
+              <tr style="background-color: #c0c0c0;">
+                  <th colspan="6">NOYOS</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr class="fv">
+                  <td colspan="3" class="fv">Introducir paso de Noyo</td>
+                  <td colspan="3" class="fv">Retirar paso de Noyo</td>
+              </tr>
+              <tr>
+                  <td>Noyos</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyos1" 
+                          [(ngModel)]="KM056.noyos1" 
+                          style="width: 100%; border: none;"
+                          placeholder="NA"
+                      />
+                  </td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyos2" 
+                          [(ngModel)]="KM056.noyos2" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyos3" 
+                          placeholder="NA"
+                          [(ngModel)]="KM056.noyos3" 
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyos4" 
+                          [(ngModel)]="KM056.noyos4" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyos5" 
+                          [(ngModel)]="KM056.noyos5" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyos6" 
+                          [(ngModel)]="KM056.noyos6" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyos7" 
+                          [(ngModel)]="KM056.noyos7" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyos8" 
+                          [(ngModel)]="KM056.noyos8" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyos9" 
+                          [(ngModel)]="KM056.noyos9" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyos10" 
+                          [(ngModel)]="KM056.noyos10" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+              </tr>
+              <tr>
+                  <td>Noyo 1</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyo1_1" 
+                          [(ngModel)]="KM056.noyo1_1" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+                  <td></td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyo1_2" 
+                          [(ngModel)]="KM056.noyo1_2" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+                  <td></td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyo1_3" 
+                          [(ngModel)]="KM056.noyo1_3" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+              </tr>
+              <tr>
+                  <td>Noyo 2</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyo2_1" 
+                          [(ngModel)]="KM056.noyo2_1" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyo2_2" 
+                          [(ngModel)]="KM056.noyo2_2" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyo2_3" 
+                          [(ngModel)]="KM056.noyo2_3" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyo2_4" 
+                          [(ngModel)]="KM056.noyo2_4" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="noyo2_5" 
+                          [(ngModel)]="KM056.noyo2_5" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+              </tr>
+              <tr>
+                  <td>Expulsor</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="expulsor_q" 
+                          [(ngModel)]="KM056.expulsorQ" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+                  <td>Q</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="expulsor_p" 
+                          [(ngModel)]="KM056.expulsorP" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+                  <td>P</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="expulsor_tn" 
+                          [(ngModel)]="KM056.expulsorTn" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      
+
+      <table style="border-collapse: collapse; width: 100%; text-align: left;">
+        <thead>
+            <tr style="background-color: #c0c0c0;">
+                <th colspan="2" style="text-align: center;">EXPULSOR NOYOS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="fv">Carrera expulsor</td>
+                <td>
+                    <input 
+                        type="text" 
+                        class="no-border-input" 
+                        name="carreraExpulsor" 
+                        [(ngModel)]="KM056.carreraExpulsor" 
+                        style="width: 100%; border: none;"
+                        placeholder="15"
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td class="fv">Carrera Vibraciones</td>
+                <td>
+                    <input 
+                        type="text" 
+                        class="no-border-input" 
+                        name="carreraVibraciones" 
+                        [(ngModel)]="KM056.carreraVibraciones" 
+                        style="width: 100%; border: none;"
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td class="fv">Posición int 1</td>
+                <td>
+                    <input 
+                        type="text" 
+                        class="no-border-input" 
+                        name="posicionInt1" 
+                        [(ngModel)]="KM056.posicionInt1" 
+                        style="width: 100%; border: none;"
+                        placeholder="0"
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td class="fv">Posición int 2</td>
+                <td>
+                    <input 
+                        type="text" 
+                        class="no-border-input" 
+                        name="posicionInt2" 
+                        [(ngModel)]="KM056.posicionInt2" 
+                        style="width: 100%; border: none;"
+                        placeholder="1.8"
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td class="fv">Posición int 3</td>
+                <td>
+                    <input 
+                        type="text" 
+                        class="no-border-input" 
+                        name="posicionInt3" 
+                        [(ngModel)]="KM056.posicionInt3" 
+                        style="width: 100%; border: none;"
+                        placeholder="0"
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td class="fv">Interruptor detrás</td>
+                <td>
+                    <input 
+                        type="text" 
+                        class="no-border-input" 
+                        name="interruptorDetras" 
+                        [(ngModel)]="KM056.interruptorDetras" 
+                        style="width: 100%; border: none;"
+                        placeholder="0"
+                    />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+    
+      </div>
+      <table style="border-collapse: collapse; width: 50%; text-align: left;">
+        <thead>
+            <tr style="background-color: #d8d8d8;">
+                <th colspan="4" style="text-align: center;">UNIDAD DE ALIMENTACIÓN AUTOMÁTICA</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="fv">TEMPERATURA</td>
+                <td>
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="temperatura" 
+                        [(ngModel)]="KM056.temperatura" 
+                        style="width: 100%; border: none;" 
+                        placeholder="25"
+                    />
+                    °C
+                </td>
+             
+            </tr>
+            <tr>
+                <td class="fv">REGULACIÓN DE LA PRESIÓN DE EMBUTIDO</td>
+                <td>
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="regulacionPresionEmb" 
+                        [(ngModel)]="KM056.regulacionPresionEmb" 
+                        style="width: 100%; border: none;" 
+                        placeholder="2"
+                    />
+                </td>
+               
+            </tr>
+            <tr>
+                <td class="fv">TOLERANCIA DE PRESIÓN DE EMBUTIDO</td>
+                <td>
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="toleranciaPresionEmb" 
+                        [(ngModel)]="KM056.toleranciaPresionEmb" 
+                        style="width: 100%; border: none;" 
+                        placeholder="8"
+                    />
+                </td>
+               
+            </tr>
+            <tr>
+                <td class="fv">PRESIÓN DE EMBUTIDO</td>
+                <td>
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="presionEmb" 
+                        [(ngModel)]="KM056.presionEmb" 
+                        style="width: 100%; border: none;" 
+                        placeholder="0.5"
+                    />
+                </td>
+            
+            </tr>
+            <tr>
+                <td class="fv">TIEMPO DE RETARDO PARA SUPERVISIÓN TOLERANCIA</td>
+                <td>
+                    <input 
+                        type="text" 
+                        class="no-border-input" 
+                        name="tiempoRetardoSupervision" 
+                        [(ngModel)]="KM056.tiempoRetardoSupervision" 
+                        style="width: 100%; border: none;" 
+                        placeholder="NA"
+                    />
+                </td>
+               
+            </tr>
+            <tr>
+                <td class="fv">REVOLUCIONES DEL HUSILLO DE ALIMENTACIÓN</td>
+                <td>
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="revolucionesHusillo" 
+                        [(ngModel)]="KM056.revolucionesHusillo" 
+                        style="width: 100%; border: none;" 
+                        placeholder="15"
+                    />
+                </td>
+                
+            </tr>
+            <tr>
+                <td class="fv">REVOLUCIONES DE LA TOLVA</td>
+                <td>
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="revolucionesTolva" 
+                        [(ngModel)]="KM056.revolucionesTolva" 
+                        style="width: 100%; border: none;" 
+                        placeholder="3"
+                    />
+                </td>
+              
+            </tr>
+            <tr>
+                <td class="fv">EMBUTIDO RETARDADO CON UNIDAD AUTOMÁTICA</td>
+                <td>
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="embutidoRetardado" 
+                        [(ngModel)]="KM056.embutidoRetardado" 
+                        style="width: 100%; border: none;" 
+                        placeholder="0.1"
+                    />
+                </td>
+             
+            </tr>
+            <tr>
+                <td class="fv">SENTIDO DE GIRO DE LA TOLVA</td>
+                <td>
+                    <input 
+                        type="text" 
+                        class="no-border-input" 
+                        name="sentidoGiroTolva" 
+                        [(ngModel)]="KM056.sentidoGiroTolva" 
+                        style="width: 100%; border: none;" 
+                        placeholder="IZQUIERDA"
+                    />
+                </td>
+              
+            </tr>
+            <tr>
+                <td class="fv">TIEMPO DURANTE LA TOLVA IZQUIERDA</td>
+                <td>
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="tiempoTolvaIzquierda" 
+                        [(ngModel)]="KM056.tiempoTolvaIzquierda" 
+                        style="width: 100%; border: none;" 
+                        placeholder="2"
+                    />
+                </td>
+                
+            </tr>
+            <tr>
+                <td class="fv">TIEMPO DURANTE LA TOLVA DERECHA</td>
+                <td>
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="tiempoTolvaDerecha" 
+                        [(ngModel)]="KM056.tiempoTolvaDerecha" 
+                        style="width: 100%; border: none;" 
+                        placeholder="0.5"
+                    />
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+    
+    </div>
+      <div style="display: flex;">
+        <table style="border-collapse: collapse; width: 100%; text-align: left; border:8px black;">
+         
+          <tbody>
+              <tr>
+                  <td class="fv">Nariz apoyada:</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="narizApoyada" 
+                          [(ngModel)]="KM056.narizApoyada" 
+                          style="width: 100%; border: none;" 
+                          placeholder="SI"
+                      />
+                  </td>
+                  <td class="fv">Tipo nariz:</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="tipoNariz" 
+                          [(ngModel)]="KM056.tipoNariz" 
+                          style="width: 100%; border: none;" 
+                          placeholder="PG"
+                      />
+                  </td>
+
+                  <td class="fv">Diámetro Nariz:</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="diametroNariz" 
+                          [(ngModel)]="KM056.diametroNariz" 
+                          style="width: 100%; border: none;" 
+                          placeholder="8 mm"
+                      />
+                  </td>
+                  <td class="fv">Programa Robot:</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="programaRobot" 
+                          [(ngModel)]="KM056.programaRobot" 
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+              </tr>
+              <tr>
+                  <td class="fv">Peso pieza:</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="pesoPieza" 
+                          [(ngModel)]="KM056.pesoPieza" 
+                          style="width: 100%; border: none;" 
+                          placeholder="38.5 g"
+                      />
+                  </td>
+                  <td class="fv">Peso colada:</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="pesoColada" 
+                          [(ngModel)]="KM056.pesoColada" 
+                          style="width: 100%; border: none;" 
+                          placeholder="16 g"
+                      />
+                  </td>
+             
+                  <td class="fv">Diámetro Husillo:</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="diametroHusillo" 
+                          [(ngModel)]="KM056.diametroHusillo" 
+                          style="width: 100%; border: none;" 
+                          placeholder="80"
+                      />
+                  </td>
+                  <td class="fv"></td>
+                  <td></td>
+              </tr>
+              <tr>
+                  <td class="fv">Tiempo de ciclo:</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="tiempoCiclo" 
+                          [(ngModel)]="KM056.tiempoCiclo" 
+                          style="width: 100%; border: none;" 
+                          placeholder="25 s"
+                      />
+                  </td>
+                  <td class="fv">Superv ciclo:</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="supervCiclo" 
+                          [(ngModel)]="KM056.supervCiclo" 
+                          style="width: 100%; border: none;" 
+                          placeholder="25 s"
+                      />
+                  </td>
+             
+                  <td class="fv">Proceso:</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="proceso" 
+                          [(ngModel)]="KM056.proceso" 
+                          style="width: 100%; border: none;" 
+                          placeholder="AUTOMATICO"
+                      />
+                  </td>
+                  <td class="fv"></td>
+                  <td></td>
+              </tr>
+          </tbody>
+      </table>
+      
+        </div>
+
+        <table >
           <tbody>
             <tr>
-              <td class="fv" style="padding: 4px; border-bottom:none" colspan="11">
-                Comentario: Revisar tolerancias en la hoja de "Checklist de
-                Procesos". El parámetro de la BRIDA puede variar entre un rango
-                de 20° y 100° C.
+              <td class="fv" style="padding: 10px; border-bottom:none; " colspan="11">
+                Nota! Los parametros Inyeccion, Carga, Sostenimiento y Temperaturas pueden presentar un +/-15% de varacion durante el proceso,
+                 las demas no afectan la calidad de la pieza
               </td>
             </tr>
-            <tr>
-              <td class="none fv" style="padding: 4px" colspan="11">
-                CUIDADO: Los cambios deben quedar registrados
-              </td>
-            </tr>
-            <tr>
-              <td class="none fv" style="text-align: left; width: 70%" colspan="9" rowspan="3">
+
+            <!-- <tr>
+              <td class="none fv" style="text-align: left;" colspan="9" rowspan="3">
                 Comentarios:
               </td>
-              </tr>
+              </tr> -->
             <tr>
-            
+            <td style="height:200px" class="none"></td>
             </tr>
             <tr>
              
@@ -1499,16 +2337,17 @@
       
 
       <app-footer3></app-footer3>
+      ..
 
     </div>
     
-    <div *ngIf="currentContainer == 1 || currentContainer == -1" #container1 class="container">
+    <!-- <div *ngIf="currentContainer == 1 || currentContainer == -1" #container1 class="container">
         <app-checklist-krauss-maffei
         [mc6]="KM056"
         >
           
         </app-checklist-krauss-maffei>
-    </div>
+    </div> -->
   
   </div>
   
@@ -1551,3 +2390,4 @@
   </div>
 
    </div>
+</div>

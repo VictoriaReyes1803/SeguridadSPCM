@@ -110,6 +110,7 @@ export interface km056 {
     fuerzaCierre1: number;
     fuerzaCierre2: number;
     fuerzaCierre3: number;
+    fuerzaCierre4: number;
     limiteFuerzaDesplazamiento: number;
     carreraApertura: number;
     carreraApertura2: number;
@@ -119,4 +120,72 @@ export interface km056 {
     n3: number;
     s1: number;
     s2: number;
-   }
+    cerrars1: number;
+    cerrars2: number;
+    carreraApertura7: number;
+
+    inyeccionRetardado: number;
+    posicionHusillo: number;
+    velocidadApertura: number;
+    ventilacioncarreraApertura: number;
+    tiempoVentilacion: number;
+    velocidadCierre: number;
+    finalPurgarAire: number;
+    fuerzaDesplazamiento: number;
+    FUNCION_DE_ESTAMPADO: string;
+    Inicio_de_fuerza_de_cierre: string;
+    
+    noyos1: string;
+    noyos2: string;
+    noyos3: string;
+    noyos4: string;
+    noyos5: string;
+    noyos6: string;
+    noyos7: string;
+    noyos8: string;
+    noyos9: string;
+    noyos10: string;
+
+    noyo1_1: string;
+    noyo1_2: string;
+    noyo1_3: string;
+    noyo2_1: string;
+    noyo2_2: string;
+    noyo2_3: string;
+    noyo2_4: string;
+    noyo2_5: string;
+
+    expulsorTn: string;
+    expulsorP: string;
+    expulsorQ: string;
+
+    interruptorDetras: number;
+    posicionInt3: number;
+    posicionInt2: number;
+    posicionInt1: number;
+    carreraVibraciones: number; 
+    carreraExpulsor: number;
+
+    narizApoyada: number;
+    tipoNariz: number;
+    diametroNariz: number;
+    proceso: number;
+    supervCiclo: number;
+    tiempoCiclo: number;
+    diametroHusillo: number;
+    pesoColada: number;
+    pesoPieza: number;
+    programaRobot: number;
+
+    tiempoTolvaDerecha: number;
+    tiempoTolvaIzquierda: number;
+    sentidoGiroTolva   : number;
+    embutidoRetardado: number;
+    revolucionesTolva: number;
+    revolucionesHusillo: number;
+    tiempoRetardoSupervision   : number;
+    presionEmb : number;
+    toleranciaPresionEmb: number;
+    regulacionPresionEmb: number;
+    temperatura: number;
+}

@@ -74,7 +74,7 @@ export class KMTEC2022MX056V2Component {
 
   checklist = false;
   @ViewChild('container0') container0!: ElementRef;
-  @ViewChild('container1') container1!: ElementRef;
+  // @ViewChild('container1') container1!: ElementRef;
 
   pdfSrc: string | null = null;
   isModalOpen = false;
@@ -169,7 +169,10 @@ export class KMTEC2022MX056V2Component {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.containers = [this.container0, this.container1];
+      this.containers = [this.container0
+        , 
+        // this.container1
+      ];
       
     });
   }
@@ -273,7 +276,7 @@ export class KMTEC2022MX056V2Component {
     console.log('Datos completos:', JSON.stringify(datosCompletos));
 
     const pdf = new jsPDF('p', 'pt', 'letter');
-    const marginTop = 5;
+    const marginTop = 8;
     const marginSide = 15;
     const scale = .8;
   
@@ -304,15 +307,15 @@ export class KMTEC2022MX056V2Component {
   
     setTimeout(() => {
       const content0: HTMLElement = this.container0.nativeElement;
-      const content1: HTMLElement = this.container1.nativeElement;
+      // const content1: HTMLElement = this.container1.nativeElement;
 
       Promise.all([
         captureElement(content0),
-        captureElement(content1),
+        // captureElement(content1),
        
       ]).then((canvases) => {
         addImageToPDF(canvases[0], true);  
-        addImageToPDF(canvases[1], false);
+        // addImageToPDF(canvases[1], false);
         
 
         const pdfBlob = pdf.output('blob');
