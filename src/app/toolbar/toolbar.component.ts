@@ -4,7 +4,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { FormsModule } from '@angular/forms'; 
 import { SecureCookieService } from '../services/cookies/cookies.service';
 import { User } from '../Models/user';
-import { Reporte, Reporteresponse } from '../Models/Reporte';
+import { Reporte} from '../Models/Reporte';
 import { ProductService } from '../services/Productos/product.service';
 import { DropdownModule } from 'primeng/dropdown';
 import { CommonModule } from '@angular/common';
@@ -25,7 +25,7 @@ import { format } from 'crypto-js';
 })
 export class ToolbarComponent {
   user : User | null = null;
-  reportes: Reporteresponse[] = [];
+  reportes:any;
   selectedReporte: Reporte | null = null;
 
   selectedOption: string | null = null;
@@ -33,7 +33,7 @@ export class ToolbarComponent {
 
   @Input() report: boolean = false;
   @Input() formato: string = '';
-  @Output() optionSelected = new EventEmitter<Reporteresponse>();
+  @Output() optionSelected = new EventEmitter<any>();
 
   constructor(
     private cookieService: SecureCookieService,
@@ -85,7 +85,7 @@ export class ToolbarComponent {
     return `${day}/${month}/${year} ${hours}:${minutes}`;
   }
   
-  selectOption(reporte: Reporteresponse, event: Event) {
+  selectOption(reporte: any, event: Event) {
     this.selectedOption = `${this.formatDate(reporte.fecha)} - ${reporte.user.nombre} - ${reporte.producto.producto}` 
     event.stopPropagation();
     this.dropdownOpen = false; 

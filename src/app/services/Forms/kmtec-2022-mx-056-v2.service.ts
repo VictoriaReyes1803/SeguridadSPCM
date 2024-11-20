@@ -102,7 +102,7 @@ export class KMTEC2022MX056V2Service {
     etapa_repetida_2:0,
     f_70:0,
     f_55:0,
-    contador_vibraciones:0,
+    contador_vibraciones: '',
     posicion_molde:'',
     s_2_1:0,
     v_50:0,
@@ -138,7 +138,7 @@ export class KMTEC2022MX056V2Service {
     cerrars1: 0,
     carreraApertura7: 0,
 
-    inyeccionRetardado: 0,
+    inyeccionRetardado: 'NA',
     posicionHusillo: 0,
     velocidadApertura: 0,
     ventilacioncarreraApertura: 0,
@@ -146,7 +146,7 @@ export class KMTEC2022MX056V2Service {
     velocidadCierre: 0,
     finalPurgarAire: 0,
     fuerzaDesplazamiento: 0,
-    FUNCION_DE_ESTAMPADO: '',
+    FUNCION_DE_ESTAMPADO: 'NO',
     Inicio_de_fuerza_de_cierre: '',
 
     noyos1: 'NA',
@@ -172,6 +172,8 @@ export class KMTEC2022MX056V2Service {
     expulsorTn: 'NA',
     expulsorP: 'NA',
     expulsorQ: 'NA',
+    retirar_expulsorP: 'NA',
+    retirar_expulsorTn:'NA',
 
     interruptorDetras: 0,
     posicionInt3: 0,
@@ -193,7 +195,7 @@ export class KMTEC2022MX056V2Service {
 
     tiempoTolvaDerecha: 0,
     tiempoTolvaIzquierda: 0,
-    sentidoGiroTolva: 0,
+    sentidoGiroTolva: '',
     embutidoRetardado: 0,
     revolucionesTolva: 0,
     revolucionesHusillo: 0,
@@ -202,6 +204,14 @@ export class KMTEC2022MX056V2Service {
     toleranciaPresionEmb: 0,
     regulacionPresionEmb: 0,
     temperatura: 0,
+    f_1: 0,
+    v_1:0,
+    na1: '',
+    na2: '',
+    na3: '',
+    na4: '',
+    na5: '',
+    na6: '',
   }
   getlist(): km056{
     return this.KM056;

@@ -8,8 +8,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ToolbarComponent } from "../../../toolbar/toolbar.component";
 import { SidebarComponent } from "../../../sidebar/sidebar.component";
 import { CommonModule } from '@angular/common';
-import { ChecklistKraussMaffeiComponent } from '../../Krauss-maffeiMC6/checklist-krauss-maffei/checklist-krauss-maffei.component';
-import { KraussMaffeiMc62Component } from "../../Krauss-maffeiMC6/krauss-maffei-mc6-2/krauss-maffei-mc6-2.component";
+import { ChechklistKMTEC056V2Component } from '../chechklist-kmtec-056-v2/chechklist-kmtec-056-v2.component';
 import { ActivatedRoute } from '@angular/router'; 
 import { Producto, Productos , Producto_Maquina} from '../../../Models/Productos';
 import { Maquina } from '../../../Models/Maquina';
@@ -22,7 +21,7 @@ import { Footer3Component } from '../../Componentes/footer3/footer3.component';
 import { Footer2Component } from '../../Componentes/footer2/footer2.component';
 import { SpinerComponent } from '../../Componentes/spiner/spiner.component';
 import { ProductService } from '../../../services/Productos/product.service';
-import { Reporte, Reporteresponse } from '../../../Models/Reporte';
+import { Reporte, Reporteresponse056 } from '../../../Models/Reporte';
 import { content } from 'html2canvas/dist/types/css/property-descriptors/content';
 import { DigitalOceanService } from '../../../services/digital/digital-ocean.service';
 import { Router } from '@angular/router';
@@ -33,7 +32,7 @@ import { Router } from '@angular/router';
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    ChecklistKraussMaffeiComponent,
+    ChechklistKMTEC056V2Component,
     ToolbarComponent,
     SidebarComponent,
     CommonModule,
@@ -47,7 +46,7 @@ import { Router } from '@angular/router';
 export class KMTEC2022MX056V2Component {
   loading = false;
   isOnline: boolean = navigator.onLine;
-  currentContainer = 0; 
+  currentContainer = 1; 
   isKM056!: km056;
   ver = false;
   title = 'angular-pdf-export';
@@ -55,7 +54,7 @@ export class KMTEC2022MX056V2Component {
   maquina: string | null = null;
   Producto_Maquina: Producto_Maquina | null = null;
   KM056!: km056;
-  reporte: Reporteresponse | null = null;
+  reporte: Reporteresponse056 | null = null;
   message = '';
   productos: Productos = [];
   user: User | null = null;
@@ -74,7 +73,7 @@ export class KMTEC2022MX056V2Component {
 
   checklist = false;
   @ViewChild('container0') container0!: ElementRef;
-  // @ViewChild('container1') container1!: ElementRef;
+    @ViewChild('container1') container1!: ElementRef;
 
   pdfSrc: string | null = null;
   isModalOpen = false;
@@ -89,7 +88,7 @@ export class KMTEC2022MX056V2Component {
     private router: Router
   ) {
     this.KM056 = this.km056Service.getlist();
-    // console.log('mc6:', this.mc6)
+  
    
   }
   containers: ElementRef[] = [];
@@ -169,9 +168,7 @@ export class KMTEC2022MX056V2Component {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.containers = [this.container0
-        , 
-        // this.container1
+      this.containers = [this.container0,  this.container1
       ];
       
     });
@@ -224,7 +221,7 @@ export class KMTEC2022MX056V2Component {
     this.valores = this.km056Service.getlist(); 
     console.log('Valores actualizados:', this.valores);
   }
-  onOptionSelected(reporte: Reporteresponse): void {
+  onOptionSelected(reporte: Reporteresponse056): void {
     console.log('Reporte seleccionado:', reporte);
     this.message= 'Cargando reporte...';
     this.loading = true;
@@ -307,15 +304,15 @@ export class KMTEC2022MX056V2Component {
   
     setTimeout(() => {
       const content0: HTMLElement = this.container0.nativeElement;
-      // const content1: HTMLElement = this.container1.nativeElement;
+      const content1: HTMLElement = this.container1.nativeElement;
 
       Promise.all([
         captureElement(content0),
-        // captureElement(content1),
+        captureElement(content1),
        
       ]).then((canvases) => {
         addImageToPDF(canvases[0], true);  
-        // addImageToPDF(canvases[1], false);
+        addImageToPDF(canvases[1], false);
         
 
         const pdfBlob = pdf.output('blob');
@@ -458,6 +455,6 @@ export class KMTEC2022MX056V2Component {
 
   ngOnDestroy() {
     this.km056Service.resetList();
-    sessionStorage.removeItem('mc6');
+    sessionStorage.removeItem('KM056');
   }
 }

@@ -88,7 +88,7 @@ export interface km056 {
     etapa_repetida_2:number;
     f_70: number;
     f_55: number;
-    contador_vibraciones: number;
+    contador_vibraciones: string;
     posicion_molde: string;
     s_2_1: number;
     v_50: number;
@@ -124,7 +124,7 @@ export interface km056 {
     cerrars2: number;
     carreraApertura7: number;
 
-    inyeccionRetardado: number;
+    inyeccionRetardado: string;
     posicionHusillo: number;
     velocidadApertura: number;
     ventilacioncarreraApertura: number;
@@ -179,7 +179,7 @@ export interface km056 {
 
     tiempoTolvaDerecha: number;
     tiempoTolvaIzquierda: number;
-    sentidoGiroTolva   : number;
+    sentidoGiroTolva   : string;
     embutidoRetardado: number;
     revolucionesTolva: number;
     revolucionesHusillo: number;
@@ -188,4 +188,17 @@ export interface km056 {
     toleranciaPresionEmb: number;
     regulacionPresionEmb: number;
     temperatura: number;
+
+    f_1:number;
+    v_1:number;
+    retirar_expulsorTn: string;
+    retirar_expulsorP:string;
+
+    na1: string;
+    na2: string;
+    na3: string;
+    na4: string;
+    na5: string;
+    na6: string;
+
 }

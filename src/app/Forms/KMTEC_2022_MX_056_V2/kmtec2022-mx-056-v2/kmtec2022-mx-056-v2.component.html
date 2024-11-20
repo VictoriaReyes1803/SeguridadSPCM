@@ -1031,7 +1031,7 @@
         <table style="border-collapse: collapse; width: 100%; text-align: center;">
           <thead>
               <tr style="background-color: #d8d8d8;">
-                  <th colspan="8">EXPULSOR</th>
+                  <th colspan="9">EXPULSOR</th>
               </tr>
           </thead>
           <tbody>
@@ -1042,7 +1042,7 @@
                   <td class="none" colspan="1">ETAPA</td>
                  <td>1</td>
                  <td>2</td>
-                  <td class="none" colspan="1"></td>
+                  <td class="none" colspan="2"></td>
                   <td class="none" colspan="1">ETAPA</td>
                   <td>1</td>
                   <td>2</td>
@@ -1070,6 +1070,16 @@
                           [(ngModel)]="KM056.f_55"
                       />
                   </td>
+                  <td >
+                    <input
+                        type="number"
+                        class="no-border-input"
+                        name="f_55"
+                        style="width: 100%; border: none"
+
+                        [(ngModel)]="KM056.f_1"
+                    />
+                </td>
                   <td class="none" colspan="1">CARRERA</td>
                   <td>F</td>
                   <td style="background-color: #d8d8d8;">
@@ -1116,12 +1126,22 @@
                           [(ngModel)]="KM056.v_85"
                       />
                   </td>
+                  <td >
+                    <input
+                        type="number"
+                        class="no-border-input"
+                        name="f_55"
+                        style="width: 100%; border: none"
+
+                        [(ngModel)]="KM056.v_1"
+                    />
+                </td>
                   <td class="none" colspan="1">
                     <input
                     type="number"
-                    class="no-border-input"
+
                     name="carrera"
-                    style="width: 100%; border: none"
+                    style="width: 90%; "
                     [(ngModel)]="KM056.carrera"
                     >
                   </td>
@@ -1169,7 +1189,7 @@
                         [(ngModel)]="KM056.etapa_2"
                     />
                 </td>
-                  <td colspan="1"></td>
+                  <td class="none" colspan="2"></td>
                   <td>S</td>
                   <td>
                     <input
@@ -1298,23 +1318,23 @@
       <div style="display: flex;">
         <table>
           <tr>
-            <th colspan="10" class="fv">Cerrar/Abrir Molde</th>
+            <th style="background-color: #d8d8d8;" colspan="14" class="fv">Cerrar/Abrir Molde</th>
           </tr>
           <tr>
-            <td class="none"></td>
-            <th>Etapa</th>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
+            <td colspan="2" class="none"></td>
+            <th class="none">Etapa</th>
+            <th class="none">1</th>
+            <th class="none">2</th>
+            <th class="none">3</th>
             <th colspan="3" class="none"></th>
-            <th>Etapa</th>
-            <th>3</th>
-            <th>2</th>
-            <th>1</th>
+            <th class="none">Etapa</th>
+            <th class="none">3</th>
+            <th class="none">2</th>
+            <th class="none">1</th>
           </tr>
           <tr>
-            <td class="none"></td>
-            <td>F</td>
+            <td colspan="2" class="none"></td>
+            <td class="none">F</td>
             <td>
               <input
                 type="number"
@@ -1343,7 +1363,7 @@
               >
             </td>
             <td class="none"></td>
-            <td>Fuerza de Cierre</td>
+            <td class="none">Fuerza de Cierre</td>
             <td>
               <input
                 type="number"
@@ -1353,7 +1373,7 @@
                 [(ngModel)]="KM056.fuerzaCierre1"
               >
             </td>
-            <td>V</td>
+            <td class="none">V</td>
             <td>
               <input
                 type="number"
@@ -1383,8 +1403,8 @@
             </td>
           </tr>
           <tr>
-            <td class="none" rowspan="2"></td>
-            <td>N</td>
+            <td class="none" rowspan="1" colspan="2"></td>
+            <td class="none">N</td>
             <td>
               <input
                 type="number"
@@ -1413,9 +1433,9 @@
               >
             </td>
             <td class="none"></td>
-            <td colspan="2"></td>
-            <td>S</td>
-            <td></td>
+            <td class="none" colspan="2"></td>
+            <td class="none">S</td>
+            <td class="none"></td>
             <td>
               <input
                 type="number"
@@ -1437,7 +1457,18 @@
             <td class="none"></td>
           </tr>
           <tr>
-            <td>
+            <td>Carrera de Apertura</td>
+            <td style="width: 5%;" colspan="1">
+              <input
+                type="number"
+                class="no-border-input"
+                name="carreraApertura"
+                style="width: 100%; border: none"
+                [(ngModel)]="KM056.carreraApertura"
+              >
+            </td> 
+
+            <td class="none">
               S
             </td>
             <td>
@@ -1458,31 +1489,20 @@
               [(ngModel)]="KM056.cerrars2"
             >
             </td>
-          </tr>
-          <tr>
-            <td class="none"></td>
+            <td colspan="1" class="none"></td>
+            <td>
+            <input
+            type="number"
+            class="no-border-input"
+            name="carreraApertura"
+            style="width: 100%; border: none"
+            [(ngModel)]="KM056.carreraApertura7"
+          >
+        </td>
+        <td colspan="1" class="none"></td>
+        
             <td>Carrera de Apertura</td>
-            <td colspan="2">
-              <input
-                type="number"
-                class="no-border-input"
-                name="carreraApertura"
-                style="width: 100%; border: none"
-                [(ngModel)]="KM056.carreraApertura"
-              >
-            </td>
-            <td colspan="2">
-              <input
-                type="number"
-                class="no-border-input"
-                name="carreraApertura"
-                style="width: 100%; border: none"
-                [(ngModel)]="KM056.carreraApertura7"
-              >
-            </td>
-            <td class="none"></td>
-            <td>Carrera de Apertura</td>
-            <td colspan="3">
+            <td colspan="1">
               <input
                 type="number"
                 class="no-border-input"
@@ -1493,19 +1513,22 @@
             </td>
           </tr>
           <tr>
-            <td class="none"></td>
-            <td>Duración Max. del Límite de Fuerza de Desplazamiento</td>
-            <td class="none" colspan="3">
+            <td class="none" style="height: 10px;"></td>
+          </tr>
+         
+          <tr>
+          
+            <td colspan="4">Duración Max. del Límite de Fuerza de Desplazamiento</td>
+            <td class="none" colspan="2">
               ....................................
             </td>
-            <td class="none"></td>
-            <td>1</td>
-            <td colspan="3">
+            <td colspan="1">
               <input
                 type="number"
                 class="no-border-input"
                 name="limiteFuerzaDesplazamiento"
                 style="width: 100%; border: none"
+                placeholder=1
                 [(ngModel)]="KM056.limiteFuerzaDesplazamiento"
               >
             </td>
@@ -1514,9 +1537,9 @@
         
       </div>
       <div style="display: flex;">
-        <table style="border-collapse: collapse; width: 100%; text-align: left;">
+        <table style="border-collapse: collapse; width: 60%; text-align: left;">
           <thead>
-              <tr style="background-color: #c0c0c0;">
+              <tr style="background-color: #d8d8d8;">
                   <th colspan="3">PROCEDIMIENTO E INICIO DE ESTAMPADO</th>
               </tr>
           </thead>
@@ -1529,8 +1552,9 @@
                           class="no-border-input" 
                           name="funcion_estampado" 
                           style="width: 100%; border: none" 
-                          [(ngModel)]="KM056.FUNCION_DE_ESTAMPADO"
                           placeholder="NO"
+                          [(ngModel)]="KM056.FUNCION_DE_ESTAMPADO"
+                          
                       />
                   </td>
                   <td></td>
@@ -1538,14 +1562,12 @@
               <tr class="none">
                   <td colspan="3" style="width: 100%;">INYECCION POR COMPRESION/VENTILACION PROCESOS EXPERTOS</td>
               </tr>
-              <tr class="none">
-                  <td colspan="3" style="height: 20px;"></td>
+             
+              <tr >
+                  <td class="none" colspan="3" style="font-weight: bold;">FUERZA DE CIERRE INICIAL</td>
               </tr>
               <tr class="none">
-                  <td colspan="3" style="font-weight: bold;">FUERZA DE CIERRE INICIAL</td>
-              </tr>
-              <tr class="none">
-                  <td style="width: 70%;">Inicio de fuerza de cierre para estampado ….......................</td>
+                  <td class="none" style="width: 70%;">Inicio de fuerza de cierre para estampado ….......................</td>
                   <td style="width: 20%; background-color: #d8d8d8;">
                       <input 
                           type="text" 
@@ -1562,14 +1584,14 @@
       </table>
       <table style="border-collapse: collapse; width: 100%; text-align: left;">
         <thead>
-            <tr style="background-color: #c0c0c0;">
-                <th colspan="3">VENTILACIÓN DURANTE LA INYECCIÓN</th>
+            <tr style="background-color: #d8d8d8;">
+                <th colspan="7">VENTILACIÓN DURANTE LA INYECCIÓN</th>
             </tr>
         </thead>
         <tbody>
             <tr class="none">
-                <td colspan="2" style="width: 80%;">Inicio de la inyección retardado …...............................................................</td>
-                <td style="width: 20%; background-color: #d8d8d8;">
+                <td colspan="4" >Inicio de la inyección retardado .......................................</td>
+                <td style="width: 10%; background-color: #d8d8d8;">
                     <input 
                         type="text" 
                         class="no-border-input" 
@@ -1581,11 +1603,11 @@
                 </td>
             </tr>
             <tr class="none">
-                <td colspan="3" style="font-weight: bold;">Ventilación sencilla</td>
+                <td colspan="4" style="font-weight: bold;">Ventilación sencilla</td>
             </tr>
             <tr class="none">
-                <td style="width: 50%;">Inicio en posición de husillo …..................</td>
-                <td style="width: 25%; background-color: #d8d8d8;">
+                <td style="width: 21%;">Inicio en posición de husillo</td>
+                <td  style=" background-color: #d8d8d8;width: 10%;">
                     <input 
                         type="number" 
                         class="no-border-input" 
@@ -1594,10 +1616,22 @@
                         style="width: 100%; border: none"
                     />
                 </td>
-                <td style="width: 25%;">mm</td>
+                <td style="width: 8%;" >mm</td>
+                <td style="width: 15%;">Velocidad de cierre ….......</td>
+                <td  style="background-color: #d8d8d8; width: 10%;">
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="velocidad_cierre" 
+                        [(ngModel)]="KM056.velocidadCierre" 
+                        style="width: 100%; border: none"
+                    />
+                </td>
+                <td style="width:8%;">mm/s</td>
+
             </tr>
             <tr class="none">
-                <td>Velocidad de apertura …..................</td>
+                <td>Velocidad de apertura …...</td>
                 <td style="background-color: #d8d8d8;">
                     <input 
                         type="number" 
@@ -1608,9 +1642,19 @@
                     />
                 </td>
                 <td>mm/s</td>
+                <td>Final purgar el aire …........</td>
+                <td style="background-color: #d8d8d8;">
+                    <input 
+                        type="text" 
+                        class="no-border-input" 
+                        name="final_purgar_aire" 
+                        [(ngModel)]="KM056.finalPurgarAire" 
+                        style="width: 100%; border: none"
+                    />
+                </td>
             </tr>
             <tr class="none">
-                <td>Carrera de apertura …..................</td>
+                <td>Carrera de apertura …..........</td>
                 <td style="background-color: #d8d8d8;">
                     <input 
                         type="number" 
@@ -1621,47 +1665,7 @@
                     />
                 </td>
                 <td>mm</td>
-            </tr>
-            <tr class="none">
-                <td>Tiempo de ventilación …..................</td>
-                <td style="background-color: #d8d8d8;">
-                    <input 
-                        type="number" 
-                        class="no-border-input" 
-                        name="tiempo_ventilacion" 
-                        [(ngModel)]="KM056.tiempoVentilacion" 
-                        style="width: 100%; border: none"
-                    />
-                </td>
-                <td></td>
-            </tr>
-            <tr class="none">
-                <td>Velocidad de cierre …..................</td>
-                <td style="background-color: #d8d8d8;">
-                    <input 
-                        type="number" 
-                        class="no-border-input" 
-                        name="velocidad_cierre" 
-                        [(ngModel)]="KM056.velocidadCierre" 
-                        style="width: 100%; border: none"
-                    />
-                </td>
-                <td>mm/s</td>
-            </tr>
-            <tr class="none">
-                <td>Final purgar el aire …..................</td>
-                <td style="background-color: #d8d8d8;">
-                    <input 
-                        type="text" 
-                        class="no-border-input" 
-                        name="final_purgar_aire" 
-                        [(ngModel)]="KM056.finalPurgarAire" 
-                        style="width: 100%; border: none"
-                    />
-                </td>
-                <td></td>
-            </tr>
-            <tr class="none">
+
                 <td>Fuerza de desplazamiento/Fuerza de cierre …..................</td>
                 <td style="background-color: #d8d8d8;">
                     <input 
@@ -1674,6 +1678,20 @@
                 </td>
                 <td>kN</td>
             </tr>
+            <tr class="none">
+                <td>Tiempo de ventilación …........</td>
+                <td style="background-color: #d8d8d8;">
+                    <input 
+                        type="number" 
+                        class="no-border-input" 
+                        name="tiempo_ventilacion" 
+                        [(ngModel)]="KM056.tiempoVentilacion" 
+                        style="width: 100%; border: none"
+                    />
+                </td>
+                <td class="none"></td>
+            </tr>
+           
         </tbody>
     </table>
     
@@ -1683,14 +1701,14 @@
         
         <table style="border-collapse: collapse; width: 100%; text-align: center;">
           <thead>
-              <tr style="background-color: #c0c0c0;">
-                  <th colspan="6">NOYOS</th>
+              <tr style="background-color: #d8d8d8;">
+                  <th colspan="22">NOYOS</th>
               </tr>
           </thead>
           <tbody>
               <tr class="fv">
-                  <td colspan="3" class="fv">Introducir paso de Noyo</td>
-                  <td colspan="3" class="fv">Retirar paso de Noyo</td>
+                  <td colspan="11" class="fv none">Introducir paso de Noyo</td>
+                  <td colspan="11" class="fv none">Retirar paso de Noyo</td>
               </tr>
               <tr>
                   <td>Noyos</td>
@@ -1704,7 +1722,8 @@
                           placeholder="NA"
                       />
                   </td>
-                  <td>
+                  <td rowspan="4" class="none"></td>
+                  <td colspan="4">
                       <input 
                           type="text" 
                           class="no-border-input" 
@@ -1714,7 +1733,8 @@
                           style="width: 100%; border: none;"
                       />
                   </td>
-                  <td>
+                  <td rowspan="4" class="none"></td>
+                  <td colspan="2">
                       <input 
                           type="text" 
                           class="no-border-input" 
@@ -1724,7 +1744,8 @@
                           style="width: 100%; border: none;"
                       />
                   </td>
-                  <td>
+                  <td rowspan="4" colspan="3" class="none"></td>
+                  <td colspan="3">
                       <input 
                           type="text" 
                           class="no-border-input" 
@@ -1734,7 +1755,8 @@
                           style="width: 100%; border: none;"
                       />
                   </td>
-                  <td>
+                  <td  rowspan="4" class="none"></td>
+                  <td colspan="3">
                       <input 
                           type="text" 
                           class="no-border-input" 
@@ -1744,20 +1766,12 @@
                           style="width: 100%; border: none;"
                       />
                   </td>
+                  <td rowspan="4" class="none"></td>
               </tr>
               <tr>
-                  <td></td>
-                  <td>
-                      <input 
-                          type="text" 
-                          class="no-border-input" 
-                          name="noyos6" 
-                          [(ngModel)]="KM056.noyos6" 
-                          placeholder="NA"
-                          style="width: 100%; border: none;"
-                      />
-                  </td>
-                  <td>
+                  <td colspan="2" class="none"></td>
+                 
+                  <td colspan="4">
                       <input 
                           type="text" 
                           class="no-border-input" 
@@ -1767,7 +1781,7 @@
                           style="width: 100%; border: none;"
                       />
                   </td>
-                  <td>
+                  <td colspan="2">
                       <input 
                           type="text" 
                           class="no-border-input" 
@@ -1777,7 +1791,7 @@
                           style="width: 100%; border: none;"
                       />
                   </td>
-                  <td>
+                  <td colspan="3">
                       <input 
                           type="text" 
                           class="no-border-input" 
@@ -1787,7 +1801,7 @@
                           style="width: 100%; border: none;"
                       />
                   </td>
-                  <td>
+                  <td colspan="3">
                       <input 
                           type="text" 
                           class="no-border-input" 
@@ -1810,8 +1824,8 @@
                           style="width: 100%; border: none;"
                       />
                   </td>
-                  <td></td>
-                  <td>
+                  <td colspan="4" class="none"></td>
+                  <td colspan="2">
                       <input 
                           type="text" 
                           class="no-border-input" 
@@ -1821,8 +1835,8 @@
                           style="width: 100%; border: none;"
                       />
                   </td>
-                  <td></td>
-                  <td>
+                  <td colspan="3" class="none"></td>
+                  <td colspan="3">
                       <input 
                           type="text" 
                           class="no-border-input" 
@@ -1845,7 +1859,7 @@
                           style="width: 100%; border: none;"
                       />
                   </td>
-                  <td>
+                  <td colspan="4">
                       <input 
                           type="text" 
                           class="no-border-input" 
@@ -1855,7 +1869,7 @@
                           style="width: 100%; border: none;"
                       />
                   </td>
-                  <td>
+                  <td colspan="2">
                       <input 
                           type="text" 
                           class="no-border-input" 
@@ -1865,7 +1879,8 @@
                           style="width: 100%; border: none;"
                       />
                   </td>
-                  <td>
+                
+                  <td colspan="3">
                       <input 
                           type="text" 
                           class="no-border-input" 
@@ -1875,7 +1890,7 @@
                           style="width: 100%; border: none;"
                       />
                   </td>
-                  <td>
+                  <td colspan="3">
                       <input 
                           type="text" 
                           class="no-border-input" 
@@ -1898,7 +1913,8 @@
                           style="width: 100%; border: none;"
                       />
                   </td>
-                  <td>Q</td>
+                  <td class="none"></td>
+                  <td class="none">Q</td>
                   <td>
                       <input 
                           type="text" 
@@ -1909,7 +1925,8 @@
                           style="width: 100%; border: none;"
                       />
                   </td>
-                  <td>P</td>
+                  
+                  <td class="none">P</td>
                   <td>
                       <input 
                           type="text" 
@@ -1920,14 +1937,109 @@
                           style="width: 100%; border: none;"
                       />
                   </td>
+                  <td colspan="5" class="none"></td>
+                  <td class="none">Q</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="expulsor_p" 
+                          [(ngModel)]="KM056.retirar_expulsorP" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+                 
+                  <td class="none">P</td>
+                  <td>
+                      <input 
+                          type="text" 
+                          class="no-border-input" 
+                          name="expulsor_tn" 
+                          [(ngModel)]="KM056.retirar_expulsorTn" 
+                          placeholder="NA"
+                          style="width: 100%; border: none;"
+                      />
+                  </td>
+              </tr>
+              <tr>
+                <td colspan="3"  class="fv none"></td>
+            <td class="none">tV</td>
+            <td>
+                <input
+                    type="text"
+                    class="no-border-input"
+                    name="na1"
+                    [(ngModel)]="KM056.na1"
+                    style="width: 100%; border: none;"
+                    placeholder="NA"
+                />
+            </td>
+            <td class="none">Ts</td>
+            <td>
+                <input
+                    type="text"
+                    class="no-border-input"
+                    name="na2"
+                    [(ngModel)]="KM056.na2"
+                    style="width: 100%; border: none;"
+                    placeholder="NA"
+                />
+            </td>
+            <td class="none">tN</td>
+            <td>
+                <input
+                    type="text"
+                    class="no-border-input"
+                    name="na3"
+                    [(ngModel)]="KM056.na3"
+                    style="width: 100%; border: none;"
+                    placeholder="NA"
+                />
+            </td>
+        
+            <td colspan="3" style="width: 50px;" class="fv none"></td>
+            <td class="none">tV</td>
+            <td>
+                <input
+                    type="text"
+                    class="no-border-input"
+                    name="na4"
+                    [(ngModel)]="KM056.na4"
+                    style="width: 100%; border: none;"
+                    placeholder="NA"
+                />
+            </td>
+            <td class="none">Ts</td>
+            <td>
+                <input
+                    type="text"
+                    class="no-border-input"
+                    name="na5"
+                    [(ngModel)]="KM056.na5"
+                    style="width: 100%; border: none;"
+                    placeholder="NA"
+                />
+            </td>
+            <td class="none">tN</td>
+            <td>
+                <input
+                    type="text"
+                    class="no-border-input"
+                    name="na6"
+                    [(ngModel)]="KM056.na6"
+                    style="width: 100%; border: none;"
+                    placeholder="NA"
+                />
+            </td>
               </tr>
           </tbody>
       </table>
       
 
-      <table style="border-collapse: collapse; width: 100%; text-align: left;">
+      <table style="border-collapse: collapse; width: 30%; text-align: left;">
         <thead>
-            <tr style="background-color: #c0c0c0;">
+            <tr style="background-color: #d8d8d8;">
                 <th colspan="2" style="text-align: center;">EXPULSOR NOYOS</th>
             </tr>
         </thead>
@@ -2030,7 +2142,7 @@
                         class="no-border-input" 
                         name="temperatura" 
                         [(ngModel)]="KM056.temperatura" 
-                        style="width: 100%; border: none;" 
+                        style="width: 80%; border: none;" 
                         placeholder="25"
                     />
                     °C
@@ -2327,7 +2439,7 @@
               </td>
               </tr> -->
             <tr>
-            <td style="height:200px" class="none"></td>
+            <td style="height:260px" class="none"></td>
             </tr>
             <tr>
              
@@ -2337,18 +2449,16 @@
       
 
       <app-footer3></app-footer3>
-      ..
-
+      .
     </div>
     
-    <!-- <div *ngIf="currentContainer == 1 || currentContainer == -1" #container1 class="container">
-        <app-checklist-krauss-maffei
-        [mc6]="KM056"
-        >
-          
-        </app-checklist-krauss-maffei>
-    </div> -->
-  
+  <div *ngIf="currentContainer == 1 || currentContainer == -1" #container1 class="container">
+   
+    </div> 
+    <app-chechklist-kmtec-056-v2
+    [KM056]="KM056">
+        
+    </app-chechklist-kmtec-056-v2>
   </div>
   
  
