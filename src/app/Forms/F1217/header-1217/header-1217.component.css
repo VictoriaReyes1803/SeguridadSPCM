@@ -59,7 +59,9 @@ table {
 table, th, td {
   border: 1px solid #000;
 }
-
+.none{
+  border: none;
+}
 th, td {
   text-align: center;
   padding: 2px;
