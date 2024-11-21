@@ -201,4 +201,43 @@ export interface km056 {
     na5: string;
     na6: string;
 
+    // checklist
+
+    tolerancia_zona101: string;
+    tolerancia_zona102: string;
+    tolerancia_zona103: string;
+    set_limite_presion_max:number;
+    tolerancia_limite_presion_max: string;
+    set_corte: number;
+    tolerancia_corte: string;
+    tolerancia_tiempo_seg2: string;
+    tolerancia_presion_bar2: string;
+    tolerancia_tiempo_calentamiento: string;
+    tolerancia_n_value: string;
+    tolerancia_p_value: string;
+    tolerancia_s_value2: string;
+    tolerancia_s_value3: string;
+    Z1_Tolerancia: string;
+    Z2_Tolerancia: string;
+    Z3_Tolerancia: string;
+    Z4_Tolerancia: string;
+    Z17_Tolerancia: string;
+    tolerancia_Z18_Set: string;
+    tolerancia_Z19_Set: string;
+    tolerancia_Z20_Set: string;
+    tolerancia_valvulas: string;
+    circulacion_agua: string;
+    tolerancia_circulacion_agua: string;
+    tablas_calidad: string;
+    tolerancia_tiempoCiclo0: string;
+    tolerancia_cojin_mm: string;
+    tolerancia_tiempo_inyeccion: string;
+    tolerancia_tiempo_carga: string;
+    tolerancia_presion_conmutacion: string;
+    tolerancia_indice_viscosidad: string;
+
+    toleranciaa_Inicio_de_fuerza_de_cierre1: string;
+    tolerancia_fuerzaCierre1: string;
+    fuga_nariz: string;
+    segrega_disparos: string;
 }

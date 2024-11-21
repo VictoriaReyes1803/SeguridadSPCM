@@ -46,7 +46,7 @@ import { Router } from '@angular/router';
 export class KMTEC2022MX056V2Component {
   loading = false;
   isOnline: boolean = navigator.onLine;
-  currentContainer = 1; 
+  currentContainer = 0; 
   isKM056!: km056;
   ver = false;
   title = 'angular-pdf-export';
@@ -73,7 +73,7 @@ export class KMTEC2022MX056V2Component {
 
   checklist = false;
   @ViewChild('container0') container0!: ElementRef;
-    @ViewChild('container1') container1!: ElementRef;
+  @ViewChild('container1') container1!: ElementRef;
 
   pdfSrc: string | null = null;
   isModalOpen = false;
@@ -168,8 +168,7 @@ export class KMTEC2022MX056V2Component {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.containers = [this.container0,  this.container1
-      ];
+      this.containers = [this.container0,  this.container1];
       
     });
   }
@@ -273,7 +272,7 @@ export class KMTEC2022MX056V2Component {
     console.log('Datos completos:', JSON.stringify(datosCompletos));
 
     const pdf = new jsPDF('p', 'pt', 'letter');
-    const marginTop = 8;
+    const marginTop = 11;
     const marginSide = 15;
     const scale = .8;
   

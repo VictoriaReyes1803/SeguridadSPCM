@@ -32,21 +32,21 @@
               <input type="text" name="producto" 
               class="no-border-input" 
               style="width: 100%; border: none"
-              value="producto"
+              value="{{producto}}"
               />
             </th>
             <th colspan="4" name="resina">
               <input type="text" name="resina" 
               class="no-border-input" 
               style="width: 100%; border: none"
-              value="resina" />
+              value="{{resina}}" />
             </th>
             <th colspan="3" name="cliente">
               <input type="text" 
               name="cliente" 
               class="no-border-input" 
               style="width: 100%; border: none" 
-              value="cliente"
+              value="{{cliente}}"
               />
             </th>
             <th colspan="2" name="maquina">
@@ -72,7 +72,7 @@
             
             <td class="fv" colspan="2">Temp.Barril</td>
             <td colspan="1">SET</td>
-            <td colspan="1">Tolerancia</td>
+            <td style="width: 10%;" colspan="1">Tolerancia</td>
         
             <td class="fondo">1er T.</td>
             <td class="fondo">2do T.</td>
@@ -200,7 +200,7 @@
         <tr >
           <td class="fv" colspan="2">Limite de Presion Max</td>
           <td>
-            <input type="text" 
+            <input type="number" 
             name="SET LIMITE DE PRESION MAX" 
             class="no-border-input none" 
             [(ngModel)]="KM056.set_limite_presion_max"
@@ -231,7 +231,7 @@
         <tr>
           <td class="fv" colspan="2">Corte</td>
           <td colspan="1">
-            <input type="text" 
+            <input type="number" 
             name="SET Corte" 
             class="no-border-input none" 
             [(ngModel)]="KM056.set_corte"
@@ -268,7 +268,7 @@
         <tr>
           <td class="fv" colspan="2">Tiempo total de sostenimiento</td>
           <td>
-            <input type="text" 
+            <input type="number" 
             name="SET Tiempo total de sostenimiento" 
             class="no-border-input none" 
           [(ngModel)]="KM056.tiempo_seg2"
@@ -299,7 +299,7 @@
         <tr>
           <td class="fv" colspan="2">Presion maxima de sostenimiento</td>
           <td>
-            <input type="text" 
+            <input type="number" 
             name="SET Presion maxima de sostenimiento" 
             class="no-border-input none" 
              [(ngModel)]="KM056.presion_bar2"
@@ -331,7 +331,7 @@
         <tr>
           <td class="fv" colspan="2">Tiempo de Calentamiento</td>
           <td >
-            <input type="text" 
+            <input type="number" 
             name="SET Tiempo de enfriamiento" 
             class="no-border-input none" 
             [(ngModel)]="KM056.tiempo_calentamiento"
@@ -367,7 +367,7 @@
         <tr>
           <td colspan="2"> Revoluciones del tornillo</td>
           <td >
-            <input type="text"
+            <input type="number"
              name="SET Revoluciones del tornillo" 
              class="no-border-input none"
             [(ngModel)]="KM056.n_value"
@@ -398,7 +398,7 @@
         <tr>
           <td class="fv" colspan="2">Contrapresion</td>
           <td >
-            <input type="text" 
+            <input type="number" 
             name="SET Contrapresion" 
             class="no-border-input none" 
             [(ngModel)]="KM056.p_value"
@@ -460,7 +460,7 @@
         <tr>
           <td class="fv" colspan="2">Succion/Descompresion</td>
           <td >
-            <input type="text" 
+            <input type="number" 
             name="SET Succion/Descompresion" 
             class="no-border-input none" 
             [(ngModel)]="KM056.s_value3"
@@ -506,7 +506,7 @@
             />
           </td>
           <td>
-            <input type="number" 
+            <input type="text" 
             name="Zona 1 Tolerancia" 
             class="no-border-input none" 
             [(ngModel)]="KM056.Z1_Tolerancia"
@@ -533,7 +533,7 @@
             Zona 2
           </td>
           <td>
-            <input type="text"
+            <input type="number"
              name="Zona 2 SET" 
              class="no-border-input none"
             [(ngModel)]="KM056.Z2_Set"
@@ -566,7 +566,7 @@
             Zona 3
           </td>
           <td>
-            <input type="text" 
+            <input type="number" 
             name="Zona 3 SET"
              class="no-border-input none" 
              [(ngModel)]="KM056.Z3_Set"             
@@ -600,7 +600,7 @@
             Zona 4
           </td>
           <td>
-            <input type="text" 
+            <input type="number" 
             name="Zona 4 SET" 
             class="no-border-input none" 
             [(ngModel)]="KM056.Z4_Set"
@@ -667,7 +667,7 @@
               Zona 18
             </td>
             <td>
-              <input type="text" 
+              <input type="number" 
               name="Zona 18 SET" 
               class="no-border-input none"
                 [(ngModel)]="KM056.Z18_Set"
@@ -677,7 +677,7 @@
               <input type="text"
                name="Zona 18 Tolerancia"
                 class="no-border-input none"
-                [(ngModel)]="KM056.Z18_Set"
+                [(ngModel)]="KM056.tolerancia_Z18_Set"
                 />
             </td>
             <td name="Zona 18 Lunes 1er T."></td>
@@ -700,7 +700,7 @@
             Zona 19
           </td>
           <td>
-            <input type="text" 
+            <input type="number" 
             name="Zona 19 SET" 
             class="no-border-input none"
             [(ngModel)]="KM056.Z19_Set"
@@ -710,7 +710,7 @@
             <input type="text" 
             name="Zona 19 Tolerancia"
              class="no-border-input none" 
-             [(ngModel)]="KM056.Z19_Set"
+             [(ngModel)]="KM056.tolerancia_Z19_Set"
              />
           </td>
           <td name="Zona 19 Lunes 1er T."></td>
@@ -734,7 +734,7 @@
             Zona 20
           </td>
           <td>
-            <input type="text" 
+            <input type="number" 
             name="Zona 20 SET" 
             class="no-border-input none"
             [(ngModel)]="KM056.Z20_Set"
@@ -744,7 +744,7 @@
             <input type="text" 
             name="Zona 20 Tolerancia" 
             class="no-border-input none" 
-            [(ngModel)]="KM056.Z20_Set"
+            [(ngModel)]="KM056.tolerancia_Z20_Set"
             />
           </td>
           <td name="Zona 20 Lunes 1er T."></td>
@@ -773,7 +773,6 @@
             name="Tolerancia Valvulas abiertas de termo y manifolds" 
             class="no-border-input none" 
             [(ngModel)]="KM056.tolerancia_valvulas"
-            placeholder="SI/NO"
             />
           </td>
           <td name="Valvulas abiertas de termo y manifolds Lunes 1er T."></td>
@@ -797,15 +796,14 @@
             <input type="text"
              name="SET CIRCULACION DE AGUA PARTE FIJA" 
              class="no-border-input none"
+             placeholder="NA"
              [(ngModel)]="KM056.circulacion_agua"
-             
              />
           </td>
           <td>
             <input type="text" 
             name="Tolerancia CIRCULACION DE AGUA PARTE FIJA" 
             class="no-border-input none" 
-            placeholder="SI / NO"
             [(ngModel)]="KM056.tolerancia_circulacion_agua"
             />
           </td>
@@ -858,17 +856,17 @@
         <tr>
           <td class="fv" colspan="2">Tiempo de ciclo</td>
           <td>
-            <input type="text" 
+            <input type="number" 
             name="SET Tiempo de ciclo" 
             class="no-border-input none"
-           
+            [(ngModel)]="KM056.tiempoCiclo" 
             />
           </td>
           <td>
             <input type="text" 
             name="Tolerancia Tiempo de ciclo"
              class="no-border-input none" 
-             
+             [(ngModel)]="KM056.tolerancia_tiempoCiclo0" 
              />
           </td>
           <td name="Tiempo de ciclo Lunes 1er T."></td>
@@ -891,17 +889,17 @@
         <tr>
           <td class="fv" colspan="2">Cojin</td>
           <td>
-            <input type="text" 
+            <input type="number" 
             name="SET Cojin" 
             class="no-border-input none"
-         
+            [(ngModel)]="KM056.cojin_mm"
             />
           </td>
           <td>
             <input type="text" 
             name="Tolerancia Cojin"
              class="no-border-input none"
-          
+            [(ngModel)]="KM056.tolerancia_cojin_mm"
              />
           </td>
           <td name="Cojin Lunes 1er T."></td>
@@ -923,17 +921,17 @@
         <tr>
           <td class="fv" colspan="2">Tiempo de Inyeccion</td>
           <td>
-            <input type="text"
+            <input type="number"
              name="SET Tiempo de Inyeccion"
               class="no-border-input none"  
-          
+                [(ngModel)]="KM056.tiempo_inyeccion"
               />
           </td>
           <td>
             <input type="text"
              name="Tolerancia Tiempo de Inyeccion" 
              class="no-border-input none" 
-            
+            [(ngModel)]="KM056.tolerancia_tiempo_inyeccion"
              />
           </td>
           <td name="Tiempo de llenado Lunes 1er T."></td>
@@ -955,17 +953,17 @@
         <tr>
             <td class="fv" colspan="2">Tiempo de Carga</td>
             <td>
-              <input type="text"
+              <input type="number"
                name="SET Tiempo de Carga"
                 class="no-border-input none"  
-            
+                [(ngModel)]="KM056.tiempo_carga"
                 />
             </td>
             <td>
               <input type="text"
                name="Tolerancia Tiempo de Carga" 
                class="no-border-input none" 
-              
+              [(ngModel)]="KM056.tolerancia_tiempo_carga"
                />
             </td>
             <td name="Tiempo de llenado Lunes 1er T."></td>
@@ -988,17 +986,17 @@
           <tr>
             <td class="fv" colspan="2">CONMUTACION PRESION HIDRAULICA BAR</td>
             <td>
-              <input type="text"
+              <input type="number"
                name="SET CONMUTACION PRESION HIDRAULICA BAR"
                 class="no-border-input none"  
-            
+                [(ngModel)]="KM056.presion_conmutacion"
                 />
             </td>
             <td>
               <input type="text"
                name="Tolerancia CONMUTACION PRESION HIDRAULICA BAR" 
                class="no-border-input none" 
-              
+              [(ngModel)]="KM056.tolerancia_presion_conmutacion"
                />
             </td>
             <td name="Tiempo de llenado Lunes 1er T."></td>
@@ -1022,17 +1020,17 @@
           <tr>
             <td class="fv" colspan="2">INDICE DE DE VISCOSIDAD</td>
             <td>
-              <input type="text"
+              <input type="number"
                name="SET INDICE DE DE VISCOSIDAD"
                 class="no-border-input none"  
-            
+                [(ngModel)]="KM056.indice_viscosidad"
                 />
             </td>
             <td>
               <input type="text"
                name="Tolerancia INDICE DE DE VISCOSIDAD" 
                class="no-border-input none" 
-              
+              [(ngModel)]="KM056.tolerancia_indice_viscosidad"
                />
             </td>
             <td name="Tiempo de llenado Lunes 1er T."></td>
@@ -1053,9 +1051,9 @@
           </tr>
          
         <tr>
-          <td class="fv" colspan="4">
+          <th class="fv" colspan="4">
             CONDICIONES ESPECIALES
-          </td>
+          </th>
           <td colspan="14"></td>
         </tr>
         <tr>
@@ -1064,7 +1062,7 @@
               <input type="text" 
               name="SET Inicio Fuerza de cierre"
                class="no-border-input none"
-      
+                [(ngModel)]="KM056.Inicio_de_fuerza_de_cierre"
                />
             </td>
             <td>
@@ -1072,6 +1070,7 @@
               name="Tolerancia Inicio Fuerza de cierre"
                class="no-border-input none" 
                value="±  %"
+               [(ngModel)]="KM056.toleranciaa_Inicio_de_fuerza_de_cierre1"
                />
             </td>
             <td name="Fuerza de cierre Lunes 1er T."></td>
@@ -1095,7 +1094,7 @@
             <input type="text" 
             name="SET Fuerza de cierre"
              class="no-border-input none"
-    
+             [(ngModel)]="KM056.fuerzaCierre1"
              />
           </td>
           <td>
@@ -1103,6 +1102,7 @@
             name="Tolerancia Fuerza de cierre"
              class="no-border-input none" 
              value="±  %"
+              [(ngModel)]="KM056.tolerancia_fuerzaCierre1"
              />
           </td>
           <td name="Fuerza de cierre Lunes 1er T."></td>
@@ -1125,7 +1125,9 @@
           <td> 
             <input type="text" 
              placeholder="SI / NO"
-            name="Tolerancia Presenta fuga de nariz" class="no-border-input none"  />
+             [(ngModel)]="KM056.fuga_nariz"
+            name="Tolerancia Presenta fuga de nariz" 
+            class="no-border-input none"  />
           </td>
           <td name="Presenta fuga de nariz Lunes 1er T."></td>
           <td name="Presenta fuga de nariz Lunes 2do T."></td>
@@ -1144,7 +1146,7 @@
     
         </tr>
         <tr>
-          <td class="fv" colspan="3">
+          <td class="fv" style="width: 20%;" colspan="3">
             Segrega disparos de tabla de calidad y no hay 
           acumulacion de piezas en mesa de descarga del robot
           </td>
@@ -1153,6 +1155,7 @@
             name="Tolerancia Segrega disparos de tabla de calidad y no hay acumulacion de piezas en mesa de descarga del robot"
              class="no-border-input none" 
              placeholder="SI / NO"
+             [(ngModel)]="KM056.segrega_disparos"
              />
           </td>
           <td name="Segrega disparos de tabla de calidad y no hay acumulacion de piezas en mesa de descarga del robot Lunes 1er T."></td>
@@ -1172,18 +1175,24 @@
     
         </tr>
         <tr>
-          <td class="fv" class="none" colspan="3">NOMBRE DEL TECNICO:</td>
-          <td class="none" colspan="16">
+          <th class="fv" class="none" colspan="1">NOMBRE DEL TECNICO:</th>
+          <th class="none" colspan="16">
             <input type="text" 
             style="width: 100%;"
             class="no-border-input none"
             name="Nombre del tecnico" 
+            [(ngModel)]="KM056.tecnico"
               />
-          </td>
+          </th>
         </tr>
-      </table>
-        NOTA: EN CASO DE ENCONTRAR VALORES FUERA DE 
+        <tr>
+            <th colspan="18">
+                NOTA: EN CASO DE ENCONTRAR VALORES FUERA DE 
             TOLERANCIA REPORTAR A SUPERVISOR DE PRODUCCIÓN 
             Y CALIDAD PARA HACER CONTENCIÓN DEL MATERIAL PARA REVISIÓN. 
     
+            </th>
+        </tr>
+      </table>
+        
         </div>

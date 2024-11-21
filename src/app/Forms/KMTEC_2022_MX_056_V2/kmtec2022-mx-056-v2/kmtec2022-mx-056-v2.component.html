@@ -1567,8 +1567,8 @@
                   <td class="none" colspan="3" style="font-weight: bold;">FUERZA DE CIERRE INICIAL</td>
               </tr>
               <tr class="none">
-                  <td class="none" style="width: 70%;">Inicio de fuerza de cierre para estampado ….......................</td>
-                  <td style="width: 20%; background-color: #d8d8d8;">
+                  <td class="none" style="width: 80%;">Inicio de fuerza de cierre para estampado ….........</td>
+                  <td style="width: 10%; background-color: #d8d8d8;">
                       <input 
                           type="text" 
                           class="no-border-input" 
@@ -2454,8 +2454,12 @@
     
   <div *ngIf="currentContainer == 1 || currentContainer == -1" #container1 class="container">
    
-    </div> 
+    
     <app-chechklist-kmtec-056-v2
+    [cliente]="productoSeleccionado?.codigo_cliente ?? ''"
+    [producto]="productoSeleccionado?.producto ?? null"
+    [maquina] = "maquina"
+    [resina]="productoSeleccionado?.resina_1 ?? null"
     [KM056]="KM056">
         
     </app-chechklist-kmtec-056-v2>
