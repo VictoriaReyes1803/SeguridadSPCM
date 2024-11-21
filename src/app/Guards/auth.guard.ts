@@ -54,5 +54,6 @@ private logoutAndRedirect() {
   });
   this.secureCookieService.delete('access');
   this.secureCookieService.delete('refresh');
+  sessionStorage.clear();
   this.router.navigate(['/']);
   }}

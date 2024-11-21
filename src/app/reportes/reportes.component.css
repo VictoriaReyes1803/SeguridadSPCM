@@ -120,6 +120,14 @@
     
   }
   
+  ::ng-deep .p-calendar .p-inputtext {
+    font-size: small;
+    padding: 12px;
+    border-radius: 5px;
+    width: 20%;
+    border: 1px solid #ccc;
+  }
+  
   .search-container input {
     margin: 0 10px;
     padding: 10px;

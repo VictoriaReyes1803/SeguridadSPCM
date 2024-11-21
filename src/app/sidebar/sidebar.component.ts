@@ -8,7 +8,7 @@ import { AuthService } from '../services/Auth/auth.service';
 import { SecureCookieService } from '../services/cookies/cookies.service';
 import { UserService } from '../services/User/user.service';
 import { catchError, tap, throwError } from 'rxjs';
-import { RouterModule,Router, ActivatedRoute } from '@angular/router';
+import { RouterModule,Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import {urll} from '../../Enviroments/enviroment';
 
 @Component({
@@ -35,7 +35,17 @@ export class SidebarComponent {
     , private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute
-    ) { }
+    ) 
+    {
+      // Escucha los eventos del enrutador
+      // this.router.events.subscribe((event) => {
+      //   if (event instanceof NavigationEnd) {
+         
+      //     sessionStorage.clear();
+      //     console.log('sessionStorage limpiado');
+      //   }
+      // });
+    }
   ngOnInit() {
     this.userService.getme().subscribe((data: User) => {
       this.user = data;

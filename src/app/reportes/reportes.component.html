@@ -4,8 +4,14 @@
 
   <div class="search-container">
     <input type="text" placeholder="Buscar por usuario" [(ngModel)]="searchUser" (input)="filterReportes()">
-    <input type="text" placeholder="Buscar por fecha (YYYY-MM-DD)" [(ngModel)]="searchDate" (input)="filterReportes()">
 
+    <p-calendar [style]="{'font-size': 'small'}"
+    [(ngModel)]="searchDate" 
+    dateFormat="yy-mm-dd" 
+    placeholder="Buscar por fecha (YYYY-MM-DD)" 
+    (onSelect)="filterReportes()">
+  </p-calendar>
+  
     <input type="text" placeholder="Buscar por producto" [(ngModel)]="searchProduct" (input)="filterReportes()">
     <input type="text" placeholder="Buscar por máquina" [(ngModel)]="searchMachine" (input)="filterReportes()">
   </div>

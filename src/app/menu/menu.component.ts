@@ -58,6 +58,8 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    sessionStorage.clear();
+
     this.loadProducts();
     
     

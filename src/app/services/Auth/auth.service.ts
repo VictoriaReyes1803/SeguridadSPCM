@@ -43,6 +43,7 @@ export class AuthService {
         this.secureCookieService.delete('access');
         this.secureCookieService.delete('refresh');
         this.secureCookieService.delete('user');
+        sessionStorage.clear();
         console.log('Sesión cerrada y tokens eliminados');
         
   }

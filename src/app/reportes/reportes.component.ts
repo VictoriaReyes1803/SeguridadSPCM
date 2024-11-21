@@ -15,6 +15,7 @@ import { User } from '../Models/user';
 import { Mc6Service } from '../services/Forms/mc6.service';
 import { mc6 } from '../Models/Formatos.ts/mc6';
 import { Router } from '@angular/router';
+import { CalendarModule } from 'primeng/calendar';
 
 @Component({
   selector: 'app-reportes',
@@ -24,6 +25,7 @@ import { Router } from '@angular/router';
     SidebarComponent,
     ToolbarComponent,
     CommonModule,
+    CalendarModule,
     FormsModule,
     NgxExtendedPdfViewerModule
   ],
@@ -48,7 +50,7 @@ export class ReportesComponent {
 
   filteredReportes: Reporteresponse[] = [];
   searchUser: string = '';
-  searchDate: string = '';
+  searchDate: Date | undefined;
   searchFormat: string = '';
   searchProduct: string = '';
   searchMachine: string = '';
@@ -100,9 +102,11 @@ export class ReportesComponent {
     return pdf.substring(pdf.lastIndexOf('/') + 1);
   }
   filterReportes(): void {
+    const selectedDate = this.searchDate ? this.formatDate(this.searchDate) : null;
+
     this.filteredReportes = this.reportes.filter(reporte => {
       const matchesUser = reporte.user.nombre.toLowerCase().includes(this.searchUser.toLowerCase());
-      const matchesDate = reporte.ruta.includes(this.searchDate);
+      const matchesDate = selectedDate ? this.formatDate(new Date(reporte.fecha)) === selectedDate : true;
       const matchesProduct = reporte.producto.producto.toLowerCase().includes(this.searchProduct.toLowerCase());
       const matchesMachine = reporte.producto_maquina.Cod_maquina.toLowerCase().includes(this.searchMachine.toLowerCase());
       return matchesUser && matchesDate && matchesProduct && matchesMachine;
@@ -184,5 +188,10 @@ export class ReportesComponent {
       });
     }
     }
-
+    formatDate(date: Date): string {
+      const year = date.getFullYear();
+      const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Mes con dos dígitos
+      const day = date.getDate().toString().padStart(2, '0'); // Día con dos dígitos
+      return `${year}-${month}-${day}`;
+    }
   }

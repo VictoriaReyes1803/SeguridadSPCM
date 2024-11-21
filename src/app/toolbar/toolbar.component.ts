@@ -25,7 +25,7 @@ import { format } from 'crypto-js';
 })
 export class ToolbarComponent {
   user : User | null = null;
-  reportes:any;
+  reportes:any [] = [];
   selectedReporte: Reporte | null = null;
 
   selectedOption: string | null = null;
