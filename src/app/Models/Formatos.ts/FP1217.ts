@@ -65,8 +65,8 @@ export interface FP1217 {
     unidadCierreCerrar_v2: number;
     unidadCierreCerrar_mm3: number;
     unidadCierreCerrar_v3: number;
-    movimientoconbloqueo: number;
-    proteccionMolde: number;
+    movimientoconbloqueo: string;
+    proteccionMolde: string;
     fcierre: number;
     abrir1s: number;
     abrir1v: number;
@@ -130,7 +130,8 @@ export interface FP1217 {
     piezaInfo_proceso: number;
     piezaInfo_pesoColada: number;
     piezaInfo_tiempoSostenimientoMax: number;
-
+    temperaturasMolde_zona1: number;
+    temperaturasMolde_zona2: number;
    
 
 }

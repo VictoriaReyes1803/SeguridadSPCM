@@ -381,7 +381,7 @@
 
             </tr>
             <tr>
-              <th class="none">5</th>
+              <th class="none fv">5</th>
               <th><input
                 type="number"
               class="no-border-input"
@@ -400,24 +400,15 @@
               style="width: 80%;"
                 >
               </th>
-              <th class="none" colspan="5"></th>
+              <th class="none fv" colspan="5"></th>
               
             </tr>
             
             <tr >
-              <th colspan="4" rowspan="2" class="none"></th>
+              <th colspan="4" rowspan="2" class="none fv"></th>
             </tr>
             <tr>
-            <th  class="fv none" colspan="5" >v/p switchover release pos.
-             
-                <input
-                  type="number"
-                  
-                  [(ngModel)]="fp1217.v_p_switchover_release_pos"
-                  name="v_p_switchover_release_pos"
-                  placeholder="0"
-                  style="width: 30%; height: 100%;"
-                /> mm
+            <th  class="fv none" colspan="5" >
               
               </th>
 
@@ -494,7 +485,7 @@
           <tr>
             <td class="none"></td>
             <td class="none">mm/s</td>
-            <td class="none" colspan="10">#</td>
+            <td class="none" colspan="10"></td>
             <td class="none">mm/s</td>
           </tr>
           <tr>
@@ -1119,8 +1110,22 @@
             </tr>
             <tr>
               <th class="none fv">Zona</th>
-              <th>401</th>
-              <th>402</th>
+              <th>
+                <input
+                type="number" 
+                style="width: 100%;" 
+                class="no-border-input"
+                [(ngModel)]="fp1217.temperaturasMolde_zona1"
+                >
+              </th>
+              <th > 
+                <input
+                type="number" 
+                style="width: 100%;" 
+                class="no-border-input"
+                [(ngModel)]="fp1217.temperaturasMolde_zona2"
+                >
+              </th>
             
             </tr>
             <tr>
@@ -1157,7 +1162,7 @@
            
             </tr>
             <tr>
-              <th class="none">Desmol fija 2</th>
+              <th class="none">Desmol fija 1</th>
             
               <td><input type="number"
                  class="no-border-input"
@@ -1167,7 +1172,7 @@
             
             </tr>
             <tr>
-              <th class="none">Desmol 1 PM 1</th>
+              <th class="none">Desmol 1 PM 2</th>
               <td><input
               type="text" 
               class="no-border-input" 
@@ -1176,7 +1181,7 @@
               placeholder="NA" style="width: 90%;" /> s </td>
               </tr>
               <tr>
-                <td class="none" colspan="1"></td>
+                <th class="none" colspan="1">Desmol 2 PM 3</th>
                 <td>
                   <input
                   type="number"
@@ -1254,7 +1259,7 @@
               <td><input type="number" class="no-border-input" 
                 style="width: 100%;" [(ngModel)]="fp1217.calidadProceso_tiempoInyeccion_tolerancia" placeholder="0.05" /></td>
               
-              <td class="none">Valor máximo PM_I</td>
+              <td class="none">Valor máximo PM E</td>
               <td><input type="number" class="no-border-input" 
                 style="width: 100%;" [(ngModel)]="fp1217.calidadProceso_valorMaxPMI_nominal" placeholder="1550" /></td>
               <td><input type="number"  class="no-border-input" 
@@ -1357,12 +1362,10 @@
               class="none" colspan="8"></th>
               <th 
               class="none fv"
-              >Lote de pigmento:</th>
+              ></th>
               <td 
               class="none"
-              colspan=""><input type="text" 
-                class="no-border-input" 
-                style="width: 100%;"[(ngModel)]="fp1217.piezaInfo_lotePigmento" placeholder="7007435-12" /></td>
+              colspan=""></td>
             </tr>
             <tr>
               <td style="border-top:none ;" colspan="15"></td>

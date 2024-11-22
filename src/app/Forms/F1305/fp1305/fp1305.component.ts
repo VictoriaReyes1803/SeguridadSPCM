@@ -15,7 +15,7 @@ import { Producto, Productos , Producto_Maquina} from '../../../Models/Productos
 import { Maquina } from '../../../Models/Maquina';
 import { SecureCookieService } from '../../../services/cookies/cookies.service';
 import { User } from '../../../Models/user';
-import { Header1217Component } from '../header-1217/header-1217.component';
+import { Header1217Component } from '../../F1217/header-1217/header-1217.component';
 import {F1217Service} from '../../../services/Forms/f1217.service';
 import { FP1217 } from '../../../Models/Formatos.ts/FP1217';
 
@@ -28,8 +28,10 @@ import { content } from 'html2canvas/dist/types/css/property-descriptors/content
 import { DigitalOceanService } from '../../../services/digital/digital-ocean.service';
 import { Router } from '@angular/router';
 
+
+
 @Component({
-  selector: 'app-fp1217',
+  selector: 'app-fp1305',
   standalone: true,
   imports: [
     FormsModule,
@@ -41,10 +43,10 @@ import { Router } from '@angular/router';
     SpinerComponent,
     Header1217Component
   ],
-  templateUrl: './fp1217.component.html',
-  styleUrl: './fp1217.component.css'
+  templateUrl: './fp1305.component.html',
+  styleUrl: './fp1305.component.css'
 })
-export class FP1217Component {
+export class FP1305Component {
   loading = false;
   isOnline: boolean = navigator.onLine;
   currentContainer = 0; 

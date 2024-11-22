@@ -78,8 +78,8 @@ export class F1217Service {
     unidadCierreCerrar_v2:0,
     unidadCierreCerrar_mm3:0,
     unidadCierreCerrar_v3:0,
-    movimientoconbloqueo:0,
-    proteccionMolde:0,
+    movimientoconbloqueo:'',
+    proteccionMolde:'',
     fcierre:0,
     abrir1s:0,
     abrir1v:0,
@@ -143,6 +143,8 @@ export class F1217Service {
     piezaInfo_proceso: 0,
     piezaInfo_pesoColada: 0,
     piezaInfo_tiempoSostenimientoMax: 0,
+    temperaturasMolde_zona1: 0,
+    temperaturasMolde_zona2: 0,
   };
 
   

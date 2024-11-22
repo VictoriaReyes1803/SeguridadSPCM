@@ -16,6 +16,7 @@ import { DoeMc6Component } from './Forms/Doe/doe-mc6/doe-mc6.component';
 import { FP1217Component } from './Forms/F1217/fp1217/fp1217.component';
 import { registerGuard } from './Guards/register.guard';
 import { KMTEC2022MX056V2Component } from './Forms/KMTEC_2022_MX_056_V2/kmtec2022-mx-056-v2/kmtec2022-mx-056-v2.component';
+import { FP1305Component } from './Forms/F1305/fp1305/fp1305.component';
 
 export const routes: Routes = [
    
@@ -51,6 +52,11 @@ export const routes: Routes = [
     {
         path: 'FP1217',
         component: FP1217Component,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'FP1305',
+        component: FP1305Component,
         canActivate: [AuthGuard]
     },
     {
