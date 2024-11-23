@@ -8,14 +8,14 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ToolbarComponent } from "../../../toolbar/toolbar.component";
 import { SidebarComponent } from "../../../sidebar/sidebar.component";
 import { CommonModule } from '@angular/common';
-import { ChecklistKraussMaffeiComponent } from '../checklist-krauss-maffei/checklist-krauss-maffei.component';
-import { KraussMaffeiMc62Component } from "../krauss-maffei-mc6-2/krauss-maffei-mc6-2.component";
+
+
 import { ActivatedRoute } from '@angular/router'; 
 import { Producto, Productos , Producto_Maquina} from '../../../Models/Productos';
 import { Maquina } from '../../../Models/Maquina';
 import { SecureCookieService } from '../../../services/cookies/cookies.service';
 import { User } from '../../../Models/user';
-import { HeaderMc6Component } from "../header-mc6/header-mc6.component";
+
 import { mc6 } from '../../../Models/Formatos.ts/mc6';
 import { Mc6Service } from '../../../services/Forms/mc6.service';
 import { Footer3Component } from '../../Componentes/footer3/footer3.component';
@@ -33,12 +33,10 @@ import { Router } from '@angular/router';
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    ChecklistKraussMaffeiComponent,
     ToolbarComponent,
     SidebarComponent,
+    
     CommonModule,
-    KraussMaffeiMc62Component,
-    HeaderMc6Component,
     Footer3Component,
     SpinerComponent
 ],
@@ -83,8 +81,7 @@ export class KraussMaffeiMC6Component {
 
   checklist = false;
   @ViewChild('container0') container0!: ElementRef;
-  @ViewChild('container1') container1!: ElementRef;
-  @ViewChild('container2') container2!: ElementRef;
+
   pdfSrc: string | null = null;
   isModalOpen = false;
   imagePreviewUrl: SafeResourceUrl | null = null;
@@ -177,7 +174,7 @@ export class KraussMaffeiMC6Component {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.containers = [this.container0, this.container1, this.container2];
+      this.containers = [this.container0];
       
     });
   }
@@ -321,17 +318,14 @@ export class KraussMaffeiMC6Component {
   
     setTimeout(() => {
       const content0: HTMLElement = this.container0.nativeElement;
-      const content1: HTMLElement = this.container1.nativeElement;
-      const content2: HTMLElement = this.container2.nativeElement;
+
   
       Promise.all([
         captureElement(content0),
-        captureElement(content1),
-        captureElement(content2)
+
       ]).then((canvases) => {
         addImageToPDF(canvases[0], true);  
-        addImageToPDF(canvases[1], false);
-        addImageToPDF(canvases[2], false); 
+       
 
         const pdfBlob = pdf.output('blob');
         const now = new Date();

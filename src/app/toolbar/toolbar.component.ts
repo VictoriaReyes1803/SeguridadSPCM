@@ -51,12 +51,7 @@ export class ToolbarComponent {
       (data) => {
          
         console.log('reportes',this.reportes);
-        if (this.formato) {
-          
-          this.reportes = data.filter(reporte => reporte.formato === this.formato);
-        } else {
-          this.reportes = data.filter(reporte => reporte.formato === 'KraussMaffeiMC6');
-        }
+        this.reportes = data; 
         console.log('reportes', this.reportes);
         console.log("se logro");
 

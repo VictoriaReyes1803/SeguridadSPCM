@@ -284,18 +284,8 @@ export class MenuComponent implements OnInit {
     console.log('maquinaaa',maquina)
     this.mc6Service.setlist(reporteSeleccionado.content);
     this.formato = reporteSeleccionado.formato
-    if (!this.formato || this.formato === '') {
-      Swal.fire({
-        // maquina sin formato habilitado
-        title: 'Maquina sin formato habilitado',
-        text: 'La máquina seleccionada aun no tiene un formato habilitado aun.. por favor selecciona otra máquina',
-        icon: 'warning',
-        confirmButtonText: 'Aceptar'
-  
-       });
-      } else {
-      this.formato = '/'+this.formato;
-      this.router.navigate([this.formato], { 
+    
+      this.router.navigate(['KraussMaffeiMC6'], { 
         queryParams: { 
           producto: JSON.stringify(reporteSeleccionado.producto),
           report: false,
@@ -305,23 +295,12 @@ export class MenuComponent implements OnInit {
           fecha : reporteSeleccionado.fecha,
         }
       });
-    }
+    
    
   }
   navegarConMaquina(maquina: any, fechaSeleccionada: string, estado: boolean, Formato:string): void {
-    if (!Formato || Formato === '') {
-     Swal.fire({
-      // maquina sin formato habilitado
-      title: 'Maquina sin formato habilitado',
-      text: 'La máquina seleccionada aun no tiene un formato habilitado aun.., por favor selecciona otra máquina',
-      icon: 'warning',
-      confirmButtonText: 'Aceptar'
 
-     });
-    } else {
-      Formato = '/'+Formato;
-      console.log('Formato:', Formato);
-      this.router.navigate([Formato], { 
+      this.router.navigate(['KraussMaffeiMC6'], { 
         queryParams: { 
           producto: JSON.stringify(this.productoSeleccionado),
           maquina: JSON.stringify(maquina),
@@ -333,8 +312,9 @@ export class MenuComponent implements OnInit {
         }
       });
     }
-    }
+
+  }
 
     
-}
+
 
